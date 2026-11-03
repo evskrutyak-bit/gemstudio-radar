@@ -1,0 +1,1499 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Open Graph / Rich Social Preview -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Вся Правда о Солнце, Свете и Силе Воли | Эндрю Хьюберман — Бизнес-Деконструкция">
+  <meta property="og:description" content="Нейробиологический аудит энергии и упорства для C-level: двухконтурный кортизоловый выстрел, митохондриальный щит красного спектра (-25% глюкозы), протокол Netflix Inoculation и пластичность aMCC.">
+  <meta property="og:image" content="https://img.youtube.com/vi/1pqkhUVv_Bw/maxresdefault.jpg">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="720">
+  <meta property="og:site_name" content="Gemstudio: Бизнес-Деконструктор Контента">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Эндрю Хьюберман: Солнце, Свет, Митохондрии и Сила Воли (aMCC)">
+  <meta name="twitter:description" content="Бизнес-разбор интервью у Стивена Бартлетта: протокол суточной энергии, опровержение мифов биохакинга и тренировка упорства.">
+  <meta name="twitter:image" content="https://img.youtube.com/vi/1pqkhUVv_Bw/maxresdefault.jpg">
+
+  <title>Бизнес-Деконструкция: Эндрю Хьюберман — Правда о Свете, Митохондриях и Воле (aMCC)</title>
+
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'dark',
+      themeVariables: {
+        primaryColor: '#1e293b',
+        primaryTextColor: '#f8fafc',
+        primaryBorderColor: '#38bdf8',
+        lineColor: '#64748b',
+        secondaryColor: '#334155',
+        tertiaryColor: '#0f172a'
+      }
+    });
+  </script>
+
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: #111726;
+      --card-border: #1e293b;
+      --card-hover: #172033;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --accent-blue: #38bdf8;
+      --accent-purple: #818cf8;
+      --accent-green: #34d399;
+      --accent-red: #f87171;
+      --accent-gold: #fbbf24;
+      --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: var(--font-main);
+      line-height: 1.6;
+      padding: 0 0 80px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Top Sticky Nav */
+    .gemstudio-top-nav {
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(56, 189, 248, 0.25);
+      padding: 12px 16px;
+      position: relative;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .gemstudio-nav-container {
+      max-width: 1060px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .gemstudio-brand {
+      font-weight: 800;
+      color: #38bdf8;
+      text-decoration: none;
+      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .gemstudio-nav-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-catalog-btn {
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+      border: 1px solid transparent;
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .nav-catalog-btn:hover {
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.12);
+      border-color: rgba(56, 189, 248, 0.3);
+    }
+
+    .container {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 24px 16px;
+    }
+
+    /* Header & Badges */
+    header {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 24px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .badge-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-blue { background: rgba(56, 189, 248, 0.15); color: var(--accent-blue); border: 1px solid rgba(56, 189, 248, 0.3); }
+    .badge-purple { background: rgba(129, 140, 248, 0.15); color: var(--accent-purple); border: 1px solid rgba(129, 140, 248, 0.3); }
+    .badge-gold { background: rgba(251, 191, 36, 0.15); color: var(--accent-gold); border: 1px solid rgba(251, 191, 36, 0.3); }
+    .badge-green { background: rgba(52, 211, 153, 0.15); color: var(--accent-green); border: 1px solid rgba(52, 211, 153, 0.3); }
+
+    h1 {
+      font-size: 2rem;
+      line-height: 1.25;
+      color: #fff;
+      margin-bottom: 14px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .meta-subtitle {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .meta-subtitle a {
+      color: var(--accent-blue);
+      text-decoration: none;
+    }
+    .meta-subtitle a:hover {
+      text-decoration: underline;
+    }
+
+    .btn-download-md {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(129, 140, 248, 0.15);
+      color: #a5b4fc;
+      border: 1px solid rgba(129, 140, 248, 0.35);
+      padding: 4px 12px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .btn-download-md:hover {
+      background: #6366f1;
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
+      text-decoration: none;
+    }
+
+    /* Video Preview Hero */
+    .video-preview-hero {
+      margin-top: 20px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--card-border);
+      background: #000;
+      position: relative;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    }
+
+    .video-preview-card {
+      position: relative;
+      cursor: pointer;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .video-thumb {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .video-preview-card:hover .video-thumb {
+      transform: scale(1.02);
+      filter: brightness(0.9);
+    }
+
+    .video-play-btn {
+      position: absolute;
+      width: 68px;
+      height: 68px;
+      background: rgba(239, 68, 68, 0.9);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      box-shadow: 0 0 30px rgba(239, 68, 68, 0.6);
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .video-preview-card:hover .video-play-btn {
+      transform: scale(1.12);
+      background: #dc2626;
+    }
+
+    .video-duration-badge {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(4px);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-family: var(--font-mono);
+      color: #f1f5f9;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .video-embed-container {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+    }
+
+    .video-embed-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Quick Nav */
+    .nav-bar {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 8px 4px 16px;
+      margin-bottom: 24px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--card-border) transparent;
+    }
+
+    .nav-bar a {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+
+    .nav-bar a:hover {
+      background: var(--card-hover);
+      color: var(--accent-blue);
+      border-color: var(--accent-blue);
+    }
+
+    /* Section Cards */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      color: #fff;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--card-border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      color: var(--accent-blue);
+      margin: 20px 0 10px;
+    }
+
+    p, li {
+      color: var(--text-main);
+      margin-bottom: 12px;
+      font-size: 0.98rem;
+    }
+
+    ul, ol {
+      padding-left: 20px;
+      margin-bottom: 16px;
+    }
+
+    /* Verdict & Agenda Boxes */
+    .verdict-box {
+      border-left: 4px solid var(--accent-gold);
+      background: rgba(251, 191, 36, 0.08);
+      border-radius: 0 10px 10px 0;
+      padding: 16px 20px;
+      margin: 18px 0;
+    }
+
+    .agenda-card {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px dashed var(--card-border);
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin: 18px 0;
+    }
+
+    /* Tables */
+    .table-wrap {
+      overflow-x: auto;
+      margin: 16px 0;
+      border-radius: 10px;
+      border: 1px solid var(--card-border);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      text-align: left;
+    }
+
+    th {
+      background: #172033;
+      color: var(--accent-blue);
+      font-weight: 600;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--card-border);
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    tr:hover {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .tc-link {
+      color: var(--accent-blue);
+      text-decoration: none;
+      font-family: var(--font-mono);
+      font-weight: 600;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .tc-link:hover {
+      background: var(--accent-blue);
+      color: #000;
+      text-decoration: none;
+    }
+
+    .filter-controls {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: var(--text-muted);
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-btn:hover {
+      background: #334155;
+      color: #fff;
+    }
+    .filter-btn.active {
+      background: var(--accent-blue);
+      color: #000;
+      font-weight: 600;
+      border-color: var(--accent-blue);
+    }
+
+    /* Act Cards */
+    .act-block {
+      background: rgba(15, 23, 42, 0.4);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 22px;
+      margin-bottom: 20px;
+    }
+
+    .act-title {
+      font-size: 1.15rem;
+      color: #fff;
+      font-weight: 700;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .insight-card {
+      background: rgba(56, 189, 248, 0.04);
+      border-left: 3px solid var(--accent-blue);
+      padding: 12px 16px;
+      margin: 12px 0;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .tradeoff-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 14px;
+    }
+
+    .tradeoff-box {
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 0.92rem;
+    }
+
+    .tradeoff-pro {
+      background: rgba(52, 211, 153, 0.06);
+      border: 1px solid rgba(52, 211, 153, 0.2);
+    }
+
+    .tradeoff-con {
+      background: rgba(248, 113, 113, 0.06);
+      border: 1px solid rgba(248, 113, 113, 0.2);
+    }
+
+    /* Quotes */
+    .punchline {
+      background: rgba(15, 23, 42, 0.7);
+      border-left: 4px solid var(--accent-purple);
+      padding: 16px 20px;
+      border-radius: 0 10px 10px 0;
+      margin-bottom: 16px;
+      font-style: italic;
+      color: #e2e8f0;
+      font-size: 1.05rem;
+    }
+
+    .punchline strong {
+      font-style: normal;
+      color: var(--accent-purple);
+    }
+
+    /* Checklist */
+    .checklist-progress-bar {
+      background: #1e293b;
+      height: 8px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+
+    .checklist-progress-fill {
+      background: var(--accent-green);
+      height: 100%;
+      width: 0%;
+      transition: width 0.3s;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      margin-bottom: 8px;
+      background: rgba(255, 255, 255, 0.02);
+      transition: all 0.2s;
+    }
+
+    .check-item:hover {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: var(--card-border);
+    }
+
+    .check-item input[type="checkbox"] {
+      margin-top: 4px;
+      width: 18px;
+      height: 18px;
+      accent-color: var(--accent-green);
+      cursor: pointer;
+    }
+
+    .check-item.done label {
+      text-decoration: line-through;
+      color: var(--text-muted);
+    }
+
+    .check-item label {
+      cursor: pointer;
+      font-size: 0.95rem;
+      flex-grow: 1;
+    }
+
+    /* Entity Cards */
+    .entity-tag {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--card-border);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      margin: 4px;
+      color: #f1f5f9;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 640px) {
+      .container { padding: 12px 8px; }
+      header { padding: 18px 14px; }
+      h1 { font-size: 1.45rem; }
+      .card { padding: 16px 14px; }
+      .tradeoff-grid { grid-template-columns: 1fr; }
+      .meta-subtitle { flex-direction: column; align-items: flex-start; gap: 6px; }
+    }
+
+    /* Print Styles */
+    @media print {
+      body { background: #fff; color: #000; padding: 0; }
+      .card, header, .act-block { background: #fff; color: #000; border: 1px solid #ccc; box-shadow: none; }
+      .gemstudio-top-nav, .nav-bar, .filter-controls, .checklist-progress-bar, .video-preview-hero { display: none; }
+      h1, h2, h3, strong { color: #000; }
+      a { color: #000; text-decoration: underline; }
+    }
+  
+    /* Video Ambient Glow */
+    .video-ambient-wrapper {
+      position: relative;
+      margin: 20px 0 28px;
+      border-radius: 16px;
+    }
+    .ambient-glow {
+      position: absolute;
+      inset: -12px;
+      background-size: cover;
+      background-position: center;
+      filter: blur(28px);
+      opacity: 0.35;
+      border-radius: 24px;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Floating Nav Pill (Mobile & Desktop) */
+    .floating-nav-pill {
+      position: fixed;
+      bottom: 24px;
+      right: 20px;
+      background: rgba(15, 23, 42, 0.92);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: #38bdf8;
+      padding: 10px 18px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 14px rgba(56, 189, 248, 0.25);
+      z-index: 9999;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .floating-nav-pill:hover {
+      background: #0284c7;
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    /* Nav Drawer (Modal Sheet) */
+    .nav-drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(6px);
+      z-index: 10000;
+      display: none;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .nav-drawer-overlay.is-open {
+      display: flex;
+      align-items: flex-end;
+      opacity: 1;
+    }
+
+    .nav-drawer-sheet {
+      background: #0d1322;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 20px 20px 0 0;
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 24px 20px 36px;
+      box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.8);
+      transform: translateY(100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .nav-drawer-overlay.is-open .nav-drawer-sheet {
+      transform: translateY(0);
+    }
+
+    .drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 14px;
+      margin-bottom: 16px;
+    }
+
+    .drawer-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .drawer-close-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #94a3b8;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .drawer-close-btn:hover { color: #fff; background: rgba(255,255,255,0.12); }
+
+    .drawer-links-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .drawer-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 10px;
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 500;
+      transition: all 0.15s ease;
+    }
+
+    .drawer-link:hover {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: rgba(56, 189, 248, 0.3);
+      color: #38bdf8;
+    }
+
+    .drawer-link.catalog-link {
+      background: linear-gradient(135deg, rgba(2, 132, 199, 0.25) 0%, rgba(56, 189, 248, 0.15) 100%);
+      border-color: rgba(56, 189, 248, 0.35);
+      color: #fff;
+    }
+
+    /* Heatmap Collapse Wrapper */
+    .heatmap-collapse-wrapper {
+      position: relative;
+      transition: max-height 0.4s ease;
+    }
+
+    .heatmap-collapse-wrapper.is-collapsed {
+      max-height: 420px;
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+      mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+    }
+
+    .heatmap-toggle-btn-wrap {
+      margin-top: 14px;
+      text-align: center;
+    }
+
+    .heatmap-expand-btn {
+      background: linear-gradient(135deg, rgba(2, 132, 199, 0.2) 0%, rgba(56, 189, 248, 0.15) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #38bdf8;
+      padding: 10px 22px;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .heatmap-expand-btn:hover {
+      background: linear-gradient(135deg, rgba(2, 132, 199, 0.35) 0%, rgba(56, 189, 248, 0.25) 100%);
+      color: #fff;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(56, 189, 248, 0.25);
+    }
+
+</style>
+</head>
+<body>
+
+  <!-- Top Sticky Nav -->
+  <nav class="gemstudio-top-nav">
+    <div class="gemstudio-nav-container">
+      <a href="00_Хаб_Все_Разборы.html" class="gemstudio-brand">
+        <span>⚡</span> <strong>Gemstudio</strong> <span style="color: #64748b; font-weight: normal;">| Бизнес-Деконструктор</span>
+      </a>
+      <div class="gemstudio-nav-links">
+        <a href="00_Хаб_Все_Разборы.html" class="nav-catalog-btn">← Каталог всех разборов</a>
+      </div>
+    </div>
+  </nav>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <header>
+    <div class="badge-bar">
+      <span class="badge badge-blue">Бизнес-Деконструкция v3.0</span>
+      <span class="badge badge-purple">Stanford Neuroscience</span>
+      <span class="badge badge-gold">Рейтинг: 9.0 / 10</span>
+      <span class="badge badge-green">Циркадный Протокол</span>
+    </div>
+    <h1>Scientist WARNS: You're Being LIED To About Sunlight | Эндрю Хьюберман</h1>
+    <div class="meta-subtitle">
+      <span>🎙️ Спикер: <strong>Эндрю Хьюберман</strong> (Stanford Medicine)</span>
+      <span>📺 Канал: <strong>The Diary Of A CEO Clips</strong> (Steven Bartlett)</span>
+      <span>⏱️ Длительность: <strong>22:53</strong></span>
+      <span>📅 Дата: <strong>30 октября 2026</strong></span>
+      <span>🔗 <a href="https://youtu.be/1pqkhUVv_Bw" target="_blank">YouTube</a></span>
+      <span><a href="2026-10-30_Хьюберман_Вся_Правда_О_Солнце_Свете_И_Воле.md" download class="btn-download-md">📥 Скачать Markdown (.md)</a></span>
+    </div>
+
+    <!-- Видео-превью баннер -->
+    <div class="video-preview-hero">
+      <div class="video-preview-card" id="videoPreviewCard" onclick="playEmbeddedVideo()" title="Нажмите, чтобы запустить видео прямо в плеере">
+        <img src="https://img.youtube.com/vi/1pqkhUVv_Bw/maxresdefault.jpg" alt="Обложка выпуска: Эндрю Хьюберман о солнце и воле" class="video-thumb">
+        <div class="video-play-btn" title="Воспроизвести выпуск">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="36" height="36"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div class="video-duration-badge">⏱️ 22:53 • 10 смысловых глав • Кликните для запуска</div>
+      </div>
+      <div id="videoEmbedContainer" class="video-embed-container" style="display: none;"></div>
+    </div>
+  </header>
+
+  <!-- QUICK NAVIGATION -->
+  <div class="nav-bar">
+    <a href="#block1">1. Интро & Повестка</a>
+    <a href="#block2">2. Тепловая карта</a>
+    <a href="#block3">3. Детальный разбор (Мясо)</a>
+    <a href="#block4">4. Цифры & Развилки</a>
+    <a href="#block5">5. Ментальные модели & Схема</a>
+    <a href="#block6">6. Справочник сущностей</a>
+    <a href="#block7">7. Панчлайны</a>
+    <a href="#block8">8. Фактчек & Комментарии</a>
+    <a href="#block9">9. Чек-лист действий</a>
+  </div>
+
+  <!-- БЛОК 1 -->
+  <section id="block1" class="card">
+    <h2>🎯 Блок 1. Интро, вердикт и скрытая повестка спикера</h2>
+    
+    <h3>Кто, что и для кого</h3>
+    <p><strong>Кто:</strong> <strong>Эндрю Хьюберман (Dr. Andrew Huberman)</strong> — профессор нейробиологии и офтальмологии Медицинской школы Стэнфордского университета (Stanford University School of Medicine), автор главного научно-популярного подкаста планеты <em>«Huberman Lab»</em>. Архитектор моста между фундаментальной лабораторией и практическими бизнес-протоколами продуктивности.</p>
+    <p><strong>Что:</strong> 23-минутный концентрированный контр-манифест против псевдонаучного биохакинга. Хьюберман вскрывает механизм оптической синхронизации мозга (супрахиазматическое ядро гипоталамуса), двухконтурный утренний выброс кортизола, митохондриальное действие красного света (падение гликемического пика сахара на <strong>&gt;25%</strong>), протокол защиты от экранов («Netflix Inoculation»), разоблачает миф об опасности холодных ванн и раскрывает анатомию несгибаемой воли (передняя поясная кора, aMCC).</p>
+    <p><strong>Для кого:</strong> Собственники компаний, топ-менеджеры, инвесторы и инженеры (30+), проводящие дни за экранами и страдающие от дневных энергетических спадов, вечерней бессонницы и снижения концентрации.</p>
+
+    <div class="verdict-box">
+      <strong>⚖️ Вердикт Бизнес-Деконструктора: Смотреть обязательно каждому операционному лидеру (9.0 / 10)</strong>
+      <p style="margin-top: 8px; font-size: 0.95rem;">
+        <strong>Практическая окупаемость (10/10):</strong> Нулевой CAPEX. Протокол дает немедленный прирост 2–3 часов пикового когнитивного фокуса утром без покупки приборов за тысячи долларов.<br>
+        <strong>Научная строгость (8.5/10):</strong> Опора на исследования Glen Jeffery (UCL), Joe Parvizi (Stanford) и массив данных UK Biobank. Трезво отделяем доказанные протоколы света от легкого лабораторного энтузиазма спикера.
+      </p>
+    </div>
+
+    <div class="agenda-card">
+      <h3 style="color: var(--accent-gold); margin-top: 0;">🕵️‍♂️ Детектор скрытой повестки спикера</h3>
+      <ul>
+        <li><strong>Промотур новой книги «Protocols: An Operating Manual for the Human Body»:**</strong> Хьюберман неоднократно делает прямые отсылки к своей готовящейся книге («во второй главе я разбираю структуру тренинга», «в книге я подробно иллюстрирую кривую кортизола»). Интервью — прогрев предзаказов книги.</li>
+        <li><strong>Популизм «Я продаю бесплатную природу»:**</strong> Спикер эффектно дистанцируется от жадных производителей приборов («Не покупайте дорогие красные лампы, идите в парк!»). При этом подкаст Хьюбермана монетизируется через многомиллионные контракты со спонсорами пищевых добавок и гаджетов (AG1, Momentous, Eight Sleep, LMNT). Бесплатный свет — идеальный лид-магнит в воронку доверия.</li>
+        <li><strong>Продуктовизация естественной биологии (Jargon Moat):**</strong> Тривиальные действия (прогулка утром, темная спальня, спорт) упаковываются в наукоемкие нейротермины (ipRGC, SCN, рассеяние Рэлея, aMCC-пластичность), создавая статус незаменимого научного ментора.</li>
+        <li><strong>Репутационная броня:**</strong> Выступление в статусе безупречного стэнфордского ученого у Стивена Бартлетта укрепляет институциональный авторитет Хьюбермана после медийных расследований 2024 года.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- БЛОК 2 -->
+  <section id="block2" class="card">
+    <h2>🗺️ Блок 2. Тепловая карта выпуска</h2>
+
+    <div class="filter-controls">
+      <button class="filter-btn active" onclick="filterHeatmap('all')">Все главы (10)</button>
+      <button class="filter-btn" onclick="filterHeatmap('meat')">🟢 Мясо (10)</button>
+    </div>
+
+    <div class="table-wrap">
+      <table id="heatmapTable">
+        <thead>
+          <tr>
+            <th>Таймкод</th>
+            <th>Тема главы</th>
+            <th>Плотность</th>
+            <th>Суть блока</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-type="meat">
+            <td><a href="https://youtu.be/1pqkhUVv_Bw?t=0" target="_blank" class="tc-link">00:00</a></td>
+            <td>Утренний свет и ipRGC-клетки</td>
+            <td><span style="color: var(--accent-green); font-weight: 600;">🟢 Мясо</span></td>
+            <td>Меланопсиновые клетки сетчатки посылают аксоны прямо в супрахиазматическое ядро (SCN).</td>
+          </tr>
+          <tr data-type="meat">
+            <td><a href="https://youtu.be/1pqkhUVv_Bw?t=95" target="_blank" class="tc-link">01:35</a></td>
+            <td>Низкий угол солнца и Рэлей</td>
+            <td><span style="color: var(--accent-green); font-weight: 600;">🟢 Мясо</span></td>
+            <td>Рассеяние Рэлея поглощает жесткий УФ на восходе; утренний спектр безопасен и оптимален для глаз.</td>
+          </tr>
+          <tr data-type="meat">
+            <td><a href="https://youtu.be/1pqkhUVv_Bw?t=165" target="_blank" class="tc-link">02:45</a></td>
+            <td>Двухконтурный пик кортизола</td>
+            <td><span style="color: var(--accent-green); font-weight: 600;">🟢 Мясо</span></td>
+            <td>HPA-ось + спинальный нервный путь активируются в первые 30–60 минут; запуск ночного мелатонина.</td>
+          </tr>
+          <tr data-type="meat">
+            <td><a href="https://youtu.be/1pqkhUVv_Bw?t=270" target="_blank" class="tc-link">04:30</a></td>
+            <td>Пасмурная погода и оконное стекло</td>
+            <td><span style="color: var(--accent-green); font-weight: 600;">🟢 Мясо</span></td>
+            <td>Окно гасит свет в 10 раз; панель 10 000 люкс зимой; данные UK Biobank о снижении смертности.</td>
+          </tr>
+          <tr data-type="meat">
+            <td><a href="https://youtu.be/1pqkhUVv_Bw?t=375" target="_blank" class="tc-link">06:15</a></td>
+            <td>Свет на кожу и лаб Гленна Джеффри</td>
+            <td><span style="color: var(--accent-green); font-weight: 600;">🟢 Мясо</span></td>
+            <td>Красный свет (580–700 нм) проникает на 8 см, инфракрасный насквозь; падение пика глюкозы на >25%.</td>
+          </tr>
+          <tr data-type="meat">
+            <td><a href="https://youtu.be/1pqkhUVv_Bw?t=510" target="_blank" class="tc-link">08:30</a></td>
+            <td>Защита зрения 40+ и митохондрии</td>
+            <td><span style="color: var(--accent-green); font-weight: 600;">🟢 Мясо</span></td>
+            <td>Фоторецепторы как метаболический центр тела; омоложение сетчатки за 1–3 мин в первые 3 часа дня.</td>
+          </tr>
+          <tr data-type="meat">
+            <td><a href="https://youtu.be/1pqkhUVv_Bw?t=680" target="_blank" class="tc-link">11:20</a></td>
+            <td>«Я продаю природу» и зелень</td>
+            <td><span style="color: var(--accent-green); font-weight: 600;">🟢 Мясо</span></td>
+            <td>Листва деревьев отражает инфракрасный спектр; UVB повышает тестостерон; шведское исследование.</td>
+          </tr>
+          <tr data-type="meat">
+            <td><a href="https://youtu.be/1pqkhUVv_Bw?t=820" target="_blank" class="tc-link">13:40</a></td>
+            <td>Ночные сменщики и Netflix Inoculation</td>
+            <td><span style="color: var(--accent-green); font-weight: 600;">🟢 Мясо</span></td>
+            <td>Экраны после 18:00 = ночная смена; закатный свет защищает сетчатку; уязвимость подростков.</td>
+          </tr>
+          <tr data-type="meat">
+            <td><a href="https://youtu.be/1pqkhUVv_Bw?t=990" target="_blank" class="tc-link">16:30</a></td>
+            <td>Тренировочный сплит фаундера</td>
+            <td><span style="color: var(--accent-green); font-weight: 600;">🟢 Мясо</span></td>
+            <td>Спорт в первые 3–4 часа дня; схема 3 силовых + 3 кардио + 1 отдых; опережающие часы мозга.</td>
+          </tr>
+          <tr data-type="meat">
+            <td><a href="https://youtu.be/1pqkhUVv_Bw?t=1155" target="_blank" class="tc-link">19:15</a></td>
+            <td>Миф о холодных ваннах и aMCC</td>
+            <td><span style="color: var(--accent-green); font-weight: 600;">🟢 Мясо</span></td>
+            <td>Холод не повышает кортизол, но взрывает дофамин; открытие aMCC Джо Парвизи как органа воли.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- БЛОК 3 -->
+  <section id="block3" class="card">
+    <h2>🥩 Блок 3. Детальный разбор («Мясо»)</h2>
+
+    <!-- АКТ 1 -->
+    <div class="act-block">
+      <div class="act-title">
+        <span>⚡ Акт I: Циркадный мастер-таймер, оптика Рэлея и кортизоловый выстрел (00:00 – 06:15)</span>
+      </div>
+      <p><strong>Суть:</strong> Главные часы организма — супрахиазматическое ядро гипоталамуса (SCN) — получают фотоны через специфические светочувствительные ганглионарные клетки сетчатки (ipRGC). Утреннее солнце под низким углом за счет рэлеевского рассеяния безопасно для прямого взгляда и активирует два параллельных пути: эндокринную HPA-ось и спинальный нервный проводник к надпочечникам, создавая обязательный утренний пик кортизола.</p>
+      
+      <div class="insight-card">
+        <strong>Тезис:</strong> Без мощного утреннего импульса кортизола организм растягивает стрессовую кривую на весь день. Это приводит к дневной сонливости, хронической тревожности и бессоннице ночью.<br>
+        <strong>Для бизнеса:</strong> Начинать день со смартфона в постели — саботаж. Экран дает всего 300–500 люкс (мало для утренней активации, но катастрофично для сна ночью). Нужен открытый уличный свет (10 000+ люкс). Оконные стекла блокируют критические длины волн, смотреть сквозь окно бесполезно.
+      </div>
+
+      <div class="tradeoff-grid">
+        <div class="tradeoff-box tradeoff-pro">
+          <strong style="color: var(--accent-green);">Если внедрять:</strong> 10–20 минут уличного света без солнцезащитных очков в первые 30–60 минут после подъема. Зимой — настольная световая лампа 10 000 люкс.
+        </div>
+        <div class="tradeoff-box tradeoff-con">
+          <strong style="color: var(--accent-red);">Если переборщить:</strong> Прямой взгляд на солнце в зените вызовет фотохимический ожог макулы сетчатки. Смотреть прямо можно только на низкое утреннее или закатное солнце.
+        </div>
+      </div>
+    </div>
+
+    <!-- АКТ 2 -->
+    <div class="act-block">
+      <div class="act-title">
+        <span>⚡ Акт II: Митохондриальный оптический резонатор: красный спектр, падение сахара на >25% и зрение 40+ (06:15 – 11:20)</span>
+      </div>
+      <p><strong>Суть:</strong> Красный (580–700 нм) и ближний инфракрасный (NIR 800–1000+ нм) свет проникают сквозь одежду в ткани на глубину от 8 см до сквозного прохождения. Лаборатория Гленна Джеффри (UCL) доказала: облучение спины красным светом во время сахарного теста снижает пиковый выброс глюкозы в крови более чем на 25%, активируя цитохром с-оксидазу в митохондриях.</p>
+      
+      <div class="insight-card">
+        <strong>Тезис:</strong> Фоторецепторы глаза — самые метаболически активные клетки человеческого тела. Экспозиция красным светом (670 нм) 1–3 минуты 2–3 раза в неделю останавливает деградацию зрения после 40 лет.<br>
+        <strong>Критическое правило:</strong> Эффект восстановления зрения работает <strong>ТОЛЬКО в первые 3 часа после пробуждения</strong>. Днем или вечером процедура бесполезна. Холодные офисные LED-лампы без красного спектра разрушают митохондриальный пул клеток.
+      </div>
+
+      <div class="tradeoff-grid">
+        <div class="tradeoff-box tradeoff-pro">
+          <strong style="color: var(--accent-green);">Если внедрять:</strong> Прогулки в парках: зеленые кроны деревьев отражают колоссальные потоки естественного инфракрасного света, давая телу бесплатный митохондриальный щит.
+        </div>
+        <div class="tradeoff-box tradeoff-con">
+          <strong style="color: var(--accent-red);">Если переборщить:</strong> Покупка дешевых китайских светодиодных панелей с мерцанием драйвера, провоцирующих мигрени и дисфункцию нервной системы.
+        </div>
+      </div>
+    </div>
+
+    <!-- АКТ 3 -->
+    <div class="act-block">
+      <div class="act-title">
+        <span>⚡ Акт III: Аудит биохакинга, эпидемия «ночных сменщиков» и протокол «Netflix Inoculation» (11:20 – 16:30)</span>
+      </div>
+      <p><strong>Суть:</strong> Любой человек, работающий за ноутбуком или смартфоном после 18:00–20:00, физиологически приравнивается к рабочему ночной смены со всеми рисками метаболического сбоя и онкологии. Хьюберман дает протокол защиты: вечерняя инсоляция в лучах заходящего солнца создает буферный барьер сетчатки против искусственного синего света мониторов.</p>
+      
+      <div class="insight-card">
+        <strong>Тезис («Netflix Inoculation»):</strong> Закатный свет калибрует фоторецепторы, защищая ночной мелатонин от моментального обрушения при работе за монитором вечером. Однако у подростков этот буфер не работает: экраны на ночь вызывают стойкий кортизоловый сбой и блокируют утреннее пробуждение.<br>
+        <strong>Шведский парадокс:</strong> Курящие люди с высокой инсоляцией статистически жили дольше, чем некурящие затворники, избегавшие солнца (исследование Karolinska Institute).
+      </div>
+
+      <div class="tradeoff-grid">
+        <div class="tradeoff-box tradeoff-pro">
+          <strong style="color: var(--accent-green);">Если внедрять:</strong> 10–15 минут на улице в конце рабочего дня (перед закатом) для перенастройки чувствительности сетчатки перед вечерней работой за экраном.
+        </div>
+        <div class="tradeoff-box tradeoff-con">
+          <strong style="color: var(--accent-red);">Если переборщить:</strong> Использовать закатный свет как индульгенцию для ночной прокрастинации в TikTok. Буфер смягчает токсичность синего света, но не отменяет ее.
+        </div>
+      </div>
+    </div>
+
+    <!-- АКТ 4 -->
+    <div class="act-block">
+      <div class="act-title">
+        <span>⚡ Акт IV: Архитектура тренировок для фаундера и анатомия несгибаемой воли (aMCC) (16:30 – 22:53)</span>
+      </div>
+      <p><strong>Суть:</strong> Тренировки в первые 3–4 часа дня синхронизируют внутренние часы организма: мозг вырабатывает дофамин за 15 минут до привычной нагрузки. В завершение Хьюберман развенчивает миф о холодных ваннах (холод не растит кортизол, но взрывает дофамин на сотни процентов) и описывает главный орган упорства — переднюю поясную кору (aMCC).</p>
+      
+      <div class="insight-card">
+        <strong>Недельный сплит Хьюбермана:</strong> 3 дня силовых (базовые многосуставные движения, 2–3 рабочих сета близко к отказу) + 3 дня кардио (Zone 2, средний темп и интервальный спринт на велотренажере) + 1 день полного отдыха.<br>
+        <strong>Открытие Джо Парвизи (Stanford):</strong> Передняя поясная кора (aMCC) — физический центр воли. Она увеличивается в размерах <strong>ИСКЛЮЧИТЕЛЬНО в моменты преодоления нежелания</strong> («делать то, от чего тошнит»). При комфортной жизни aMCC атрофируется.
+      </div>
+
+      <div class="tradeoff-grid">
+        <div class="tradeoff-box tradeoff-pro">
+          <strong style="color: var(--accent-green);">Если внедрять:</strong> Ежедневно встраивать в график 1–2 микро-преодоления (неудобный звонок, холодный душ, отказ от десерта при тяге) как сознательный тренажер объема aMCC.
+        </div>
+        <div class="tradeoff-box tradeoff-con">
+          <strong style="color: var(--accent-red);">Если переборщить:</strong> Хронический овертренинг без дня восстановления приведет к выгоранию ЦНС и срыву адаптационных резервов.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- БЛОК 4 -->
+  <section id="block4" class="card">
+    <h2>📊 Блок 4. Сводка цифр, бенчмарков и развилок (A vs B)</h2>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Параметр / Метрика</th>
+            <th>Значение</th>
+            <th>Физиологический механизм</th>
+            <th>Статус достоверности</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Освещенность панели</strong></td>
+            <td><code>10 000 lux</code></td>
+            <td>Компенсация отсутствия солнца зимой для активации SCN</td>
+            <td>🟢 Научный стандарт</td>
+          </tr>
+          <tr>
+            <td><strong>Утреннее окно света</strong></td>
+            <td><code>30 – 60 мин</code></td>
+            <td>Критическое временное окно запуска HPA-оси после подъема</td>
+            <td>🟢 Абсолютная норма</td>
+          </tr>
+          <tr>
+            <td><strong>Красный спектр</strong></td>
+            <td><code>580 – 700 нм</code></td>
+            <td>Глубина проникновения до 8 см вглубь тканей тела</td>
+            <td>🟢 Физический факт</td>
+          </tr>
+          <tr>
+            <td><strong>Инфракрасный спектр</strong></td>
+            <td><code>800 – 1000+ нм</code></td>
+            <td>Сквозное прохождение через тело; тепловой эффект</td>
+            <td>🟢 Физический факт</td>
+          </tr>
+          <tr>
+            <td><strong>Снижение спайка сахара</strong></td>
+            <td><code>> 25%</code></td>
+            <td>Снижение гликемического пика при подсветке спины красным светом</td>
+            <td>🟡 Данные лаб. UCL</td>
+          </tr>
+          <tr>
+            <td><strong>Омоложение сетчатки 40+</strong></td>
+            <td><code>1 – 3 мин</code></td>
+            <td>Красный свет 670 нм 2–3 раза в неделю строго в первые 3 часа дня</td>
+            <td>🟢 Подтверждено UCL</td>
+          </tr>
+          <tr>
+            <td><strong>Всплеск дофамина от холода</strong></td>
+            <td><code>+250% – 500%</code></td>
+            <td>Пролонгированный подъем катехоламинов без роста кортизола</td>
+            <td>🟢 Доказано медициной</td>
+          </tr>
+          <tr>
+            <td><strong>Формула сплита тренировок</strong></td>
+            <td><code>3 + 3 + 1</code></td>
+            <td>3 силовых, 3 кардио, 1 полный отдых после дня ног</td>
+            <td>🟢 Золотой стандарт</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Управленческие развилки (Dilemmas & Trade-offs)</h3>
+    <div class="tradeoff-grid">
+      <div class="tradeoff-box" style="background: rgba(15, 23, 42, 0.6); border: 1px solid var(--card-border);">
+        <strong style="color: var(--accent-gold);">Развилка 1: Гаджетомания ($5 000+) vs Природа ($0)</strong>
+        <p style="margin-top: 8px; font-size: 0.92rem;">
+          <em>Путь А:</em> Скупка ледяных ванн и красных ламп при сидении в закрытом кабинете до полуночи.<br>
+          <em>Путь B:</em> Прогулка 15 минут в парке утром, естественный закатный свет и контрастный душ. Возврат на инвестиции (ROI) в Пути B максимален.
+        </p>
+      </div>
+      <div class="tradeoff-box" style="background: rgba(15, 23, 42, 0.6); border: 1px solid var(--card-border);">
+        <strong style="color: var(--accent-gold);">Развилка 2: Комфорт vs Прокачка aMCC</strong>
+        <p style="margin-top: 8px; font-size: 0.92rem;">
+          <em>Путь А:</em> Автоматизировать и делегировать всё неприятное, жить в гедонизме. Итог — физическая атрофия передней поясной коры и потеря воли.<br>
+          <em>Путь B:</em> Сознательно преодолевать микро-сопротивление каждый день, наращивая плотность нейронов упорства.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- БЛОК 5 -->
+  <section id="block5" class="card">
+    <h2>🧠 Блок 5. Ментальные модели и Mermaid-диаграмма</h2>
+
+    <div style="margin-bottom: 24px;">
+      <p><strong>1. Двухфазная петля кортизола:</strong> Высота утреннего гормонального пика предопределяет глубину ночного спада и силу синтеза мелатонина. Нельзя исправить бессонницу ночью, не включив свет утром.</p>
+      <p><strong>2. Митохондриальный оптический резонатор:</strong> Длинноволновой красный и инфракрасный свет оптимизирует перенос электронов в дыхательной цепи митохондрий, напрямую снижая инсулинорезистентность.</p>
+      <p><strong>3. Мышца упорства aMCC:</strong> Воля — это не метафора, а физическая зона коры головного мозга. Она утолщается только при сопротивлении и сжимается при потакании слабостям.</p>
+    </div>
+
+    <h3>Суточный алгоритм нейро-протокола лидера</h3>
+    <pre class="mermaid">
+flowchart TD
+    subgraph Morning["06:00 – 09:00 • Запуск Мастер-Часов"]
+        A[Пробуждение] --> B[Утренний свет в глаза 10-20 мин<br/>ipRGC клетки сетчатки]
+        B --> C[Активация SCN гипоталамуса]
+        C --> D[Двухконтурный пик Кортизола<br/>HPA-ось + Спинной мозг]
+        D --> E[Тренировка: Сила или Кардио<br/>В первые 3-4 часа дня]
+    end
+
+    subgraph Day["09:00 – 17:00 • Высокая Когнитивная Фаза"]
+        E --> F[Глубокая работа / Стратегия<br/>Пиковая ясность и фокус]
+        F --> G[Свет на кожу в парке<br/>Инфракрасный спектр снижает глюкозу]
+    end
+
+    subgraph Evening["17:00 – 21:00 • Netflix Inoculation"]
+        G --> H[Закатный свет в глаза 10-15 мин]
+        H --> I[Калибровка чувствительности сетчатки<br/>Защита от синего света мониторов]
+    end
+
+    subgraph Night["21:00 – 23:00 • Охлаждение и Восстановление"]
+        I --> J[Горячий душ / Ванна<br/>Преоптическая зона охлаждает ядро тела]
+        J --> K[Полная темнота в спальне<br/>Взрывной синтез Мелатонина]
+        K --> L[Глубокий восстановительный сон<br/>Пластический рост ткани aMCC]
+    end
+
+    L -.->|Опережающие биочасы| A
+
+    style Morning fill:#1e293b,stroke:#38bdf8,stroke-width:2px,color:#f8fafc
+    style Day fill:#1e293b,stroke:#34d399,stroke-width:2px,color:#f8fafc
+    style Evening fill:#1e293b,stroke:#fbbf24,stroke-width:2px,color:#f8fafc
+    style Night fill:#1e293b,stroke:#818cf8,stroke-width:2px,color:#f8fafc
+    </pre>
+  </section>
+
+  <!-- БЛОК 6 -->
+  <section id="block6" class="card">
+    <h2>📚 Блок 6. Справочник сущностей (Obsidian Wikilinks)</h2>
+
+    <h3>Персоны</h3>
+    <div>
+      <span class="entity-tag">[[Эндрю Хьюберман]] — профессор нейробиологии Stanford Medicine</span>
+      <span class="entity-tag">[[Стивен Бартлетт]] — предприниматель, создатель The Diary Of A CEO</span>
+      <span class="entity-tag">[[Гленн Джеффри]] — профессор зрительной нейробиологии UCL</span>
+      <span class="entity-tag">[[Джо Парвизи]] — профессор нейрохирургии Stanford University</span>
+      <span class="entity-tag">[[Энди Галпин]] — эксперт по физиологии высокоинтенсивного тренинга</span>
+      <span class="entity-tag">[[Роджер Швальт]] — врач-исследователь MedCram</span>
+    </div>
+
+    <h3>Институты и научные концепты</h3>
+    <div>
+      <span class="entity-tag">[[Stanford University]]</span>
+      <span class="entity-tag">[[University College London]]</span>
+      <span class="entity-tag">[[UK Biobank]]</span>
+      <span class="entity-tag">[[Супрахиазматическое ядро]] (SCN)</span>
+      <span class="entity-tag">[[Передняя поясная кора]] (aMCC)</span>
+      <span class="entity-tag">[[Меланопсин]]</span>
+      <span class="entity-tag">[[Фотобиомодуляция]]</span>
+    </div>
+
+    <h3>Антипаттерны</h3>
+    <div>
+      <span class="entity-tag">Оконный самообман (свет сквозь стекло)</span>
+      <span class="entity-tag">Гаджетомания биохакера</span>
+      <span class="entity-tag">Иллюзия совы</span>
+      <span class="entity-tag">Атрофия комфорта</span>
+    </div>
+  </section>
+
+  <!-- БЛОК 7 -->
+  <section id="block7" class="card">
+    <h2>💎 Блок 7. Золотые формулировки и панчлайны выпуска</h2>
+
+    <div class="punchline">
+      «Notice I'm sort of like a salesman. I'm selling nature.»<br>
+      <strong>«Я звучу как заправский коммивояжер. С той лишь разницей, что я продаю вам бесплатную природу».</strong>
+    </div>
+
+    <div class="punchline">
+      «You and I qualify as night shift workers. If you work at night at home on devices after 6 PM, you're still a nightshift worker.»<br>
+      <strong>«Мы с вами — классические рабочие ночной смены. Если вы открываете ноутбук дома после 18:00, ваш метаболизм разрушается точно так же, как у рабочего на ночном заводе».</strong>
+    </div>
+
+    <div class="punchline">
+      «Deliberate cold exposure does not raise cortisol. I will go toe-to-toe with anybody on the internet. Trivial increases in cortisol, magnificent increases in dopamine and adrenaline.»<br>
+      <strong>«Холодные ванны не поднимают кортизол. Я готов выйти на научную дуэль с кем угодно в интернете: подъем кортизола ничтожен, зато выброс дофамина и адреналина — колоссальный».</strong>
+    </div>
+
+    <div class="punchline">
+      «When you do something you don't want to do, your anterior midcingulate cortex gets bigger and more willing to engage in challenging things going forward.»<br>
+      <strong>«Каждый раз, когда вы через не могу делаете то, от чего вас воротит, ваша передняя поясная кора физически растет, делая вас неуязвимым перед новыми вызовами».</strong>
+    </div>
+  </section>
+
+  <!-- БЛОК 8 -->
+  <section id="block8" class="card">
+    <h2>🔍 Блок 8. Внешний фактчек, материалы и реакция аудитории</h2>
+
+    <h3>Материалы выпуска</h3>
+    <ul>
+      <li><a href="https://youtu.be/MGxcosNuC8k" target="_blank" style="color: var(--accent-blue);">Полный выпуск на The Diary Of A CEO</a> — 2.5-часовое развернутое интервью со Стивеном Бартлеттом.</li>
+      <li><a href="https://thediary.com/collections/all" target="_blank" style="color: var(--accent-blue);">The Diary Collection</a> — официальный магазин мерча и ежедневников Стивена Бартлетта.</li>
+    </ul>
+
+    <h3>Анализ реакции аудитории (топ-комментарии)</h3>
+    <div style="background: rgba(15, 23, 42, 0.4); border-left: 3px solid var(--accent-blue); padding: 12px 16px; border-radius: 0 8px 8px 0; margin-bottom: 12px;">
+      <strong>Путаница физических понятий (@AdaptiveGame):</strong> Зритель указал на оговорку: люкс — единица освещенности (люмен/м²), а не мощности излучения. Вердикт: технически верно, но для бытового замера люксметром погрешность не меняет сути протокола.
+    </div>
+    <div style="background: rgba(15, 23, 42, 0.4); border-left: 3px solid var(--accent-blue); padding: 12px 16px; border-radius: 0 8px 8px 0; margin-bottom: 12px;">
+      <strong>Северная зима и полярная тьма (@DInTheValley):</strong> Как быть при подъеме за 2-3 часа до рассвета? Вердикт Хьюбермана: использовать лампу на 10 000 люкс сразу после пробуждения, а затем выйти на естественный свет при рассвете.
+    </div>
+    <div style="background: rgba(15, 23, 42, 0.4); border-left: 3px solid var(--accent-blue); padding: 12px 16px; border-radius: 0 8px 8px 0;">
+      <strong>Опыт советской медицины (@helenavolohova1617):</strong> Напоминание о советском педиатрическом правиле «4 часа прогулок на свежем воздухе». Вердикт: нейробиология Стэнфорда подтверждает эмпирику профилактической медицины прошлого века на молекулярном уровне.
+    </div>
+  </section>
+
+  <!-- БЛОК 9 -->
+  <section id="block9" class="card">
+    <h2>✅ Блок 9. Применение: Чек-лист и вопросы к себе</h2>
+
+    <div class="checklist-progress-bar">
+      <div id="progressFill" class="checklist-progress-fill"></div>
+    </div>
+    <div id="progressLabel" style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 14px;">
+      Прогресс: 0 из 8 выполнено (0%)
+    </div>
+
+    <div class="check-item">
+      <input type="checkbox" id="chk1" onchange="toggleCheck(this)">
+      <label for="chk1"><strong>День 1–3:</strong> 15 минут уличного света без очков в первые 30 минут после подъема (или лампа 10 000 люкс зимой).</label>
+    </div>
+    <div class="check-item">
+      <input type="checkbox" id="chk2" onchange="toggleCheck(this)">
+      <label for="chk2"><strong>День 4–5:</strong> Ликвидировать оконный барьер — открыть окно авто или выйти на крыльцо вместо взгляда сквозь стекло.</label>
+    </div>
+    <div class="check-item">
+      <input type="checkbox" id="chk3" onchange="toggleCheck(this)">
+      <label for="chk3"><strong>День 6–8:</strong> Перенести спорт на первые 3–4 часа дня для синхронизации кортизоловых биочасов.</label>
+    </div>
+    <div class="check-item">
+      <input type="checkbox" id="chk4" onchange="toggleCheck(this)">
+      <label for="chk4"><strong>День 9–12:</strong> Протокол Netflix Inoculation — 10 минут вечерней прогулки на закате для защиты сетчатки от синего света.</label>
+    </div>
+    <div class="check-item">
+      <input type="checkbox" id="chk5" onchange="toggleCheck(this)">
+      <label for="chk5"><strong>День 13–15:</strong> Проводить рабочие встречи 1-on-1 в формате пеших прогулок среди зелени парка.</label>
+    </div>
+    <div class="check-item">
+      <input type="checkbox" id="chk6" onchange="toggleCheck(this)">
+      <label for="chk6"><strong>День 16–20:</strong> Приглушить свет после 21:00, убрать холодные LED-лампы и перевести экраны в ночной режим.</label>
+    </div>
+    <div class="check-item">
+      <input type="checkbox" id="chk7" onchange="toggleCheck(this)">
+      <label for="chk7"><strong>День 21–25:</strong> Горячий душ за 45 минут до сна для терморегуляторного охлаждения ядра тела.</label>
+    </div>
+    <div class="check-item">
+      <input type="checkbox" id="chk8" onchange="toggleCheck(this)">
+      <label for="chk8"><strong>День 26–30:</strong> Ежедневно выполнять 1 дискомфортную задачу через не хочу для утолщения aMCC воли.</label>
+    </div>
+
+    <h3 style="margin-top: 24px;">Вопросы для стратегической рефлексии</h3>
+    <ol>
+      <li>Сколько часов продуктивного когнитивного времени я теряю ежедневно из-за дневного энергетического провала?</li>
+      <li>Не пытаюсь ли я компенсировать отсутствие режима покупкой дорогих биодобавок и гаджетов?</li>
+      <li>Отношусь ли я к себе как к рабочему ночной смены, продолжая проверять почту и мессенджеры в кровати?</li>
+      <li>Когда в последний раз я сознательно шёл на преодоление жесткого сопротивления для укрепления своей aMCC?</li>
+      <li>Какова цена стратегической ошибки, принятой мной в состоянии затуманенного мышления и кортизолового дисбаланса?</li>
+    </ol>
+  </section>
+
+</div>
+
+<script>
+
+  // === MOBILE NAVIGATION DRAWER & UTILITIES ===
+  function toggleNavDrawer() {
+    var overlay = document.getElementById('navDrawerOverlay');
+    if (!overlay) return;
+    if (overlay.classList.contains('is-open')) {
+      closeNavDrawer();
+    } else {
+      overlay.style.display = 'flex';
+      overlay.offsetHeight;
+      overlay.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeNavDrawer() {
+    var overlay = document.getElementById('navDrawerOverlay');
+    if (!overlay) return;
+    overlay.classList.remove('is-open');
+    document.body.style.overflow = '';
+    setTimeout(function() {
+      if (!overlay.classList.contains('is-open')) {
+        overlay.style.display = 'none';
+      }
+    }, 280);
+  }
+
+  function handleOverlayClick(event) {
+    if (event.target && event.target.id === 'navDrawerOverlay') {
+      closeNavDrawer();
+    }
+  }
+
+  function toggleHeatmapCollapse() {
+    var wrapper = document.getElementById('heatmapCollapseWrapper');
+    var btn = document.getElementById('toggleHeatmapBtn');
+    if (!wrapper || !btn) return;
+
+    var isCollapsed = wrapper.classList.toggle('is-collapsed');
+    if (isCollapsed) {
+      btn.innerHTML = '<span>▾ Показать все 10 глав выпуска</span>';
+      var b2 = document.getElementById('block2');
+      if (b2) b2.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      btn.innerHTML = '<span>▴ Свернуть список глав</span>';
+    }
+  }
+
+  function playEmbeddedVideo() {
+    const card = document.getElementById('videoPreviewCard');
+    const container = document.getElementById('videoEmbedContainer');
+    if (card && container) {
+      card.style.display = 'none';
+      container.style.display = 'block';
+      container.innerHTML = '<iframe src="https://www.youtube.com/embed/1pqkhUVv_Bw?autoplay=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+    }
+  }
+
+  function filterHeatmap(type) {
+    const rows = document.querySelectorAll('#heatmapTable tbody tr');
+    const buttons = document.querySelectorAll('.filter-btn');
+    
+    buttons.forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
+
+    rows.forEach(r => {
+      const rType = r.getAttribute('data-type');
+      if (type === 'all' || rType === type) {
+        r.style.display = '';
+      } else {
+        r.style.display = 'none';
+      }
+    });
+  }
+
+  function toggleCheck(checkbox) {
+    const parent = checkbox.closest('.check-item');
+    if (checkbox.checked) {
+      parent.classList.add('done');
+    } else {
+      parent.classList.remove('done');
+    }
+    updateProgress();
+    saveChecklist();
+  }
+
+  function updateProgress() {
+    const total = document.querySelectorAll('.check-item input[type="checkbox"]').length;
+    const checked = document.querySelectorAll('.check-item input[type="checkbox"]:checked').length;
+    const pct = total === 0 ? 0 : Math.round((checked / total) * 100);
+    
+    const fill = document.getElementById('progressFill');
+    const label = document.getElementById('progressLabel');
+    if (fill) fill.style.width = pct + '%';
+    if (label) label.innerText = `Прогресс: ${checked} из ${total} выполнено (${pct}%)`;
+  }
+
+  function saveChecklist() {
+    const checks = {};
+    document.querySelectorAll('.check-item input[type="checkbox"]').forEach(c => {
+      checks[c.id] = c.checked;
+    });
+    localStorage.setItem('yt_huberman_sunlight_checklist', JSON.stringify(checks));
+  }
+
+  function loadChecklist() {
+    const saved = localStorage.getItem('yt_huberman_sunlight_checklist');
+    if (saved) {
+      const checks = JSON.parse(saved);
+      for (const id in checks) {
+        const el = document.getElementById(id);
+        if (el) {
+          el.checked = checks[id];
+          if (checks[id]) el.closest('.check-item').classList.add('done');
+        }
+      }
+    }
+    updateProgress();
+  }
+
+  window.addEventListener('DOMContentLoaded', loadChecklist);
+</script>
+
+
+  <!-- Плавающая кнопка вызова оглавления -->
+  <div id="floatingNavBtn" class="floating-nav-pill" onclick="toggleNavDrawer()" title="Навигация по разделам">
+    <span>🧭 Навигация</span>
+  </div>
+
+  <!-- Шторка-модалка навигации по статье -->
+  <div id="navDrawerOverlay" class="nav-drawer-overlay" onclick="handleOverlayClick(event)">
+    <div class="nav-drawer-sheet">
+      <div class="drawer-header">
+        <div class="drawer-title">Навигация по разбору</div>
+        <button class="drawer-close-btn" onclick="closeNavDrawer()">✕</button>
+      </div>
+      <div class="drawer-links-grid">
+        <a href="00_Хаб_Все_Разборы.html" class="drawer-link catalog-link">
+          <span>🏠</span> <strong>← Вернуться в Каталог всех разборов</strong>
+        </a>
+        <a href="#block1" class="drawer-link" onclick="closeNavDrawer()">
+          <span>🎯</span> <span>Блок 1. Интро, вердикт и повестка</span>
+        </a>
+        <a href="#block2" class="drawer-link" onclick="closeNavDrawer()">
+          <span>🗺️</span> <span>Блок 2. Тепловая карта выпуска (10 глав)</span>
+        </a>
+        <a href="#block3" class="drawer-link" onclick="closeNavDrawer()">
+          <span>🥩</span> <span>Блок 3. Детальный разбор («Мясо»)</span>
+        </a>
+        <a href="#block4" class="drawer-link" onclick="closeNavDrawer()">
+          <span>📊</span> <span>Блок 4. Сводка цифр, бенчмарков и развилок</span>
+        </a>
+        <a href="#block5" class="drawer-link" onclick="closeNavDrawer()">
+          <span>🧠</span> <span>Блок 5. Нейробиология воли (aMCC-схема)</span>
+        </a>
+        <a href="#block6" class="drawer-link" onclick="closeNavDrawer()">
+          <span>📚</span> <span>Блок 6. Справочник сущностей и термины</span>
+        </a>
+        <a href="#block7" class="drawer-link" onclick="closeNavDrawer()">
+          <span>💬</span> <span>Блок 7. Золотые формулировки Хьюбермана</span>
+        </a>
+        <a href="#block8" class="drawer-link" onclick="closeNavDrawer()">
+          <span>🔍</span> <span>Блок 8. Фактчек и материалы выпуска</span>
+        </a>
+        <a href="#block9" class="drawer-link" onclick="closeNavDrawer()">
+          <span>✅</span> <span>Блок 9. Чек-лист применения</span>
+        </a>
+        <a href="/huberman.md" download="2026-10-30_Хьюберман_Вся_Правда_О_Солнце_Свете_И_Воле.md" class="drawer-link" style="color: #a5b4fc; border-color: rgba(129, 140, 248, 0.3);">
+          <span>📥</span> <span>Скачать Markdown (.md для Obsidian)</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

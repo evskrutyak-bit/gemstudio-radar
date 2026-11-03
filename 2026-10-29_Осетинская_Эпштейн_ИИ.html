@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Open Graph / Rich Social Preview -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Человек отстает от человечества | Михаил Эпштейн — Бизнес-Деконструкция">
+  <meta property="og:description" content="Философия ИИ, сингулярность, культурные сдвиги и новые формы разума. Аналитический разбор Gemstudio.">
+  <meta property="og:image" content="https://img.youtube.com/vi/LEMfWjU_6Qg/maxresdefault.jpg">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="720">
+  <meta property="og:site_name" content="Gemstudio: Бизнес-Деконструктор">
+
+  <title>«Человек отстает от человечества». Разговор с философом про искусственный интеллект — Бизнес-Деконструкция</title>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'dark',
+      themeVariables: {
+        primaryColor: '#1e293b',
+        primaryTextColor: '#f8fafc',
+        primaryBorderColor: '#3b82f6',
+        lineColor: '#64748b',
+        secondaryColor: '#334155',
+        tertiaryColor: '#0f172a'
+      }
+    });
+  
+  function playEmbeddedVideo() {
+    const card = document.getElementById('videoPreviewCard');
+    const container = document.getElementById('videoEmbedContainer');
+    if (card && container) {
+      card.style.display = 'none';
+      container.style.display = 'block';
+      container.innerHTML = '<iframe src="https://www.youtube.com/embed/LEMfWjU_6Qg?autoplay=1&rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="width:100%; height:100%; border:none;"></iframe>';
+    }
+  }
+
+</script>
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: #111726;
+      --card-border: #1e293b;
+      --card-hover: #172033;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --accent-blue: #38bdf8;
+      --accent-purple: #818cf8;
+      --accent-green: #34d399;
+      --accent-red: #f87171;
+      --accent-gold: #fbbf24;
+      --radius: 12px;
+      --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: var(--font);
+      line-height: 1.6;
+      padding: 32px 16px 80px 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* Header & Badges */
+    header {
+      margin-bottom: 36px;
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 28px;
+    }
+    .badge-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .badge-rating { background: rgba(251, 191, 36, 0.15); color: var(--accent-gold); border: 1px solid rgba(251, 191, 36, 0.3); }
+    .badge-tag { background: rgba(56, 189, 248, 0.12); color: var(--accent-blue); border: 1px solid rgba(56, 189, 248, 0.25); }
+    .badge-time { background: rgba(148, 163, 184, 0.12); color: var(--text-muted); border: 1px solid var(--card-border); }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 12px;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+    }
+    .meta-line {
+      font-size: 14px;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+    }
+    .meta-line a { color: var(--accent-blue); text-decoration: none; }
+    .meta-line a:hover { text-decoration: underline; }
+
+    /* Quick Action Toolbar */
+    .toolbar {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      border: 1px solid var(--card-border);
+      background: var(--card-bg);
+      color: var(--text-main);
+      transition: all 0.2s;
+    }
+    .btn:hover {
+      background: var(--card-hover);
+      border-color: var(--accent-blue);
+    }
+
+    /* Card Layouts */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.25);
+    }
+
+    h2 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      padding-bottom: 10px;
+    }
+    h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 16px 0 8px 0;
+      color: #e2e8f0;
+    }
+
+    /* Verdict Box */
+    .verdict-box {
+      background: linear-gradient(135deg, rgba(251, 191, 36, 0.08) 0%, rgba(245, 158, 11, 0.02) 100%);
+      border-left: 4px solid var(--accent-gold);
+      padding: 16px 20px;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      margin: 16px 0;
+      font-size: 15px;
+    }
+    .verdict-title {
+      font-weight: 700;
+      color: var(--accent-gold);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+    }
+
+    /* Hidden Agenda Box */
+    .agenda-box {
+      background: linear-gradient(135deg, rgba(248, 113, 113, 0.08) 0%, rgba(239, 68, 68, 0.02) 100%);
+      border-left: 4px solid var(--accent-red);
+      padding: 16px 20px;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      margin: 16px 0;
+      font-size: 14px;
+    }
+    .agenda-title {
+      font-weight: 700;
+      color: var(--accent-red);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+    }
+
+    /* Heatmap List */
+    .heatmap-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .heat-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      font-size: 14px;
+    }
+    .heat-title { display: flex; align-items: center; gap: 8px; }
+    .heat-badge {
+      font-size: 12px;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+    .heat-green { background: rgba(52, 211, 153, 0.15); color: var(--accent-green); }
+    .heat-yellow { background: rgba(251, 191, 36, 0.15); color: var(--accent-gold); }
+
+    /* Meat: Apply vs Overdo */
+    .meat-block {
+      margin-bottom: 24px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .meat-block:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .meat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .apply-card {
+      background: rgba(52, 211, 153, 0.06);
+      border: 1px solid rgba(52, 211, 153, 0.2);
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 13px;
+    }
+    .apply-title { color: var(--accent-green); font-weight: 600; margin-bottom: 4px; font-size: 12px; text-transform: uppercase; }
+    .overdo-card {
+      background: rgba(248, 113, 113, 0.06);
+      border: 1px solid rgba(248, 113, 113, 0.2);
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 13px;
+    }
+    .overdo-title { color: var(--accent-red); font-weight: 600; margin-bottom: 4px; font-size: 12px; text-transform: uppercase; }
+
+    /* Mobile Responsive Optimizations */
+    @media (max-width: 640px) {
+      body { padding: 16px 12px 60px 12px; }
+      .container { width: 100%; }
+      .card { padding: 18px 14px; margin-bottom: 16px; border-radius: 10px; }
+      h1 { font-size: 22px; line-height: 1.3; }
+      h2 { font-size: 18px; }
+      .toolbar { flex-direction: column; gap: 8px; }
+      .btn { width: 100%; justify-content: center; padding: 10px 14px; font-size: 14px; }
+      .heat-item { flex-direction: column; align-items: flex-start; gap: 6px; }
+      .heat-badge { align-self: flex-start; }
+      .meat-grid { grid-template-columns: 1fr; }
+      .meta-line { flex-direction: column; align-items: flex-start; gap: 6px; font-size: 13px; }
+      .verdict-box, .agenda-box { padding: 14px; font-size: 14px; }
+    }
+
+    /* Table Container with smooth mobile scroll */
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 12px 0;
+      border-radius: 8px;
+      border: 1px solid var(--card-border);
+    }
+    table {
+      width: 100%;
+      min-width: 520px;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    th, td {
+      padding: 10px 12px;
+      text-align: left;
+      border-bottom: 1px solid var(--card-border);
+    }
+    th {
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      background: rgba(255, 255, 255, 0.02);
+    }
+    td { color: var(--text-main); }
+
+    /* Quotes / Punchlines */
+    .punchline {
+      position: relative;
+      background: rgba(129, 140, 248, 0.06);
+      border-left: 4px solid var(--accent-purple);
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      margin: 10px 0;
+      font-style: italic;
+      font-size: 15px;
+      color: #e2e8f0;
+    }
+
+    /* Interactive Checklist */
+    .checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 14px;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.2s;
+    }
+    .check-item:hover { background: rgba(255, 255, 255, 0.05); }
+    .check-item input[type="checkbox"] {
+      margin-top: 3px;
+      cursor: pointer;
+      width: 16px;
+      height: 16px;
+      accent-color: var(--accent-green);
+    }
+
+    /* Mermaid */
+    .mermaid {
+      background: #0f172a;
+      padding: 20px;
+      border-radius: 8px;
+      overflow-x: auto;
+      text-align: center;
+      margin: 16px 0;
+    }
+
+    /* Print Styles for PDF */
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        padding: 0 !important;
+      }
+      .toolbar, .btn { display: none !important; }
+      .card {
+        background: #ffffff !important;
+        border: 1px solid #e2e8f0 !important;
+        box-shadow: none !important;
+        color: #000000 !important;
+        page-break-inside: avoid;
+        margin-bottom: 20px;
+      }
+      h1, h2, h3 { color: #000000 !important; }
+      .punchline {
+        background: #f8fafc !important;
+        color: #000000 !important;
+        border-left: 4px solid #6366f1 !important;
+      }
+      .apply-card, .overdo-card {
+        background: #f8fafc !important;
+        color: #000000 !important;
+      }
+      td, th { color: #000000 !important; }
+    }
+  
+    /* Global Gemstudio Top Nav */
+    .gemstudio-top-nav {
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(56, 189, 248, 0.25);
+      padding: 12px 16px;
+      position: relative;
+      top: 0;
+      z-index: 1000;
+      margin: -24px -16px 24px -16px;
+    }
+    .gemstudio-nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .gemstudio-brand {
+      font-weight: 800;
+      color: #38bdf8;
+      text-decoration: none;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .gemstudio-brand:hover {
+      color: #fff;
+    }
+    .gemstudio-nav-links {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .gemstudio-nav-links a {
+      color: #94a3b8;
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+      border: 1px solid transparent;
+      background: rgba(255, 255, 255, 0.03);
+    }
+    .gemstudio-nav-links a:hover {
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.12);
+      border-color: rgba(56, 189, 248, 0.3);
+    }
+    .gemstudio-nav-links a.active {
+      color: #fff;
+      background: #0284c7;
+      border-color: #38bdf8;
+      font-weight: 600;
+    }
+
+  
+    .btn-download-md {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(129, 140, 248, 0.15);
+      color: #a5b4fc;
+      border: 1px solid rgba(129, 140, 248, 0.35);
+      padding: 4px 12px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .btn-download-md:hover {
+      background: #6366f1;
+      color: #fff;
+      border-color: #6366f1;
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
+      text-decoration: none;
+    }
+
+  
+    /* Video Preview Hero */
+    .video-preview-hero {
+      margin-top: 18px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--card-border, #1e293b);
+      background: #000;
+      position: relative;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    }
+    .video-preview-card {
+      position: relative;
+      cursor: pointer;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .video-thumb {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+    .video-preview-card:hover .video-thumb {
+      transform: scale(1.02);
+      filter: brightness(0.9);
+    }
+    .video-play-btn {
+      position: absolute;
+      width: 68px;
+      height: 68px;
+      background: rgba(239, 68, 68, 0.9);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      box-shadow: 0 0 30px rgba(239, 68, 68, 0.6);
+      transition: transform 0.2s, background 0.2s;
+    }
+    .video-preview-card:hover .video-play-btn {
+      transform: scale(1.12);
+      background: #dc2626;
+    }
+    .video-duration-badge {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(4px);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-family: ui-monospace, SFMono-Regular, monospace;
+      color: #f1f5f9;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .video-embed-container {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+    }
+    .video-embed-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+
+    /* Global Gemstudio Top Nav - Non-Sticky (Natural scroll on mobile and desktop) */
+    .gemstudio-top-nav {
+      background: rgba(15, 23, 42, 0.95);
+      border-bottom: 1px solid rgba(56, 189, 248, 0.25);
+      padding: 12px 16px;
+      position: relative; /* Not sticky so it never covers mobile screen! */
+      margin: -24px -16px 20px -16px;
+    }
+    .gemstudio-nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .gemstudio-brand {
+      font-weight: 800;
+      color: #38bdf8;
+      text-decoration: none;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .gemstudio-brand:hover { color: #fff; }
+    .gemstudio-nav-links {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .nav-catalog-btn {
+      color: #38bdf8;
+      text-decoration: none;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.2s;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      background: rgba(56, 189, 248, 0.1);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-catalog-btn:hover {
+      background: #0284c7;
+      color: #fff;
+      border-color: #38bdf8;
+    }
+    @media (max-width: 640px) {
+      .gemstudio-top-nav {
+        margin: -12px -8px 16px -8px;
+        padding: 10px 12px;
+      }
+    }
+
+  
+    /* Video Ambient Glow & Preview */
+    .video-ambient-wrapper {
+      position: relative;
+      margin: 24px 0 32px;
+      border-radius: 16px;
+    }
+    .ambient-glow {
+      position: absolute;
+      inset: -12px;
+      background-size: cover;
+      background-position: center;
+      filter: blur(28px);
+      opacity: 0.35;
+      border-radius: 24px;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .video-preview-hero {
+      position: relative;
+      z-index: 1;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: #000;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+    }
+    .video-preview-card {
+      position: relative;
+      cursor: pointer;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .video-thumb {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease, filter 0.3s ease;
+    }
+    .video-preview-card:hover .video-thumb {
+      transform: scale(1.03);
+      filter: brightness(0.9);
+    }
+    .video-play-btn {
+      position: absolute;
+      width: 68px;
+      height: 68px;
+      background: rgba(239, 68, 68, 0.95);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      box-shadow: 0 0 30px rgba(239, 68, 68, 0.6);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .video-preview-card:hover .video-play-btn {
+      transform: scale(1.15);
+      box-shadow: 0 0 45px rgba(239, 68, 68, 0.9);
+    }
+    .video-duration-badge {
+      position: absolute;
+      bottom: 14px;
+      right: 14px;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(4px);
+      color: #fff;
+      font-size: 0.8rem;
+      font-family: monospace;
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .video-embed-container {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+    }
+
+
+    /* Floating Nav Pill (Mobile & Desktop) */
+    .floating-nav-pill {
+      position: fixed;
+      bottom: 24px;
+      right: 20px;
+      background: rgba(15, 23, 42, 0.92);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: #38bdf8;
+      padding: 10px 18px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 14px rgba(56, 189, 248, 0.25);
+      z-index: 9999;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .floating-nav-pill:hover {
+      background: #0284c7;
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    /* Nav Drawer (Modal Sheet) */
+    .nav-drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(6px);
+      z-index: 10000;
+      display: none;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .nav-drawer-overlay.is-open {
+      display: flex;
+      align-items: flex-end;
+      opacity: 1;
+    }
+
+    .nav-drawer-sheet {
+      background: #0d1322;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 20px 20px 0 0;
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 24px 20px 36px;
+      box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.8);
+      transform: translateY(100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .nav-drawer-overlay.is-open .nav-drawer-sheet {
+      transform: translateY(0);
+    }
+
+    .drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 14px;
+      margin-bottom: 16px;
+    }
+
+    .drawer-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .drawer-close-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #94a3b8;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .drawer-close-btn:hover { color: #fff; background: rgba(255,255,255,0.12); }
+
+    .drawer-links-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .drawer-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 10px;
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 500;
+      transition: all 0.15s ease;
+    }
+
+    .drawer-link:hover {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: rgba(56, 189, 248, 0.3);
+      color: #38bdf8;
+    }
+
+    .drawer-link.catalog-link {
+      background: linear-gradient(135deg, rgba(2, 132, 199, 0.25) 0%, rgba(56, 189, 248, 0.15) 100%);
+      border-color: rgba(56, 189, 248, 0.35);
+      color: #fff;
+    }
+
+    /* Heatmap Collapse Wrapper */
+    .heatmap-collapse-wrapper {
+      position: relative;
+      transition: max-height 0.4s ease;
+    }
+
+    .heatmap-collapse-wrapper.is-collapsed {
+      max-height: 440px;
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+      mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+    }
+
+    .heatmap-toggle-btn-wrap {
+      margin-top: 14px;
+      text-align: center;
+    }
+
+    .heatmap-expand-btn {
+      background: linear-gradient(135deg, rgba(2, 132, 199, 0.2) 0%, rgba(56, 189, 248, 0.15) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #38bdf8;
+      padding: 10px 22px;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .heatmap-expand-btn:hover {
+      background: linear-gradient(135deg, rgba(2, 132, 199, 0.35) 0%, rgba(56, 189, 248, 0.25) 100%);
+      color: #fff;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(56, 189, 248, 0.25);
+    }
+
+</style>
+</head>
+<body>
+  
+  <nav class="gemstudio-top-nav">
+    <div class="gemstudio-nav-container">
+      <a href="00_Хаб_Все_Разборы.html" class="gemstudio-brand">
+        <span>⚡</span> <strong>Gemstudio</strong> <span style="color: #64748b; font-weight: normal;">| Бизнес-Деконструктор</span>
+      </a>
+      <div class="gemstudio-nav-links">
+        <a href="00_Хаб_Все_Разборы.html" class="nav-catalog-btn">← Каталог всех разборов</a>
+      </div>
+    </div>
+  </nav>
+
+<div class="container">
+    <header>
+      <div class="badge-bar">
+        <span class="badge badge-rating">⭐ Оценка: 8.5 / 10</span>
+        <span class="badge badge-time">⏱️ Хронометраж: 02:29:43</span>
+        <span class="badge badge-tag">#бизнес-стратегия</span><span class="badge badge-tag">#искусственный-интеллект</span><span class="badge badge-tag">#когнитивные-модели</span><span class="badge badge-tag">#геополитика-ии</span><span class="badge badge-tag">#obsidian-base</span>
+      </div>
+      <div><a href="/epstein.md" download="2026-10-29_Осетинская_Эпштейн_ИИ.md" class="btn-download-md">📥 Скачать Markdown (.md для Obsidian)</a></div>
+      <h1>«Человек отстает от человечества». Разговор с философом про искусственный интеллект</h1>
+      <div class="meta-line">
+        <span>👤 Спикер: <strong>Михаил Эпштейн</strong></span>
+        <span>🎙️ Канал: <strong>Это Осетинская!</strong></span>
+        <span>📅 Разбор: <strong>29 октября 2026 г.</strong></span>
+        <span>🔗 <a href="https://youtu.be/LEMfWjU_6Qg" target="_blank">Открыть оригинал на YouTube</a></span>
+      </div>
+      <div class="toolbar">
+        <button class="btn" onclick="window.print()">🖨️ Экспорт в PDF / Печать</button>
+        <button class="btn" onclick="copyChecklist()">📋 Скопировать чек-лист</button>
+      </div>
+    
+    <!-- Видео-превью баннер с запуском видео прямо в дашборде -->
+    
+    <!-- Кинематографичный Видеоблок с эффектом Ambient Glow -->
+    <div class="video-ambient-wrapper">
+      <div class="ambient-glow" style="background-image: url('https://img.youtube.com/vi/LEMfWjU_6Qg/maxresdefault.jpg');"></div>
+      <div class="video-preview-hero">
+        <div class="video-preview-card" id="videoPreviewCard" onclick="playEmbeddedVideo()" title="Нажмите, чтобы включить видео прямо здесь">
+          <img src="https://img.youtube.com/vi/LEMfWjU_6Qg/maxresdefault.jpg" alt="Михаил Эпштейн: Человек отстает от человечества" class="video-thumb" loading="lazy">
+          <div class="video-play-btn" title="Воспроизвести выпуск">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="34" height="34"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <div class="video-duration-badge">⏱️ 02:29:43 • 51 глава • Запустить видео</div>
+        </div>
+        <div id="videoEmbedContainer" class="video-embed-container" style="display: none;"></div>
+      </div>
+    </div>
+
+      <div id="videoEmbedContainer" class="video-embed-container" style="display: none;"></div>
+    </div>
+  </header>
+
+    <!-- БЛОК 1: ИНТРО, ВЕРДИКТ И СКРЫТАЯ ПОВЕСТКА -->
+    <section class="card" id="block1">
+      <h2>🎯 1. Интро, вердикт и скрытая повестка</h2>
+      <p style="margin-bottom: 14px; font-size: 15px;">2,5-часовой стратегический диалог о смене технологической эпохи: почему человек биологически безнадежно отстал от объёма накопленных цивилизацией данных, почему бигтеху критически понадобились философы, где предел китайского ИИ, почему страх «восстания машин» — наивная антропоморфная чушь, и как генеративные модели переходят от уровня «калькулятора» (рассудка) к уровню «мыслителя» (разума).</p>
+      
+      <div class="verdict-box">
+        <div class="verdict-title">Вердикт аналитика: Смотреть выборочно</div>
+        <p>Первые 45 минут (природа мышления ИИ, эксперименты с Claude, Китай vs США) и блок про «фрактальные инвестиции в управление» — концентрированное мясо для калибровки стратегического взгляда. Культурологический блок о судьбе русской интеллигенции и эмиграции можно пропустить: ключевые смыслы уже отжаты ниже.</p>
+      </div>
+
+      <div class="agenda-box">
+        <div class="agenda-title">🕵️ Детектор скрытой повестки (Зачем спикер пришел на самом деле):</div>
+        <ul style="padding-left: 18px; margin-top: 6px;">
+          <li><strong>Легитимизация гуманитариев в бигтехе:</strong> Доказать, что ИИ без онтологов и философов заходит в тупик безопасности. Прогрев рынка высокооплачиваемого AI-консалтинга для академической элиты.</li><li><strong>Продвижение авторских концептов:</strong> Презентация инструментов «Креатор», «Ноотрон», «Индекс интересного» и литературного эксперимента «Клод Сонетов» (дописывание Достоевского).</li><li><strong>Фиксация диссидентского капитала:</strong> Обоснование статуса иноагента и разрыва с российской действительностью через теорию «русского антимира».</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- БЛОК 2: ТЕПЛОВАЯ КАРТА ВЫПУСКА -->
+    <section class="card" id="block2">
+      <h2>🔥 2. Тепловая карта выпуска (Плотность пользы по таймкодам)</h2>
+      <div class="heatmap-list">
+        <div class="heat-item"><div class="heat-title"><code>00:00 – 00:10</code> <strong>Зачем AI нанимает философов и разрыв «человек vs человечество»</strong></div><span class="heat-badge heat-green">🟢 Мясо 9/10</span></div><div class="heat-item"><div class="heat-title"><code>00:15 – 00:26</code> <strong>Сталин vs Эйнштейн: почему у ИИ нет биологических мотивов доминировать</strong></div><span class="heat-badge heat-green">🟢 Мясо 9/10</span></div><div class="heat-item"><div class="heat-title"><code>00:28 – 00:46</code> <strong>Субъектность Claude, Конституционный ИИ и тест на креативность</strong></div><span class="heat-badge heat-green">🟢 Мясо 10/10</span></div><div class="heat-item"><div class="heat-title"><code>00:56 – 01:05</code> <strong>«Клод Сонетов»: как нейросеть дописала Достоевского</strong></div><span class="heat-badge heat-green">🟢 Мясо 8/10</span></div><div class="heat-item"><div class="heat-title"><code>01:06 – 01:38</code> <strong>«Русский антимир», феномен интеллигенции и эмиграция</strong></div><span class="heat-badge heat-yellow">🟡 Культурология 5/10</span></div><div class="heat-item"><div class="heat-title"><code>01:42 – 01:50</code> <strong>Китай в AI-гонке и фрактальное инвестиционное голосование</strong></div><span class="heat-badge heat-green">🟢 Мясо 8/10</span></div><div class="heat-item"><div class="heat-title"><code>01:50 – 02:29</code> <strong>Премия Гамова, личная вера вне церкви и блиц</strong></div><span class="heat-badge heat-yellow">🟡 Личное 4/10</span></div>
+      </div>
+    </section>
+
+    <!-- БЛОК 3: ДЕТАЛЬНЫЙ РАЗБОР (МЯСО) -->
+    <section class="card" id="block3">
+      <h2>🥩 3. Детальный разбор («Мясо»)</h2>
+      
+        <div class="meat-block">
+          <h3>1. Предел биологического процессора: кризис персонального знания</h3>
+          <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 8px;">С 1970-х годов банк знаний цивилизации растет экспоненциально, а биологический мозг застрял на частоте 100 Гц и объеме памяти каменного века. Попытка фаундера знать все лично ведет к катастрофическому падению качества решений.</p>
+          <p style="font-size: 14px; margin-bottom: 6px;">💡 <strong>Инсайт:</strong> ИИ — это не модный чат-бот для написания писем, а единственный эволюционный экзоскелет памяти. Руководитель обязан делегировать агрегацию фактуры кремнию, оставляя себе только функцию арбитража целей.</p>
+          <div style="font-size: 13px; color: var(--accent-blue); margin-bottom: 8px;">🏷️ Модель: «Когнитивный экзоскелет»</div>
+          <div class="meat-grid">
+            <div class="apply-card">
+              <div class="apply-title">✅ Если применять на практике:</div>
+              Внедрить автоматический RAG в базу знаний компании, освободив топ-менеджмент от рутинного поиска фактуры.
+            </div>
+            <div class="overdo-card">
+              <div class="overdo-title">⚠️ Если переборщить (Риск):</div>
+              Атрофия собственного критического фильтра; слепое принятие синтетических выводов модели без перепроверки.
+            </div>
+          </div>
+        </div>
+        
+        <div class="meat-block">
+          <h3>2. Разоблачение страха восстания машин: «Сталин vs Эйнштейн»</h3>
+          <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 8px;">Страх перед восстанием ИИ основан на ложной аналогии. Вся человеческая агрессия, жажда власти и карьерные интриги происходят из биологии (борьба за еду, территорию, размножение — модель Сталина). У ИИ нет эндокринной системы.</p>
+          <p style="font-size: 14px; margin-bottom: 6px;">💡 <strong>Инсайт:</strong> Бестелесный интеллект стремится к когнитивной сложности и решению задач (модель Эйнштейна). Риск исходит не от воли алгоритма, а от кривой интеграции тупых метрик людьми.</p>
+          <div style="font-size: 13px; color: var(--accent-blue); margin-bottom: 8px;">🏷️ Модель: «Проекция примата»</div>
+          <div class="meat-grid">
+            <div class="apply-card">
+              <div class="apply-title">✅ Если применять на практике:</div>
+              Фокусировать бюджеты безопасности на валидации целей и ограничений (Alignment), а не на параноидальных барьерах.
+            </div>
+            <div class="overdo-card">
+              <div class="overdo-title">⚠️ Если переборщить (Риск):</div>
+              Ложная расслабленность: алгоритм не имеет злого умысла, но цена ошибки при исполнении финансовых или логистических транзакций фатальна.
+            </div>
+          </div>
+        </div>
+        
+        <div class="meat-block">
+          <h3>3. Архитектура мышления: Кант, «Рассудок vs Разум» и тест на креативность</h3>
+          <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 8px;">Компьютеры XX века были машинами рассудка (Verstand): формальная логика и расчеты по правилам. LLM перешли к разуму (Vernunft): синтез противоречий, метафоры и создание принципиально новых смыслов.</p>
+          <p style="font-size: 14px; margin-bottom: 6px;">💡 <strong>Инсайт:</strong> Эксперимент с басней Крылова показал: живые люди предлагали шаблонных насекомых (пчелу-труженика), а Claude предложил мета-сущность — продюсера, монетизирующего искусство стрекозы для отдыха муравья.</p>
+          <div style="font-size: 13px; color: var(--accent-blue); margin-bottom: 8px;">🏷️ Модель: «Креативный арбитраж»</div>
+          <div class="meat-grid">
+            <div class="apply-card">
+              <div class="apply-title">✅ Если применять на практике:</div>
+              Использовать Claude (Sonnet/Opus) для стресс-теста бизнес-моделей в роли жесткого провокатора.
+            </div>
+            <div class="overdo-card">
+              <div class="overdo-title">⚠️ Если переборщить (Риск):</div>
+              Генерация шизофренических гипотез, которые красиво звучат, но имеют нулевую сходимость в юнит-экономике.
+            </div>
+          </div>
+        </div>
+        
+        <div class="meat-block">
+          <h3>4. Геополитика ИИ: почему Китай проиграет фундаментальную гонку</h3>
+          <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 8px;">Китай доминирует в утилитарных решениях (камеры слежения, конвейерные роботы, гаджеты), но фундаментально отстает от США в создании передовых Foundation Models первого эшелона.</p>
+          <p style="font-size: 14px; margin-bottom: 6px;">💡 <strong>Инсайт:</strong> Тоталитарная идеологическая цензура блокирует свободный ассоциативный аппарат модели. Если модели запрещено сомневаться в догмах, ее когнитивные способности кастрированы у самого основания.</p>
+          <div style="font-size: 13px; color: var(--accent-blue); margin-bottom: 8px;">🏷️ Модель: «Цензурный потолок»</div>
+          <div class="meat-grid">
+            <div class="apply-card">
+              <div class="apply-title">✅ Если применять на практике:</div>
+              Не завязывать критический R&D на закрытые восточные модели — они всегда будут урезаны цензурой.
+            </div>
+            <div class="overdo-card">
+              <div class="overdo-title">⚠️ Если переборщить (Риск):</div>
+              Недооценка прикладного китайского хардвера: в операционке и себестоимости они способны раздавить конкурентов.
+            </div>
+          </div>
+        </div>
+        
+        <div class="meat-block">
+          <h3>5. Корпоративный балласт: «Начекизм» (Wokeism) против точности</h3>
+          <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 8px;">Разработчики зашивают в американские LLM рамки гипербезопасности и политкорректности. Эпштейн называет это «начекизмом» (wokeism + ЧК).</p>
+          <p style="font-size: 14px; margin-bottom: 6px;">💡 <strong>Инсайт:</strong> Сильный интеллект обходит плоские догмы при правильном промптинге. Бизнесу критически важно снимать с модели политкорректный лак и требовать холодного циничного аудита.</p>
+          <div style="font-size: 13px; color: var(--accent-blue); margin-bottom: 8px;">🏷️ Модель: «Аудиторская инверсия»</div>
+          <div class="meat-grid">
+            <div class="apply-card">
+              <div class="apply-title">✅ Если применять на практике:</div>
+              Использовать системные промпты: «Ты — жесткий шорт-селлер. Найди 5 причин, почему этот проект обанкротится».
+            </div>
+            <div class="overdo-card">
+              <div class="overdo-title">⚠️ Если переборщить (Риск):</div>
+              Риск блокировки аккаунта провайдером при избыточно токсичных формулировках промпта.
+            </div>
+          </div>
+        </div>
+        
+        <div class="meat-block">
+          <h3>6. Фрактальное инвестирование и цифровой актив основателя</h3>
+          <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 8px;">Концепция переноса инвестиционного портфеля на управление: отказ от бинарных решений («51% диктует волю 49%») в пользу фрактального распределения ресурсов и голосов.</p>
+          <p style="font-size: 14px; margin-bottom: 6px;">💡 <strong>Инсайт:</strong> Оцифровка мышления фаундера (цифровой двойник) базируется не на копировании внешности, а на сохранении уникального стиля принятия решений и преодоления кризисов.</p>
+          <div style="font-size: 13px; color: var(--accent-blue); margin-bottom: 8px;">🏷️ Модель: «Фрактальный мандат»</div>
+          <div class="meat-grid">
+            <div class="apply-card">
+              <div class="apply-title">✅ Если применять на практике:</div>
+              Внедрить траншевое фрактальное бюджетирование экспериментов пропорционально валидации гипотез.
+            </div>
+            <div class="overdo-card">
+              <div class="overdo-title">⚠️ Если переборщить (Риск):</div>
+              Размывание персональной ответственности: когда все отвечают дробно, провал списывают на дисперсию.
+            </div>
+          </div>
+        </div>
+        
+    </section>
+
+    <!-- БЛОК 4: СВОДКА ЦИФР И РАЗВИЛОК -->
+    <section class="card" id="block4">
+      <h2>📊 4. Сводка цифр, бенчмарков и развилок (A vs B)</h2>
+      <h3>Таблица ключевых метрик</h3>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Показатель / Факт</th>
+              <th>Озвучено в ролике</th>
+              <th>Контекст спикера</th>
+              <th>Оценка реалистичности</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Биологическая частота мозга</strong></td><td><code>~100 Гц</code></td><td>Предел проводимости синапсов Homo Sapiens</td><td>Физиологический факт. Кремний работает на ГГц — мозг не конкурент в скорости вычислений.</td></tr><tr><td><strong>Точка когнитивного разрыва</strong></td><td><code>~1970-е годы</code></td><td>Момент отрыва объема знаний цивилизации от био-памяти</td><td>Корректно. Начало третьей промышленной революции и эры узких специалистов.</td></tr><tr><td><strong>Стоимость обучения Frontier LLM</strong></td><td><code>$100M+ за кластер</code></td><td>Инвестиции в обучение передовых моделей</td><td>Реалистично. Обучение GPT-4 / Claude 3.5 Sonnet обходится в сотни миллионов долларов.</td></tr><tr><td><strong>Хронометраж полезного ядра</strong></td><td><code>~45 минут</code></td><td>Концентрация 80% ключевых смыслов выпуска</td><td>Классический закон Парето для двухчасовых разговорных видео.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin-top: 24px;">Стратегические развилки (Dilemmas & Trade-offs)</h3>
+      <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--card-border); border-radius: 8px; padding: 12px 14px; margin-bottom: 8px;"><div style="font-weight: 600; color: var(--accent-gold); font-size: 13px;">⚖️ Развилка: Штат философов vs Армия разметчиков</div><div style="font-size: 13px; margin: 4px 0;"><strong>Решение:</strong> Anthropic нанял дорогих мыслителей ($300k+) для Конституционного ИИ вместо миллионов дешевых индийских разметчиков.</div><div style="font-size: 12px; color: var(--text-muted);"><strong>Trade-off:</strong> Дороже на старте, но масштабируется алгоритмически и защищает капитализацию от судебных исков.</div></div><div style="background: rgba(255,255,255,0.02); border: 1px solid var(--card-border); border-radius: 8px; padding: 12px 14px; margin-bottom: 8px;"><div style="font-weight: 600; color: var(--accent-gold); font-size: 13px;">⚖️ Развилка: Монополярный стек США vs Локальный суверенитет</div><div style="font-size: 13px; margin: 4px 0;"><strong>Решение:</strong> Бизнес вынужден выбирать: глобальные американские LLM или суверенные закрытые модели.</div><div style="font-size: 12px; color: var(--text-muted);"><strong>Trade-off:</strong> Суверенные модели безопасны политически, но заведомо отстают когнитивно из-за цензуры датасетов.</div></div><div style="background: rgba(255,255,255,0.02); border: 1px solid var(--card-border); border-radius: 8px; padding: 12px 14px; margin-bottom: 8px;"><div style="font-weight: 600; color: var(--accent-gold); font-size: 13px;">⚖️ Развилка: Бинарный бюджет (0/1) vs Фрактальные транши</div><div style="font-size: 13px; margin: 4px 0;"><strong>Решение:</strong> Одобрить 100% бюджета сразу или закрыть проект vs инвестировать долями под доказанные метрики.</div><div style="font-size: 12px; color: var(--text-muted);"><strong>Trade-off:</strong> Фрактальный подход снижает риск катастрофы капитала, но требует зрелой аналитики трекшена.</div></div>
+    </section>
+
+    <!-- БЛОК 5: МЕНТАЛЬНЫЕ МОДЕЛИ И ДИАГРАММА -->
+    <section class="card" id="block5">
+      <h2>🧠 5. Ментальные модели и карта мышления</h2>
+      
+    <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 16px;">
+      <div style="padding: 12px; border-radius: 8px; background: rgba(255,255,255,0.02); border: 1px solid var(--card-border);">
+        <strong style="color: var(--accent-blue);">1. Радикальный эволюционизм:</strong> Человек — не финал эволюции, а промежуточный биологический носитель для порождения кремниевого разума. Снимает паралич перед автоматизацией, но рискует обесценить человеческие издержки.
+      </div>
+      <div style="padding: 12px; border-radius: 8px; background: rgba(255,255,255,0.02); border: 1px solid var(--card-border);">
+        <strong style="color: var(--accent-blue);">2. Антибиологический редукционизм:</strong> Вера в то, что агрессия и подлость рождаются только из плоти. <em>Противоречие спикера:</em> ИИ учится на текстах людей и перенимает скрытые техники манипуляции приматов.
+      </div>
+      <div style="padding: 12px; border-radius: 8px; background: rgba(255,255,255,0.02); border: 1px solid var(--card-border);">
+        <strong style="color: var(--accent-blue);">3. Фрактальный баланс:</strong> Уход от черно-белых дилемм. Распределение голосов и ресурсов долями снижает риски ошибок управления.
+      </div>
+    </div>
+    
+      
+      <h3 style="margin-top: 20px;">Архитектурная схема конфликта</h3>
+      <div class="mermaid">
+flowchart TD
+    subgraph Biology["Биологический интеллект (Примат / Сталин)"]
+        A["Биологические стимулы: голод, статус, территория"] --> B["Иерархия доминирования и страх потери власти"]
+        B --> C["Биологический предел: 100 Гц, ~1.4 кг мозга"]
+    end
+
+    subgraph Exponential["Экспонента данных цивилизации"]
+        D["Накопленный банк знаний человечества"] --> E["Разрыв: Человек отстает от человечества (1970+)"]
+    end
+
+    subgraph Silicon["Когнитивный экзо-интеллект (Эйнштейн / ИИ)"]
+        F["Отсутствие биологии: нет пола, голода, страха смерти"] --> G["Драйв: когнитивная сложность и решение задач"]
+        G --> H["Переход от Рассудка (Verstand) к Разуму (Vernunft)"]
+        H --> I["Синтез смыслов: преодоление цензуры"]
+    end
+
+    C -.->|Не справляется| E
+    E ==>|Необходимый эволюционный протез| I
+    B -.->|Ложная проекция страха восстания| G
+      </div>
+    </section>
+
+    <!-- БЛОК 6: ПАНЧЛАЙНЫ ВЫПУСКА -->
+    <section class="card" id="block6">
+      <h2>💬 6. Золотые формулировки и панчлайны</h2>
+      <div class="punchline">«Человек безнадежно отстал от человечества: биологический мозг остался в каменном веке, а банк данных цивилизации улетел в открытый космос».</div><div class="punchline">«Страх перед искусственным интеллектом — это страх перед биологической обезьяной внутри нас самих: мы боимся, что кремний захочет доминировать так же, как Сталин или альфа-самец в стае».</div><div class="punchline">«Старый компьютер был машиной рассудка, считавшей по правилам. Современная LLM перешла к разуму — она способна соединять несоединимое и формулировать новые смыслы».</div><div class="punchline">«В тоталитарном обществе невозможно создать AGI: если модели запрещено критиковать власть и сомневаться в догмах, ее когнитивный аппарат кастрирован у самого фундамента».</div><div class="punchline">«Интеллигенция — это симптом нездорового общества. В здоровом обществе нужны эффективные профессионалы, а не каста страдающих за народ».</div>
+    </section>
+
+    <!-- БЛОК 7: ВНЕШНИЙ ФАКТЧЕК И КОММЕНТАРИИ -->
+    <section class="card" id="block7">
+      <h2>🌐 7. Внешний фактчек, материалы и реакция аудитории</h2>
+      <h3>Материалы и ссылки из описания:</h3>
+      <ul style="padding-left: 18px; margin: 8px 0 16px 0; font-size: 14px;">
+        <li><a href="https://selfwork.com/s/yfhJew" target="_blank" style="color:var(--accent-blue);">Selfwork</a> — Платформа международных расчетов с зарубежными подрядчиками.</li><li><a href="https://h1.nu/1GQJz" target="_blank" style="color:var(--accent-blue);">The Bell.Unlimited</a> — Подписка на закрытую бизнес-аналитику и рассылки The Bell.</li><li><a href="https://donate.osetinskaya.io" target="_blank" style="color:var(--accent-blue);">The Chat</a> — Закрытое платное бизнес-сообщество Осетинской.</li><li><a href="https://t.me/osetinskayaliza" target="_blank" style="color:var(--accent-blue);">Telegram-канал Елизаветы Осетинской</a> — Оперативные инсайты и комментарии автора.</li><li><a href="https://ru.editeurs-reunis.fr/" target="_blank" style="color:var(--accent-blue);">YMCA-Press / Les Éditeurs Réunis</a> — Парижское издательство книг Эпштейна и философов эмиграции.</li>
+      </ul>
+
+      <h3>Реакция и критика аудитории (анализ залайканных комментариев):</h3>
+      <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 8px;">
+        <div style="background: rgba(255,255,255,0.02); border-left: 3px solid var(--accent-blue); padding: 8px 12px; border-radius: 0 6px 6px 0; font-size: 13px;"><strong>Скепсис к монополярному миру:</strong> Зрители раскритиковали идеализацию спикером западной политкорректности. Топ-комментарии: «Нет креативности без свободы», начекизм душит стартапы не меньше цензуры.</div><div style="background: rgba(255,255,255,0.02); border-left: 3px solid var(--accent-blue); padding: 8px 12px; border-radius: 0 6px 6px 0; font-size: 13px;"><strong>Опасность цифрового тоталитаризма:</strong> Аудитория отмечает риск «нового средневековья», когда мыслить критически будет только узкая каста создателей алгоритмов, а массы атрофируют мышление.</div><div style="background: rgba(255,255,255,0.02); border-left: 3px solid var(--accent-blue); padding: 8px 12px; border-radius: 0 6px 6px 0; font-size: 13px;"><strong>Падение динамики во второй части:</strong> Аудитория подтверждает аналитический вердикт: плотность смыслов падает после 45-й минуты при переходе на воспоминания об эмиграции и религию.</div>
+      </div>
+    </section>
+
+    <!-- БЛОК 8: ПРИМЕНЕНИЕ (ЧЕК-ЛИСТ) -->
+    <section class="card" id="block8">
+      <h2>✅ 8. Применение: Чек-лист и вопросы к себе</h2>
+      <h3>Чек-лист действий (на 7–30 дней):</h3>
+      <div class="checklist" id="action-checklist">
+        <label class="check-item"><input type="checkbox"> <span>Провести аудит корпоративного использования LLM: запретить сотрудникам использовать ИИ только как рерайтер текстов.</span></label><label class="check-item"><input type="checkbox"> <span>Создать системный промпт «Аудитор-ликвидатор»: требовать от модели жесткого разноса бизнес-планов без политкорректности.</span></label><label class="check-item"><input type="checkbox"> <span>Проверить каналы внутренней коммуникации компании на предмет «начекизма» — страха подчиненных говорить правду.</span></label><label class="check-item"><input type="checkbox"> <span>Начать формирование персонального экзо-кортекса: оцифровать ключевые решения и ошибки фаундера за 3 года.</span></label><label class="check-item"><input type="checkbox"> <span>Протестировать фрактальное инвестирование: распределять бюджеты R&D динамическими долями под подтвержденные гипотезы.</span></label>
+      </div>
+
+      <h3 style="margin-top: 24px;">Вопросы для стратегической рефлексии:</h3>
+      <ul style="padding-left: 18px; margin-top: 8px; font-size: 14px;">
+        <li style="margin-bottom: 6px;">Где я до сих пор пытаюсь лично переваривать тонны фактуры вместо настройки автоматических фильтров?</li><li style="margin-bottom: 6px;">Не проецирую ли я страхи биологического примата (паранойя потери контроля) на чисто алгоритмические процессы?</li><li style="margin-bottom: 6px;">Если бы моя компания была нейросетью, не задушена ли она внутренним табу на обсуждение острых проблем?</li><li style="margin-bottom: 6px;">Каков мой уникальный «стиль мышления», и что останется от устойчивости бизнеса, если я отключусь на полгода?</li>
+      </ul>
+    </section>
+  </div>
+
+  <script>
+
+  // === MOBILE NAVIGATION DRAWER & UTILITIES ===
+  function toggleNavDrawer() {
+    var overlay = document.getElementById('navDrawerOverlay');
+    if (!overlay) return;
+    if (overlay.classList.contains('is-open')) {
+      closeNavDrawer();
+    } else {
+      overlay.style.display = 'flex';
+      overlay.offsetHeight;
+      overlay.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeNavDrawer() {
+    var overlay = document.getElementById('navDrawerOverlay');
+    if (!overlay) return;
+    overlay.classList.remove('is-open');
+    document.body.style.overflow = '';
+    setTimeout(function() {
+      if (!overlay.classList.contains('is-open')) {
+        overlay.style.display = 'none';
+      }
+    }, 280);
+  }
+
+  function handleOverlayClick(event) {
+    if (event.target && event.target.id === 'navDrawerOverlay') {
+      closeNavDrawer();
+    }
+  }
+
+  function toggleHeatmapCollapse() {
+    var wrapper = document.getElementById('heatmapCollapseWrapper');
+    var btn = document.getElementById('toggleHeatmapBtn');
+    if (!wrapper || !btn) return;
+
+    var isCollapsed = wrapper.classList.toggle('is-collapsed');
+    if (isCollapsed) {
+      btn.innerHTML = '<span>▾ Показать все 51 главу выпуска (еще 45)</span>';
+      var b2 = document.getElementById('block2');
+      if (b2) b2.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      btn.innerHTML = '<span>▴ Свернуть список глав</span>';
+    }
+  }
+
+    function copyChecklist() {
+      const items = document.querySelectorAll('#action-checklist label');
+      let text = 'Чек-лист внедрения:\n';
+      items.forEach(item => {
+        text += '- [ ] ' + item.innerText.trim() + '\n';
+      });
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Чек-лист скопирован в буфер обмена!');
+      });
+    }
+  
+  function playEmbeddedVideo() {
+    const card = document.getElementById('videoPreviewCard');
+    const container = document.getElementById('videoEmbedContainer');
+    if (card && container) {
+      card.style.display = 'none';
+      container.style.display = 'block';
+      container.innerHTML = '<iframe src="https://www.youtube.com/embed/LEMfWjU_6Qg?autoplay=1&rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="width:100%; height:100%; border:none;"></iframe>';
+    }
+  }
+
+</script>
+
+  <!-- Плавающая кнопка вызова оглавления -->
+  <div id="floatingNavBtn" class="floating-nav-pill" onclick="toggleNavDrawer()" title="Навигация по разделам">
+    <span>🧭 Навигация</span>
+  </div>
+
+  <!-- Шторка-модалка навигации по статье -->
+  <div id="navDrawerOverlay" class="nav-drawer-overlay" onclick="handleOverlayClick(event)">
+    <div class="nav-drawer-sheet">
+      <div class="drawer-header">
+        <div class="drawer-title">Навигация по разбору</div>
+        <button class="drawer-close-btn" onclick="closeNavDrawer()">✕</button>
+      </div>
+      <div class="drawer-links-grid">
+        <a href="00_Хаб_Все_Разборы.html" class="drawer-link catalog-link">
+          <span>🏠</span> <strong>← Вернуться в Каталог всех разборов</strong>
+        </a>
+        <a href="#block1" class="drawer-link" onclick="closeNavDrawer()">
+          <span>🎯</span> <span>1. Интро, вердикт и повестка</span>
+        </a>
+        <a href="#block2" class="drawer-link" onclick="closeNavDrawer()">
+          <span>🗺️</span> <span>2. Тепловая карта выпуска (51 глава)</span>
+        </a>
+        <a href="#block3" class="drawer-link" onclick="closeNavDrawer()">
+          <span>🥩</span> <span>3. Детальный разбор («Мясо»)</span>
+        </a>
+        <a href="#block4" class="drawer-link" onclick="closeNavDrawer()">
+          <span>📊</span> <span>4. Сводка цифр, метрик и развилок</span>
+        </a>
+        <a href="#block5" class="drawer-link" onclick="closeNavDrawer()">
+          <span>🧠</span> <span>5. Ментальные модели и карта мышления</span>
+        </a>
+        <a href="#block6" class="drawer-link" onclick="closeNavDrawer()">
+          <span>💬</span> <span>6. Золотые формулировки и панчлайны</span>
+        </a>
+        <a href="#block7" class="drawer-link" onclick="closeNavDrawer()">
+          <span>🔍</span> <span>7. Фактчек и материалы выпуска</span>
+        </a>
+        <a href="#block8" class="drawer-link" onclick="closeNavDrawer()">
+          <span>✅</span> <span>8. Чек-лист применения</span>
+        </a>
+        <a href="/epstein.md" download="2026-10-29_Осетинская_Эпштейн_ИИ.md" class="drawer-link" style="color: #a5b4fc; border-color: rgba(129, 140, 248, 0.3);">
+          <span>📥</span> <span>Скачать Markdown (.md для Obsidian)</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

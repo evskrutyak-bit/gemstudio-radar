@@ -1,0 +1,1558 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gemstudio • Фабрика Смыслов и Каталог Бизнес-Деконструкций</title>
+  
+  <!-- Open Graph / Rich Social Preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Gemstudio • Каталог Бизнес-Деконструкций [2026]">
+  <meta property="og:description" content="Инвестиционный аудит бизнес-подкастов и IT-манифестов: ментальные модели, скрытая повестка, цифры, интерактивные таймкоды и экспорт в Obsidian.">
+  <meta property="og:image" content="https://img.youtube.com/vi/LqPKkUMLqfU/maxresdefault.jpg">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="720">
+  <meta property="og:site_name" content="Gemstudio: Бизнес-Деконструктор">
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #070a12;
+      --card-bg: #0f172a;
+      --card-inner: #131d35;
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-border-hover: rgba(56, 189, 248, 0.4);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent-blue: #38bdf8;
+      --accent-cyan: #06b6d4;
+      --accent-purple: #a855f7;
+      --accent-green: #10b981;
+      --accent-gold: #f59e0b;
+      --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.08) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(168, 85, 247, 0.06) 0px, transparent 50%);
+      background-attachment: fixed;
+      color: var(--text-main);
+      font-family: var(--font-main);
+      line-height: 1.6;
+      padding: 0 0 100px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Top Nav - Natural non-sticky scroll */
+    .gemstudio-top-nav {
+      background: rgba(11, 17, 32, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 14px 24px;
+      position: relative; /* Не прилипает на телефоне! */
+    }
+
+    .gemstudio-nav-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .gemstudio-brand {
+      font-weight: 800;
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.15rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      letter-spacing: -0.01em;
+    }
+
+    .brand-icon-box {
+      width: 34px;
+      height: 34px;
+      background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.4);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #cbd5e1;
+      padding: 7px 14px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .nav-link-btn:hover {
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+      border-color: rgba(56, 189, 248, 0.35);
+    }
+
+    /* Container */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 32px 24px;
+    }
+
+    /* Hero Banner */
+    .hero-banner {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(11, 17, 32, 0.95) 100%);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 44px 36px;
+      margin-bottom: 36px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-banner::before {
+      content: "";
+      position: absolute;
+      top: -120px;
+      right: -120px;
+      width: 360px;
+      height: 360px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.14) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      color: var(--accent-blue);
+      padding: 5px 14px;
+      border-radius: 30px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1.15;
+      color: #fff;
+      margin-bottom: 14px;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-desc {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      max-width: 820px;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    /* Stats Grid Inside Hero */
+    .hero-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .stat-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 14px;
+      padding: 16px 18px;
+      transition: all 0.2s;
+    }
+
+    .stat-card:hover {
+      background: rgba(56, 189, 248, 0.05);
+      border-color: rgba(56, 189, 248, 0.2);
+    }
+
+    .stat-val {
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+    }
+
+    .stat-label {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+      font-weight: 500;
+    }
+
+    /* Controls Panel */
+    .controls-panel {
+      margin-bottom: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .search-row {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .sort-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sort-select {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: #cbd5e1;
+      padding: 13px 16px;
+      border-radius: 14px;
+      font-size: 0.88rem;
+      font-family: inherit;
+      outline: none;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .sort-select:hover, .sort-select:focus {
+      border-color: var(--accent-blue);
+      color: #fff;
+      background: #111a33;
+    }
+
+    .search-input-wrap {
+      position: relative;
+      flex-grow: 1;
+    }
+
+    .search-input {
+      width: 100%;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 15px 18px 15px 46px;
+      color: #fff;
+      font-size: 0.98rem;
+      font-family: inherit;
+      outline: none;
+      transition: all 0.25s ease;
+    }
+
+    .search-input:focus {
+      border-color: var(--accent-blue);
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.25);
+      background: #111a33;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 1.15rem;
+      pointer-events: none;
+    }
+
+    .search-count-badge {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+      padding: 0 8px;
+    }
+
+    /* Category Pills */
+    .category-pills {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+      scrollbar-width: thin;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .category-pills::-webkit-scrollbar {
+      height: 4px;
+    }
+
+    .category-pills::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 4px;
+    }
+
+    .cat-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: #94a3b8;
+      padding: 9px 16px;
+      border-radius: 24px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      font-family: inherit;
+    }
+
+    .gem-icon {
+      width: 15px;
+      height: 15px;
+      display: inline-block;
+      vertical-align: middle;
+      flex-shrink: 0;
+      transition: transform 0.2s ease, filter 0.2s ease;
+    }
+
+    .cat-icon-wrap {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cat-btn:hover .gem-icon, .cat-btn.active .gem-icon {
+      filter: drop-shadow(0 0 6px currentColor);
+      transform: scale(1.15);
+    }
+
+    .cat-btn:hover {
+      background: #1e293b;
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .cat-btn.active {
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+      color: #fff;
+      border-color: #38bdf8;
+      box-shadow: 0 4px 16px rgba(2, 132, 199, 0.35);
+    }
+
+    .cat-badge-count {
+      font-size: 0.75rem;
+      background: rgba(0, 0, 0, 0.35);
+      padding: 2px 7px;
+      border-radius: 12px;
+      font-family: var(--font-mono);
+    }
+
+    /* Cards Grid */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(370px, 1fr));
+      gap: 28px;
+    }
+
+    .deconstruct-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      position: relative;
+    }
+
+    .deconstruct-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--card-border-hover);
+      box-shadow: 0 18px 40px rgba(56, 189, 248, 0.18);
+    }
+
+    .card-thumb-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      overflow: hidden;
+    }
+
+    .card-thumb {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .deconstruct-card:hover .card-thumb {
+      transform: scale(1.04);
+    }
+
+    .card-thumb-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.6) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .deconstruct-card:hover .card-thumb-overlay {
+      opacity: 1;
+    }
+
+    .play-hover-btn {
+      width: 52px;
+      height: 52px;
+      background: rgba(239, 68, 68, 0.95);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      box-shadow: 0 0 24px rgba(239, 68, 68, 0.6);
+      transform: scale(0.85);
+      transition: transform 0.2s ease;
+    }
+
+    .deconstruct-card:hover .play-hover-btn {
+      transform: scale(1);
+    }
+
+    .badge-specialization {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(11, 17, 32, 0.92);
+      backdrop-filter: blur(8px);
+      padding: 5px 12px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      letter-spacing: 0.02em;
+    }
+
+    .rating-float {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: rgba(245, 158, 11, 0.95);
+      color: #000;
+      font-weight: 800;
+      padding: 4px 9px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-family: var(--font-mono);
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.35);
+    }
+
+    .duration-float {
+      position: absolute;
+      bottom: 12px;
+      right: 14px;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(4px);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      padding: 3px 8px;
+      border-radius: 6px;
+      color: #f1f5f9;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .card-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .card-meta-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      font-family: var(--font-mono);
+    }
+
+    .card-title {
+      font-size: 1.22rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.35;
+      margin-bottom: 10px;
+      text-decoration: none;
+      display: block;
+      letter-spacing: -0.01em;
+      transition: color 0.2s;
+    }
+
+    .card-title:hover {
+      color: var(--accent-blue);
+    }
+
+    .card-speaker {
+      font-size: 0.88rem;
+      color: var(--accent-purple);
+      margin-bottom: 12px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .card-desc {
+      font-size: 0.92rem;
+      color: #cbd5e1;
+      line-height: 1.55;
+      margin-bottom: 18px;
+      flex-grow: 1;
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 22px;
+    }
+
+    .card-tag {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #94a3b8;
+      font-size: 0.75rem;
+      padding: 3px 9px;
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-weight: 500;
+    }
+
+    .card-actions {
+      margin-top: auto;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .card-btn {
+      flex-grow: 1;
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+      color: #fff;
+      text-decoration: none;
+      padding: 11px 16px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      text-align: center;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.25);
+    }
+
+    .card-btn:hover {
+      background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+      box-shadow: 0 6px 20px rgba(14, 165, 233, 0.45);
+      transform: translateY(-1px);
+    }
+
+    .card-btn-download {
+      background: rgba(168, 85, 247, 0.12);
+      color: #d8b4fe;
+      border: 1px solid rgba(168, 85, 247, 0.35);
+      padding: 11px 14px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      text-decoration: none;
+      transition: all 0.2s;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+    }
+
+    .card-btn-download:hover {
+      background: #9333ea;
+      color: #fff;
+      border-color: #9333ea;
+      box-shadow: 0 4px 14px rgba(147, 51, 234, 0.35);
+    }
+
+    #noResults {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 64px 24px;
+      background: var(--card-bg);
+      border: 1px dashed var(--card-border);
+      border-radius: 20px;
+      color: var(--text-muted);
+    }
+
+    /* Manifesto Callout Banner */
+    .manifesto-banner {
+      margin-top: 50px;
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.1) 0%, rgba(2, 132, 199, 0.1) 100%);
+      border: 1px solid rgba(168, 85, 247, 0.25);
+      border-radius: 20px;
+      padding: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .manifesto-info {
+      max-width: 700px;
+    }
+
+    .manifesto-info h3 {
+      font-size: 1.3rem;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .manifesto-info p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .manifesto-btn {
+      background: linear-gradient(135deg, #9333ea 0%, #7c3aed 100%);
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 16px rgba(147, 51, 234, 0.35);
+      transition: all 0.2s;
+    }
+
+    .manifesto-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(147, 51, 234, 0.5);
+    }
+
+    @media (max-width: 768px) {
+      .container { padding: 20px 16px; }
+      .hero-banner { padding: 26px 20px; border-radius: 18px; margin-bottom: 24px; }
+      h1 { font-size: 1.75rem; }
+      .cards-grid { grid-template-columns: 1fr; gap: 20px; }
+      .hero-stats-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .manifesto-banner { padding: 22px 18px; }
+    }
+  
+    /* Featured Hero Section */
+    .featured-hero-wrap {
+      position: relative;
+      margin-bottom: 36px;
+      border-radius: 24px;
+    }
+    .featured-ambient-glow {
+      position: absolute;
+      inset: -14px;
+      background-size: cover;
+      background-position: center;
+      filter: blur(36px);
+      opacity: 0.35;
+      border-radius: 30px;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .featured-hero-card {
+      position: relative;
+      z-index: 1;
+      background: linear-gradient(135deg, rgba(17, 24, 39, 0.95) 0%, rgba(11, 17, 32, 0.98) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 24px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    }
+    .featured-thumb-wrap {
+      position: relative;
+      background: #000;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+    }
+    .featured-thumb {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .featured-hero-card:hover .featured-thumb {
+      transform: scale(1.03);
+    }
+    .featured-play-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.35);
+      transition: background 0.3s ease;
+    }
+    .featured-hero-card:hover .featured-play-overlay {
+      background: rgba(0, 0, 0, 0.5);
+    }
+    .featured-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.75rem;
+      padding: 5px 12px;
+      border-radius: 6px;
+      letter-spacing: 0.05em;
+      box-shadow: 0 4px 14px rgba(239, 68, 68, 0.4);
+    }
+    .featured-duration {
+      position: absolute;
+      bottom: 12px;
+      right: 14px;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(4px);
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      padding: 3px 8px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .featured-content {
+      padding: 32px 30px;
+      display: flex;
+      flex-direction: column;
+    }
+    .featured-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .featured-spec {
+      font-weight: 700;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .featured-rating {
+      background: rgba(245, 158, 11, 0.2);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-weight: 800;
+      font-size: 0.78rem;
+      font-family: var(--font-mono);
+    }
+    .featured-date {
+      color: var(--text-muted);
+      font-size: 0.82rem;
+    }
+    .featured-title {
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.3;
+      margin-bottom: 12px;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .featured-title:hover {
+      color: var(--accent-blue);
+    }
+    .featured-speaker {
+      color: var(--accent-purple);
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 14px;
+    }
+    .featured-desc {
+      color: #cbd5e1;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 24px;
+      flex-grow: 1;
+    }
+    .featured-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-top: auto;
+    }
+
+    /* Pagination Load More */
+    .load-more-wrap {
+      margin-top: 36px;
+      text-align: center;
+    }
+    .load-more-btn {
+      background: linear-gradient(135deg, rgba(2, 132, 199, 0.2) 0%, rgba(56, 189, 248, 0.15) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #38bdf8;
+      padding: 12px 32px;
+      border-radius: 24px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .load-more-btn:hover {
+      background: linear-gradient(135deg, rgba(2, 132, 199, 0.35) 0%, rgba(56, 189, 248, 0.25) 100%);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(56, 189, 248, 0.25);
+    }
+
+    @media (max-width: 900px) {
+      .featured-hero-card { grid-template-columns: 1fr; }
+      .featured-content { padding: 22px 18px; }
+      .featured-title { font-size: 1.3rem; }
+    }
+    
+</style>
+</head>
+<body>
+
+  <!-- Non-Sticky Top Nav (No mobile screen overlap) -->
+  <nav class="gemstudio-top-nav">
+    <div class="gemstudio-nav-container">
+      <a href="index.html" class="gemstudio-brand">
+        <div class="brand-icon-box">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <div>
+          <span>Gemstudio</span>
+          <span style="color: #64748b; font-weight: normal; font-size: 0.9rem;"> | Бизнес-Деконструктор</span>
+        </div>
+      </a>
+      
+    </div>
+  </nav>
+
+  <div class="container">
+    <!-- Hero Banner with Key Metrics -->
+    <header class="hero-banner">
+      <span class="hero-tag">
+        <svg class="gem-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px; vertical-align: -2px;"><path d="M6 3h12l4 6-10 13L2 9Z"/><path d="M11 3 8 9l4 13 4-13-3-6"/><path d="M2 9h20"/></svg>
+        База Знаний • Релиз 2026
+      </span>
+      <h1>Каталог Бизнес-Деконструкций</h1>
+      <p class="hero-desc">
+        Инвестиционный аудит ключевых подкастов, IT-манифестов и интервью. Ментальные модели, скрытая повестка спикеров, архитектура систем, развилки решений и жесткие расчеты без воды.
+      </p>
+
+      <div class="hero-stats-grid">
+        <div class="stat-card">
+          <div class="stat-val">9</div>
+          <div class="stat-label">Готовых деконструкций</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val">13:35</div>
+          <div class="stat-label">Часов чистого хронометража</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val">100%</div>
+          <div class="stat-label">Интерактивные таймкоды</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val" style="display: flex; align-items: center; justify-content: center; gap: 6px;">
+            <svg class="gem-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+            <span>.md</span>
+          </div>
+          <div class="stat-label">Экспорт в Obsidian Vault</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Controls Panel: Search & Categorization -->
+    
+    <!-- ВЫБОР РЕДАКЦИИ (FEATURED HERO) -->
+    <div class="featured-hero-wrap">
+      <div class="featured-ambient-glow" style="background-image: url('https://img.youtube.com/vi/LqPKkUMLqfU/maxresdefault.jpg');"></div>
+      <div class="featured-hero-card">
+        <div class="featured-thumb-wrap">
+          <img src="https://img.youtube.com/vi/LqPKkUMLqfU/maxresdefault.jpg" alt="ИИ Заберёт Твою Работу к 2027: Манифест Экс-Директора Google X" class="featured-thumb">
+          <a href="gawdat.html" class="featured-play-overlay" title="Открыть выпуск">
+            <div class="play-hover-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="30" height="30"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </a>
+          <span class="featured-badge">ВЫБОР РЕДАКЦИИ • ТОП НЕДЕЛИ</span>
+          <span class="featured-duration"><svg class="gem-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 01:30:49</span>
+        </div>
+        <div class="featured-content">
+          <div class="featured-meta">
+            <span class="featured-spec" style="color: #38bdf8;">Вайб-кодинг & AI</span>
+            <span class="featured-rating"><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 9.0/10</span>
+            <span class="featured-date">30 октября 2026 г.</span>
+          </div>
+          <a href="gawdat.html" class="featured-title">ИИ Заберёт Твою Работу к 2027: Манифест Экс-Директора Google X</a>
+          <div class="featured-speaker"><svg class="gem-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Мо Гавдат (экс-бизнес-директор Google X, фаундер Emma AI)</div>
+          <p class="featured-desc">Тектонический сдвиг рынка труда: почему через 24 месяца средний разработчик потеряет ценность, как 2 человека создают стартап вместо 400, крах традиционного SaaS и математическая формула счастья.</p>
+          <div class="featured-actions">
+            <a href="gawdat.html" class="card-btn">
+              <span>Смотреть разбор и плеер</span>
+              <span><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+            </a>
+            <a href="gawdat.md" download="2026-10-30_Мо_Гавдат_ИИ_Заберет_Работу_2027.md" class="card-btn-download" title="Скачать Markdown для Obsidian">
+              <span><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg> .md</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="controls-panel">
+      <div class="search-row">
+        <div class="search-input-wrap">
+          <span class="search-icon"><svg class="gem-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/></svg></span>
+          <input type="text" id="searchInput" class="search-input" placeholder="Быстрый поиск по названию, спикеру или ключевой концепции (например: Гавдат, кассовый разрыв, amocrm, митохондрии)..." oninput="applyFilters()">
+        </div>
+        <div class="sort-wrap">
+          <select id="sortSelect" class="sort-select" onchange="setSort(this.value)" title="Сортировка материалов">
+            <option value="newest">📅 Сначала новые</option>
+            <option value="rating">★ По рейтингу</option>
+            <option value="duration">⏱️ По длительности</option>
+          </select>
+        </div>
+        <div id="resultsCounter" class="search-count-badge">9 из 9</div>
+      </div>
+
+      <div class="category-pills">
+        <button class="cat-btn active" data-cat="all" onclick="setCategory('all')">
+          <span class="cat-icon-wrap"><svg class="gem-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="3" y="3" rx="1.5"/><rect width="7" height="7" x="14" y="3" rx="1.5"/><rect width="7" height="7" x="14" y="14" rx="1.5"/><rect width="7" height="7" x="3" y="14" rx="1.5"/></svg></span>
+          <span>Все разборы</span>
+          <span class="cat-badge-count">9</span>
+        </button>
+        <button class="cat-btn" data-cat="business" onclick="setCategory('business')">
+          <span class="cat-icon-wrap" style="color: #38bdf8;"><svg class="gem-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></svg></span>
+          <span>Бизнес и Стратегия</span>
+          <span class="cat-badge-count">5</span>
+        </button>
+        <button class="cat-btn" data-cat="coding" onclick="setCategory('coding')">
+          <span class="cat-icon-wrap" style="color: #a855f7;"><svg class="gem-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span>
+          <span>Вайб-кодинг & AI</span>
+          <span class="cat-badge-count">2</span>
+        </button>
+        <button class="cat-btn" data-cat="health" onclick="setCategory('health')">
+          <span class="cat-icon-wrap" style="color: #34d399;"><svg class="gem-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>
+          <span>Здоровье и Биохакинг</span>
+          <span class="cat-badge-count">2</span>
+        </button>
+        <button class="cat-btn" data-cat="philosophy" onclick="setCategory('philosophy')">
+          <span class="cat-icon-wrap" style="color: #fbbf24;"><svg class="gem-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span>
+          <span>Философия и Мышление</span>
+          <span class="cat-badge-count">2</span>
+        </button>
+        <button class="cat-btn" data-cat="education" onclick="setCategory('education')">
+          <span class="cat-icon-wrap" style="color: #f43f5e;"><svg class="gem-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10"/><path d="M6 10h10"/></svg></span>
+          <span>Обучение и Карьера</span>
+          <span class="cat-badge-count" style="opacity: 0.6;">1</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="cards-grid" id="cardsGrid">
+
+      <!-- КАРТОЧКА: ДЖОРДАН ПИТЕРСОН -->
+      <div class="deconstruct-card" 
+           data-index="0"
+           data-categories="philosophy business" 
+           data-title="Jordan Peterson: Life, Death, Power, Fame, and Meaning (Lex Fridman #313)" 
+           data-speaker="Jordan Peterson Lex Fridman" 
+           data-keywords="джордан питерсон лекс фридман достоевский солженицын гулаг иерархия компетентности власть ницше илон маск климат 313"
+           data-date="19 августа 2022 г."
+           data-rating="9.8"
+           data-duration="03:03:33">
+        <div class="card-thumb-wrap">
+          <img src="peterson_cover.jpg" alt="Jordan Peterson: Life, Death, Power, Fame, and Meaning (Lex Fridman #313)" class="card-thumb" loading="lazy">
+          <a href="peterson.html" class="card-thumb-overlay" title="Открыть выпуск">
+            <div class="play-hover-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </a>
+          <span class="badge-specialization" style="color: #fbbf24;">Философия & Власть</span>
+          <span class="rating-float"><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 9.8/10</span>
+          <span class="duration-float"><svg class="gem-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 03:03:33</span>
+        </div>
+        <div class="card-body">
+          <div class="card-meta-top">
+            <span>19 августа 2022 г.</span>
+            <span>Lex Fridman Podcast #313</span>
+          </div>
+          <a href="peterson.html" class="card-title">Jordan Peterson: Life, Death, Power, Fame, and Meaning (Lex Fridman #313)</a>
+          <div class="card-speaker"><svg class="gem-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Спикер: Jordan Peterson</div>
+          <p class="card-desc">Монументальный 3-часовой философский аудит: почему красота спасет мир по Достоевскому, иерархии компетентности против тирании, критика псевдоэкологического антигуманизма и манифест добровольной ответственности.</p>
+          <div class="card-tags">
+            <span class="card-tag">#философия</span><span class="card-tag">#достоевский</span><span class="card-tag">#иерархии-компетентности</span><span class="card-tag">#солженицын</span><span class="card-tag">#ответственность</span>
+          </div>
+          <div class="card-actions">
+            <a href="peterson.html" class="card-btn">
+              <span>Открыть дашборд</span>
+              <span><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+            </a>
+            <a href="peterson.md" download="2026-10-31_Джордан_Питерсон_Лекс_Фридман_Власть_Смысл_Иерархии_313.md" class="card-btn-download" title="Скачать Markdown для Obsidian">
+              <span><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg> .md</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- КАРТОЧКА: АНДРЕЙ КУРПАТОВ -->
+      <div class="deconstruct-card" 
+           data-index="1"
+           data-categories="education business" 
+           data-title="Мозг: инструкция по применению. Механика сборки мышления | Андрей Курпатов" 
+           data-speaker="Андрей Курпатов Design Prosmotr" 
+           data-keywords="андрей курпатов мозг дефолт система дсм либет ухтомский доминанта центрист конструктор рефлектор псевдодебильность мышление"
+           data-date="12 августа 2018 г."
+           data-rating="9.4"
+           data-duration="00:51:14">
+        <div class="card-thumb-wrap">
+          <img src="kurpatov_cover.jpg" alt="Мозг: инструкция по применению. Механика сборки мышления | Андрей Курпатов" class="card-thumb" loading="lazy">
+          <a href="kurpatov.html" class="card-thumb-overlay" title="Открыть выпуск">
+            <div class="play-hover-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </a>
+          <span class="badge-specialization" style="color: #38bdf8;">Когнитивистика & Мышление</span>
+          <span class="rating-float"><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 9.4/10</span>
+          <span class="duration-float"><svg class="gem-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 00:51:14</span>
+        </div>
+        <div class="card-body">
+          <div class="card-meta-top">
+            <span>12 августа 2018 г.</span>
+            <span>Design Prosmotr</span>
+          </div>
+          <a href="kurpatov.html" class="card-title">Мозг: инструкция по применению. Механика сборки мышления</a>
+          <div class="card-speaker"><svg class="gem-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Спикер: Андрей Курпатов</div>
+          <p class="card-desc">Инженерный разбор когнитивного аппарата: эксперимент Либета о запаздывании сознания на 7-8 секунд, дефолт-система мозга Маркуса Рейхла, 3 радикала сборки (Центрист, Конструктор, Рефлектор) и технология запуска инсайтов.</p>
+          <div class="card-tags">
+            <span class="card-tag">#нейробиология</span><span class="card-tag">#дефолт-система</span><span class="card-tag">#когнитивистика</span><span class="card-tag">#либет</span><span class="card-tag">#типы-мышления</span>
+          </div>
+          <div class="card-actions">
+            <a href="kurpatov.html" class="card-btn">
+              <span>Открыть дашборд</span>
+              <span><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+            </a>
+            <a href="kurpatov.md" download="2026-10-31_Андрей_Курпатов_Мозг_Инструкция_По_Применению_ДСМ.md" class="card-btn-download" title="Скачать Markdown для Obsidian">
+              <span><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg> .md</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- КАРТОЧКА: АНЖЕЛИА И ДМИТРИЙ ГУХМАН -->
+      <div class="deconstruct-card" 
+           data-index="2"
+           data-categories="business health" 
+           data-title="Что возбуждает мужчину в женщине? Сексуальность vs Сексапильность" 
+           data-speaker="Дмитрий Гухман Анжела Ильина" 
+           data-keywords="анжелиа гухман сексуальность сексапильность дружба комплекс мадонны половая конституция либидо измены отношения"
+           data-date="6 июня 2025 г."
+           data-rating="7.8"
+           data-duration="00:56:00">
+        <div class="card-thumb-wrap">
+          <img src="anjelia_cover.jpg" alt="Что возбуждает мужчину в женщине? Сексуальность vs Сексапильность" class="card-thumb" loading="lazy">
+          <a href="anjelia.html" class="card-thumb-overlay" title="Открыть выпуск">
+            <div class="play-hover-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </a>
+          <span class="badge-specialization" style="color: #f43f5e;">Психология Отношений</span>
+          <span class="rating-float"><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 7.8/10</span>
+          <span class="duration-float"><svg class="gem-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 00:56:00</span>
+        </div>
+        <div class="card-body">
+          <div class="card-meta-top">
+            <span>6 июня 2025 г.</span>
+            <span>АНЖЕЛИА</span>
+          </div>
+          <a href="anjelia.html" class="card-title">Что возбуждает мужчину в женщине? Сексуальность vs Сексапильность</a>
+          <div class="card-speaker"><svg class="gem-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Спикеры: Дмитрий Гухман, Анжела Ильина</div>
+          <p class="card-desc">Сексологический аудит мужского влечения: физиологическое vs романтическое либидо, феномен посткоитального омерзения, мужская меркантильность, комплекс Мадонны-Блудницы и почему дружба стимулирует долгосрочную верность.</p>
+          <div class="card-tags">
+            <span class="card-tag">#психология</span><span class="card-tag">#сексология</span><span class="card-tag">#отношения</span><span class="card-tag">#либидо</span><span class="card-tag">#комплекс-мадонны</span>
+          </div>
+          <div class="card-actions">
+            <a href="anjelia.html" class="card-btn">
+              <span>Открыть дашборд</span>
+              <span><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+            </a>
+            <a href="anjelia.md" download="2026-10-31_Анжелия_Что_Возбуждает_Мужчину_Психология_Влечения.md" class="card-btn-download" title="Скачать Markdown для Obsidian">
+              <span><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg> .md</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- КАРТОЧКА 1: ПОЛ СТЭМЕТС -->
+      <div class="deconstruct-card" 
+           data-index="3"
+           data-categories="health business" 
+           data-title="Пол Стэметс: Грибы, Мицелий и Спасение Биосферы (JRE #1035)" 
+           data-speaker="Пол Стэметс Джо Роган" 
+           data-keywords="пол стэметс мицелий ежевик lion's mane stamets stack пчелы ccd биоремедиация патентный ров нейрогенез траметес агаритин шампиньоны star trek"
+           data-date="8 ноября 2017 г."
+           data-rating="9.5"
+           data-duration="02:13:45">
+        <div class="card-thumb-wrap">
+          <img src="stamets_cover.jpg" alt="Пол Стэметс: Грибы, Мицелий и Спасение Биосферы (JRE #1035)" class="card-thumb" loading="lazy">
+          <a href="stamets.html" class="card-thumb-overlay" title="Открыть выпуск">
+            <div class="play-hover-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </a>
+          <span class="badge-specialization" style="color: #34d399;">Микология & Биотех</span>
+          <span class="rating-float"><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 9.5/10</span>
+          <span class="duration-float"><svg class="gem-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 02:13:45</span>
+        </div>
+        <div class="card-body">
+          <div class="card-meta-top">
+            <span>8 ноября 2017 г.</span>
+            <span>Joe Rogan Experience</span>
+          </div>
+          <a href="stamets.html" class="card-title">Пол Стэметс: Грибы, Мицелий и Спасение Биосферы (JRE #1035)</a>
+          <div class="card-speaker"><svg class="gem-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Спикер: Пол Стэметс</div>
+          <p class="card-desc">Фундаментальный манифест прикладной микологии: патентная война за биопестициды против химкартелей, протокол нейрогенеза Stamets Stack, спасение пчел от вируса деформации крыла и омерта вокруг шампиньонов.</p>
+          <div class="card-tags">
+            <span class="card-tag">#микология</span><span class="card-tag">#нейрогенез</span><span class="card-tag">#stamets-stack</span><span class="card-tag">#патентный-ров</span><span class="card-tag">#биоремедиация</span>
+          </div>
+          <div class="card-actions">
+            <a href="stamets.html" class="card-btn">
+              <span>Открыть дашборд</span>
+              <span><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+            </a>
+            <a href="stamets.md" download="2026-10-31_Пол_Стэметс_Грибы_Мицелий_Джо_Роган_1035.md" class="card-btn-download" title="Скачать Markdown для Obsidian">
+              <span><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg> .md</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    
+
+
+      <!-- КАРТОЧКА 2: МО ГАВДАТ -->
+      <div class="deconstruct-card" 
+           data-index="4"
+           data-categories="coding business" 
+           data-title="ИИ ЗАБЕРЁТ твою работу к 2027 | Экс-директор Google X | Мо Гавдат" 
+           data-speaker="Мо Гавдат Глеб Соломин" 
+           data-keywords="google x emma ai вайб-кодинг ahi сингулярность ubi фолдинг белков claude deepseek санта-клаус альфа-банк"
+           data-date="29 октября 2026 г."
+           data-rating="9.0"
+           data-duration="01:30:49">
+        <div class="card-thumb-wrap">
+          <img src="https://img.youtube.com/vi/LqPKkUMLqfU/maxresdefault.jpg" alt="ИИ Заберёт Твою Работу к 2027: Манифест Экс-Директора Google X" class="card-thumb" loading="lazy">
+          <a href="gawdat.html" class="card-thumb-overlay" title="Открыть выпуск">
+            <div class="play-hover-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </a>
+          <span class="badge-specialization" style="color: #38bdf8;">Вайб-кодинг & AI</span>
+          <span class="rating-float"><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 9.0/10</span>
+          <span class="duration-float"><svg class="gem-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 01:30:49</span>
+        </div>
+        <div class="card-body">
+          <div class="card-meta-top">
+            <span>29 октября 2026 г.</span>
+            <span>Глеб Соломин</span>
+          </div>
+          <a href="gawdat.html" class="card-title">ИИ Заберёт Твою Работу к 2027: Манифест Экс-Директора Google X</a>
+          <div class="card-speaker"><svg class="gem-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Спикер: Мо Гавдат</div>
+          <p class="card-desc">Тектонический сдвиг рынка труда: почему через 24 месяца средний разработчик потеряет ценность, как 2 человека создают стартап вместо 400, крах традиционного SaaS и математическая формула счастья.</p>
+          <div class="card-tags">
+            <span class="card-tag">#google-x</span><span class="card-tag">#вайб-кодинг</span><span class="card-tag">#крах-saas</span><span class="card-tag">#сингулярность</span><span class="card-tag">#ubi</span>
+          </div>
+          <div class="card-actions">
+            <a href="gawdat.html" class="card-btn">
+              <span>Открыть дашборд</span>
+              <span><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+            </a>
+            <a href="gawdat.md" download="2026-10-30_Мо_Гавдат_ИИ_Заберет_Работу_2027.md" class="card-btn-download" title="Скачать Markdown для Obsidian">
+              <span><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg> .md</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    
+
+      <!-- КАРТОЧКА 3: МИХАИЛ ТОКОВИНИН -->
+      <div class="deconstruct-card" 
+           data-index="5"
+           data-categories="business" 
+           data-title="Токовинин: привычка, из-за которой 97% людей бедны (и как это исправить) | Михаил Токовинин" 
+           data-speaker="Михаил Токовинин Глеб Соломин" 
+           data-keywords="amocrm продажи покер кассовый разрыв партнерство капитал 1с спенсер стартап qsoft b2b фокус чек $1000000"
+           data-date="2 июля 2024 г."
+           data-rating="8.5"
+           data-duration="01:04:33">
+        <div class="card-thumb-wrap">
+          <img src="https://img.youtube.com/vi/ZFQsEs0jR1I/maxresdefault.jpg" alt="Бизнес как Покер, Физика Продаж и Спасение от Кассового Разрыва" class="card-thumb" loading="lazy">
+          <a href="tokovinin.html" class="card-thumb-overlay" title="Открыть выпуск">
+            <div class="play-hover-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </a>
+          <span class="badge-specialization" style="color: #f59e0b;">Бизнес и Стратегия</span>
+          <span class="rating-float"><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 8.5/10</span>
+          <span class="duration-float"><svg class="gem-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 01:04:33</span>
+        </div>
+        <div class="card-body">
+          <div class="card-meta-top">
+            <span>2 июля 2024 г.</span>
+            <span>Глеб Соломин</span>
+          </div>
+          <a href="tokovinin.html" class="card-title">Бизнес как Покер, Физика Продаж и Спасение от Кассового Разрыва</a>
+          <div class="card-speaker"><svg class="gem-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Спикер: Михаил Токовинин</div>
+          <p class="card-desc">Жесткая предпринимательская физика: почему 1-й бизнес почти всегда банкротится, гидравлическое давление фокуса (1 точка из 50), рост чека от $300 до $1 000 000 и две непересекающиеся корзины капитала.</p>
+          <div class="card-tags">
+            <span class="card-tag">#amocrm</span><span class="card-tag">#b2b-продажи</span><span class="card-tag">#покер-vs-шахматы</span><span class="card-tag">#кассовый-разрыв</span><span class="card-tag">#капитал</span>
+          </div>
+          <div class="card-actions">
+            <a href="tokovinin.html" class="card-btn">
+              <span>Открыть дашборд</span>
+              <span><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+            </a>
+            <a href="tokovinin.md" download="2026-10-30_Токовинин_Бизнес_Покер_Продажи_amoCRM.md" class="card-btn-download" title="Скачать Markdown для Obsidian">
+              <span><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg> .md</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    
+
+      <!-- КАРТОЧКА 4: ВЛАДИЛЕН МИНИН -->
+      <div class="deconstruct-card" 
+           data-index="6"
+           data-categories="coding" 
+           data-title="AI-инженерия с нуля — Полный гайд для разработчика [2026] | Владилен Минин" 
+           data-speaker="Владилен Минин Владилен Минин" 
+           data-keywords="harness агентские системы context engineering rag cursor eval prompt flow devin mcp langchain"
+           data-date="30 июля 2026 г."
+           data-rating="9.0"
+           data-duration="01:02:53">
+        <div class="card-thumb-wrap">
+          <img src="https://img.youtube.com/vi/WT0yDhfOjaA/maxresdefault.jpg" alt="AI-Инженерия с Нуля: Полный Гайд по Системе Harness и Агентам" class="card-thumb" loading="lazy">
+          <a href="minin.html" class="card-thumb-overlay" title="Открыть выпуск">
+            <div class="play-hover-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </a>
+          <span class="badge-specialization" style="color: #38bdf8;">Вайб-кодинг & AI</span>
+          <span class="rating-float"><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 9.0/10</span>
+          <span class="duration-float"><svg class="gem-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 01:02:53</span>
+        </div>
+        <div class="card-body">
+          <div class="card-meta-top">
+            <span>30 июля 2026 г.</span>
+            <span>Владилен Минин</span>
+          </div>
+          <a href="minin.html" class="card-title">AI-Инженерия с Нуля: Полный Гайд по Системе Harness и Агентам</a>
+          <div class="card-speaker"><svg class="gem-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Спикер: Владилен Минин</div>
+          <p class="card-desc">Инженерная методология: почему голые LLM бессильны в проде, концепция упряжи (Harness), управление контекстом (Context Window), тестирование агентов (Evals) и переход от кодера к дирижеру ИИ.</p>
+          <div class="card-tags">
+            <span class="card-tag">#ai-engineering</span><span class="card-tag">#harness</span><span class="card-tag">#агентские-системы</span><span class="card-tag">#evals</span><span class="card-tag">#rag</span>
+          </div>
+          <div class="card-actions">
+            <a href="minin.html" class="card-btn">
+              <span>Открыть дашборд</span>
+              <span><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+            </a>
+            <a href="minin.md" download="2026-10-29_Минин_AI_Инженерия_Harness.md" class="card-btn-download" title="Скачать Markdown для Obsidian">
+              <span><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg> .md</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    
+
+      <!-- КАРТОЧКА 5: Д-Р ЭНДРЮ ХЬЮБЕРМАН -->
+      <div class="deconstruct-card" 
+           data-index="7"
+           data-categories="health" 
+           data-title="Scientist WARNS: You're Being LIED To About Sunlight | Эндрю Хьюберман" 
+           data-speaker="Д-р Эндрю Хьюберман The Diary Of A CEO" 
+           data-keywords="солнце циркадные ритмы свет amcc кортизол митохондрии биохакинг дофамин cold plunge глюкоза мелатонин"
+           data-date="12 сентября 2026 г."
+           data-rating="9.0"
+           data-duration="00:22:53">
+        <div class="card-thumb-wrap">
+          <img src="https://img.youtube.com/vi/1pqkhUVv_Bw/maxresdefault.jpg" alt="Правда о Свете, Митохондриях и Тренировке Силы Воли (aMCC)" class="card-thumb" loading="lazy">
+          <a href="huberman.html" class="card-thumb-overlay" title="Открыть выпуск">
+            <div class="play-hover-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </a>
+          <span class="badge-specialization" style="color: #10b981;">Здоровье и Биохакинг</span>
+          <span class="rating-float"><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 9.0/10</span>
+          <span class="duration-float"><svg class="gem-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 00:22:53</span>
+        </div>
+        <div class="card-body">
+          <div class="card-meta-top">
+            <span>12 сентября 2026 г.</span>
+            <span>The Diary Of A CEO</span>
+          </div>
+          <a href="huberman.html" class="card-title">Правда о Свете, Митохондриях и Тренировке Силы Воли (aMCC)</a>
+          <div class="card-speaker"><svg class="gem-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Спикер: Д-р Эндрю Хьюберман</div>
+          <p class="card-desc">Нейробиология продуктивности: почему утренний фотонный душ важнее кофеина, как передняя поясная кора (aMCC) управляет волей к жизни и протокол микро-дискомфорта для разгона когнитивной выносливости.</p>
+          <div class="card-tags">
+            <span class="card-tag">#нейробиология</span><span class="card-tag">#amcc-воля</span><span class="card-tag">#митохондрии</span><span class="card-tag">#циркадные-ритмы</span><span class="card-tag">#дофамин</span>
+          </div>
+          <div class="card-actions">
+            <a href="huberman.html" class="card-btn">
+              <span>Открыть дашборд</span>
+              <span><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+            </a>
+            <a href="huberman.md" download="2026-10-30_Хьюберман_Вся_Правда_О_Солнце_Свете_И_Воле.md" class="card-btn-download" title="Скачать Markdown для Obsidian">
+              <span><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg> .md</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    
+
+      <!-- КАРТОЧКА 6: МИХАИЛ ЭПШТЕЙН -->
+      <div class="deconstruct-card" 
+           data-index="8"
+           data-categories="philosophy" 
+           data-title="«Человек отстает от человечества». Разговор с философом про искусственный интеллект | Михаил Эпштейн" 
+           data-speaker="Михаил Эпштейн Это Осетинская!" 
+           data-keywords="эпштейн философия осетинская антропология сингулярность сознание субъектность искусственный разум"
+           data-date="27 октября 2026 г."
+           data-rating="8.5"
+           data-duration="02:29:43">
+        <div class="card-thumb-wrap">
+          <img src="https://img.youtube.com/vi/LEMfWjU_6Qg/maxresdefault.jpg" alt="«Человек Отстает от Человечества»: Философия Сверхинтеллекта" class="card-thumb" loading="lazy">
+          <a href="epstein.html" class="card-thumb-overlay" title="Открыть выпуск">
+            <div class="play-hover-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </a>
+          <span class="badge-specialization" style="color: #a855f7;">Философия и Мышление</span>
+          <span class="rating-float"><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 8.5/10</span>
+          <span class="duration-float"><svg class="gem-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 02:29:43</span>
+        </div>
+        <div class="card-body">
+          <div class="card-meta-top">
+            <span>27 октября 2026 г.</span>
+            <span>Это Осетинская!</span>
+          </div>
+          <a href="epstein.html" class="card-title">«Человек Отстает от Человечества»: Философия Сверхинтеллекта</a>
+          <div class="card-speaker"><svg class="gem-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Спикер: Михаил Эпштейн</div>
+          <p class="card-desc">Глубинная антропология машинного разума: почему отдельный биологический мозг больше не вмещает сумму знаний цивилизации, проблема субъектности LLM и экзистенциальный выбор человека в XXI веке.</p>
+          <div class="card-tags">
+            <span class="card-tag">#философия-ии</span><span class="card-tag">#эпштейн</span><span class="card-tag">#антропология</span><span class="card-tag">#субъектность</span><span class="card-tag">#эволюция-разума</span>
+          </div>
+          <div class="card-actions">
+            <a href="epstein.html" class="card-btn">
+              <span>Открыть дашборд</span>
+              <span><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+            </a>
+            <a href="epstein.md" download="2026-10-29_Осетинская_Эпштейн_ИИ.md" class="card-btn-download" title="Скачать Markdown для Obsidian">
+              <span><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg> .md</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    
+    <!-- No Results Placeholder -->
+      <div id="noResults" style="display: none;">
+        <div style="margin-bottom: 12px; display: flex; justify-content: center;">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/></svg>
+        </div>
+        <h3 style="color: #fff; margin-bottom: 8px;">Ничего не найдено</h3>
+        <p>Попробуйте изменить поисковый запрос или сбросить категорию фильтра.</p>
+      </div>
+
+    </div>
+
+    
+    <!-- Кнопка пагинации (подгрузка следующих 6-9 разборов) -->
+    <div class="load-more-wrap" id="loadMoreWrap" style="display: none;">
+      <button class="load-more-btn" onclick="showNextPage()">
+        <span>▾ Показать ещё разборы</span>
+      </button>
+    </div>
+    
+  </div>
+
+  <script>
+
+    let currentCategory = 'all';
+    let currentSort = 'newest';
+    let pageSize = 12;
+    let visibleLimit = 12;
+
+    function setCategory(cat) {
+      currentCategory = cat;
+      document.querySelectorAll('.cat-btn').forEach(btn => {
+        if (btn.getAttribute('data-cat') === cat) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+      visibleLimit = pageSize;
+      applyFilters();
+    }
+
+    function setSort(sortType) {
+      currentSort = sortType;
+      sortCards();
+      applyFilters();
+    }
+
+    function sortCards() {
+      const grid = document.getElementById('cardsGrid');
+      const cards = Array.from(grid.querySelectorAll('.deconstruct-card'));
+
+      cards.sort((a, b) => {
+        if (currentSort === 'rating') {
+          const rA = parseFloat(a.getAttribute('data-rating') || 0);
+          const rB = parseFloat(b.getAttribute('data-rating') || 0);
+          return rB - rA;
+        } else if (currentSort === 'duration') {
+          const dA = a.getAttribute('data-duration') || '00:00:00';
+          const dB = b.getAttribute('data-duration') || '00:00:00';
+          return dB.localeCompare(dA);
+        } else {
+          // newest default index
+          const iA = parseInt(a.getAttribute('data-index') || 0);
+          const iB = parseInt(b.getAttribute('data-index') || 0);
+          return iA - iB;
+        }
+      });
+
+      cards.forEach(c => grid.appendChild(c));
+    }
+
+    function showNextPage() {
+      visibleLimit += pageSize;
+      applyFilters();
+    }
+
+    function applyFilters() {
+      const query = document.getElementById('searchInput').value.toLowerCase().trim();
+      const cards = document.querySelectorAll('.deconstruct-card');
+      let matchingCards = [];
+
+      cards.forEach(card => {
+        const cats = card.getAttribute('data-categories') || '';
+        const title = (card.getAttribute('data-title') || '').toLowerCase();
+        const speaker = (card.getAttribute('data-speaker') || '').toLowerCase();
+        const keywords = (card.getAttribute('data-keywords') || '').toLowerCase();
+
+        const matchCat = (currentCategory === 'all') || cats.includes(currentCategory);
+        const matchQuery = !query || title.includes(query) || speaker.includes(query) || keywords.includes(query);
+
+        if (matchCat && matchQuery) {
+          matchingCards.push(card);
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      // Pagination slice
+      matchingCards.forEach((card, idx) => {
+        if (idx < visibleLimit) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      const noRes = document.getElementById('noResults');
+      if (matchingCards.length === 0) {
+        noRes.style.display = 'block';
+      } else {
+        noRes.style.display = 'none';
+      }
+
+      const counter = document.getElementById('resultsCounter');
+      if (counter) {
+        counter.textContent = `${Math.min(matchingCards.length, visibleLimit)} из ${matchingCards.length}`;
+      }
+
+      const loadMoreWrap = document.getElementById('loadMoreWrap');
+      if (loadMoreWrap) {
+        if (matchingCards.length > visibleLimit) {
+          loadMoreWrap.style.display = 'block';
+        } else {
+          loadMoreWrap.style.display = 'none';
+        }
+      }
+    }
+    
+  </script>
+</body>
+</html>

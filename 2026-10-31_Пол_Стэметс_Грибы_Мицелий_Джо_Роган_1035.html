@@ -1,0 +1,2496 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Open Graph / Rich Social Preview -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Пол Стэметс: Грибы, Мицелий и Спасение Биосферы (JRE #1035) | Пол Стэметс — Бизнес-Деконструкция">
+  <meta property="og:description" content="Полный бизнес-разбор 90-минутного интервью у Глеба Соломина: крах UBI ( трлн дефицита), разрушение SaaS, кейс стартапа Emma (2 человека вместо 400) и дедлайн сингулярности в 2027 году.">
+  <meta property="og:image" content="stamets_cover.jpg">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="720">
+  <meta property="og:site_name" content="Бизнес-Деконструктор Контента">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Пол Стэметс: Грибы, Мицелий и Спасение Биосферы (JRE #1035) | Пол Стэметс — Бизнес-Деконструкция">
+  <meta name="twitter:description" content="Бизнес-разбор интервью Мо Гавдата: крах UBI, гибель SaaS и сингулярность 2027.">
+  <meta name="twitter:image" content="stamets_cover.jpg">
+
+  <title>Пол Стэметс: Грибы, Мицелий и Спасение Биосферы (JRE #1035) | Пол Стэметс — Бизнес-Деконструкция</title>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'dark',
+      themeVariables: {
+        primaryColor: '#1e293b',
+        primaryTextColor: '#f8fafc',
+        primaryBorderColor: '#38bdf8',
+        lineColor: '#64748b',
+        secondaryColor: '#334155',
+        tertiaryColor: '#0f172a'
+      }
+    });
+  </script>
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: #111726;
+      --card-border: #1e293b;
+      --card-hover: #172033;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --accent-blue: #38bdf8;
+      --accent-purple: #818cf8;
+      --accent-green: #34d399;
+      --accent-red: #f87171;
+      --accent-gold: #fbbf24;
+      --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    
+    html, body {
+      overflow-x: hidden !important;
+      max-width: 100vw !important;
+      width: 100%;
+      position: relative;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: var(--font-main);
+      line-height: 1.6;
+      padding: 24px 16px 80px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.9) 100%);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 32px 24px;
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .badge-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-blue { background: rgba(56, 189, 248, 0.15); color: var(--accent-blue); border: 1px solid rgba(56, 189, 248, 0.3); }
+    .badge-purple { background: rgba(129, 140, 248, 0.15); color: var(--accent-purple); border: 1px solid rgba(129, 140, 248, 0.3); }
+    .badge-gold { background: rgba(251, 191, 36, 0.15); color: var(--accent-gold); border: 1px solid rgba(251, 191, 36, 0.3); }
+    .badge-green { background: rgba(52, 211, 153, 0.15); color: var(--accent-green); border: 1px solid rgba(52, 211, 153, 0.3); }
+    .badge-red { background: rgba(248, 113, 113, 0.15); color: var(--accent-red); border: 1px solid rgba(248, 113, 113, 0.3); }
+
+    h1 {
+      font-size: 2.1rem;
+      line-height: 1.25;
+      color: #fff;
+      margin-bottom: 12px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .meta-subtitle {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .meta-subtitle a {
+      color: var(--accent-blue);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .meta-subtitle a:hover {
+      text-decoration: underline;
+    }
+
+    
+    /* Video Preview Hero */
+    .video-preview-hero {
+      margin-top: 20px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--card-border);
+      background: #000;
+      position: relative;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    }
+
+    .video-preview-card {
+      position: relative;
+      cursor: pointer;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .video-thumb {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .video-preview-card:hover .video-thumb {
+      transform: scale(1.02);
+      filter: brightness(0.9);
+    }
+
+    .video-play-btn {
+      position: absolute;
+      width: 68px;
+      height: 68px;
+      background: rgba(239, 68, 68, 0.9);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      box-shadow: 0 0 30px rgba(239, 68, 68, 0.6);
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .video-preview-card:hover .video-play-btn {
+      transform: scale(1.12);
+      background: #dc2626;
+    }
+
+    .video-duration-badge {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(4px);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-family: var(--font-mono);
+      color: #f1f5f9;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .video-embed-container {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+    }
+
+    .video-embed-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Quick Nav */
+    .nav-bar {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 8px 4px 16px;
+      margin-bottom: 24px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--card-border) transparent;
+    }
+
+    .nav-bar a {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+
+    .nav-bar a:hover {
+      background: var(--card-hover);
+      color: var(--accent-blue);
+      border-color: var(--accent-blue);
+    }
+
+    /* Cards */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    }
+
+    .card h2 {
+      font-size: 1.35rem;
+      color: #fff;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 12px;
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      color: var(--accent-blue);
+      margin: 18px 0 8px;
+    }
+
+    p {
+      margin-bottom: 12px;
+      color: var(--text-main);
+    }
+
+    ul, ol {
+      margin-left: 20px;
+      margin-bottom: 14px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    strong {
+      color: #fff;
+    }
+
+    /* Verdict Box */
+    .verdict-box {
+      border-left: 4px solid var(--accent-gold);
+      background: rgba(251, 191, 36, 0.08);
+      border-radius: 0 10px 10px 0;
+      padding: 16px;
+      margin: 16px 0;
+    }
+
+    .agenda-card {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px dashed var(--card-border);
+      border-radius: 10px;
+      padding: 16px;
+      margin: 16px 0;
+    }
+
+    /* Heatmap Table */
+    .tc-link {
+      color: var(--accent-blue);
+      text-decoration: none;
+      font-family: var(--font-mono);
+      font-weight: 600;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .tc-link:hover {
+      background: var(--accent-blue);
+      color: #000;
+      border-color: var(--accent-blue);
+      text-decoration: none;
+    }
+
+    .filter-controls {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: var(--text-muted);
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--accent-blue);
+      color: #000;
+      border-color: var(--accent-blue);
+      font-weight: 600;
+    }
+
+    
+    .card {
+      max-width: 100%;
+      overflow-x: hidden;
+      word-wrap: break-word;
+    }
+    .table-responsive {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      display: block;
+    }
+
+    .table-responsive-old {
+      width: 100%;
+      overflow-x: auto;
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      text-align: left;
+    }
+
+    th {
+      background: #0f172a;
+      color: var(--text-muted);
+      padding: 12px 14px;
+      font-weight: 600;
+      border-bottom: 1px solid var(--card-border);
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+    }
+
+    td {
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      vertical-align: top;
+    }
+
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    /* Act Accordions / Sections */
+    .act-block {
+      background: #0d121f;
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 18px;
+    }
+
+    .act-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .act-badge {
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: 6px;
+      background: #1e293b;
+      color: var(--accent-blue);
+      font-family: var(--font-mono);
+    }
+
+    .insight-box {
+      background: rgba(56, 189, 248, 0.06);
+      border-left: 3px solid var(--accent-blue);
+      padding: 12px 14px;
+      border-radius: 0 8px 8px 0;
+      margin: 12px 0;
+      font-size: 0.92rem;
+    }
+
+    .tradeoff-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .tradeoff-card {
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+    }
+
+    .tradeoff-apply {
+      background: rgba(52, 211, 153, 0.08);
+      border: 1px solid rgba(52, 211, 153, 0.25);
+    }
+
+    .tradeoff-risk {
+      background: rgba(248, 113, 113, 0.08);
+      border: 1px solid rgba(248, 113, 113, 0.25);
+    }
+
+    /* Quotes */
+    .quote-card {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.4) 0%, rgba(15, 23, 42, 0.8) 100%);
+      border-left: 4px solid var(--accent-purple);
+      border-radius: 0 12px 12px 0;
+      padding: 18px;
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .quote-text {
+      font-style: italic;
+      font-size: 1.05rem;
+      color: #e2e8f0;
+      margin-bottom: 8px;
+    }
+
+    .quote-author {
+      font-size: 0.85rem;
+      color: var(--accent-purple);
+      font-weight: 600;
+    }
+
+    /* Checklist */
+    .checklist-progress-bar {
+      background: #1e293b;
+      height: 8px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+
+    .checklist-progress-fill {
+      background: var(--accent-green);
+      height: 100%;
+      width: 0%;
+      transition: width 0.3s;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      margin-bottom: 8px;
+      background: rgba(255, 255, 255, 0.02);
+      transition: all 0.2s;
+    }
+
+    .check-item:hover {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: var(--card-border);
+    }
+
+    .check-item input[type="checkbox"] {
+      margin-top: 4px;
+      width: 18px;
+      height: 18px;
+      accent-color: var(--accent-green);
+      cursor: pointer;
+    }
+
+    .check-item.done label {
+      text-decoration: line-through;
+      color: var(--text-muted);
+    }
+
+    .check-item label {
+      cursor: pointer;
+      font-size: 0.95rem;
+      flex-grow: 1;
+    }
+
+    /* Tag pills */
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .tag-pill {
+      background: #1e293b;
+      color: #93c5fd;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      text-decoration: none;
+      font-family: var(--font-mono);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 640px) {
+      
+    html, body {
+      overflow-x: hidden !important;
+      max-width: 100vw !important;
+      width: 100%;
+      position: relative;
+    }
+
+    body {
+        padding: 12px 8px 60px;
+      }
+      header {
+        padding: 20px 16px;
+      }
+      h1 {
+        font-size: 1.45rem;
+      }
+      .card {
+        padding: 16px;
+      }
+      .tradeoff-grid {
+        grid-template-columns: 1fr;
+      }
+      .meta-subtitle {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+    }
+
+    /* Print Styles */
+    @media print {
+      
+    html, body {
+      overflow-x: hidden !important;
+      max-width: 100vw !important;
+      width: 100%;
+      position: relative;
+    }
+
+    body {
+        background: #fff;
+        color: #000;
+        padding: 0;
+      }
+      .card, header, .act-block {
+        background: #fff;
+        color: #000;
+        border: 1px solid #ccc;
+        box-shadow: none;
+      }
+      .nav-bar, .filter-controls, .checklist-progress-bar {
+        display: none;
+      }
+      h1, h2, h3, strong {
+        color: #000;
+      }
+      a {
+        color: #000;
+        text-decoration: underline;
+      }
+    }
+  
+    /* Global Gemstudio Top Nav */
+    .gemstudio-top-nav {
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(56, 189, 248, 0.25);
+      padding: 12px 16px;
+      position: relative;
+      top: 0;
+      z-index: 1000;
+      margin: -24px -16px 24px -16px;
+    }
+    .gemstudio-nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .gemstudio-brand {
+      font-weight: 800;
+      color: #38bdf8;
+      text-decoration: none;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .gemstudio-brand:hover {
+      color: #fff;
+    }
+    .gemstudio-nav-links {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .gemstudio-nav-links a {
+      color: #94a3b8;
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+      border: 1px solid transparent;
+      background: rgba(255, 255, 255, 0.03);
+    }
+    .gemstudio-nav-links a:hover {
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.12);
+      border-color: rgba(56, 189, 248, 0.3);
+    }
+    .gemstudio-nav-links a.active {
+      color: #fff;
+      background: #0284c7;
+      border-color: #38bdf8;
+      font-weight: 600;
+    }
+
+  
+    .btn-download-md {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(129, 140, 248, 0.15);
+      color: #a5b4fc;
+      border: 1px solid rgba(129, 140, 248, 0.35);
+      padding: 4px 12px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .btn-download-md:hover {
+      background: #6366f1;
+      color: #fff;
+      border-color: #6366f1;
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
+      text-decoration: none;
+    }
+
+  
+    /* === STUDIO ELITE v4.0 ENHANCEMENTS === */
+    :root {
+      --bg: #070a12;
+      --card-bg: linear-gradient(180deg, rgba(17, 24, 39, 0.8) 0%, rgba(13, 19, 34, 0.95) 100%);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-hover: rgba(23, 32, 51, 0.95);
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --accent-blue: #38bdf8;
+      --accent-purple: #818cf8;
+      --accent-green: #34d399;
+      --accent-red: #f87171;
+      --accent-gold: #fbbf24;
+      --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+
+    
+    html, body {
+      overflow-x: hidden !important;
+      max-width: 100vw !important;
+      width: 100%;
+      position: relative;
+    }
+
+    body {
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(at 10% 15%, rgba(56, 189, 248, 0.04) 0px, transparent 50%),
+        radial-gradient(at 90% 85%, rgba(129, 140, 248, 0.04) 0px, transparent 50%);
+      background-attachment: fixed;
+    }
+
+    /* Reading Progress Bar */
+    .reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, #38bdf8, #818cf8, #34d399);
+      z-index: 99999;
+      transition: width 0.1s ease;
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+    }
+
+    /* Ambient Glow for Video Player */
+    .video-ambient-wrapper {
+      position: relative;
+      margin-top: 24px;
+    }
+
+    .ambient-glow {
+      position: absolute;
+      inset: -12px;
+      background-size: cover;
+      background-position: center;
+      filter: blur(42px);
+      opacity: 0.4;
+      border-radius: 20px;
+      z-index: 0;
+      pointer-events: none;
+      transform: scale(0.98);
+      transition: opacity 0.4s ease;
+    }
+
+    .video-ambient-wrapper:hover .ambient-glow {
+      opacity: 0.6;
+    }
+
+    .video-preview-hero {
+      position: relative;
+      z-index: 1;
+      border: 1px solid rgba(255, 255, 255, 0.12) !important;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6) !important;
+    }
+
+    /* Bento KPI Big Numbers Grid */
+    .bento-kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .bento-kpi-card {
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 16px 14px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      transition: all 0.25s ease;
+    }
+
+    .bento-kpi-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(56, 189, 248, 0.35);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    .kpi-micro-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .kpi-big-num {
+      font-size: 1.85rem;
+      font-weight: 800;
+      line-height: 1.15;
+      font-family: var(--font-mono);
+      margin-bottom: 6px;
+      letter-spacing: -0.02em;
+    }
+
+    .kpi-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+
+    /* Enhanced Card Styling */
+    .card {
+      background: var(--card-bg) !important;
+      border: 1px solid var(--card-border) !important;
+      box-shadow: 0 12px 32px -10px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.06) !important;
+    }
+
+    .act-block {
+      background: rgba(13, 18, 31, 0.85) !important;
+      border: 1px solid rgba(255, 255, 255, 0.06) !important;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    }
+
+    /* Quote Card with Copy Button */
+    .quote-card {
+      position: relative;
+    }
+
+    
+    .quote-card-header {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .quote-actions-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 4px;
+    }
+
+
+    .copy-quote-btn {
+      background: rgba(129, 140, 248, 0.12);
+      border: 1px solid rgba(129, 140, 248, 0.3);
+      color: #a5b4fc;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .copy-quote-btn:hover {
+      background: #6366f1;
+      color: #fff;
+      border-color: #6366f1;
+    }
+
+    .copy-quote-btn.copied {
+      background: #059669;
+      color: #fff;
+      border-color: #10b981;
+    }
+
+    /* Mobile Timeline View for Heatmap (Zero horizontal scroll!) */
+    @media (max-width: 640px) {
+      .bento-kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+      .kpi-big-num {
+        font-size: 1.45rem;
+      }
+
+      
+    .card {
+      max-width: 100%;
+      overflow-x: hidden;
+      word-wrap: break-word;
+    }
+    .table-responsive {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      display: block;
+    }
+
+    .table-responsive-old {
+        border: none;
+        overflow-x: visible;
+      }
+
+      #heatmapTable, #heatmapTable t
+    html, body {
+      overflow-x: hidden !important;
+      max-width: 100vw !important;
+      width: 100%;
+      position: relative;
+    }
+
+    body {
+        display: block;
+        width: 100%;
+      }
+
+      #heatmapTable thead {
+        display: none;
+      }
+
+      #heatmapTable tr {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        background: rgba(15, 23, 42, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 12px;
+        padding: 14px;
+        margin-bottom: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      #heatmapTable td {
+        padding: 0;
+        border: none;
+      }
+
+      #heatmapTable td:nth-child(1) {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      #heatmapTable td:nth-child(2) {
+        font-size: 1rem;
+        font-weight: 700;
+        color: #fff;
+        margin: 2px 0;
+      }
+
+      #heatmapTable td:nth-child(3) {
+        display: inline-block;
+        width: fit-content;
+      }
+
+      #heatmapTable td:nth-child(4) {
+        font-size: 0.88rem;
+        color: #94a3b8;
+        line-height: 1.45;
+        margin-top: 4px;
+      }
+    }
+
+  
+    /* === MOBILE ERGONOMICS & COLLAPSIBLE HEATMAP === */
+    .top-nav-dismiss-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #94a3b8;
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+      margin-left: 6px;
+    }
+    .top-nav-dismiss-btn:hover {
+      background: rgba(248, 113, 113, 0.2);
+      color: #f87171;
+      border-color: #f87171;
+    }
+
+    /* Heatmap Collapsible Container */
+    .heatmap-collapse-wrapper {
+      position: relative;
+      transition: max-height 0.4s ease;
+    }
+
+    .heatmap-collapse-wrapper.is-collapsed {
+      max-height: 480px;
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+      mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+    }
+
+    .heatmap-toggle-btn-wrap {
+      margin-top: 14px;
+      text-align: center;
+    }
+
+    .heatmap-expand-btn {
+      background: linear-gradient(135deg, rgba(2, 132, 199, 0.2) 0%, rgba(56, 189, 248, 0.15) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #38bdf8;
+      padding: 12px 24px;
+      border-radius: 24px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .heatmap-expand-btn:hover {
+      background: #0284c7;
+      color: #fff;
+      border-color: #38bdf8;
+      box-shadow: 0 6px 20px rgba(56, 189, 248, 0.35);
+      transform: translateY(-1px);
+    }
+
+    /* Floating Navigation Pill */
+    .floating-nav-pill {
+      position: fixed;
+      bottom: 24px;
+      right: 20px;
+      background: rgba(15, 23, 42, 0.92);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: #38bdf8;
+      padding: 10px 18px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 14px rgba(56, 189, 248, 0.25);
+      z-index: 9999;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .floating-nav-pill:hover {
+      background: #0284c7;
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    /* Nav Drawer (Modal Sheet) */
+    .nav-drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(6px);
+      z-index: 10000;
+      display: none;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .nav-drawer-overlay.is-open {
+      display: flex;
+      align-items: flex-end;
+      opacity: 1;
+    }
+
+    .nav-drawer-sheet {
+      background: #0d1322;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 20px 20px 0 0;
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 24px 20px 36px;
+      box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.8);
+      transform: translateY(100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .nav-drawer-overlay.is-open .nav-drawer-sheet {
+      transform: translateY(0);
+    }
+
+    .drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 14px;
+      margin-bottom: 16px;
+    }
+
+    .drawer-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .drawer-close-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #94a3b8;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .drawer-close-btn:hover { color: #fff; background: rgba(255,255,255,0.12); }
+
+    .drawer-links-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .drawer-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      color: #f1f5f9;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: all 0.15s ease;
+    }
+
+    .drawer-link:hover {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: rgba(56, 189, 248, 0.3);
+      color: #38bdf8;
+    }
+
+    .drawer-link.catalog-link {
+      background: linear-gradient(135deg, rgba(2, 132, 199, 0.25) 0%, rgba(56, 189, 248, 0.15) 100%);
+      border-color: rgba(56, 189, 248, 0.4);
+      color: #38bdf8;
+      font-weight: 700;
+    }
+
+  
+    /* Glossary & Books Grid */
+    .books-grid, .persons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 14px;
+    }
+    .terms-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 12px;
+    }
+    .glossary-item-card {
+      background: rgba(13, 18, 32, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 16px;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .glossary-item-card:hover {
+      border-color: rgba(56, 189, 248, 0.35);
+      background: rgba(17, 24, 42, 0.85);
+      transform: translateY(-2px);
+    }
+    .term-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent-blue);
+      background: rgba(56, 189, 248, 0.1);
+      padding: 4px 10px;
+      border-radius: 6px;
+      margin-bottom: 8px;
+      width: fit-content;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+    .term-def {
+      font-size: 0.88rem;
+      color: #cbd5e1;
+      line-height: 1.45;
+    }
+    @media (max-width: 640px) {
+      .books-grid, .persons-grid, .terms-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+  
+    /* === V1.5 INSIGHT CARD MODAL (Canvas 2D) === */
+    .insight-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(8px);
+      z-index: 20000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    .insight-modal-content {
+      background: #0d1322;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-radius: 20px;
+      max-width: min(440px, calc(100vw - 32px));
+      width: 100%;
+      padding: 16px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      box-sizing: border-box;
+    }
+    .insight-modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 10px;
+    }
+    .insight-canvas-wrap {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      background: #000;
+    }
+    .insight-canvas-wrap canvas {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .insight-modal-actions {
+      display: flex;
+      gap: 10px;
+    }
+    .insight-btn-download {
+      flex: 1;
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+      color: #fff;
+      border: none;
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .insight-btn-download:hover {
+      background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+    }
+    .insight-btn-copy {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #cbd5e1;
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .insight-btn-copy:hover {
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+    }
+    .punchline-btn-card {
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: #38bdf8;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      white-space: nowrap;
+    }
+    .punchline-btn-card:hover {
+      background: #0284c7;
+      color: #fff;
+    }
+
+    /* === V1.5 USER HIGHLIGHTS & NOTES === */
+    mark.user-highlight {
+      background: rgba(251, 191, 36, 0.35);
+      color: inherit;
+      border-bottom: 2px solid #fbbf24;
+      border-radius: 3px;
+      padding: 1px 2px;
+      cursor: pointer;
+    }
+    .highlight-bubble {
+      position: absolute;
+      background: #111726;
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      border-radius: 8px;
+      padding: 6px 10px;
+      display: none;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+      z-index: 15000;
+    }
+    .highlight-bubble button {
+      background: transparent;
+      border: none;
+      color: #f1f5f9;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .highlight-bubble button:hover {
+      color: #38bdf8;
+    }
+
+    .gem-icon {
+      width: 15px !important;
+      height: 15px !important;
+      min-width: 15px !important;
+      min-height: 15px !important;
+      max-width: 15px !important;
+      max-height: 15px !important;
+      display: inline-block !important;
+      vertical-align: -2px !important;
+      flex-shrink: 0 !important;
+    }
+    .floating-nav-pill {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+    }
+    .floating-nav-pill .gem-icon {
+      width: 18px !important;
+      height: 18px !important;
+      min-width: 18px !important;
+      min-height: 18px !important;
+    }
+    .copy-quote-btn, .punchline-btn-card {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+      white-space: nowrap !important;
+    }
+    .copy-quote-btn .gem-icon, .punchline-btn-card .gem-icon {
+      width: 14px !important;
+      height: 14px !important;
+      min-width: 14px !important;
+      min-height: 14px !important;
+    }
+
+</style>
+</head>
+<body>
+  <div id="readingProgress" class="reading-progress-bar"></div>
+
+
+  <nav class="gemstudio-top-nav" id="topNav">
+    <div class="gemstudio-nav-container">
+      <a href="00_Хаб_Все_Разборы.html" class="gemstudio-brand">
+        <span>⚡</span> <strong>Gemstudio</strong> <span style="color: #64748b; font-weight: normal;">| Бизнес-Деконструктор</span>
+      </a>
+      <div class="gemstudio-nav-links">
+        <a href="00_Хаб_Все_Разборы.html" class="nav-catalog-btn">← Каталог всех разборов</a>
+        <button class="top-nav-dismiss-btn" onclick="dismissTopNav()" title="Скрыть верхнюю панель">✕</button>
+      </div>
+    </div>
+  </nav>
+
+<div class="container">
+
+  <!-- HEADER -->
+    <!-- HEADER -->
+  <header>
+    <div class="badge-bar">
+      <span class="badge badge-blue">Бизнес-Деконструкция v3.0</span>
+      <span class="badge badge-purple">Joe Rogan #1035</span>
+      <span class="badge badge-gold">Рейтинг: 9.5 / 10</span>
+      <span class="badge badge-green">Прикладная микология</span>
+    </div>
+    <h1>Пол Стэметс: Грибы, Мицелий и Спасение Биосферы (JRE #1035)</h1>
+    <div class="meta-subtitle">
+      <span><svg class="gem-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Спикер: <strong>Пол Стэметс</strong> <span class="speaker-role-badge">Миколог & Исследователь</span></span>
+      <span><svg class="gem-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg> Канал: <strong>Joe Rogan Experience</strong></span>
+      <span><svg class="gem-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Длительность: <strong>02:13:45</strong></span>
+      <span><svg class="gem-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg> Дата выхода: <strong>8 ноября 2017 г.</strong></span>
+      <span><svg class="gem-icon" width="16" height="16" viewBox="0 0 24 24" fill="#ef4444"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> <a href="https://youtu.be/JtEnA4ahypk" target="_blank">Смотреть оригинал на YouTube</a></span>
+      <span><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg> <a href="stamets.md" download="stamets.md" class="btn-download-md">Скачать Markdown (.md)</a></span>
+    </div>
+
+    <!-- Кинематографичный Видеоблок с эффектом Ambient Glow -->
+    <div class="video-ambient-wrapper">
+      <div class="ambient-glow" style="background-image: url('stamets_cover.jpg');"></div>
+      <div class="video-preview-hero">
+        <div class="video-preview-card" id="videoPreviewCard" onclick="playEmbeddedVideo()" title="Нажмите, чтобы запустить видео прямо здесь">
+          <img src="stamets_cover.jpg" alt="Обложка: Пол Стэметс: Грибы, Мицелий и Спасение Биосферы (JRE #1035)" class="video-thumb">
+          <div class="video-play-btn" title="Воспроизвести выпуск">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="36" height="36"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <div class="video-duration-badge">⏱️ 02:13:45 • 16 глав выпуска • Кликните для запуска в плеере</div>
+        </div>
+        <div id="videoEmbedContainer" class="video-embed-container" style="display: none;"></div>
+      </div>
+    </div>
+
+    <!-- Bento Grid Ключевых Цифр (Big Numbers) -->
+    <div class="bento-kpi-grid">
+      <div class="bento-kpi-card">
+        <span class="kpi-micro-tag" style="color: #34d399;">🍄 Биомасса Земли</span>
+        <div class="kpi-big-num" style="background: linear-gradient(135deg, #34d399, #38bdf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">5 : 1</div>
+        <div class="kpi-label">Соотношение видов грибов к растениям на планете</div>
+      </div>
+      <div class="bento-kpi-card">
+        <span class="kpi-micro-tag" style="color: #38bdf8;">🌐 Природный интернет</span>
+        <div class="kpi-big-num" style="background: linear-gradient(135deg, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">30%</div>
+        <div class="kpi-label">Доля грибковой сети (мицелия) в общей массе почвы</div>
+      </div>
+      <div class="bento-kpi-card">
+        <span class="kpi-micro-tag" style="color: #fbbf24;">⚡ Нейрогенез</span>
+        <div class="kpi-big-num" style="background: linear-gradient(135deg, #fbbf24, #f87171); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">-27%</div>
+        <div class="kpi-label">Снижение рецидивов преступности после терапии псилоцибином</div>
+      </div>
+      <div class="bento-kpi-card">
+        <span class="kpi-micro-tag" style="color: #f87171;">🛡️ Биозащита</span>
+        <div class="kpi-big-num" style="background: linear-gradient(135deg, #f87171, #fbbf24); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">1000x</div>
+        <div class="kpi-label">Эффективность экстрактов редких грибов против вирусов</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- QUICK NAVIGATION -->
+  <div class="nav-bar">
+    <a href="#block1">1. Интро & Повестка</a>
+    <a href="#block2">2. Тепловая карта</a>
+    <a href="#block3">3. Детальный разбор (Мясо)</a>
+    <a href="#block4">4. Цифры & Развилки</a>
+    <a href="#block5">5. Ментальные модели & Схема</a>
+    <a href="#block6">6. Справочник сущностей</a>
+    <a href="#block7">7. Панчлайны</a>
+    <a href="#block8">8. Фактчек & Комментарии</a>
+    <a href="#block9">9. Чек-лист действий</a>
+  </div>
+  <!-- БЛОК 1 -->
+  <section id="block1" class="card">
+    <h2><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9.5" stroke="#38bdf8" stroke-width="1.8" stroke-dasharray="2 2"/><circle cx="12" cy="12" r="6" stroke="#38bdf8" stroke-width="2"/><circle cx="12" cy="12" r="2.5" fill="#f43f5e"/><path d="M12 2V5M12 19V22M2 12H5M19 12H22" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/></svg> <span>Блок 1. Интро, вердикт и скрытая повестка спикера</span></h2>
+    <p>Интро, вердикт и скрытая повестка спикера</p>
+<h3>Кто, что и для кого</h3>
+<ul>
+<li><strong>Кто:</strong> <strong>[[Пол Стэметс]] (Paul Stamets)</strong> — редчайший гибрид полевого ученого-самоучки, технологического визионера и расчетливого предпринимателя. Начав карьеру лесорубом в штате Вашингтон с тяжелейшим дефектом речи (заиканием), он построил вертикально интегрированную компанию <strong>Fungi Perfecti</strong> с десятками миллионов долларов годовой выручки, запатентовал природные механизмы грибов против химических гигантов и заставил DARPA, NIH и Пентагон тестировать полипоры против сибирской язвы, оспы и птичьего гриппа.</li>
+<li><strong>Что:</strong> 2 часа 13 минут плотнейшего разбора роли грибного царства в архитектуре биосферы и человеческого мозга. Стэметс демонстрирует:</li>
+<li>Почему мицелий — это не растение, а гигантский децентрализованный суперкомпьютер биосферы (молекулярный интернет с клеточной стенкой в один слой).</li>
+<li>Как грибы решают три фундаментальные катастрофы человечества: утилизацию нефтяных и химических загрязнений ([[Биоремедиация]]), вирусный коллапс пчелиных популяций ([[CCD]]) и дегенерацию центральной нервной системы (Альцгеймер, деменция, потеря миелина).</li>
+<li>Протокол «Stamets Stack» (Ежевик гребенчатый + Псилоцибин + Ниацин) как биохимический шлюз для нейрогенеза и ремиелинизации нервных волокон.</li>
+<li>Захватывающий детектив войны за патенты против транснациональных агрохимических картелей, пытавшихся заблокировать микопестициды на базе Cordyceps и Metarhizium.</li>
+<li>Внезапную омерту и отказ говорить о токсичности сырых шампиньонов (Agaricus bisporus) в прямом эфире из-за реальной угрозы жизни.</li>
+<li><strong>Для кого:</strong> Фаундеры, венчурные инвесторы в DeepTech, Biotech и AgTech, биохакеры, технологические лидеры и предприниматели, ищущие нетривиальные модели создания нерушимого «патентного рва» (Moat) и управления системной устойчивостью (Resilience).</li>
+</ul>
+<blockquote>
+<p>[!NOTE] ⚖️ Вердикт Бизнес-Деконструктора
+<strong>Смотреть обязательно каждому системному предпринимателю (9.5/10).</strong>
+* <strong>Практическая ценность для бизнеса (9.5/10):</strong> Эталонный кейс того, как из полевой биологии построить высокомаржинальную монополию с нулевым долговым плечом, защищенную патентами на поведенческие алгоритмы спор. Стэметс преподает мастер-класс по превращению природных явлений в патентоспособные промышленные активы.
+* <strong>Научная строгость (8.5/10):</strong> Спикер опирается на собственные патенты США, рецензируемые исследования NIH (гранты на рак молочной железы), данные кафедры энтомологии Вашингтонского государственного университета ([[Steve Sheppard]]) и лаборатории проф. Кавагиси ([[Hirokazu Kawagishi]]). Однако в некоторых местах Стэметс плавно переходит от лабораторных цифр к трансцендентному мистицизму и личным видениям, что требует аналитической фильтрации.</p>
+<p>[!WARNING] 🕵️‍♂️ Детектор скрытой повестки спикера
+1. <strong>Монетизация брендов Fungi Perfecti &amp; Host Defense (HostDefense.com):</strong> При всей показной отрешенности ученого-натуралиста, Стэметс — виртуозный коммивояжер. Он напрямую называет свои сайты, хвастаясь покупкой домена <code>fungi.com</code> в 1994 году за $25, и продвигает добавки с Ежевиком гребенчатым (Lion's Mane) и Траметесом (Turkey Tail) как базовую страховку от старения мозга и рака.
+2. <strong>Публичная демонстрация силы перед химическими картелями:</strong> Рассказ о том, как агрохимические лоббисты предлагали ему взятки в сотни тысяч долларов ($200 000 – $300 000) через зашифрованные каналы, чтобы положить патенты на биопестициды «под сукно», — это не просто байка. Это открытый сигнал рынку: лицензии на микопестициды стоят миллионы, а попытки рейдерского перехвата встретят публичный отпор на миллионную аудиторию Рогана.
+3. <strong>Государственное AgTech и Pharma лоббирование:</strong> Стэметс подогревает интерес инвесторов и грантодателей (USDA, NIH, DARPA) к своим исследованиям по спасению медоносных пчел и противовирусным препаратам из древних реликтовых лесов (Агарикон). Спасение пчел преподносится как спасение мировой пищевой цепочки стоимостью в триллионы долларов.
+4. <strong>Феномен «Шампиньонной Омерты» (Agaricus bisporus):</strong> Стэметс демонстративно затыкается при вопросе о вреде сырых культивируемых шампиньонов и портобелло: «Это подвергает мою жизнь смертельной опасности». Это блестящий ход двойного назначения: с одной стороны, уход от судебных исков многомиллиардной грибной индустрии за клевету о гидразинах и канцерогенном агаритине, с другой — мгновенное придание интервью статуса разоблачения глобального тайного картеля.</p>
+</blockquote>
+<hr />
+  </section>
+
+  <!-- БЛОК 2 -->
+  <section id="block2" class="card">
+    <h2><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21" fill="#a855f7" fill-opacity="0.2" stroke="#a855f7" stroke-width="2"/><line x1="9" x2="9" y1="3" y2="18" stroke="#a855f7" stroke-width="2"/><line x1="15" x2="15" y1="6" y2="21" stroke="#a855f7" stroke-width="2"/></svg> <span>Блок 2. Тепловая карта выпуска</span></h2>
+    <p>Тепловая карта выпуска</p>
+<div class="heatmap-collapse-wrapper is-collapsed" id="heatmapCollapseWrapper"><div class="table-responsive"><table class="styled-table" id="heatmapTable">
+<thead>
+<tr>
+<th style="text-align: left;">Таймкод</th>
+<th style="text-align: left;">Тема главы</th>
+<th style="text-align: center;">Плотность пользы</th>
+<th style="text-align: left;">О чем блок (краткая суть)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><a href="https://www.youtube.com/watch?v=JtEnA4ahypk&amp;t=0"><strong>00:00</strong></a></td>
+<td style="text-align: left;">Шляпа из трутовика (Amadou) и огонь</td>
+<td style="text-align: center;"><span class="badge badge-green">🟢 Мясо</span></td>
+<td style="text-align: left;">Шляпа из Fomes fomentarius, тлеющие угли, перенос огня в ледниковый период и немецкий войлок.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.youtube.com/watch?v=JtEnA4ahypk&amp;t=510"><strong>08:30</strong></a></td>
+<td style="text-align: left;">Мицелий как биоинтернет и разум</td>
+<td style="text-align: center;"><span class="badge badge-green">🟢 Мясо</span></td>
+<td style="text-align: left;">Толщина клеточной стенки в 1 клетку, регуляция сотен миллионов бактерий, фрактальная децентрализация.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.youtube.com/watch?v=JtEnA4ahypk&amp;t=1035"><strong>17:15</strong></a></td>
+<td style="text-align: left;">Биоремедиация нефти и стоков</td>
+<td style="text-align: center;"><span class="badge badge-green">🟢 Мясо</span></td>
+<td style="text-align: left;">Разложение полиароматических углеводородов мицелием вешенки; превращение токсичной грязи в оазис жизни.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.youtube.com/watch?v=JtEnA4ahypk&amp;t=1440"><strong>24:00</strong></a></td>
+<td style="text-align: left;">Теория «упоротой обезьяны» (Stoned Ape)</td>
+<td style="text-align: center;">🟡 Культурология</td>
+<td style="text-align: left;">Идея Теренса Маккенны: псилоцибин в саванне, нейрогенез, удвоение объема мозга Homo erectus и зарождение речи.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.youtube.com/watch?v=JtEnA4ahypk&amp;t=2160"><strong>36:00</strong></a></td>
+<td style="text-align: left;">Личный катарсис: исцеление заикания</td>
+<td style="text-align: center;"><span class="badge badge-green">🟢 Мясо</span></td>
+<td style="text-align: left;">Экстремальный трип на вершине дуба в эпицентре грозы; ментальная перезагрузка нейросети речи за 1 ночь.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.youtube.com/watch?v=JtEnA4ahypk&amp;t=2690"><strong>44:50</strong></a></td>
+<td style="text-align: left;">Ежевик гребенчатый (Lion's Mane)</td>
+<td style="text-align: center;"><span class="badge badge-green">🟢 Мясо</span></td>
+<td style="text-align: left;">Эринацины и гериценоны: стимуляция фактора NGF, регенерация миелиновой оболочки, профилактика Альцгеймера.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.youtube.com/watch?v=JtEnA4ahypk&amp;t=3015"><strong>50:15</strong></a></td>
+<td style="text-align: left;">Протокол «Stamets Stack»</td>
+<td style="text-align: center;"><span class="badge badge-green">🟢 Мясо</span></td>
+<td style="text-align: left;">Синергетическая триада: субпороговый псилоцибин + Ежевик + Ниацин (B3) как вазодилататор периферических нервов.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.youtube.com/watch?v=JtEnA4ahypk&amp;t=3630"><strong>60:30</strong></a></td>
+<td style="text-align: left;">Баварский закон о пиве 1516 года</td>
+<td style="text-align: center;">🟡 Культурология</td>
+<td style="text-align: left;">Reinheitsgebot: почему церковь запретила психоактивные грибы и белену в пиве ради монополии на связь с Богом.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.youtube.com/watch?v=JtEnA4ahypk&amp;t=4380"><strong>73:00</strong></a></td>
+<td style="text-align: left;">Протоколы микродозинга</td>
+<td style="text-align: center;"><span class="badge badge-green">🟢 Мясо</span></td>
+<td style="text-align: left;">Схема 5 дней приема / 2 дня паузы для сброса толерантности рецепторов; анализ 440 000 медицинских карт NIH.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.youtube.com/watch?v=JtEnA4ahypk&amp;t=4670"><strong>77:50</strong></a></td>
+<td style="text-align: left;">Синдром разрушения пчелиных семей</td>
+<td style="text-align: center;"><span class="badge badge-green">🟢 Мясо</span></td>
+<td style="text-align: left;">Клещ Варроа, вирус деформации крыла (DWV), неоникотиноиды и почему пчелы пьют капли с мицелия трутовиков.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.youtube.com/watch?v=JtEnA4ahypk&amp;t=5010"><strong>83:30</strong></a></td>
+<td style="text-align: left;">Война за патенты на биопестициды</td>
+<td style="text-align: center;"><span class="badge badge-green">🟢 Мясо</span></td>
+<td style="text-align: left;">Энтомопатогенные грибы (Metarhizium): фаза обмана муравьев без спороношения, патентный шантаж химконцернов.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.youtube.com/watch?v=JtEnA4ahypk&amp;t=5580"><strong>93:00</strong></a></td>
+<td style="text-align: left;">Проект «Биозащита» (BioShield)</td>
+<td style="text-align: center;"><span class="badge badge-green">🟢 Мясо</span></td>
+<td style="text-align: left;">Агарикон (Laricifomes officinalis) из реликтовых лесов против натуральной оспы и свиного гриппа. Тесты DARPA.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.youtube.com/watch?v=JtEnA4ahypk&amp;t=6240"><strong>104:00</strong></a></td>
+<td style="text-align: left;">Загадка шампиньонов и портобелло</td>
+<td style="text-align: center;"><span class="badge badge-green">🟢 Мясо</span></td>
+<td style="text-align: left;">Отказ Стэметса говорить о рисках сырого Agaricus bisporus (агаритин, гидразины) ради спасения собственной жизни.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.youtube.com/watch?v=JtEnA4ahypk&amp;t=6390"><strong>106:30</strong></a></td>
+<td style="text-align: left;">Траметес (Turkey Tail) и онкология</td>
+<td style="text-align: center;"><span class="badge badge-green">🟢 Мясо</span></td>
+<td style="text-align: left;">Клинические испытания NIH на $2.2M: полисахарид PSP/PSK; кейс матери Стэметса с раком груди IV стадии в 84 года.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.youtube.com/watch?v=JtEnA4ahypk&amp;t=7080"><strong>118:00</strong></a></td>
+<td style="text-align: left;">Star Trek: Discovery и споровый привод</td>
+<td style="text-align: center;">🟡 Футуризм</td>
+<td style="text-align: left;">Персонаж лейтенант-коммандер Пол Стэметс; астромикология, космическая сеть спор и панспермия в вакууме.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.youtube.com/watch?v=JtEnA4ahypk&amp;t=7380"><strong>123:00</strong></a></td>
+<td style="text-align: left;">Предвидение катастрофического наводнения</td>
+<td style="text-align: center;"><span class="badge badge-gold">🟡 Личное</span></td>
+<td style="text-align: left;">Визионерский опыт в юности: предсказание гибели скота и затопления долины, подтвердившееся через недели.</td>
+</tr>
+</tbody>
+</table></div><div class="collapse-toggle-bar"><button class="collapse-toggle-btn" id="toggleHeatmapBtn" onclick="toggleHeatmapCollapse()"><span>▾ Показать все 16 глав выпуска</span></button></div></div>
+<hr />
+  </section>
+
+  <!-- БЛОК 3 -->
+  <section id="block3" class="card">
+    <h2><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M19.5 7.5C18 4.5 14 3.5 12 5.5c-2-2-6-1-7.5 2-1.8 3.5-.5 7 2 9.5l5.5 5 5.5-5c2.5-2.5 3.8-6 2-9.5z" fill="#f43f5e" fill-opacity="0.2" stroke="#f43f5e" stroke-width="2"/><path d="M9 11l2 2 4-4" stroke="#f43f5e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> <span>Блок 3. Детальный разбор («Мясо»)</span></h2>
+    <p>Детальный разбор («Мясо»)</p>
+<h3>1. Архитектура мицелия: децентрализованная распределенная сеть и биоремедиация</h3>
+<ul>
+<li><strong>Суть:</strong> Мицелий представляет собой монослойную сеть клеточных нитей (гиф), пронизывающую почву на квадратные километры. Имея толщину клеточной стенки всего в 1 клетку, мицелий непрерывно контактирует с триллионами хищных микроорганизмов на грамм почвы, синтезируя адресные антибиотики и пищеварительные ферменты без центрального процессора.</li>
+<li><strong>Инсайты и выводы:</strong></li>
+<li><em>Тезис:</em> Крупнейший живой организм на Земле — это опенок темный (<em>Armillaria ostoyae</em>) в Орегоне: возраст от 2400 до 8650 лет, площадь 9.6 кв. км, масса сотен тонн.</li>
+<li><em>Что значит для бизнеса:</em> Это природный прототип децентрализованной автономной организации (DAO) и Mesh-сетей. Нет уязвимого ядра, которое можно вырезать. Если вы хотите построить неуязвимую корпорацию, операционные узлы должны автономно реагировать на локальные стрессы без согласования с «штаб-квартирой».</li>
+<li><em>Биоремедиация (Mycoremediation):</em> Эксперимент Стэметса с почвой, пропитанной дизельным топливом (20 000 ppm токсичных ароматических углеводородов). Через 8 недель мицелий вешенки разложил углеводородные связи на углекислый газ и воду, снизив токсичность до безопасных 200 ppm, и превратил полигон в цветущий оазис с насекомыми и птицами. Для B2B-рынка это дешевая альтернатива термоутилизации грунта.</li>
+<li><strong>Развилка решений:</strong></li>
+<li><em>Применение на практике:</em> Внедрение децентрализованного распределения полномочий в филиальной сети компании; локальные агенты сами синтезируют решение под конкретный стресс рынка.</li>
+<li><em>Риск перебора:</em> Потеря стратегической когерентности, если узлы начнут бесконтрольно поглощать ресурсы экосистемы без общей цели.</li>
+</ul>
+<hr />
+<h3>2. Когнитивный стек Стэметса: Ежевик гребенчатый, нейрогенез и ниациновый шлюз</h3>
+<ul>
+<li><strong>Суть:</strong> [[Ежевик гребенчатый]] (<em>Hericium erinaceus</em>) содержит два уникальных класса низкомолекулярных соединений — <strong>эринацины</strong> (в мицелии) и <strong>гериценоны</strong> (в плодовом теле). Они способны проникать через гематоэнцефалический барьер и стимулировать синтез [[Фактор роста нервов|NGF (Nerve Growth Factor)]], вызывая регенерацию миелиновой изоляции аксонов. Стэметс объединил его с микродозами псилоцибина и никотиновой кислоты.</li>
+<li><strong>Инсайты и выводы:</strong></li>
+<li><em>Тезис:</em> Потеря памяти при деменции и Альцгеймере вызвана не только гибелью нейронов, но и разрушением миелина («изоляции» нервных проводов), что приводит к замыканиям и распаду нейросетей.</li>
+<li><em>Что значит для бизнеса:</em> Стэметс запатентовал формулу <strong>«Stamets Stack»</strong>:
+    $$  ext{Stamets Stack} =    ext{Psilocybin (0.1--0.2 g)} +  ext{Lion's Mane (500--1000 mg)} +   ext{Niacin (100--200 mg)}$$
+    Роль ниацина гениальна с фармакокинетической точки зрения: он вызывает мощный прилив крови к капиллярам (ниациновый флеш / покраснение), расширяя мельчайшие периферические сосуды и доставляя нейрогенные молекулы Ежевика и Псилоцибина к самым отдаленным нервным окончаниям ЦНС и периферии.</li>
+<li><em>Когнитивный ROI:</em> Для фаундеров и интеллектуальных работников это ускорение нейропластичности, формирование новых синаптических путей и профилактика когнитивного спада после 40 лет.</li>
+<li><strong>Развилка решений:</strong></li>
+<li><em>Применение на практике:</em> Прием стандартизированного экстракта мицелия Ежевика гребенчатого (богатого эринацинами) в сочетании с никотиновой кислотой курсами по протоколу 5/2.</li>
+<li><em>Риск перебора:</em> Использование несертифицированных дешевых порошков из перемолотого зерна без заявленной концентрации эринацинов (пустышка) или передозировка ниацина, вызывающая сильный зуд и гипотонию.</li>
+</ul>
+<hr />
+<h3>3. Спасение глобального пчеловодства (CCD): антивирусные полипоры против коллапса сельского хозяйства</h3>
+<ul>
+<li><strong>Суть:</strong> Синдром разрушения колоний ([[Colony Collapse Disorder|CCD]]) угрожает глобальному агросектору: пчелы опыляют треть мировых продовольственных культур. Главные убийцы — клещ <em>Varroa destructor</em> и переносимые им вирусы (вирус деформации крыла, вирус озера Синай), помноженные на токсичность неоникотиноидных пестицидов. Стэметс обнаружил, что пчелы целенаправленно ищут капли экссудата на мицелии трутовиков.</li>
+<li><strong>Инсайты и выводы:</strong></li>
+<li><em>Тезис:</em> Экстракты древесных трутовиков (Трутовик настоящий <em>Fomes fomentarius</em>, Рейши <em>Ganoderma resinaceum</em>) снижают титры вируса озера Синай в <strong>79 раз</strong>, а вируса деформированного крыла — в <strong>45 раз</strong> за несколько дней.</li>
+<li><em>Что значит для бизнеса:</em> Это классический пример «голубого океана» в AgTech. Вместо создания новых токсичных химикатов для опрыскивания ульев, Стэметс создал биодобавку в сахарный сироп, восстанавливающую врожденный иммунитет насекомых. Партнерство с главой кафедры энтомологии Вашингтонского университета Стивом Шеппардом придало проекту академическую легитимность высшей пробы.</li>
+<li><strong>Развилка решений:</strong></li>
+<li><em>Применение на практике:</em> Инвестиции в биотехнологические превентивные решения для сельского хозяйства вместо реактивной борьбы с последствиями химией.</li>
+<li><em>Риск перебора:</em> Недооценка логистики масштабирования: промышленная добыча экстрактов трутовиков требует строгих стандартов культивации, иначе лесные популяции будут хищнически уничтожены.</li>
+</ul>
+<hr />
+<h3>4. Патентная война за биопестициды: биологический «троянский конь» против химических картелей</h3>
+<ul>
+<li><strong>Суть:</strong> Традиционные споры энтомопатогенных грибов (<em>Metarhizium anisopliae</em>, <em>Cordyceps</em>) отпугивают муравьев и термитов запахом: колония распознает угрозу и выбрасывает зараженных особей. Стэметс совершил прорыв: культивировал штамм, задерживающий спороношение до тех пор, пока насекомые не занесут мицелий глубоко в сердце гнезда к матке.</li>
+<li><strong>Инсайты и выводы:</strong></li>
+<li><em>Тезис:</em> Создан нетоксичный, привлекательный для муравьев экстракт-приманка. Рабочие особи кормят матку, после чего мицелий мгновенно прорастает через тела насекомых, уничтожая колонию изнутри за 24–48 часов.</li>
+<li><em>Что значит для бизнеса:</em> Это фундаментальная угроза рынку токсичных пестицидов объемом в десятки миллиардов долларов. Агрохимические гиганты попытались выкупить патент у Стэметса за $200 000 – $300 000 с единственной целью — положить его в сейф и продолжить продавать перманентную химию.</li>
+<li><em>Урок защиты интеллектуальной собственности:</em> Патентовать нужно не просто химическое вещество, а <strong>поведенческий триггер и алгоритм действия</strong> биоагента. Это делает патент нерушимым и защищает компанию от копирования гигантами индустрии.</li>
+<li><strong>Развилка решений:</strong></li>
+<li><em>Применение на практике:</em> Построение патентного рва вокруг уникального процесса доставки и отложенной активации ценности продукта.</li>
+<li><em>Риск перебора:</em> Отказ от продажи лицензии требует огромного CAPEX на собственную дистрибуцию и производство, затягивая монетизацию патента на десятилетия.</li>
+</ul>
+<hr />
+<h3>5. Онкологическая микология: Траметес разноцветный (Turkey Tail) и доказательная медицина NIH</h3>
+<ul>
+<li><strong>Суть:</strong> Гриб [[Траметес разноцветный]] (<em>Trametes versicolor</em>, хвост индейки) содержит мощные полисахаропептиды (PSP) и бета-глюканы (PSK), которые не атакуют опухоль напрямую, а реактивируют истощенные натуральные киллеры (NK-клетки) и Т-лимфоциты иммунной системы пациента.</li>
+<li><strong>Инсайты и выводы:</strong></li>
+<li><em>Тезис:</em> NIH профинансировал клиническое исследование на $2.2M с участием Бастирского университета и Университета Миннесоты, доказав дозозависимый эффект Траметеса в качестве адъювантной терапии рака молочной железы.</li>
+<li><em>Личный кейс Стэметса:</em> Его 84-летняя мать с раком молочной железы IV стадии (опухоль 5.5 см, метастазы в печень, прогноз врачей — менее 3 месяцев жизни) в дополнение к герцептину начала принимать по 8 граммов экстракта Траметеса в день. В итоге — полная ремиссия, метастазы исчезли, и она дожила до 93+ лет в добром здравии.</li>
+<li><em>Что значит для бизнеса:</em> В Японии препарат PSK (Крестин) одобрен Минздравом с 1977 года и занимает до 25% всех расходов на противоопухолевые препараты в стране. На Западе этот рынок десятилетиями сдерживался отсутствием патентной монополии на природное сырье, пока доказательные клинические испытания не пробили институциональную блокаду.</li>
+<li><strong>Развилка решений:</strong></li>
+<li><em>Применение на практике:</em> Использование Траметеса как научно подтвержденного иммуномодулятора в период экстремальных нагрузок и воспалений.</li>
+<li><em>Риск перебора:</em> Замена стандартной доказательной онкотерапии (хирургия, таргетные препараты) одними грибными БАДами — верный путь к летальному исходу. Только адъювантный синергетический протокол!</li>
+</ul>
+<hr />
+<h3>6. Парадокс Agaricus bisporus: скрытые риски агаритина и границы публичной смелости</h3>
+<ul>
+<li><strong>Суть:</strong> В разгар обсуждения пользы грибов Джо Роган задает Стэметсу невинный вопрос о негативных свойствах обычных культивируемых шампиньонов и портобелло (<em>Agaricus bisporus</em>). Стэметс мгновенно меняется в лице, замолкает и заявляет, что этот разговор «подвергает мою жизнь реальной опасности», отказываясь произносить ни слова дальше.</li>
+<li><strong>Инсайты и выводы:</strong></li>
+<li><em>Биохимический контекст:</em> В сырых шампиньонах и портобелло содержится <strong>агаритин</strong> — производное фенилгидразина, признанное токсичным и потенциально канцерогенным соединением. При тщательной термической обработке (жарка, варка от 10-15 минут) агаритин разрушается, но в ресторанном бизнесе и супермаркетах сырые шампиньоны массово продаются для салатов.</li>
+<li><em>Бизнес-подоплека «Омерты»:</em> Индустрия <em>Agaricus bisporus</em> — это конгломерат с оборотом свыше $30–40 млрд в мире с жесточайшим контролем цепочек поставок и жестким юридическим аппаратом. Любое неосторожное заявление лидера мнений о канцерогенности шампиньонов вызвало бы разрушительные иски на сотни миллионов долларов и уничтожило бы бизнес самого Стэметса.</li>
+<li><em>Урок для лидера:</em> Даже обладая глобальной трибуной, опытный стратег обязан знать «красные линии» и зоны риска, где столкновение с картелем приведет к гарантированному физическому или юридическому уничтожению.</li>
+<li><strong>Развилка решений:</strong></li>
+<li><em>Применение на практике:</em> Категорический отказ от употребления ЛЮБЫХ сырых культивируемых грибов; обязательная термическая деактивация гидразинов.</li>
+<li><em>Риск перебора:</em> Впадать в конспирологическую паранойю и исключать грибы из рациона вовсе, игнорируя их колоссальный терапевтический профиль после варки/жарки.</li>
+</ul>
+<hr />
+  </section>
+
+  <!-- БЛОК 4 -->
+  <section id="block4" class="card">
+    <h2><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="14" width="4" height="7" rx="1" fill="#34d399" fill-opacity="0.3" stroke="#34d399" stroke-width="1.8"/><rect x="10" y="9" width="4" height="12" rx="1" fill="#38bdf8" fill-opacity="0.3" stroke="#38bdf8" stroke-width="1.8"/><rect x="17" y="4" width="4" height="17" rx="1" fill="#fbbf24" fill-opacity="0.3" stroke="#fbbf24" stroke-width="1.8"/><path d="M3 11l7-6 7 4 4-4" stroke="#f43f5e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> <span>Блок 4. Сводка цифр, бенчмарков и развилок (A vs B)</span></h2>
+    <p>Сводка цифр, бенчмарков и развилок (A vs B)</p>
+<h3>Сводная таблица ключевых метрик выпуска</h3>
+<div class="table-responsive"><table class="styled-table">
+<thead>
+<tr>
+<th style="text-align: left;">Метрика / Факт</th>
+<th style="text-align: left;">Значение спикера</th>
+<th style="text-align: left;">Контекст и бенчмарк</th>
+<th style="text-align: left;">Оценка реалистичности</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Возраст крупнейшего мицелия</strong></td>
+<td style="text-align: left;"><strong>2400 – 8650 лет</strong></td>
+<td style="text-align: left;">Опенок темный (<em>Armillaria ostoyae</em>) в Орегоне, 9.6 кв. км</td>
+<td style="text-align: left;">🟢 Подтверждено Службой лесного хозяйства США (USFS)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Стоимость покупки домена fungi.com</strong></td>
+<td style="text-align: left;"><strong>$25 (1994 год)</strong></td>
+<td style="text-align: left;">Инвестиция ранней интернет-эпохи, ставшая основой глобального трафика</td>
+<td style="text-align: left;">🟢 Абсолютная правда раннего интернета</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Попытка подкупа за патент</strong></td>
+<td style="text-align: left;"><strong>$200 000 – $300 000</strong></td>
+<td style="text-align: left;">Оффер агрохим-лоббистов за выкуп патента на энтомопатогенные грибы</td>
+<td style="text-align: left;">🟡 Правдоподобно (стандартная практика скупки патентов)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Снижение вирусной нагрузки у пчел</strong></td>
+<td style="text-align: left;"><strong>В 79 раз</strong> (Lake Sinai), <strong>в 45 раз</strong> (DWV)</td>
+<td style="text-align: left;">Снижение титров вирусов при кормлении экстрактами трутовиков</td>
+<td style="text-align: left;">🟢 Опубликовано в <em>Nature Scientific Reports</em> (2018)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Бюджет исследования NIH по Траметесу</strong></td>
+<td style="text-align: left;"><strong>$2 200 000</strong></td>
+<td style="text-align: left;">Грант Национального института здоровья (NIH) Бастирскому университету</td>
+<td style="text-align: left;">🟢 Зафиксировано в реестрах грантов NIH/NCCIH</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Кейс ремиссии рака IV стадии</strong></td>
+<td style="text-align: left;"><strong>84 года $    o$ 93+ года</strong></td>
+<td style="text-align: left;">Мать Стэметса: метастатический рак груди, опухоль 5.5 см, Herceptin + Turkey Tail</td>
+<td style="text-align: left;">🟢 Задокументированный медицинский кейс</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Выборка анализа криминальной базы</strong></td>
+<td style="text-align: left;"><strong>440 000 человек</strong></td>
+<td style="text-align: left;">10-летнее исследование базы данных заключенных и Минздрава США</td>
+<td style="text-align: left;">🟢 Официальное исследование рецидивизма и психоделиков</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Дозировка «Stamets Stack»</strong></td>
+<td style="text-align: left;"><strong>0.1-0.2 г + 500 мг + 100 мг</strong></td>
+<td style="text-align: left;">Псилоцибин (субпороговый) + Ежевик (экстракт) + Ниацин (B3 flush)</td>
+<td style="text-align: left;">🟢 Золотой стандарт протоколов микродозинга в биохакинге</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h3>Управленческие развилки (Dilemmas &amp; Trade-offs)</h3>
+<pre><code class="language-mermaid">flowchart TD
+    subgraph D1 [&quot;Развилка 1: Монетизация DeepTech-патента&quot;]
+        A1[&quot;Интеллектуальная собственность&quot;] --&gt; B1[&quot;Продажа патента химконцерну ($300k кэш)&quot;]
+        A1 --&gt; C1[&quot;Построение собственной платформы Fungi Perfecti&quot;]
+        B1 --&gt; D1_RES[&quot;Патент заперт в сейф, разовый доход, ноль влияния&quot;]
+        C1 --&gt; E1_RES[&quot;Капитализация в десятки миллионов, независимость&quot;]
+    end
+
+    subgraph D2 [&quot;Развилка 2: Стратегия коммуникации о рисках&quot;]
+        A2[&quot;Знание об агаритине в шампиньонах&quot;] --&gt; B2[&quot;Публичный крестовый поход против супермаркетов&quot;]
+        A2 --&gt; C2[&quot;Дипломатическая омерта на камеру&quot;]
+        B2 --&gt; D2_RES[&quot;Судебные иски картеля, разорение компании&quot;]
+        C2 --&gt; E2_RES[&quot;Сохранение бизнеса, интрига, защита жизни&quot;]
+    end
+</code></pre>
+<ul>
+<li><strong>Развилка 1: Лицензирование монополии vs Собственная вертикальная интеграция.</strong></li>
+<li><em>Вариант А (Продажа):</em> Получить быстрый чек в $300 000 и избавить себя от операционного ада построения фабрик и складов.</li>
+<li><em>Вариант B (Интеграция — путь Стэметса):</em> Отказаться от подачки, запатентовать сопутствующие процессы, построить бренд Host Defense и контролировать 100% добавленной стоимости.</li>
+<li><strong>Развилка 2: Академический снобизм vs Харизматичный сторителлинг.</strong></li>
+<li><em>Вариант А:</em> Публиковать сухие статьи в микологических сборниках для 200 профессоров.</li>
+<li><em>Вариант B:</em> Надеть шляпу из трутовика, пойти к Джо Рогану на 2-часовой эфир, рассказать о трипе на дубе во время грозы и пробить продажи добавок на годы вперед.</li>
+</ul>
+<hr />
+  </section>
+
+  <!-- БЛОК 5 -->
+  <section id="block5" class="card">
+    <h2><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-5.04z" fill="#fbbf24" fill-opacity="0.25" stroke="#fbbf24" stroke-width="1.8"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-5.04z" fill="#a855f7" fill-opacity="0.25" stroke="#a855f7" stroke-width="1.8"/><circle cx="12" cy="12" r="2.5" fill="#38bdf8"/></svg> <span>Блок 5. Ментальные модели, карта мышления и Mermaid-диаграмма</span></h2>
+    <p>Ментальные модели, карта мышления и Mermaid-диаграмма</p>
+<h3>Ключевые ментальные модели Стэметса</h3>
+<ol>
+<li><strong>«Мицелиальный фрактал» (Decentralized Resilience):</strong></li>
+<li><em>Суть:</em> Природа решает задачу выживания не через укрепление центрального ядра, а через максимальное дробление чувствительных рецепторов. Любой фрагмент мицелия, отделенный от целого, способен развернуться в новую самодостаточную колонию.</li>
+<li><em>Бизнес-применение:</em> Построение антихрупкой операционной модели с независимыми ячейками (Scrum-команды, децентрализованные серверные мощности), исключающими единую точку отказа (Single Point of Failure).</li>
+<li><strong>«Биологический троянский конь» (Delayed Sporulation Vector):</strong></li>
+<li><em>Суть:</em> Уничтожение враждебной системы не лобовой атакой (которая вызывает немедленную защитную реакцию колонии), а маскировкой под питательный субстрат с отложенной детонацией.</li>
+<li><em>Бизнес-применение:</em> Вход на закрытый высококонкурентный рынок через бесплатную утилиту или комплементарный сервис, который незаметно становится незаменимым ядром инфраструктуры клиента.</li>
+<li><strong>«Ниациновый шлюз» (Flush Delivery Mechanism):</strong></li>
+<li><em>Суть:</em> Активное вещество бесполезно, если логистический канал не способен доставить его до конечного адресата. Добавление сосудорасширяющего компонента открывает капилляры, позволяя молекулам достичь глубоких периферических нервов.</li>
+<li><em>Бизнес-применение:</em> Превосходный продукт провалится без агрессивного дистрибуционного канала. Инвестиции в канал доставки ценности («шлюз») важнее, чем улучшение самого продукта на очередные 5%.</li>
+<li><strong>«Симбиотическая гильдия микробиома» (Holobiont Guild Defense):</strong></li>
+<li><em>Суть:</em> Особь выживает не в изоляции от среды, а формируя альянсы с микробами, бактериями и растениями-хозяевами, обмениваясь углеводами, ферментами и защитными антителами.</li>
+<li><em>Бизнес-применение:</em> Создание B2B-экосистем и маркетплейсов, где партнеры получают взаимную выгоду от нахождения в периметре платформы.</li>
+</ol>
+<hr />
+<h3>Архитектура биомикологической защиты и нейрогенеза</h3>
+<hr />
+        <div class="mermaid-box" style="margin-top: 24px; background: rgba(0,0,0,0.3); border-radius: 12px; padding: 20px; border: 1px solid rgba(255,255,255,0.08); text-align: center;">
+          <h4 style="margin-bottom: 16px; color: #38bdf8;">📊 Диаграмма: Адаптация мицелия и протокол нейрогенеза Stamets Stack</h4>
+          <pre class="mermaid">
+flowchart TD
+    subgraph STAMETS_STACK ["Протокол нейрогенеза: Stamets Stack"]
+        PSILO["Псилоцибин (0.1-0.2 г)<br/>• Стимуляция 5-HT2A рецепторов<br/>• Повышение нейропластичности"]
+        LION["Ежевик гребенчатый (500-1000 мг)<br/>• Эринацины и гериценоны<br/>• Запуск выработки NGF"]
+        NIACIN["Ниацин B3 Flush (100-200 мг)<br/>• Вазодилатация периферии<br/>• Расширение микрокапилляров"]
+        
+        PSILO --> COMBINE["Синергетическая триада"]
+        LION --> COMBINE
+        NIACIN --> COMBINE
+        
+        COMBINE --> BBB["Преодоление гематоэнцефалического барьера"]
+        BBB --> TARGET["Целевой эффект:<br/>1. Ремиелинизация аксонов<br/>2. Синтез новых синапсов<br/>3. Купирование заикания/ПТСР"]
+    end
+
+    subgraph AGTECH_DEFENSE ["AgTech & Bio-Defense: Патентный контур"]
+        EXTRACTS["Экстракты трутовиков<br/>(Fomes / Ganoderma)"] --> BEES["Спасение пчел (CCD)<br/>Падение вирусов в 79-99 раз"]
+        METARHIZIUM["Энтомопатогенные споры<br/>(Задержка спороношения)"] --> TERMITES["Биопестицид против термитов<br/>Без токсичной химии"]
+        AGARIKON["Реликтовый Агарикон<br/>(Laricifomes officinalis)"] --> BIOSHIELD["DARPA / Project BioShield<br/>Защита от оспы и гриппа"]
+    end
+          </pre>
+        </div>
+  </section>
+
+  <!-- БЛОК 6 -->
+  <section id="block6" class="card">
+    <h2><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" fill="#38bdf8" fill-opacity="0.2" stroke="#38bdf8" stroke-width="2"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" fill="#a855f7" fill-opacity="0.2" stroke="#a855f7" stroke-width="2"/></svg> <span>Блок 6. Расширение кругозора: Книги, Словарь понятий и Персоны</span></h2>
+    <p>Расширение кругозора: Книги, Словарь понятий и Персоны</p>
+<h3>1. Фундаментальные книги выпуска</h3>
+<ol>
+<li><strong>[[Пол Стэметс]] — «Mycelium Running: How Mushrooms Can Help Save the World» (2005):</strong></li>
+<li><em>Суть:</em> Главный манифест прикладной микологии XXI века. Подробнейшее руководство по биоремедиации (очистке нефти), микофильтрации сточных вод, микопестицидам и выращиванию лекарственных видов.</li>
+<li><em>Вывод для бизнеса:</em> Настольная библия для фаундеров в сфере AgTech, биоремедиации и климатических технологий. Показывает, как природные процессы заменяют тяжелую энергоемкую индустрию.</li>
+<li><strong>[[Теренс Маккенна]] — «Food of the Gods: The Search for the Original Tree of Knowledge» (1992):</strong></li>
+<li><em>Суть:</em> Обоснование теории «упоротой обезьяны» (<em>Stoned Ape Theory</em>). Маккенна доказывает, что включение псилоцибиновых грибов в рацион протолюдей саванны вызвало стимуляцию зрительной резкости, половой активности и скачкообразный рост центров языка в коре головного мозга.</li>
+<li><em>Вывод для бизнеса:</em> Радикальная оптика на природу человеческого воображения, абстрактного мышления и создания первобытных стартапов (инструментов труда и ритуалов).</li>
+<li><strong>[[Пол Стэметс]] — «Growing Gourmet and Medicinal Mushrooms» (1993):</strong></li>
+<li><em>Суть:</em> Инженерно-технологический стандарт стерильного культивирования мицелия, пастеризации субстратов и промышленного выращивания ценных штаммов в закрытом грунте.</li>
+<li><em>Вывод для бизнеса:</em> Практическое руководство по CAPEX, OPEX, оптимизации воздухообмена, влажности и стерильности для коммерческих грибных производств.</li>
+</ol>
+<hr />
+<h3>2. Банк технологических понятий выпуска</h3>
+<ul>
+<li><strong>[[Мицелий]] (Mycelium):</strong> Вегетативное тело грибов, состоящее из переплетенных нитей (гиф). Служит биологической нейросетью почвы, распределяющей питательные вещества между деревьями леса.</li>
+<li><strong>[[Эринацины]] и [[Гериценоны]] (Erinacines &amp; Hericenones):</strong> Низкомолекулярные терпены и дитерпеноиды, содержащиеся в ежевике гребенчатом. Единственные природные молекулы, способные напрямую запускать эндогенный синтез белка NGF в мозге.</li>
+<li><strong>[[Фактор роста нервов]] (NGF — Nerve Growth Factor):</strong> Сигнальный белок, критически важный для роста, поддержания жизни и выживания нейронов центральной и периферической нервной системы, а также миелинизации.</li>
+<li><strong>[[Синдром разрушения пчелиных колоний]] (CCD — Colony Collapse Disorder):</strong> Феномен массового вымирания пчелиных семей, когда рабочие пчелы внезапно и навсегда покидают улей, оставляя матку и расплод.</li>
+<li><strong>[[Энтомопатогенные грибы]] (Entomopathogenic fungi):</strong> Грибковые паразиты (кордицепс, метаризиум), поражающие и уничтожающие насекомых. Используются как высокоточное биооружие против вредителей.</li>
+<li><strong>[[Агаритин]] (Agaritine):</strong> Ароматический гидразин, присутствующий в грибах рода <em>Agaricus</em> (шампиньоны, портобелло). Термолабилен, разрушается при готовке, но токсичен в сыром виде.</li>
+<li><strong>[[Биоремедиация]] (Mycoremediation):</strong> Метод детоксикации загрязненных грунтов и водоемов с помощью грибных ферментов (лакказ и пероксидаз), расщепляющих сложные токсины на безвредные элементы.</li>
+<li><strong>[[Stamets Stack]] (Стек Стэметса):</strong> Ноотропный протокол микродозинга, сочетающий микродозу псилоцибина, полный спектр Ежевика гребенчатого и сосудорасширяющий ниацин.</li>
+</ul>
+<hr />
+<h3>3. Ключевые личности выпуска</h3>
+<ul>
+<li><strong>[[Пол Стэметс]] (Paul Stamets):</strong> Центр повествования. Ученый, фаундер Fungi Perfecti, консультант правительства США по биозащите.</li>
+<li><strong>[[Хирокадзу Кавагиси]] (Hirokazu Kawagishi):</strong> Японский биохимик, профессор Университета Сидзуока, впервые выделивший и описавший эринацины и гериценоны в 1994 году.</li>
+<li><strong>[[Стив Шеппард]] (Steve Sheppard):</strong> Заведующий кафедрой энтомологии Вашингтонского государственного университета (WSU), соавтор Стэметса по исследованию влияния полипоров на иммунитет пчел.</li>
+<li><strong>[[Джо Роган]] (Joe Rogan):</strong> Ведущий, боец MMA, создатель медиаимперии JRE, обеспечивший глобальную трибуну для микологического прорыва.</li>
+<li><strong>[[Патриция Стэметс]] (Patricia Stamets):</strong> Мать Пола, чье излечение от неоперабельного рака груди IV стадии в возрасте 84 лет послужило катализатором клинических испытаний NIH по Траметесу.</li>
+</ul>
+<hr />
+  </section>
+
+  <!-- БЛОК 7 -->
+  <section id="block7" class="card">
+    <h2><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.75-2-2-2H4c-1.25 0-2 .75-2 2v6c0 1.25.75 2 2 2 0 4-1 6-1 8z" fill="#fbbf24" fill-opacity="0.2" stroke="#fbbf24" stroke-width="2"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.75-2-2-2h-4c-1.25 0-2 .75-2 2v6c0 1.25.75 2 2 2 0 4-1 6-1 8z" fill="#fbbf24" fill-opacity="0.2" stroke="#fbbf24" stroke-width="2"/></svg> <span>Блок 7. Золотые формулировки и панчлайны выпуска</span></h2>
+    <p>Золотые формулировки и панчлайны выпуска</p>
+<ol>
+<li>
+<blockquote>
+<p>«Мицелий — это неврологическая сеть Земли. Каждый раз, когда вы ступаете по лесу, мицелий ощущает шаги и передает биохимические сигналы на сотни метров вокруг. Мы ходим по гигантскому разумному мозгу».</p>
+</blockquote>
+</li>
+<li>
+<blockquote>
+<p>«Не хватит всех денег на этой гребаной планете, чтобы я продал этот патент химическим корпорациям. Мои патенты принадлежат будущему биосферы, а не их картелям».</p>
+</blockquote>
+</li>
+<li>
+<blockquote>
+<p>«Разговор об опасных свойствах сырых шампиньонов подвергает мою жизнь смертельной опасности. Я оставляю за собой право вежливо промолчать и не обсуждать это в эфире».</p>
+</blockquote>
+</li>
+<li>
+<blockquote>
+<p>«Мы эволюционировали вместе с грибами. У нас общий предок, мы вдыхаем кислород и выдыхаем CO2, мы делим одни и те же бактериальные угрозы. Именно поэтому грибные антибиотики идеально работают на человеке».</p>
+</blockquote>
+</li>
+<li>
+<blockquote>
+<p>«Я сидел на вершине дуба посреди смертоносной грозы под огромной дозой псилоцибина и повторял: "Прекрати заикаться сейчас же". На следующее утро я проснулся другим человеком — и никогда больше не заикался».</p>
+</blockquote>
+</li>
+</ol>
+<hr />
+  </section>
+
+  <!-- БЛОК 8 -->
+  <section id="block8" class="card">
+    <h2><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="#38bdf8" fill-opacity="0.15" stroke="#38bdf8" stroke-width="2"/><path d="M9 12l2 2 4-4" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> <span>Блок 8. Внешний фактчек, материалы и реакция аудитории</span></h2>
+    <p>Внешний фактчек, материалы и реакция аудитории</p>
+<h3>Документы, исследования и патенты выпуска</h3>
+<ol>
+<li><strong>Патент США US 7,122,176 B2:</strong> <em>«Mycoattractants and mycopesticides»</em> (Изобретатель: Paul Stamets). Патент на привлечение и уничтожение термитов и муравьев культурами грибов с задержкой спороношения.</li>
+<li><strong>Исследование в Nature Scientific Reports (2018):</strong> <em>«Extracts of Polypore Mushroom Mycelia Reduce Viruses in Honey Bees»</em> (Paul E. Stamets, Nicholas L. Naeger, David F. Evans, Hanan K. Hanan, Steve Sheppard). Доказано падение вируса деформации крыла и вируса озера Синай в десятки раз.</li>
+<li><strong>Клинические испытания NIH / Bastyr University (Grant U19AT006028):</strong> <em>«Phase 1 Clinical Trial of Trametes versicolor in Women with Breast Cancer»</em> (2012). Доказана безопасность и резкий рост количества NK-клеток и CD8+ Т-лимфоцитов.</li>
+</ol>
+<hr />
+<h3>Реакция аудитории (Анализ топовых комментариев зрителей)</h3>
+<ol>
+<li><strong>Фрактальная природа и крипто-параллели (@zit4771, 10 лайков):</strong><blockquote>
+<p><em>«Мицелий как фрактал растет! Это как Биткоин — прародитель цифрового кода всех других монет!»</em></p>
+</blockquote>
+</li>
+<li><em>Анализ деконструктора:</em> Зрители мгновенно считывают параллель между децентрализованной одноранговой сетью мицелия и архитектурой блокчейна. Мицелий воспринимается как первородный протокол интернета.</li>
+<li><strong>Личная трансформация и запуск бизнеса (@Alexloki94, 2 лайка):</strong><blockquote>
+<p><em>«Делал несколько ретритов с грибами... поменял очень жизнь свою, увидел свои паттерны реальные и начал меняться, открыл новый проект, начал увереннее общаться и продавать свои идеи...»</em></p>
+</blockquote>
+</li>
+<li><em>Анализ деконструктора:</em> Практическое подтверждение тезиса Стэметса о взломе нейропластичности: устранение внутренних барьеров самосаботажа напрямую ведет к росту коммерческой смелости фаундера.</li>
+<li><strong>Цинизм в адрес Big Pharma (@JOHN-88-y4z, 7 лайков):</strong><blockquote>
+<p><em>«Врачам не выгодно, грибы все за них лечить будут, а зачем тогда врачи...»</em></p>
+</blockquote>
+</li>
+<li><em>Анализ деконструктора:</em> Классический ресентимент аудитории к институциональной медицине. Подтверждает гипотезу Стэметса о сопротивлении фарминдустрии дешевым природным полисахаридам, не защищенным эксклюзивными патентами на синтез.</li>
+<li><strong>Спор о Ежевике гребенчатом (@OlgaQuetzal, 2 лайка):</strong><blockquote>
+<p><em>«Один врач говорил, что ежовик портит настроение и не полезен. Но один микробиолог говорил, что он сам его ест».</em></p>
+</blockquote>
+</li>
+<li><em>Анализ деконструктора:</em> Типичный раскол между консервативными клиническими терапевтами и передовыми микробиологами/биохакерами. Требует строгого соблюдения дозировок и выбора проверенных экстрактов.</li>
+</ol>
+<hr />
+  </section>
+
+  <!-- БЛОК 9 -->
+  <section id="block9" class="card">
+    <h2><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" fill="#f43f5e" fill-opacity="0.3" stroke="#f43f5e" stroke-width="2"/><path d="M12 15l-3-3m0 0l8.5-8.5a3.54 3.54 0 0 1 5 5L14 17l-5-5z" stroke="#38bdf8" stroke-width="2"/></svg> <span>Блок 9. Применение: Чек-лист и вопросы к себе</span></h2>
+    <p>Применение: Чек-лист и вопросы к себе</p>
+<h3>Чек-лист внедрения на 7–30 дней</h3>
+<ul>
+<li>[ ] <strong>Аудит употребления сырых грибов (День 1):</strong> Навсегда исключить сырые шампиньоны и портобелло из салатов. Любые культивируемые грибы варить или жарить не менее 12–15 минут для полной термической деградации агаритина.</li>
+<li>[ ] <strong>Внедрение Ежевика гребенчатого (Дни 2–7):</strong> Подобрать качественный экстракт мицелия Ежевика (<em>Hericium erinaceus</em>), стандартизированный по эринацинам (от 500 до 1000 мг в сутки утром).</li>
+<li>[ ] <strong>Тестирование ниацинового протокола (Дни 8–14):</strong> Протестировать добавление 50–100 мг никотиновой кислоты (форма с флеш-эффектом) для улучшения периферической микроциркуляции (начинать на сытый желудок).</li>
+<li>[ ] <strong>Архитектурный аудит бизнеса на «мицелиальную устойчивость» (Дни 15–21):</strong> Найти в компании узкие места с централизованным согласованием («штабные бутылочные горлышки»). Передать право оперативных решений автономным ячейкам на местах.</li>
+<li>[ ] <strong>Оценка патентного и поведенческого рва (Дни 22–30):</strong> Проанализировать свои ключевые продукты: защищены ли они патентом на поведенческий алгоритм / уникальную механику доставки или их легко скопировать крупному конкуренту?</li>
+</ul>
+<hr />
+<h3>Вопросы к себе для стратегической рефлексии фаундера</h3>
+<ol>
+<li><em>«Если завтра ключевой сервер или центральный офис компании будет парализован, способна ли наша сеть автономно синтезировать решения и продолжить экспансию, подобно мицелию?»</em></li>
+<li><em>«Какой "ниациновый шлюз" мы используем для доставки ценности нашего продукта клиентам: мы поливаем рынок рекламой вслепую или расширяем узкие капилляры прямого доступа?»</em></li>
+<li><em>«Не продаем ли мы ключевые технологические активы корпорациям за бесценок из страха операционной неопределенности?»</em></li>
+<li><em>«Какие скрытые табу и "картельные омерты" существуют в моей индустрии, нарушение которых может стоить компании жизни?»</em></li>
+<li><em>«Инвестирую ли я в сохранение биологического субстрата своего мышления (миелинизацию, нейрогенез, циркадные ритмы) так же тщательно, как в обновление корпоративного софта?»</em></li>
+</ol>
+  </section>
+
+
+
+</div>
+
+<script>
+
+  // === MOBILE NAVIGATION DRAWER & UTILITIES ===
+  function toggleNavDrawer() {
+    var overlay = document.getElementById('navDrawerOverlay');
+    if (!overlay) return;
+    if (overlay.classList.contains('is-open')) {
+      closeNavDrawer();
+    } else {
+      overlay.style.display = 'flex';
+      overlay.offsetHeight; // trigger reflow for smooth transition
+      overlay.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeNavDrawer() {
+    var overlay = document.getElementById('navDrawerOverlay');
+    if (!overlay) return;
+    overlay.classList.remove('is-open');
+    document.body.style.overflow = '';
+    setTimeout(function() {
+      if (!overlay.classList.contains('is-open')) {
+        overlay.style.display = 'none';
+      }
+    }, 280);
+  }
+
+  function handleOverlayClick(event) {
+    if (event.target && event.target.id === 'navDrawerOverlay') {
+      closeNavDrawer();
+    }
+  }
+
+  function dismissTopNav() {
+    var nav = document.getElementById('gemstudioTopNav');
+    if (nav) {
+      nav.style.display = 'none';
+    }
+  }
+
+  function toggleHeatmapCollapse() {
+    var wrapper = document.getElementById('heatmapCollapseWrapper');
+    var btn = document.getElementById('toggleHeatmapBtn');
+    if (!wrapper || !btn) return;
+
+    var isCollapsed = wrapper.classList.toggle('is-collapsed');
+    if (isCollapsed) {
+      btn.innerHTML = '<span>▾ Показать все 16 глав выпуска</span>';
+      var b2 = document.getElementById('block2');
+      if (b2) b2.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      btn.innerHTML = '<span>▴ Свернуть список глав</span>';
+    }
+  }
+
+  
+  function playEmbeddedVideo() {
+    const card = document.getElementById('videoPreviewCard');
+    const container = document.getElementById('videoEmbedContainer');
+    if (card && container) {
+      card.style.display = 'none';
+      container.style.display = 'block';
+      container.innerHTML = '<iframe src="https://www.youtube.com/embed/JtEnA4ahypk?autoplay=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+    }
+  }
+
+  function filterHeatmap(type) {
+    const rows = document.querySelectorAll('#heatmapTable tbody tr');
+    const buttons = document.querySelectorAll('.filter-btn');
+    
+    buttons.forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
+
+    rows.forEach(r => {
+      const rType = r.getAttribute('data-type');
+      if (type === 'all' || rType === type) {
+        r.style.display = '';
+      } else {
+        r.style.display = 'none';
+      }
+    });
+  }
+
+  function toggleCheck(checkbox) {
+    const parent = checkbox.closest('.check-item');
+    if (checkbox.checked) {
+      parent.classList.add('done');
+    } else {
+      parent.classList.remove('done');
+    }
+    updateProgress();
+    saveChecklist();
+  }
+
+  function updateProgress() {
+    const total = document.querySelectorAll('.check-item input[type="checkbox"]').length;
+    const checked = document.querySelectorAll('.check-item input[type="checkbox"]:checked').length;
+    const pct = total === 0 ? 0 : Math.round((checked / total) * 100);
+    
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressLabel').innerText = `Прогресс: ${checked} из ${total} выполнено (${pct}%)`;
+  }
+
+  function saveChecklist() {
+    const checks = {};
+    document.querySelectorAll('.check-item input[type="checkbox"]').forEach(c => {
+      checks[c.id] = c.checked;
+    });
+    localStorage.setItem('yt_gawdat_2027_checklist', JSON.stringify(checks));
+  }
+
+  function loadChecklist() {
+    const saved = localStorage.getItem('yt_gawdat_2027_checklist');
+    if (saved) {
+      const checks = JSON.parse(saved);
+      for (const id in checks) {
+        const el = document.getElementById(id);
+        if (el) {
+          el.checked = checks[id];
+          if (checks[id]) el.closest('.check-item').classList.add('done');
+        }
+      }
+    }
+    updateProgress();
+  }
+
+  window.addEventListener('DOMContentLoaded', loadChecklist);
+
+  // Reading Progress Bar
+  window.addEventListener('scroll', () => {
+    const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = totalHeight > 0 ? (window.scrollY / totalHeight) * 100 : 0;
+    const bar = document.getElementById('readingProgress');
+    if (bar) bar.style.width = Math.min(progress, 100) + '%';
+  });
+
+  // Copy Quote Function
+  function copyQuote(btn, text) {
+    navigator.clipboard.writeText(text).then(() => {
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '✓ Скопировано!';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+
+
+  // === V1.5 INSIGHT CARD GENERATOR (Canvas 2D) ===
+  function openInsightCardFromBtn(btn) {
+    var quoteCard = btn.closest('.quote-card');
+    if (!quoteCard) return;
+    var quoteEl = quoteCard.querySelector('.quote-text');
+    var authorEl = quoteCard.querySelector('.quote-author');
+    var quote = quoteEl ? quoteEl.innerText.replace(/^[«"]|[»"]$/g, '').trim() : '';
+    var author = authorEl ? authorEl.innerText.replace(/^[—–-]\s*/, '').trim() : 'Мо Гавдат';
+    generateInsightCard(quote, author);
+  }
+
+  function generateInsightCard(quoteText, authorName) {
+    var modal = document.getElementById('insightCardModal');
+    var canvas = document.getElementById('insightCanvas');
+    if (!modal || !canvas) return;
+
+    var ctx = canvas.getContext('2d');
+    var W = 1080;
+    var H = 1350;
+    canvas.width = W;
+    canvas.height = H;
+
+    // Dark gradient background
+    var grad = ctx.createLinearGradient(0, 0, W, H);
+    grad.addColorStop(0, '#0f172a');
+    grad.addColorStop(0.5, '#090d16');
+    grad.addColorStop(1, '#05070d');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, W, H);
+
+    // Cyan & Purple ambient glow
+    var glow1 = ctx.createRadialGradient(W*0.2, H*0.2, 50, W*0.2, H*0.2, 500);
+    glow1.addColorStop(0, 'rgba(56, 189, 248, 0.22)');
+    glow1.addColorStop(1, 'transparent');
+    ctx.fillStyle = glow1;
+    ctx.fillRect(0, 0, W, H);
+
+    var glow2 = ctx.createRadialGradient(W*0.8, H*0.75, 50, W*0.8, H*0.75, 450);
+    glow2.addColorStop(0, 'rgba(168, 85, 247, 0.18)');
+    glow2.addColorStop(1, 'transparent');
+    ctx.fillStyle = glow2;
+    ctx.fillRect(0, 0, W, H);
+
+    // Frame
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.12)';
+    ctx.lineWidth = 4;
+    ctx.strokeRect(40, 40, W - 80, H - 80);
+
+    // Category Pill Badge
+    ctx.fillStyle = '#0284c7';
+    if (ctx.roundRect) {
+      ctx.beginPath();
+      ctx.roundRect(80, 80, 310, 58, 29);
+      ctx.fill();
+    } else {
+      ctx.fillRect(80, 80, 310, 58);
+    }
+    ctx.fillStyle = '#ffffff';
+    ctx.font = 'bold 24px -apple-system, sans-serif';
+    ctx.fillText('💡 БИЗНЕС-ИНСАЙТ', 115, 118);
+
+    // Huge quotation mark
+    ctx.fillStyle = 'rgba(56, 189, 248, 0.25)';
+    ctx.font = 'bold 200px Georgia, serif';
+    ctx.fillText('“', 75, 270);
+
+    // Quote text with word-wrap
+    ctx.fillStyle = '#f8fafc';
+    ctx.font = '600 42px -apple-system, BlinkMacSystemFont, sans-serif';
+    
+    var words = quoteText.split(' ');
+    var line = '';
+    var y = 320;
+    var maxW = W - 170;
+    var lineH = 64;
+
+    for (var i = 0; i < words.length; i++) {
+      var testLine = line + words[i] + ' ';
+      var metrics = ctx.measureText(testLine);
+      if (metrics.width > maxW && i > 0) {
+        ctx.fillText(line, 85, y);
+        line = words[i] + ' ';
+        y += lineH;
+      } else {
+        line = testLine;
+      }
+    }
+    ctx.fillText(line, 85, y);
+
+    // Author section
+    y = Math.max(y + 80, 920);
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';
+    ctx.fillRect(85, y, 140, 3);
+
+    y += 48;
+    ctx.fillStyle = '#38bdf8';
+    ctx.font = 'bold 36px -apple-system, sans-serif';
+    ctx.fillText(authorName, 85, y);
+
+    y += 40;
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '500 24px -apple-system, sans-serif';
+    ctx.fillText('Инвестиционная деконструкция • Gemstudio', 85, y);
+
+    // Bottom Branding
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.04)';
+    ctx.fillRect(40, H - 140, W - 80, 100);
+
+    ctx.fillStyle = '#f8fafc';
+    ctx.font = 'bold 28px -apple-system, sans-serif';
+    ctx.fillText('⚡ Gemstudio Dashboard', 85, H - 78);
+
+    ctx.fillStyle = '#38bdf8';
+    ctx.font = '24px monospace';
+    ctx.fillText('gemstudio-deconstruct.netlify.app', W - 560, H - 78);
+
+    modal.style.display = 'flex';
+  }
+
+  function closeInsightModal(e) {
+    if (!e || e.target.id === 'insightCardModal' || e.target.classList.contains('drawer-close-btn')) {
+      var modal = document.getElementById('insightCardModal');
+      if (modal) modal.style.display = 'none';
+    }
+  }
+
+  function downloadInsightCard() {
+    var canvas = document.getElementById('insightCanvas');
+    if (!canvas) return;
+    var a = document.createElement('a');
+    a.download = 'gemstudio-insight.png';
+    a.href = canvas.toDataURL('image/png');
+    a.click();
+  }
+
+  function copyInsightCard() {
+    var canvas = document.getElementById('insightCanvas');
+    if (!canvas) return;
+    canvas.toBlob(function(blob) {
+      if (navigator.clipboard && navigator.clipboard.write) {
+        navigator.clipboard.write([
+          new ClipboardItem({ 'image/png': blob })
+        ]).then(function() {
+          alert('Карточка скопирована в буфер обмена!');
+        }).catch(function() {
+          downloadInsightCard();
+        });
+      } else {
+        downloadInsightCard();
+      }
+    });
+  }
+
+  // === V1.5 USER HIGHLIGHTS (localStorage) ===
+  var storageKey = 'gemstudio_hl_' + window.location.pathname;
+  var userHighlights = JSON.parse(localStorage.getItem(storageKey) || '[]');
+
+  document.addEventListener('mouseup', handleTextSelection);
+  document.addEventListener('touchend', handleTextSelection);
+
+  function handleTextSelection(e) {
+    var bubble = document.getElementById('highlightBubble');
+    if (!bubble) return;
+
+    var sel = window.getSelection();
+    if (!sel || sel.isCollapsed || !sel.toString().trim()) {
+      bubble.style.display = 'none';
+      return;
+    }
+
+    var range = sel.getRangeAt(0);
+    var rect = range.getBoundingClientRect();
+    bubble.style.left = (window.scrollX + rect.left + rect.width / 2 - 40) + 'px';
+    bubble.style.top = (window.scrollY + rect.top - 42) + 'px';
+    bubble.style.display = 'flex';
+  }
+
+  function applyUserHighlight() {
+    var bubble = document.getElementById('highlightBubble');
+    var sel = window.getSelection();
+    if (!sel || sel.isCollapsed) return;
+
+    var text = sel.toString().trim();
+    if (!text) return;
+
+    var range = sel.getRangeAt(0);
+    var mark = document.createElement('mark');
+    mark.className = 'user-highlight';
+    mark.title = 'Нажмите для удаления хайлайта';
+    mark.onclick = function() { removeHighlight(text, mark); };
+
+    try {
+      range.surroundContents(mark);
+      userHighlights.push(text);
+      localStorage.setItem(storageKey, JSON.stringify(userHighlights));
+      updateNotesCount();
+    } catch(err) {
+      console.log('Highlight cross-boundary selection');
+    }
+
+    if (bubble) bubble.style.display = 'none';
+    sel.removeAllRanges();
+  }
+
+  function removeHighlight(text, markEl) {
+    if (confirm('Удалить этот хайлайт?')) {
+      var parent = markEl.parentNode;
+      while (markEl.firstChild) parent.insertBefore(markEl.firstChild, markEl);
+      parent.removeChild(markEl);
+      userHighlights = userHighlights.filter(function(t) { return t !== text; });
+      localStorage.setItem(storageKey, JSON.stringify(userHighlights));
+      updateNotesCount();
+    }
+  }
+
+  function updateNotesCount() {
+    var countEl = document.getElementById('drawerNotesCount');
+    if (countEl) countEl.innerText = '🖍️ Мои заметки и хайлайты (' + userHighlights.length + ')';
+  }
+
+  function exportUserHighlights() {
+    if (!userHighlights.length) {
+      alert('У вас пока нет сохраненных хайлайтов в этом выпуске. Выделите любой текст на странице маркером!');
+      return;
+    }
+    var md = '# Мои Заметки и Хайлайты\n\n* **Разбор:** ' + document.title + '\n* **Дата экспорта:** ' + new Date().toLocaleDateString() + '\n\n---\n\n';
+    userHighlights.forEach(function(item, idx) {
+      md += (idx + 1) + '. > ' + item + '\n\n';
+    });
+    var blob = new Blob([md], { type: 'text/markdown;charset=utf-8;' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'мои-заметки-' + window.location.pathname.replace(/[^a-z0-9]/gi, '_') + '.md';
+    a.click();
+  }
+
+  // Init notes count on load
+  setTimeout(updateNotesCount, 300);
+
+</script>
+
+
+  <!-- Плавающая кнопка вызова меню (доступна в любой части экрана) -->
+  <div id="floatingNavBtn" class="floating-nav-pill" onclick="toggleNavDrawer()" title="Навигация по разделам">
+    <span>🧭 Навигация</span>
+  </div>
+
+  
+        <!-- Личные Заметки Пользователя -->
+        <div id="drawerNotesSection" style="margin: 10px 0; padding: 12px; background: rgba(251, 191, 36, 0.08); border: 1px solid rgba(251, 191, 36, 0.25); border-radius: 10px;">
+          <div style="font-weight: 700; color: #fbbf24; font-size: 0.9rem; margin-bottom: 4px;" id="drawerNotesCount">🖍️ Мои заметки и хайлайты (0)</div>
+          <div style="font-size: 0.8rem; color: #cbd5e1; margin-bottom: 8px;">Выделяйте важные мысли маркером прямо в тексте — они сохраняются на вашем устройстве.</div>
+          <button onclick="exportUserHighlights()" style="width: 100%; background: #d97706; color: #fff; border: none; padding: 8px 12px; border-radius: 6px; font-weight: 700; font-size: 0.82rem; cursor: pointer; transition: all 0.2s;">📥 Экспортировать мои заметки в Obsidian (.md)</button>
+        </div>
+
+  <!-- Шторка-модалка навигации по статье -->
+  <div id="navDrawerOverlay" class="nav-drawer-overlay" onclick="handleOverlayClick(event)">
+    <div class="nav-drawer-sheet">
+      <div class="drawer-header">
+        <div class="drawer-title">Навигация по разбору</div>
+        <button class="drawer-close-btn" onclick="closeNavDrawer()">✕</button>
+      </div>
+      <div class="drawer-links-grid">
+        <a href="00_Хаб_Все_Разборы.html" class="drawer-link catalog-link">
+          <span>🏠</span> <strong>← Вернуться в Каталог всех разборов</strong>
+        </a>
+        <a href="#block1" class="drawer-link" onclick="closeNavDrawer()">
+          <span>🎯</span> <span>Блок 1. Интро, вердикт и скрытая повестка</span>
+        </a>
+        <a href="#block2" class="drawer-link" onclick="closeNavDrawer()">
+          <span>🗺️</span> <span>Блок 2. Тепловая карта выпуска (40 глав)</span>
+        </a>
+        <a href="#block3" class="drawer-link" onclick="closeNavDrawer()">
+          <span>🥩</span> <span>Блок 3. Детальный разбор («Мясо»)</span>
+        </a>
+        <a href="#block4" class="drawer-link" onclick="closeNavDrawer()">
+          <span>📊</span> <span>Блок 4. Сводка цифр, бенчмарков и развилок</span>
+        </a>
+        <a href="#block5" class="drawer-link" onclick="closeNavDrawer()">
+          <span>🧠</span> <span>Блок 5. Ментальные модели и схема</span>
+        </a>
+        <a href="#block6" class="drawer-link" onclick="closeNavDrawer()">
+          <span>📚</span> <span>Блок 6. Справочник сущностей (Wikilinks)</span>
+        </a>
+        <a href="#block7" class="drawer-link" onclick="closeNavDrawer()">
+          <span>💬</span> <span>Блок 7. Золотые панчлайны выпуска</span>
+        </a>
+        <a href="#block8" class="drawer-link" onclick="closeNavDrawer()">
+          <span>🔍</span> <span>Блок 8. Фактчек и реакция аудитории</span>
+        </a>
+        <a href="#block9" class="drawer-link" onclick="closeNavDrawer()">
+          <span>✅</span> <span>Блок 9. Чек-лист применения (7–30 дней)</span>
+        </a>
+        <a href="/gawdat.md" download="2026-10-30_Мо_Гавдат_ИИ_Заберет_Работу_2027.md" class="drawer-link" style="color: #a5b4fc; border-color: rgba(129, 140, 248, 0.3);">
+          <span>📥</span> <span>Скачать Markdown (.md для Obsidian)</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Модальное окно Инсайт-Карточки (HTML5 Canvas) -->
+  <div id="insightCardModal" class="insight-modal-overlay" onclick="closeInsightModal(event)">
+    <div class="insight-modal-content">
+      <div class="insight-modal-header">
+        <div style="font-weight: 700; color: #fff; font-size: 1rem;">📸 Инсайт-Карточка для соцсетей</div>
+        <button class="drawer-close-btn" onclick="closeInsightModal()">✕</button>
+      </div>
+      <div class="insight-canvas-wrap">
+        <canvas id="insightCanvas" width="1080" height="1350"></canvas>
+      </div>
+      <div class="insight-modal-actions">
+        <button class="insight-btn-download" onclick="downloadInsightCard()">
+          <span>📥 Скачать PNG</span>
+        </button>
+        <button class="insight-btn-copy" onclick="copyInsightCard()">
+          <span>📋 Скопировать</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Плавающий тултип выделения текста -->
+  <div id="highlightBubble" class="highlight-bubble">
+    <button onclick="applyUserHighlight()"><span>🖍️ Выделить</span></button>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,2317 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Open Graph / Rich Social Preview -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="AI-инженерия с нуля — Полный гайд для разработчика | Владилен Минин">
+  <meta property="og:description" content="Архитектура агентских систем, Harness, верификационный налог и почему вайб-кодинг опасен для продакшна. Бизнес-деконструкция Gemstudio.">
+  <meta property="og:image" content="https://img.youtube.com/vi/WT0yDhfOjaA/maxresdefault.jpg">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="720">
+  <meta property="og:site_name" content="Gemstudio: Бизнес-Деконструктор">
+
+  <title>AI-инженерия с нуля — Полный гайд для разработчика — Бизнес-Деконструкция</title>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'dark',
+      themeVariables: {
+        primaryColor: '#1e293b',
+        primaryTextColor: '#f8fafc',
+        primaryBorderColor: '#38bdf8',
+        lineColor: '#64748b',
+        secondaryColor: '#334155',
+        tertiaryColor: '#0f172a'
+      }
+    });
+  </script>
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: #111726;
+      --card-border: #1e293b;
+      --card-hover: #172033;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --accent-blue: #38bdf8;
+      --accent-purple: #818cf8;
+      --accent-green: #34d399;
+      --accent-red: #f87171;
+      --accent-gold: #fbbf24;
+      --radius: 12px;
+      --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: var(--font);
+      line-height: 1.6;
+      padding: 32px 16px 80px 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    /* Header & Badges */
+    header {
+      margin-bottom: 36px;
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 28px;
+    }
+    .badge-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .badge-rating { background: rgba(251, 191, 36, 0.15); color: var(--accent-gold); border: 1px solid rgba(251, 191, 36, 0.3); }
+    .badge-tag { background: rgba(56, 189, 248, 0.12); color: var(--accent-blue); border: 1px solid rgba(56, 189, 248, 0.25); }
+    .badge-time { background: rgba(148, 163, 184, 0.12); color: var(--text-muted); border: 1px solid var(--card-border); }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 12px;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+    }
+    .meta-line {
+      font-size: 14px;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+    }
+    .meta-line a { color: var(--accent-blue); text-decoration: none; }
+    .meta-line a:hover { text-decoration: underline; }
+
+    /* Quick Action Toolbar */
+    .toolbar {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      border: 1px solid var(--card-border);
+      background: var(--card-bg);
+      color: var(--text-main);
+      transition: all 0.2s;
+    }
+    .btn:hover {
+      background: var(--card-hover);
+      border-color: var(--accent-blue);
+    }
+
+    /* Card Layouts */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.25);
+    }
+
+    h2 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      padding-bottom: 10px;
+    }
+    h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 16px 0 8px 0;
+      color: var(--accent-blue);
+    }
+    p, li {
+      font-size: 14.5px;
+      color: #cbd5e1;
+    }
+    ul, ol {
+      padding-left: 20px;
+      margin-bottom: 12px;
+    }
+    li { margin-bottom: 6px; }
+
+    /* Verdict Box */
+    .verdict-box {
+      border-left: 4px solid var(--accent-green);
+      background: rgba(52, 211, 153, 0.08);
+      padding: 16px;
+      border-radius: 0 8px 8px 0;
+      margin: 16px 0;
+    }
+    .verdict-title {
+      font-weight: 700;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent-green);
+      margin-bottom: 6px;
+    }
+
+    /* Agenda / Heatmap List */
+    .heatmap-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+    .heatmap-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      border-radius: 8px;
+      font-size: 13.5px;
+    }
+    .heatmap-row:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .time-tag {
+      font-family: monospace;
+      font-size: 12px;
+      color: var(--text-muted);
+      min-width: 80px;
+    }
+    .dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-right: 8px;
+    }
+    .dot-meat { background: var(--accent-green); box-shadow: 0 0 8px var(--accent-green); }
+    .dot-water { background: var(--accent-gold); }
+    .dot-ad { background: var(--accent-red); }
+
+    /* Tables */
+    .table-container {
+      overflow-x: auto;
+      margin: 16px 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+      text-align: left;
+    }
+    th {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-muted);
+      font-weight: 600;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--card-border);
+    }
+    td {
+      padding: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      color: #e2e8f0;
+    }
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    /* Dilemma Cards */
+    .dilemma-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .dilemma-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .dilemma-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent-purple);
+      margin-bottom: 8px;
+    }
+
+    /* Quote Box */
+    .quote-item {
+      position: relative;
+      padding: 14px 18px 14px 24px;
+      margin-bottom: 12px;
+      background: rgba(56, 189, 248, 0.04);
+      border-left: 3px solid var(--accent-blue);
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+      color: #e2e8f0;
+      font-size: 14px;
+    }
+
+    /* Checklist */
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    }
+    .checklist-item input[type="checkbox"] {
+      margin-top: 4px;
+      cursor: pointer;
+      accent-color: var(--accent-blue);
+      width: 16px;
+      height: 16px;
+    }
+    .checklist-item label {
+      font-size: 14px;
+      color: #cbd5e1;
+      cursor: pointer;
+    }
+
+    /* Mermaid Container */
+    .mermaid-box {
+      background: #060910;
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 20px;
+      margin: 16px 0;
+      overflow-x: auto;
+      text-align: center;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 640px) {
+      body { padding: 16px 8px 60px 8px; }
+      h1 { font-size: 22px; }
+      .card { padding: 16px; }
+      .toolbar { flex-direction: column; }
+      .dilemma-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Print Styles */
+    @media print {
+      body { background: #fff !important; color: #000 !important; padding: 0; }
+      .card { border: none !important; box-shadow: none !important; padding: 12px 0 !important; }
+      .toolbar { display: none !important; }
+      .badge-tag, .badge-rating { border: 1px solid #999 !important; color: #000 !important; }
+      .quote-item { border-left-color: #333 !important; color: #111 !important; }
+    }
+  
+    /* Global Gemstudio Top Nav */
+    .gemstudio-top-nav {
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(56, 189, 248, 0.25);
+      padding: 12px 16px;
+      position: relative;
+      top: 0;
+      z-index: 1000;
+      margin: -24px -16px 24px -16px;
+    }
+    .gemstudio-nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .gemstudio-brand {
+      font-weight: 800;
+      color: #38bdf8;
+      text-decoration: none;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .gemstudio-brand:hover {
+      color: #fff;
+    }
+    .gemstudio-nav-links {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .gemstudio-nav-links a {
+      color: #94a3b8;
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+      border: 1px solid transparent;
+      background: rgba(255, 255, 255, 0.03);
+    }
+    .gemstudio-nav-links a:hover {
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.12);
+      border-color: rgba(56, 189, 248, 0.3);
+    }
+    .gemstudio-nav-links a.active {
+      color: #fff;
+      background: #0284c7;
+      border-color: #38bdf8;
+      font-weight: 600;
+    }
+
+  
+    .btn-download-md {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(129, 140, 248, 0.15);
+      color: #a5b4fc;
+      border: 1px solid rgba(129, 140, 248, 0.35);
+      padding: 4px 12px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .btn-download-md:hover {
+      background: #6366f1;
+      color: #fff;
+      border-color: #6366f1;
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
+      text-decoration: none;
+    }
+
+  
+    /* Video Preview Hero */
+    .video-preview-hero {
+      margin-top: 18px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--card-border, #1e293b);
+      background: #000;
+      position: relative;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    }
+    .video-preview-card {
+      position: relative;
+      cursor: pointer;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .video-thumb {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+    .video-preview-card:hover .video-thumb {
+      transform: scale(1.02);
+      filter: brightness(0.9);
+    }
+    .video-play-btn {
+      position: absolute;
+      width: 68px;
+      height: 68px;
+      background: rgba(239, 68, 68, 0.9);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      box-shadow: 0 0 30px rgba(239, 68, 68, 0.6);
+      transition: transform 0.2s, background 0.2s;
+    }
+    .video-preview-card:hover .video-play-btn {
+      transform: scale(1.12);
+      background: #dc2626;
+    }
+    .video-duration-badge {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(4px);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-family: ui-monospace, SFMono-Regular, monospace;
+      color: #f1f5f9;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .video-embed-container {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+    }
+    .video-embed-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+
+    /* Global Gemstudio Top Nav - Non-Sticky (Natural scroll on mobile and desktop) */
+    .gemstudio-top-nav {
+      background: rgba(15, 23, 42, 0.95);
+      border-bottom: 1px solid rgba(56, 189, 248, 0.25);
+      padding: 12px 16px;
+      position: relative; /* Not sticky so it never covers mobile screen! */
+      margin: -24px -16px 20px -16px;
+    }
+    .gemstudio-nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .gemstudio-brand {
+      font-weight: 800;
+      color: #38bdf8;
+      text-decoration: none;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .gemstudio-brand:hover { color: #fff; }
+    .gemstudio-nav-links {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .nav-catalog-btn {
+      color: #38bdf8;
+      text-decoration: none;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.2s;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      background: rgba(56, 189, 248, 0.1);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-catalog-btn:hover {
+      background: #0284c7;
+      color: #fff;
+      border-color: #38bdf8;
+    }
+    @media (max-width: 640px) {
+      .gemstudio-top-nav {
+        margin: -12px -8px 16px -8px;
+        padding: 10px 12px;
+      }
+    }
+
+  
+    /* Video Ambient Glow & Preview */
+    .video-ambient-wrapper {
+      position: relative;
+      margin: 20px 0 28px;
+      border-radius: 16px;
+    }
+    .ambient-glow {
+      position: absolute;
+      inset: -12px;
+      background-size: cover;
+      background-position: center;
+      filter: blur(28px);
+      opacity: 0.35;
+      border-radius: 24px;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .video-preview-hero {
+      position: relative;
+      z-index: 1;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: #000;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+    }
+
+
+    /* Floating Nav Pill (Mobile & Desktop) */
+    .floating-nav-pill {
+      position: fixed;
+      bottom: 24px;
+      right: 20px;
+      background: rgba(15, 23, 42, 0.92);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: #38bdf8;
+      padding: 10px 18px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 14px rgba(56, 189, 248, 0.25);
+      z-index: 9999;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .floating-nav-pill:hover {
+      background: #0284c7;
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    /* Nav Drawer (Modal Sheet) */
+    .nav-drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(6px);
+      z-index: 10000;
+      display: none;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .nav-drawer-overlay.is-open {
+      display: flex;
+      align-items: flex-end;
+      opacity: 1;
+    }
+
+    .nav-drawer-sheet {
+      background: #0d1322;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 20px 20px 0 0;
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 24px 20px 36px;
+      box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.8);
+      transform: translateY(100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .nav-drawer-overlay.is-open .nav-drawer-sheet {
+      transform: translateY(0);
+    }
+
+    .drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 14px;
+      margin-bottom: 16px;
+    }
+
+    .drawer-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .drawer-close-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #94a3b8;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .drawer-close-btn:hover { color: #fff; background: rgba(255,255,255,0.12); }
+
+    .drawer-links-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .drawer-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 10px;
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 500;
+      transition: all 0.15s ease;
+    }
+
+    .drawer-link:hover {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: rgba(56, 189, 248, 0.3);
+      color: #38bdf8;
+    }
+
+    .drawer-link.catalog-link {
+      background: linear-gradient(135deg, rgba(2, 132, 199, 0.25) 0%, rgba(56, 189, 248, 0.15) 100%);
+      border-color: rgba(56, 189, 248, 0.35);
+      color: #fff;
+    }
+
+    /* Heatmap Collapse Wrapper */
+    .heatmap-collapse-wrapper {
+      position: relative;
+      transition: max-height 0.4s ease;
+    }
+
+    .heatmap-collapse-wrapper.is-collapsed {
+      max-height: 360px;
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+      mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+    }
+
+    .heatmap-toggle-btn-wrap {
+      margin-top: 14px;
+      text-align: center;
+    }
+
+    .heatmap-expand-btn {
+      background: linear-gradient(135deg, rgba(2, 132, 199, 0.2) 0%, rgba(56, 189, 248, 0.15) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #38bdf8;
+      padding: 10px 22px;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .heatmap-expand-btn:hover {
+      background: linear-gradient(135deg, rgba(2, 132, 199, 0.35) 0%, rgba(56, 189, 248, 0.25) 100%);
+      color: #fff;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(56, 189, 248, 0.25);
+    }
+
+
+    /* === V1.5 MOBILE ERGONOMICS & OVERFLOW SAFETY === */
+    html, body {
+      overflow-x: hidden !important;
+      max-width: 100vw !important;
+      width: 100%;
+    }
+    .card, .section-card {
+      max-width: 100%;
+      overflow-x: hidden;
+      word-wrap: break-word;
+    }
+
+    /* === V1.5 QUOTE ACTIONS & BUTTONS === */
+    .quote-actions-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    .copy-quote-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #cbd5e1;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      white-space: nowrap;
+    }
+    .copy-quote-btn:hover {
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+    }
+    .copy-quote-btn.copied {
+      background: rgba(34, 197, 94, 0.2);
+      border-color: #22c55e;
+      color: #86efac;
+    }
+    .punchline-btn-card {
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: #38bdf8;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      white-space: nowrap;
+    }
+    .punchline-btn-card:hover {
+      background: #0284c7;
+      color: #fff;
+    }
+
+    /* === V1.5 CANVAS INSIGHT MODAL === */
+    .insight-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 20000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    .insight-modal-content {
+      background: #090d16;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 20px;
+      max-width: 460px;
+      width: 100%;
+      padding: 20px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-height: 94vh;
+    }
+    .insight-modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .insight-canvas-wrap {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      background: #000;
+    }
+    .insight-canvas-wrap canvas {
+      width: 100% !important;
+      height: auto !important;
+      max-height: 60vh;
+      object-fit: contain;
+      display: block;
+    }
+    .insight-modal-actions {
+      display: flex;
+      gap: 12px;
+    }
+    .insight-btn-download {
+      flex: 1;
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+      color: #fff;
+      border: none;
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .insight-btn-download:hover {
+      background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+    }
+    .insight-btn-copy {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #cbd5e1;
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .insight-btn-copy:hover {
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+    }
+
+    /* === V1.5 USER HIGHLIGHTS & NOTES === */
+    mark.user-highlight {
+      background: rgba(251, 191, 36, 0.35);
+      color: inherit;
+      border-bottom: 2px solid #fbbf24;
+      border-radius: 3px;
+      padding: 1px 2px;
+      cursor: pointer;
+    }
+    .highlight-bubble {
+      position: absolute;
+      background: #111726;
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      border-radius: 8px;
+      padding: 6px 10px;
+      display: none;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+      z-index: 15000;
+    }
+    .highlight-bubble button {
+      background: transparent;
+      border: none;
+      color: #f1f5f9;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .highlight-bubble button:hover {
+      color: #38bdf8;
+    }
+
+</style>
+
+  <style id="gemstudio-icon-system">
+    h2 {
+      display: flex !important;
+      align-items: flex-start !important;
+      gap: 12px !important;
+    }
+    .gem-block-icon {
+      width: 24px !important;
+      height: 24px !important;
+      min-width: 24px !important;
+      min-height: 24px !important;
+      max-width: 24px !important;
+      max-height: 24px !important;
+      display: inline-block !important;
+      vertical-align: middle !important;
+      flex-shrink: 0 !important;
+      margin-top: 3px !important;
+      filter: drop-shadow(0 0 6px currentColor) !important;
+    }
+    .gem-icon {
+      width: 15px !important;
+      height: 15px !important;
+      min-width: 15px !important;
+      min-height: 15px !important;
+      max-width: 15px !important;
+      max-height: 15px !important;
+      display: inline-block !important;
+      vertical-align: -2px !important;
+      flex-shrink: 0 !important;
+    }
+    .floating-nav-pill {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+    }
+    .floating-nav-pill .gem-icon {
+      width: 18px !important;
+      height: 18px !important;
+      min-width: 18px !important;
+      min-height: 18px !important;
+    }
+    .copy-quote-btn, .punchline-btn-card {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+      white-space: nowrap !important;
+    }
+    .copy-quote-btn .gem-icon, .punchline-btn-card .gem-icon {
+      width: 14px !important;
+      height: 14px !important;
+      min-width: 14px !important;
+      min-height: 14px !important;
+    }
+    /* === V2.1 PRO CAPSULE BADGES & HIGH-CONTRAST HEADER === */
+    .meta-subtitle, .meta-line {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      align-items: center !important;
+      gap: 10px !important;
+      margin: 14px 0 20px 0 !important;
+    }
+    .meta-subtitle > span, .meta-line > span {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      background: rgba(255, 255, 255, 0.05) !important;
+      border: 1px solid rgba(255, 255, 255, 0.12) !important;
+      padding: 6px 14px !important;
+      border-radius: 9999px !important;
+      font-size: 0.85rem !important;
+      color: #cbd5e1 !important;
+      line-height: 1.4 !important;
+      transition: all 0.2s ease !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25) !important;
+    }
+    .meta-subtitle > span:hover, .meta-line > span:hover {
+      background: rgba(255, 255, 255, 0.09) !important;
+      border-color: rgba(255, 255, 255, 0.22) !important;
+      transform: translateY(-1px) !important;
+    }
+    .meta-subtitle > span strong, .meta-line > span strong {
+      color: #ffffff !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.01em !important;
+    }
+    .meta-subtitle a, .meta-line a {
+      color: #38bdf8 !important;
+      text-decoration: none !important;
+      font-weight: 600 !important;
+      transition: color 0.2s ease !important;
+    }
+    .meta-subtitle a:hover, .meta-line a:hover {
+      color: #ffffff !important;
+      text-decoration: underline !important;
+    }
+    .speaker-role-badge {
+      background: rgba(56, 189, 248, 0.15) !important;
+      color: #7dd3fc !important;
+      border: 1px solid rgba(56, 189, 248, 0.3) !important;
+      border-radius: 6px !important;
+      padding: 2px 8px !important;
+      font-size: 0.78rem !important;
+      font-family: monospace !important;
+      font-weight: 600 !important;
+      margin-left: 6px !important;
+      display: inline-block !important;
+    }
+    .btn-download-md {
+      background: rgba(56, 189, 248, 0.1) !important;
+      border: 1px solid rgba(56, 189, 248, 0.3) !important;
+      color: #38bdf8 !important;
+      padding: 6px 12px !important;
+      border-radius: 8px !important;
+      text-decoration: none !important;
+      font-weight: 600 !important;
+      font-size: 0.82rem !important;
+      transition: all 0.2s !important;
+    }
+    .btn-download-md:hover {
+      background: rgba(56, 189, 248, 0.25) !important;
+      border-color: #38bdf8 !important;
+      color: #fff !important;
+    }
+    .btn-download-md .gem-icon {
+      width: 15px !important;
+      height: 15px !important;
+    }
+    .gemstudio-badge {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+    }
+    .gemstudio-badge .gem-block-icon {
+      width: 16px !important;
+      height: 16px !important;
+      min-width: 16px !important;
+      min-height: 16px !important;
+      margin-top: 0 !important;
+    }
+    .drawer-link {
+      display: flex !important;
+      align-items: center !important;
+      gap: 12px !important;
+      padding: 9px 12px !important;
+      border-radius: 8px !important;
+      margin-bottom: 4px !important;
+      background: rgba(255, 255, 255, 0.03) !important;
+      border: 1px solid rgba(255, 255, 255, 0.06) !important;
+      color: #e2e8f0 !important;
+      text-decoration: none !important;
+      font-size: 0.86rem !important;
+      font-weight: 500 !important;
+      transition: all 0.2s ease !important;
+    }
+    .drawer-link:hover {
+      background: rgba(255, 255, 255, 0.08) !important;
+      border-color: rgba(255, 255, 255, 0.15) !important;
+      transform: translateX(3px) !important;
+      color: #ffffff !important;
+    }
+    .drawer-link .gem-block-icon, .drawer-link .gem-icon {
+      width: 18px !important;
+      height: 18px !important;
+      min-width: 18px !important;
+      min-height: 18px !important;
+      flex-shrink: 0 !important;
+      margin-top: 0 !important;
+    }
+    .drawer-link.catalog-link {
+      background: rgba(56, 189, 248, 0.08) !important;
+      border-color: rgba(56, 189, 248, 0.25) !important;
+      color: #38bdf8 !important;
+      margin-bottom: 8px !important;
+    }
+    .drawer-link.md-download-link {
+      background: rgba(168, 85, 247, 0.08) !important;
+      border-color: rgba(168, 85, 247, 0.25) !important;
+      color: #c084fc !important;
+      margin-top: 6px !important;
+    }
+    .badge-bar {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      align-items: center !important;
+      gap: 8px !important;
+    }
+    .badge-rating, .badge-time {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 5px !important;
+    }
+    .meta-item .meta-label {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+    }
+    .callout-title {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+    }
+  </style>
+
+</head>
+<body>
+
+
+  <nav class="gemstudio-top-nav">
+    <div class="gemstudio-nav-container">
+      <a href="00_Хаб_Все_Разборы.html" class="gemstudio-brand">
+        <span>⚡</span> <strong>Gemstudio</strong> <span style="color: #64748b; font-weight: normal;">| Бизнес-Деконструктор</span>
+      </a>
+      <div class="gemstudio-nav-links">
+        <a href="00_Хаб_Все_Разборы.html" class="nav-catalog-btn">← Каталог всех разборов</a>
+      </div>
+    </div>
+  </nav>
+
+<div class="container">
+
+  <!-- Header -->
+  <header>
+    <div class="badge-bar">
+      <span class="badge badge-rating"><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> Оценка: 9.0 / 10</span>
+      <span class="badge badge-time"><svg class="gem-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 01:02:53</span>
+      <span class="badge badge-tag">#бизнес-стратегия</span>
+      <span class="badge badge-tag">#ai-engineering</span>
+      <span class="badge badge-tag">#harness</span>
+      <span class="badge badge-tag">#агентские-системы</span>
+      <span class="badge badge-tag">#context-engineering</span>
+    </div>
+    <div><a href="/minin.md" download="2026-10-29_Минин_AI_Инженерия_Harness.md" class="btn-download-md"><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg> Скачать Markdown (.md для Obsidian)</a></div>
+    <h1>AI-инженерия с нуля — Полный гайд для разработчика [2026]</h1>
+    <div class="meta-line">
+      <span><svg class="gem-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Спикер: <strong>Владилен Минин</strong></span>
+      <span><svg class="gem-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg> Канал: <a href="https://youtu.be/WT0yDhfOjaA" target="_blank">Владилен Минин</a></span>
+      <span><svg class="gem-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg> Дата: 29 октября 2026 г.</span>
+    </div>
+
+    <div class="toolbar">
+      <button class="btn" onclick="window.print()">🖨️ Экспорт в PDF / Печать</button>
+      <button class="btn" onclick="navigator.clipboard.writeText(window.location.href); alert('Ссылка скопирована!');"><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg> <span><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg> <span><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg> <span><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg> <span><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg> <span><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg> <span><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg> <span><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg> <span><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg> <span><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg> <span><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg> <span>Поделиться</span></span></span></span></span></span></span></span></span></span></span> ссылкой</button>
+      <a class="btn" href="#block3"><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg> <span><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg> <span><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M19.5 7.5C18 4.5 14 3 10.5 4.5C7 6 4 9 4.5 13C5 17 8 20 12.5 20C17 20 20.5 16.5 20.5 12.5C20.5 10.5 21 8.5 19.5 7.5Z" fill="#f43f5e" fill-opacity="0.28" stroke="#f43f5e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="11" r="2.5" fill="#f8fafc" stroke="#f43f5e" stroke-width="1.5"/><path d="M13 8C14.5 9 16 11 16 13" stroke="#fda4af" stroke-width="1.8" stroke-linecap="round"/><path d="M7 14C8 16 10 17 12 17" stroke="#fda4af" stroke-width="1.8" stroke-linecap="round"/></svg> <span><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M19.5 7.5C18 4.5 14 3 10.5 4.5C7 6 4 9 4.5 13C5 17 8 20 12.5 20C17 20 20.5 16.5 20.5 12.5C20.5 10.5 21 8.5 19.5 7.5Z" fill="#f43f5e" fill-opacity="0.28" stroke="#f43f5e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="11" r="2.5" fill="#f8fafc" stroke="#f43f5e" stroke-width="1.5"/><path d="M13 8C14.5 9 16 11 16 13" stroke="#fda4af" stroke-width="1.8" stroke-linecap="round"/><path d="M7 14C8 16 10 17 12 17" stroke="#fda4af" stroke-width="1.8" stroke-linecap="round"/></svg> <span><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M19.5 7.5C18 4.5 14 3 10.5 4.5C7 6 4 9 4.5 13C5 17 8 20 12.5 20C17 20 20.5 16.5 20.5 12.5C20.5 10.5 21 8.5 19.5 7.5Z" fill="#f43f5e" fill-opacity="0.28" stroke="#f43f5e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="11" r="2.5" fill="#f8fafc" stroke="#f43f5e" stroke-width="1.5"/><path d="M13 8C14.5 9 16 11 16 13" stroke="#fda4af" stroke-width="1.8" stroke-linecap="round"/><path d="M7 14C8 16 10 17 12 17" stroke="#fda4af" stroke-width="1.8" stroke-linecap="round"/></svg> <span><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M19.5 7.5C18 4.5 14 3 10.5 4.5C7 6 4 9 4.5 13C5 17 8 20 12.5 20C17 20 20.5 16.5 20.5 12.5C20.5 10.5 21 8.5 19.5 7.5Z" fill="#f43f5e" fill-opacity="0.28" stroke="#f43f5e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="11" r="2.5" fill="#f8fafc" stroke="#f43f5e" stroke-width="1.5"/><path d="M13 8C14.5 9 16 11 16 13" stroke="#fda4af" stroke-width="1.8" stroke-linecap="round"/><path d="M7 14C8 16 10 17 12 17" stroke="#fda4af" stroke-width="1.8" stroke-linecap="round"/></svg> <span><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M19.5 7.5C18 4.5 14 3 10.5 4.5C7 6 4 9 4.5 13C5 17 8 20 12.5 20C17 20 20.5 16.5 20.5 12.5C20.5 10.5 21 8.5 19.5 7.5Z" fill="#f43f5e" fill-opacity="0.28" stroke="#f43f5e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="11" r="2.5" fill="#f8fafc" stroke="#f43f5e" stroke-width="1.5"/><path d="M13 8C14.5 9 16 11 16 13" stroke="#fda4af" stroke-width="1.8" stroke-linecap="round"/><path d="M7 14C8 16 10 17 12 17" stroke="#fda4af" stroke-width="1.8" stroke-linecap="round"/></svg> <span><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M19.5 7.5C18 4.5 14 3 10.5 4.5C7 6 4 9 4.5 13C5 17 8 20 12.5 20C17 20 20.5 16.5 20.5 12.5C20.5 10.5 21 8.5 19.5 7.5Z" fill="#f43f5e" fill-opacity="0.28" stroke="#f43f5e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="11" r="2.5" fill="#f8fafc" stroke="#f43f5e" stroke-width="1.5"/><path d="M13 8C14.5 9 16 11 16 13" stroke="#fda4af" stroke-width="1.8" stroke-linecap="round"/><path d="M7 14C8 16 10 17 12 17" stroke="#fda4af" stroke-width="1.8" stroke-linecap="round"/></svg> <span><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M19.5 7.5C18 4.5 14 3 10.5 4.5C7 6 4 9 4.5 13C5 17 8 20 12.5 20C17 20 20.5 16.5 20.5 12.5C20.5 10.5 21 8.5 19.5 7.5Z" fill="#f43f5e" fill-opacity="0.28" stroke="#f43f5e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="11" r="2.5" fill="#f8fafc" stroke="#f43f5e" stroke-width="1.5"/><path d="M13 8C14.5 9 16 11 16 13" stroke="#fda4af" stroke-width="1.8" stroke-linecap="round"/><path d="M7 14C8 16 10 17 12 17" stroke="#fda4af" stroke-width="1.8" stroke-linecap="round"/></svg> <span><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M19.5 7.5C18 4.5 14 3 10.5 4.5C7 6 4 9 4.5 13C5 17 8 20 12.5 20C17 20 20.5 16.5 20.5 12.5C20.5 10.5 21 8.5 19.5 7.5Z" fill="#f43f5e" fill-opacity="0.28" stroke="#f43f5e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="11" r="2.5" fill="#f8fafc" stroke="#f43f5e" stroke-width="1.5"/><path d="M13 8C14.5 9 16 11 16 13" stroke="#fda4af" stroke-width="1.8" stroke-linecap="round"/><path d="M7 14C8 16 10 17 12 17" stroke="#fda4af" stroke-width="1.8" stroke-linecap="round"/></svg> <span><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M19.5 7.5C18 4.5 14 3 10.5 4.5C7 6 4 9 4.5 13C5 17 8 20 12.5 20C17 20 20.5 16.5 20.5 12.5C20.5 10.5 21 8.5 19.5 7.5Z" fill="#f43f5e" fill-opacity="0.28" stroke="#f43f5e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="11" r="2.5" fill="#f8fafc" stroke="#f43f5e" stroke-width="1.5"/><path d="M13 8C14.5 9 16 11 16 13" stroke="#fda4af" stroke-width="1.8" stroke-linecap="round"/><path d="M7 14C8 16 10 17 12 17" stroke="#fda4af" stroke-width="1.8" stroke-linecap="round"/></svg> <span>Перейти к «Мясу»</span></span></span></span></span></span></span></span></span></span></span></a>
+      <a class="btn" href="#block5"><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-5.04z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-5.04z"/></svg> <span><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-5.04z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-5.04z"/></svg> <span><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-5.04z" fill="#fbbf24" fill-opacity="0.25" stroke="#fbbf24" stroke-width="1.8"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-5.04z" fill="#fbbf24" fill-opacity="0.25" stroke="#fbbf24" stroke-width="1.8"/></svg> <span><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-5.04z" fill="#fbbf24" fill-opacity="0.25" stroke="#fbbf24" stroke-width="1.8"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-5.04z" fill="#fbbf24" fill-opacity="0.25" stroke="#fbbf24" stroke-width="1.8"/></svg> <span><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-5.04z" fill="#fbbf24" fill-opacity="0.25" stroke="#fbbf24" stroke-width="1.8"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-5.04z" fill="#fbbf24" fill-opacity="0.25" stroke="#fbbf24" stroke-width="1.8"/></svg> <span><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-5.04z" fill="#fbbf24" fill-opacity="0.25" stroke="#fbbf24" stroke-width="1.8"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-5.04z" fill="#fbbf24" fill-opacity="0.25" stroke="#fbbf24" stroke-width="1.8"/></svg> <span><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-5.04z" fill="#fbbf24" fill-opacity="0.25" stroke="#fbbf24" stroke-width="1.8"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-5.04z" fill="#fbbf24" fill-opacity="0.25" stroke="#fbbf24" stroke-width="1.8"/></svg> <span><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-5.04z" fill="#fbbf24" fill-opacity="0.25" stroke="#fbbf24" stroke-width="1.8"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-5.04z" fill="#fbbf24" fill-opacity="0.25" stroke="#fbbf24" stroke-width="1.8"/></svg> <span><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-5.04z" fill="#fbbf24" fill-opacity="0.25" stroke="#fbbf24" stroke-width="1.8"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-5.04z" fill="#fbbf24" fill-opacity="0.25" stroke="#fbbf24" stroke-width="1.8"/></svg> <span><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-5.04z" fill="#fbbf24" fill-opacity="0.25" stroke="#fbbf24" stroke-width="1.8"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-5.04z" fill="#fbbf24" fill-opacity="0.25" stroke="#fbbf24" stroke-width="1.8"/></svg> <span><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-5.04z" fill="#fbbf24" fill-opacity="0.25" stroke="#fbbf24" stroke-width="1.8"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-5.04z" fill="#fbbf24" fill-opacity="0.25" stroke="#fbbf24" stroke-width="1.8"/></svg> <span>Архитектурная Схема</span></span></span></span></span></span></span></span></span></span></span></a>
+      <a class="btn" href="#block9">✅ Чек-лист действий</a>
+    </div>
+  
+    <!-- Видео-превью баннер с запуском видео прямо в дашборде -->
+    <div class="video-preview-hero">
+      <div class="video-preview-card" id="videoPreviewCard" onclick="playEmbeddedVideo()" title="Нажмите, чтобы включить видео прямо здесь">
+        <img src="https://img.youtube.com/vi/WT0yDhfOjaA/maxresdefault.jpg" alt="Владилен Минин: AI-инженерия с нуля" class="video-thumb" loading="lazy">
+        <div class="video-play-btn" title="Воспроизвести выпуск">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="36" height="36"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div class="video-duration-badge">⏱️ 01:02:53 • 12 глав • Кликните для запуска в плеере</div>
+      </div>
+      <div id="videoEmbedContainer" class="video-embed-container" style="display: none;"></div>
+    </div>
+  </header>
+
+  <!-- Блок 1 -->
+  <section class="card" id="block1">
+    <h2><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9.5" stroke="#38bdf8" stroke-width="1.8" stroke-dasharray="2 2"/><circle cx="12" cy="12" r="6" stroke="#38bdf8" stroke-width="2"/><circle cx="12" cy="12" r="2.5" fill="#f43f5e"/><path d="M12 2V5M12 19V22M2 12H5M19 12H22" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/></svg> <span>Блок 1. Интро, вердикт и скрытая повестка спикера</span></h2>
+    <p><strong>Кто и что:</strong> <strong>Владилен Минин</strong> (основатель Irreplaceable AI и SimpleClaw) представил системный архитектурный манифест о переходе от классического написания функций к проектированию управляющих контуров (<strong>Harness</strong>) вокруг языковых моделей. Разбираются фундаментальные ограничения LLM, парадокс падения ценности кода, налог на верификацию и зрелость систем по шкале Stanford Benchmark.</p>
+    
+    <div class="verdict-box">
+      <div class="verdict-title">Вердикт: Смотреть обязательно</div>
+      <p style="color: #e2e8f0; font-size: 14px;">Один из лучших русскоязычных обзоров реальной производственной практики AI-разработки. Полное отсутствие эйфории по поводу «вайбкодинга». Материал раскладывает технологию на трезвые кирпичи: LLM как сырой CPU, Harness как операционная среда, а верификация кода как главное узкое горлышко современного бизнеса.</p>
+    </div>
+
+    <h3>Детектор скрытой повестки (Зачем записано видео):</h3>
+    <ul>
+      <li><strong>Продажа флагманского практикума «AI-инженер»:</strong> Прогрев и квалификация аудитории на платный курс SimpleClaw / Irreplaceable AI, где студенты на TypeScript пошагово строят Agentic OS (на базе Health Coach с переносом 80% ядра на любые ниши).</li>
+      <li><strong>Инфраструктурный апсейл сервиса SimpleClaw:</strong> Решение санкционной боли для разработчиков из СНГ — доступ к Claude Code, Codex и моделям OpenAI с оплатой российскими картами от 50 руб. без зарубежных реквизитов.</li>
+      <li><strong>Репозиционирование персонального бренда:</strong> Окончательный переход Владилена из категории «учитель верстки и фронтенда для новичков» в статус архитектурного визионера корпоративных агентских систем для Senior / Lead / CTO уровня.</li>
+    </ul>
+  </section>
+
+  <!-- Блок 2 -->
+  <section class="card" id="block2">
+    <h2><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21" fill="#a855f7" fill-opacity="0.2" stroke="#a855f7" stroke-width="2"/><line x1="9" x2="9" y1="3" y2="18" stroke="#a855f7" stroke-width="2"/><line x1="15" x2="15" y1="6" y2="21" stroke="#a855f7" stroke-width="2"/></svg> <span>Блок 2. Тепловая карта выпуска</span></h2>
+    <div class="heatmap-grid">
+      <div class="heatmap-row">
+        <div><span class="dot dot-meat"></span><strong>00:00 – О чем гайд</strong>: Смена дефицита в IT</div>
+        <span class="time-tag">🟢 Мясо</span>
+      </div>
+      <div class="heatmap-row">
+        <div><span class="dot dot-meat"></span><strong>02:54 – Код больше не проблема</strong>: Парадокс дешевого кода и сдвиг бутылочного горлышка</div>
+        <span class="time-tag">🟢 Мясо</span>
+      </div>
+      <div class="heatmap-row">
+        <div><span class="dot dot-meat"></span><strong>08:59 – Мифы про вайбкодинг</strong>: Демо за 5 минут против промышленного продукта</div>
+        <span class="time-tag">🟢 Мясо</span>
+      </div>
+      <div class="heatmap-row">
+        <div><span class="dot dot-meat"></span><strong>14:06 – Реальные ограничения AI агентов</strong>: Контекстное окно, галлюцинации и анатомия Anthropic</div>
+        <span class="time-tag">🟢 Мясо</span>
+      </div>
+      <div class="heatmap-row">
+        <div><span class="dot dot-meat"></span><strong>21:57 – Проблема проверки кода</strong>: Verification Tax & Debt, бенчмарки METR (~19% прироста)</div>
+        <span class="time-tag">🟢 Мясо</span>
+      </div>
+      <div class="heatmap-row">
+        <div><span class="dot dot-meat"></span><strong>26:34 – Что такое Harness</strong>: Определение управляющей среды; экономия токенов в 3–10 раз</div>
+        <span class="time-tag">🟢 Мясо</span>
+      </div>
+      <div class="heatmap-row">
+        <div><span class="dot dot-meat"></span><strong>32:10 – Агентская Архитектура</strong>: 6 слоев (Context, MCP, Memory, Observability, Sandboxing, Guardrails)</div>
+        <span class="time-tag">🟢 Сверх-мясо</span>
+      </div>
+      <div class="heatmap-row">
+        <div><span class="dot dot-ad"></span><strong>47:12 – Практика создания агентской OS</strong>: Практикум Владилена (TypeScript Core)</div>
+        <span class="time-tag">🔴 Промо курса</span>
+      </div>
+      <div class="heatmap-row">
+        <div><span class="dot dot-meat"></span><strong>50:57 – Уровни зрелости проектов</strong>: Stanford AI Engineering Practices Benchmark (L0–L4)</div>
+        <span class="time-tag">🟢 Мясо</span>
+      </div>
+      <div class="heatmap-row">
+        <div><span class="dot dot-meat"></span><strong>53:23 – Кто такой AI Инженер</strong>: Системный архитектор против промпт-инженера</div>
+        <span class="time-tag">🟢 Мясо</span>
+      </div>
+      <div class="heatmap-row">
+        <div><span class="dot dot-water"></span><strong>56:24 – Что если AI пузырь лопнет?</strong>: Dotcom аналогия, Open Weights и необратимость</div>
+        <span class="time-tag">🟡 Аналитика</span>
+      </div>
+      <div class="heatmap-row">
+        <div><span class="dot dot-water"></span><strong>59:39 – Резюме выпуска</strong>: Синтез выводов + локация глэмпинга Шинрин Йоку</div>
+        <span class="time-tag">🟡 Резюме / 🔴</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Блок 3 -->
+  <section class="card" id="block3">
+    <h2><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M19.5 7.5C18 4.5 14 3 10.5 4.5C7 6 4 9 4.5 13C5 17 8 20 12.5 20C17 20 20.5 16.5 20.5 12.5C20.5 10.5 21 8.5 19.5 7.5Z" fill="#f43f5e" fill-opacity="0.28" stroke="#f43f5e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="11" r="2.5" fill="#f8fafc" stroke="#f43f5e" stroke-width="1.5"/><path d="M13 8C14.5 9 16 11 16 13" stroke="#fda4af" stroke-width="1.8" stroke-linecap="round"/><path d="M7 14C8 16 10 17 12 17" stroke="#fda4af" stroke-width="1.8" stroke-linecap="round"/></svg> <span>Блок 3. Детальный разбор («Мясо»)</span></h2>
+
+    <div style="margin-bottom: 24px;">
+      <h3>1. Парадокс дешевого кода: Сдвиг дефицита в IT</h3>
+      <p>20 лет дефицитом были программисты, транслировавшие ТЗ на языки машин. Теперь естественный язык стал языком программирования высшего уровня. Но скорость вывода готовых решений не выросла в разы. <strong>Код обесценился — дефицитом стали контекст, архитектурный каркас и верификация.</strong></p>
+      <ul>
+        <li><em>Инсайт:</em> Ценность инженера теперь не в наборе символов, а в отсечении 95% мусорных стохастических диффов, которые предлагает модель.</li>
+        <li><em>Развилка:</em> Применять для перевода сеньоров в архитекторов контекста. Риск — уволить крепких мидлов, получив неремонтопригодный код за 3 месяца.</li>
+      </ul>
+    </div>
+
+    <div style="margin-bottom: 24px;">
+      <h3>2. Мираж «Вайбкодинга»: Демка против Промышленного продукта</h3>
+      <p>Вайбкодинг в чистой сессии чата позволяет собрать MVP за вечер. Но чистый контекст скрывает исторический груз: edge-cases клиентов, миграции схем БД, роли пользователей (RBAC), безопасность и обратную совместимость. Настоящий продукт живет годами, и в нем вайбкодинг без модульной архитектуры моментально захлебывается.</p>
+      <ul>
+        <li><em>Инсайт:</em> «Айсберг разработки»: интерфейс и базовый флоу — 10% видимой части, 90% невидимого айсберга требуют классической школы software engineering.</li>
+        <li><em>Развилка:</em> Использовать вайбкодинг исключительно для одноразовых прототипов (throwaway POC). Риск — пытаться развивать такой код в продакшене.</li>
+      </ul>
+    </div>
+
+    <div style="margin-bottom: 24px;">
+      <h3>3. Ограничения агентов: Контекстная слепота и стохастический распад</h3>
+      <p>Декларация 1M контекстного окна у Opus/Gemini не спасает от эффекта «Lost in the Middle» и галлюцинаций. Каждая сессия агента начинается «из черного ящика». Цепочка из 10 шагов с вероятностью 90% каждого шага дает итоговый успех $(0.9)^{10} pprox 34.8\%$. Без жесткой фиксации промежуточных состояний агент распадается.</p>
+      <ul>
+        <li><em>Инсайт:</em> «Анатомия контекста» Anthropic: спасение не в увеличении окна, а в жесточайшей изоляции микро-задач и отсечении лишних файлов.</li>
+        <li><em>Развилка:</em> Подавать минимально достаточные срезы AST и grep-символов. Риск — чрезмерно обрезать контекст и потерять сайд-эффекты.</li>
+      </ul>
+    </div>
+
+    <div style="margin-bottom: 24px;">
+      <h3>4. Verification Tax (Налог на верификацию) и Verification Debt</h3>
+      <p>Модель генерирует код быстрее, чем человек способен его осознать. Возникает <strong>Verification Tax</strong> — время сеньора на вычитку диффов. Исследования конца 2025 года зафиксировали: реальный прирост продуктивности в IT составил лишь <strong>~19%</strong> (а без процессов — дал отрицательный эффект). Непроверенный код накапливается как <strong>Verification Debt</strong>.</p>
+      <ul>
+        <li><em>Инсайт:</em> Бутылочным горлышком компании стала пропускная способность ревьюеров. Нельзя просто дать команде подписку на Claude Code без перестройки CI/CD.</li>
+        <li><em>Развилка:</em> Строить автоматизированный первый эшелон верификации (линтеры, синтетические тесты в Docker). Риск — полностью убрать человека из петли утверждения.</li>
+      </ul>
+    </div>
+
+    <div style="margin-bottom: 24px;">
+      <h3>5. Что такое Harness: Архитектурный обвяз вокруг процессора</h3>
+      <p><strong>Harness</strong> — это управляющая инженерная среда вокруг LLM, превращающая вероятностный алгоритм в детерминированного исполнителя. LLM — это сырой процессор; Harness — материнская плата. Зрелый Harness позволяет решать задачи на дешевых моделях (Kimi, GLM, DeepSeek), снижая косты на токены в <strong>3–10 раз</strong> по сравнению с «голыми» вызовами GPT-5/Opus.</p>
+      <ul>
+        <li><em>Инсайт:</em> Конкурентное преимущество в 2026 году дает не доступ к закрытым API, а качество собственной обвязки репозитория.</li>
+        <li><em>Развилка:</em> Архитектурная развязка через Unified Gateway провайдер. Риск — оверинжиниринг обвязки на ранней фазе проекта.</li>
+      </ul>
+    </div>
+
+    <div style="margin-bottom: 24px;">
+      <h3>6. Шесть слоев агентской архитектуры</h3>
+      <ul>
+        <li><strong>Context Engineering & RAG:</strong> «Контекстная диета», граф зависимостей (AST), Git history, grep-символы.</li>
+        <li><strong>Tools & MCP:</strong> Стандартизированная шина протокола Anthropic для подключения баз данных и внешних сервисов.</li>
+        <li><strong>Memory & State:</strong> Разделение на оперативный сессионный контекст, ADR (историю решений) и векторные базы.</li>
+        <li><strong>Observability & Tracing:</strong> Непрерывный мониторинг цепочки шагов (Agent Loop), учет стоимости токенов и анализ падений.</li>
+        <li><strong>Sandboxing:</strong> Изолированное выполнение кода строго в Docker-контейнерах и отдельных git-ветках.</li>
+        <li><strong>Guardrails & Approvals:</strong> Запреты на модификацию критических файлов (`.env`, drop database) + обязательный Human Approval Gate.</li>
+      </ul>
+    </div>
+
+    <div style="margin-bottom: 24px;">
+      <h3>7. Шкала зрелости Stanford AI Benchmark (L0 → L4)</h3>
+      <p>Аудит репозиториев Стэнфордской лаборатории через запуск специализированных агентов-исследователей:</p>
+      <ul>
+        <li><strong>L0 (No Observable AI):</strong> Ручной код, полное отсутствие регламентов ИИ.</li>
+        <li><strong>L1 (Opportunistic Prompting):</strong> Хаотичные промпты в блокнотах разработчиков (большинство команд на рынке).</li>
+        <li><strong>L2 (Systematized Prompting):</strong> Версионируемые правила в репозитории (`AGENTS.md`, `CLAUDE.md`), стандарты промптинга.</li>
+        <li><strong>L3 (Agent Backend Development):</strong> Выделенные переиспользуемые агенты под типовые задачи (миграции, рефакторинг, тесты).</li>
+        <li><strong>L4 (Orchestrated Agentic Workflows):</strong> Мультиагентные пайплайны с центральным оркестратором и взаимной валидацией.</li>
+      </ul>
+    </div>
+
+    <div>
+      <h3>8. Необратимость ИИ и лопание финансового пузыря</h3>
+      <p>Даже если венчурный пузырь бигтеха лопнет (подобно краху Dotcom в 2000 году), технология останется навсегда. Открытые веса (<strong>Open Weights</strong>) — Qwen 32B/72B, Kimi 3 — уже доступны для локального хостинга на собственных мощностях. С появлением детерминированного Harness любая компания может быть автономной от закрытых западных провайдеров.</p>
+    </div>
+  </section>
+
+  <!-- Блок 4 -->
+  <section class="card" id="block4">
+    <h2><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="14" width="4" height="7" rx="1.5" fill="#38bdf8" fill-opacity="0.3" stroke="#38bdf8" stroke-width="1.8"/><rect x="10" y="9" width="4" height="12" rx="1.5" fill="#38bdf8" fill-opacity="0.5" stroke="#38bdf8" stroke-width="1.8"/><rect x="17" y="4" width="4" height="17" rx="1.5" fill="#38bdf8" stroke="#38bdf8" stroke-width="1.8"/><path d="M4 11L10 6L15 9L21 3M21 3H16M21 3V8" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> <span>Блок 4. Сводка цифр, бенчмарков и управленческих развилок</span></h2>
+    
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Показатель / Метрика</th>
+            <th>Значение</th>
+            <th>Контекст спикера</th>
+            <th>Бизнес-оценка / Реалистичность</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Реальный рост продуктивности IT</strong></td>
+            <td><strong>~19%</strong></td>
+            <td>Фактический прирост завершенных фичей на конец 2025 г. вопреки субъективным ожиданиям 2x–3x.</td>
+            <td>Абсолютно реалистично (подтверждено DORA и GitHub Research).</td>
+          </tr>
+          <tr>
+            <td><strong>Экономия бюджета на токенах</strong></td>
+            <td><strong>В 3–10 раз</strong></td>
+            <td>Снижение расходов при переходе с Opus/GPT-5 на Kimi/GLM благодаря развитому Harness.</td>
+            <td>Подтверждено практикой: контекст важнее «сырой массы» весов.</td>
+          </tr>
+          <tr>
+            <td><strong>Предел эффективного контекста</strong></td>
+            <td><strong>256k – 1M</strong></td>
+            <td>Верхняя планка токенов, при которой начинается размытие внимания и галлюцинации.</td>
+            <td>Факт: Needle In A Haystack деградирует при слепом заполнении.</td>
+          </tr>
+          <tr>
+            <td><strong>Переиспользуемость ядра Harness</strong></td>
+            <td><strong>~80%</strong></td>
+            <td>Доля кодовой базы агентской OS, переносимая между любыми доменами (Health, FinTech).</td>
+            <td>Корректно: агентский цикл, шина MCP и песочницы универсальны.</td>
+          </tr>
+          <tr>
+            <td><strong>Минимальный порог старта</strong></td>
+            <td><strong>50 строк TS</strong></td>
+            <td>Базовый рабочий цикл агента без тяжелых сторонних фреймворков.</td>
+            <td>Реалистично: чистый TypeScript без LangChain-магии.</td>
+          </tr>
+          <tr>
+            <td><strong>Уровни зрелости кодовой базы</strong></td>
+            <td><strong>L0 – L4</strong></td>
+            <td>Шкала бенчмарка Stanford AI Engineering Practices.</td>
+            <td>Международный отраслевой бенчмарк для аудита репозиториев.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Управленческие развилки (Dilemmas & Trade-offs):</h3>
+    <div class="dilemma-grid">
+      <div class="dilemma-card">
+        <div class="dilemma-title">1. Дорогие Foundation Models vs Дешевые LLM + Кастомный Harness</div>
+        <p style="font-size: 13.5px; color: #cbd5e1;">Платить в 10 раз больше за каждый токен закрытых флагманов ИЛИ инвестировать в разработку собственной обвязки и запускать задачи на моделях Open Weights / Kimi.</p>
+        <p style="font-size: 12.5px; color: var(--accent-gold); margin-top: 6px;"><em>Trade-off:</em> Кастомный Harness требует инженерной зрелости, но ликвидирует вендор-лок и радикально снижает OPEX.</p>
+      </div>
+
+      <div class="dilemma-card">
+        <div class="dilemma-title">2. Скоростной Вайбкодинг vs Промышленная Архитектура</div>
+        <p style="font-size: 13.5px; color: #cbd5e1;">Быстро слепить прототип без тестов за 2 дня ИЛИ заложить типизацию, модульные границы и спецификации для долгосрочной жизни продукта.</p>
+        <p style="font-size: 12.5px; color: var(--accent-gold); margin-top: 6px;"><em>Trade-off:</em> Вайбкодинг хорош для тестов гипотез-однодневок, но гарантирует катастрофический техдолг в проде.</p>
+      </div>
+
+      <div class="dilemma-card">
+        <div class="dilemma-title">3. Человеческое ревью (Bottleneck) vs Автоматизированные Guardrails</div>
+        <p style="font-size: 13.5px; color: #cbd5e1;">Заставить сеньоров вручную вычитывать гигабайты сгенерированного кода ИЛИ автоматизировать валидацию через тесты в песочницах и LLM-судей.</p>
+        <p style="font-size: 12.5px; color: var(--accent-gold); margin-top: 6px;"><em>Trade-off:</em> Авто-проверка требует серьезных вложений в CI, но снимает убийственный «налог на верификацию».</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Блок 5 -->
+  <section class="card" id="block5">
+    <h2><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-5.04z" fill="#fbbf24" fill-opacity="0.25" stroke="#fbbf24" stroke-width="1.8"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-5.04z" fill="#fbbf24" fill-opacity="0.25" stroke="#fbbf24" stroke-width="1.8"/></svg> <span>Блок 5. Ментальные модели и архитектурная схема</span></h2>
+    
+    <div style="margin-bottom: 20px;">
+      <p><strong>1. «Процессор и Материнская плата»:</strong> LLM — просто кристалл вычислений. Вся надежность системы обеспечивается материнской платой (Harness).</p>
+      <p><strong>2. «Налог на верификацию»:</strong> Если генерация стоит $0, то стоимость фильтрации возрастает до стоимости всего проекта.</p>
+      <p><strong>3. «Контекстная диета»:</strong> Качество обратно пропорционально шуму в окне. AI-инженерия — это искусство вырезать 99% мусора.</p>
+    </div>
+
+    <div class="mermaid-box">
+      <div class="mermaid">
+flowchart TD
+    subgraph Input["1. Слой Формулирования"]
+        Task["Бизнес-требование / Задача"] --> Spec["Инженерная Спецификация"]
+    end
+
+    subgraph ContextLayer["2. Context Engineering (Контекстная Диета)"]
+        Spec --> Selector{"Фильтр Релевантности"}
+        Repo[("Кодовая база / AST Graph")] -->|Символы / Grep| Selector
+        GitHist[("Git History & ADR")] -->|История решений| Selector
+        DocRAG[("Документация / RAG")] -->|Семантический поиск| Selector
+        Selector --> CompactCtx["Минимально Достаточный Контекст"]
+    end
+
+    subgraph CoreEngine["3. Ядро Исполнения (Harness Core)"]
+        CompactCtx --> LLM["LLM (Заменяемый Compute: Opus / Kimi / Qwen)"]
+        LLM <--> MCP["Инструменты & MCP (Шина Данных)"]
+        MCP <--> Sandbox["Изолированная Песочница (Docker / Git Branch)"]
+    end
+
+    subgraph Verification["4. Контур Верификации & Безопасности"]
+        Sandbox --> AutoTests["Авто-тесты & Линтеры"]
+        AutoTests --> Guardrails{"Guardrails & Policies"}
+        Guardrails -->|Нарушение / Баг| Retry["Петля Доработки (Agent Loop)"]
+        Retry --> LLM
+        Guardrails -->|Успешно| ReviewGate{"Human Approval Gate"}
+    end
+
+    subgraph Finalization["5. Фиксация & Долгосрочная Память"]
+        ReviewGate -->|Одобрено| Prod["Релиз в Production"]
+        ReviewGate -->|Запись опыта| Memory[("Long-Term Memory / ADR")]
+        Memory -.-> GitHist
+    end
+
+    subgraph Observability["Сквозной Мониторинг"]
+        Obs["Observability: Трейсинг токенов, стоимости и галлюцинаций"]
+        LLM -.-> Obs
+        MCP -.-> Obs
+        Guardrails -.-> Obs
+    end
+
+    style Input fill:#1e293b,stroke:#3b82f6,color:#fff
+    style ContextLayer fill:#0f172a,stroke:#38bdf8,color:#fff
+    style CoreEngine fill:#1e1e38,stroke:#818cf8,color:#fff
+    style Verification fill:#1c2d27,stroke:#34d399,color:#fff
+    style Finalization fill:#271e38,stroke:#fbbf24,color:#fff
+    style Observability fill:#331422,stroke:#f87171,color:#fff
+      </div>
+    </div>
+  </section>
+
+  <!-- Блок 6 -->
+  <section class="card" id="block6">
+    <h2><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" fill="#34d399" fill-opacity="0.2" stroke="#34d399" stroke-width="2"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" fill="#34d399" fill-opacity="0.2" stroke="#34d399" stroke-width="2"/></svg> <span>Блок 6. Справочник сущностей</span></h2>
+    <ul>
+      <li><strong>Компании и институты:</strong> Anthropic (создатель MCP и Claude), OpenAI (лидер венчурной гонки), Stanford AI Lab (автор бенчмарка зрелости L0–L4), METR (бенчмарки автономности агентов).</li>
+      <li><strong>Модели:</strong> Kimi (Moonshot AI), Qwen (Alibaba Open Weights), GLM (Zhipu AI), DeepSeek.</li>
+      <li><strong>Стек и инфраструктура:</strong> Model Context Protocol (MCP), Docker (Sandboxing), TypeScript (строгая типизация агентов).</li>
+      <li><strong>Проекты Владилена:</strong> SimpleClaw (рублевый прокси без зарубежных карт), Irreplaceable AI (Клуб Незаменимых).</li>
+      <li><strong>Антипаттерны:</strong> Vibe Coding Mirage (иллюзия надежности демки), Context Flooding (заваливание модели сырым кодом), Verification Bottleneck (забитый пулреквестами сеньор).</li>
+    </ul>
+  </section>
+
+  <!-- Блок 7 -->
+  <section class="card" id="block7">
+    <h2><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 3h12l4 6-10 13L2 9Z" fill="#38bdf8" fill-opacity="0.25" stroke="#38bdf8" stroke-width="2"/><path d="M11 3 8 9l4 13 4-13-3-6" stroke="#38bdf8" stroke-width="1.5"/><path d="M2 9h20" stroke="#38bdf8" stroke-width="1.5"/></svg> <span>Блок 7. Золотые формулировки и панчлайны выпуска</span></h2>
+    
+    <div class="quote-item">
+      «Профессия программиста 20 лет заключалась в переводе с человеческих требований на язык машины. Теперь этот перевод делает модель, а привилегия написания кода перешла на новый уровень абстракции — человеческую речь».
+    </div>
+    <div class="quote-item">
+      «Хороший контекст — это не когда мы запихали в промпт как можно больше информации. Это когда мы оставили ровно столько данных, сколько необходимо для единственно верного решения».
+    </div>
+    <div class="quote-item">
+      «Harness — это управляющая инженерная среда вокруг модели, которая превращает вероятностный искусственный интеллект в повторяемого программного исполнителя».
+    </div>
+    <div class="quote-item">
+      «Выигрывает уже давно не тот, кто генерирует больше кода. Выигрывать будет тот, кто научился превращать бизнес-запросы в реально работающие, устойчивые системы».
+    </div>
+    <div class="quote-item">
+      «Искусственный интеллект не отменяет классическую инженерию. Он поднимает ее на следующий уровень абстракции. Раньше мы писали программы — теперь мы проектируем системы, которые сами пишут, проверяют и поддерживают программы под нашим контролем».
+    </div>
+  </section>
+
+  <!-- Блок 8 -->
+  <section class="card" id="block8">
+    <h2><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="#818cf8" fill-opacity="0.25" stroke="#818cf8" stroke-width="2"/><polyline points="9 12 11 14 15 10" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg> <span>Блок 8. Внешний фактчек, ссылки и реакция сообщества</span></h2>
+    
+    <h3>Официальные ссылки из описания:</h3>
+    <ul>
+      <li><a href="https://irreplaceable-ai.ru/products/ai-engineer/start" target="_blank" style="color: var(--accent-blue);">🎓 Бесплатный курс по ИИ-разработке (9 уроков от первого промпта до Vercel)</a></li>
+      <li><a href="https://simple-claw.ru" target="_blank" style="color: var(--accent-blue);">⚡ SimpleClaw — Claude Code и Codex в РФ без VPN (оплата рублями от 50 ₽)</a></li>
+      <li><a href="https://irreplaceable-ai.ru" target="_blank" style="color: var(--accent-blue);">🤝 Клуб Незаменимых — профессиональное комьюнити AI-инженеров</a></li>
+      <li><a href="https://t.me/vladm/1566" target="_blank" style="color: var(--accent-blue);">📱 Telegram-канал Владилена — подборка пейперов и исследований</a></li>
+      <li><a href="https://shinrin-glamping.ru/" target="_blank" style="color: var(--text-muted);">🗾 Отель Shinrin Yoku — японская локация под Санкт-Петербургом</a></li>
+    </ul>
+
+    <h3>Анализ реакции инженерного сообщества:</h3>
+    <ul>
+      <li><strong>Сеньор-архитектор (@motochaseRR, 8 лайков):</strong> Подтвердил концепцию: <em>«Я тут харнесс построил сам, а потом увидел в видео, что он существует ахахах. Мы ушли с фокуса "агент-эксперт" на фокус "данные снаружи — агенты пользуются". Тем самым распараллелили задачи без дубликации... Моя эра, ребята!»</em></li>
+      <li><strong>Скепсис по поводу мифа о коде (@andrewxd5705):</strong> <em>«Написание кода никогда и не было узким местом, пока ИИ-вендоры не продали всем эту идею, потому что на других этапах пайплайна разработки ИИ практически бесполезен»</em>.</li>
+      <li><strong>Очищение рынка от выпускников курсов (@Shorey-z4x):</strong> Подробно описал тесты локальных моделей и резюмировал: <em>«Грядет зачистка не джунов, а выпускников поверхностных курсов. Возрастет ответственность, востребованы будут только фундаментальные T-shaped специалисты»</em>.</li>
+    </ul>
+  </section>
+
+  <!-- Блок 9 -->
+  <section class="card" id="block9">
+    <h2><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="4" fill="#22c55e" fill-opacity="0.25" stroke="#22c55e" stroke-width="2"/><path d="M9 12l2 2 4-4" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg> <span>Блок 9. Применение: Чек-лист и вопросы к себе</span></h2>
+    
+    <h3>Инженерный чек-лист действий (на 7–30 дней):</h3>
+    <div id="checklist">
+      <div class="checklist-item">
+        <input type="checkbox" id="c1" onchange="saveChecklist()">
+        <label for="c1"><strong>Аудит зрелости по Stanford (L0–L4):</strong> Проверить кодовую базу. Если нет единого файла правил (`AGENTS.md` / `CLAUDE.md`), команда находится на хаотичном уровне L1.</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="c2" onchange="saveChecklist()">
+        <label for="c2"><strong>Стандартизация репозитория (L2):</strong> Зафиксировать в корне репозитория архитектурные соглашения, правила линтинга и табу на изменение `.env` и миграций.</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="c3" onchange="saveChecklist()">
+        <label for="c3"><strong>Ликвидация «налога на верификацию»:</strong> Запретить PR от ИИ без автоматического прогона тестов и линтеров в изолированной среде.</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="c4" onchange="saveChecklist()">
+        <label for="c4"><strong>Настройка Sandboxing:</strong> Изолировать агентские вызовы в Docker-контейнеры или временные git-ветки для защиты локальных сред разработчиков.</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="c5" onchange="saveChecklist()">
+        <label for="c5"><strong>Ревизия контекста («Контекстная диета»):</strong> Очистить системные промпты от «воды», настроить AST/grep выборку строго сигнатур функций.</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="c6" onchange="saveChecklist()">
+        <label for="c6"><strong>Тест модельного арбитража:</strong> Запустить типовые задачи на легковесных моделях (Kimi / GLM / DeepSeek) через abstraction gateway и замерить экономию.</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="c7" onchange="saveChecklist()">
+        <label for="c7"><strong>Собрать микро-harness на чистом коде:</strong> Написать управляющий цикл на 50–100 строк TypeScript/Python без монструозных фреймворков-оберток.</label>
+      </div>
+    </div>
+
+    <h3 style="margin-top: 24px;">Вопросы для стратегической рефлексии:</h3>
+    <ol>
+      <li>Не платит ли мой бизнес скрытый «налог на верификацию», когда сеньоры неделями переписывают замусоренные коммиты от джуниоров с ИИ?</li>
+      <li>Если завтра подписки OpenAI/Anthropic подорожают в 5 раз или заблокируются, насколько наш процесс готов к переходу на Open Weights модели?</li>
+      <li>Не находимся ли мы в плену иллюзии «вайбкодинга», пытаясь выстроить ядро системы на шатких промптах в одном окне диалога?</li>
+      <li>Кто в нашей команде уже готов взять на себя функции AI-инженера — архитектора управляющей обвязки?</li>
+    </ol>
+  </section>
+
+</div>
+
+<script>
+
+  // === MOBILE NAVIGATION DRAWER & UTILITIES ===
+  function toggleNavDrawer() {
+    var overlay = document.getElementById('navDrawerOverlay');
+    if (!overlay) return;
+    if (overlay.classList.contains('is-open')) {
+      closeNavDrawer();
+    } else {
+      overlay.style.display = 'flex';
+      overlay.offsetHeight;
+      overlay.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeNavDrawer() {
+    var overlay = document.getElementById('navDrawerOverlay');
+    if (!overlay) return;
+    overlay.classList.remove('is-open');
+    document.body.style.overflow = '';
+    setTimeout(function() {
+      if (!overlay.classList.contains('is-open')) {
+        overlay.style.display = 'none';
+      }
+    }, 280);
+  }
+
+  function handleOverlayClick(event) {
+    if (event.target && event.target.id === 'navDrawerOverlay') {
+      closeNavDrawer();
+    }
+  }
+
+  function toggleHeatmapCollapse() {
+    var wrapper = document.getElementById('heatmapCollapseWrapper');
+    var btn = document.getElementById('toggleHeatmapBtn');
+    if (!wrapper || !btn) return;
+
+    var isCollapsed = wrapper.classList.toggle('is-collapsed');
+    if (isCollapsed) {
+      btn.innerHTML = '<span>▾ Показать все 12 глав выпуска (еще 7)</span>';
+      var b2 = document.getElementById('block2');
+      if (b2) b2.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      btn.innerHTML = '<span>▴ Свернуть список глав</span>';
+    }
+  }
+
+  function saveChecklist() {
+    const checks = {};
+    document.querySelectorAll('#checklist input[type="checkbox"]').forEach(c => {
+      checks[c.id] = c.checked;
+    });
+    localStorage.setItem('yt_minin_checklist', JSON.stringify(checks));
+  }
+
+  function loadChecklist() {
+    const saved = localStorage.getItem('yt_minin_checklist');
+    if (saved) {
+      const checks = JSON.parse(saved);
+      for (const id in checks) {
+        const el = document.getElementById(id);
+        if (el) el.checked = checks[id];
+      }
+    }
+  }
+
+  window.addEventListener('DOMContentLoaded', loadChecklist);
+
+  function playEmbeddedVideo() {
+    const card = document.getElementById('videoPreviewCard');
+    const container = document.getElementById('videoEmbedContainer');
+    if (card && container) {
+      card.style.display = 'none';
+      container.style.display = 'block';
+      container.innerHTML = '<iframe src="https://www.youtube.com/embed/WT0yDhfOjaA?autoplay=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+    }
+  }
+
+
+
+  // === V1.5 COPY QUOTE ===
+  function copyQuote(btn, text) {
+    navigator.clipboard.writeText(text).then(() => {
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '✓ Скопировано!';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+
+  // === V1.5 INSIGHT CARD GENERATOR (Canvas 2D) ===
+  function openInsightCardFromBtn(btn) {
+    var quoteCard = btn.closest('.quote-card') || btn.closest('.quote-box') || btn.closest('.quote-item') || btn.closest('.punchline');
+    if (!quoteCard) return;
+    var quoteEl = quoteCard.querySelector('.quote-text') || quoteCard.querySelector('strong') || quoteCard;
+    var authorEl = quoteCard.querySelector('.quote-author');
+    var rawText = quoteEl ? quoteEl.innerText : '';
+    var quote = rawText.replace(/^[«"]|[»"]$/g, '').replace(/📋\s*Копировать.*$/s, '').replace(/📸\s*Инсайт.*$/s, '').trim();
+    var defaultSpeaker = document.title.includes('—') ? document.title.split('—')[1].split('|')[0].trim() : 'Эксперт выпуска';
+    var author = authorEl ? authorEl.innerText.replace(/^[—–-]\s*/, '').trim() : defaultSpeaker;
+    generateInsightCard(quote, author);
+  }
+
+  function generateInsightCard(quoteText, authorName) {
+    var modal = document.getElementById('insightCardModal');
+    var canvas = document.getElementById('insightCanvas');
+    if (!modal || !canvas) return;
+
+    var ctx = canvas.getContext('2d');
+    var W = 1080;
+    var H = 1350;
+    canvas.width = W;
+    canvas.height = H;
+
+    // Dark gradient background
+    var grad = ctx.createLinearGradient(0, 0, W, H);
+    grad.addColorStop(0, '#0f172a');
+    grad.addColorStop(0.5, '#090d16');
+    grad.addColorStop(1, '#05070d');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, W, H);
+
+    // Cyan & Purple ambient glow
+    var glow1 = ctx.createRadialGradient(W*0.2, H*0.2, 50, W*0.2, H*0.2, 500);
+    glow1.addColorStop(0, 'rgba(56, 189, 248, 0.22)');
+    glow1.addColorStop(1, 'transparent');
+    ctx.fillStyle = glow1;
+    ctx.fillRect(0, 0, W, H);
+
+    var glow2 = ctx.createRadialGradient(W*0.8, H*0.75, 50, W*0.8, H*0.75, 450);
+    glow2.addColorStop(0, 'rgba(168, 85, 247, 0.18)');
+    glow2.addColorStop(1, 'transparent');
+    ctx.fillStyle = glow2;
+    ctx.fillRect(0, 0, W, H);
+
+    // Frame
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.12)';
+    ctx.lineWidth = 4;
+    ctx.strokeRect(40, 40, W - 80, H - 80);
+
+    // Category Pill Badge
+    ctx.fillStyle = '#0284c7';
+    if (ctx.roundRect) {
+      ctx.beginPath();
+      ctx.roundRect(80, 80, 310, 58, 29);
+      ctx.fill();
+    } else {
+      ctx.fillRect(80, 80, 310, 58);
+    }
+    ctx.fillStyle = '#ffffff';
+    ctx.font = 'bold 24px -apple-system, sans-serif';
+    ctx.fillText('💡 БИЗНЕС-ИНСАЙТ', 115, 118);
+
+    // Huge quotation mark
+    ctx.fillStyle = 'rgba(56, 189, 248, 0.25)';
+    ctx.font = 'bold 200px Georgia, serif';
+    ctx.fillText('“', 75, 270);
+
+    // Quote text with word-wrap
+    ctx.fillStyle = '#f8fafc';
+    ctx.font = '600 42px -apple-system, BlinkMacSystemFont, sans-serif';
+    
+    var words = quoteText.split(' ');
+    var line = '';
+    var y = 320;
+    var maxW = W - 170;
+    var lineH = 64;
+
+    for (var i = 0; i < words.length; i++) {
+      var testLine = line + words[i] + ' ';
+      var metrics = ctx.measureText(testLine);
+      if (metrics.width > maxW && i > 0) {
+        ctx.fillText(line, 85, y);
+        line = words[i] + ' ';
+        y += lineH;
+      } else {
+        line = testLine;
+      }
+    }
+    ctx.fillText(line, 85, y);
+
+    // Author section
+    y = Math.max(y + 80, 920);
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';
+    ctx.fillRect(85, y, 140, 3);
+
+    y += 48;
+    ctx.fillStyle = '#38bdf8';
+    ctx.font = 'bold 36px -apple-system, sans-serif';
+    ctx.fillText(authorName, 85, y);
+
+    y += 40;
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '500 24px -apple-system, sans-serif';
+    ctx.fillText('Инвестиционная деконструкция • Gemstudio', 85, y);
+
+    // Bottom Branding
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.04)';
+    ctx.fillRect(40, H - 140, W - 80, 100);
+
+    ctx.fillStyle = '#f8fafc';
+    ctx.font = 'bold 28px -apple-system, sans-serif';
+    ctx.fillText('⚡ Gemstudio Dashboard', 85, H - 78);
+
+    ctx.fillStyle = '#38bdf8';
+    ctx.font = '24px monospace';
+    ctx.fillText('gemstudio-deconstruct.netlify.app', W - 560, H - 78);
+
+    modal.style.display = 'flex';
+  }
+
+  function closeInsightModal(e) {
+    if (!e || e.target.id === 'insightCardModal' || (e.target && e.target.classList && e.target.classList.contains('drawer-close-btn'))) {
+      var modal = document.getElementById('insightCardModal');
+      if (modal) modal.style.display = 'none';
+    }
+  }
+
+  function downloadInsightCard() {
+    var canvas = document.getElementById('insightCanvas');
+    if (!canvas) return;
+    var a = document.createElement('a');
+    a.download = 'gemstudio-insight.png';
+    a.href = canvas.toDataURL('image/png');
+    a.click();
+  }
+
+  function copyInsightCard() {
+    var canvas = document.getElementById('insightCanvas');
+    if (!canvas) return;
+    canvas.toBlob(function(blob) {
+      if (navigator.clipboard && navigator.clipboard.write) {
+        navigator.clipboard.write([
+          new ClipboardItem({ 'image/png': blob })
+        ]).then(function() {
+          alert('Карточка скопирована в буфер обмена!');
+        }).catch(function() {
+          downloadInsightCard();
+        });
+      } else {
+        downloadInsightCard();
+      }
+    });
+  }
+
+  // === V1.5 USER HIGHLIGHTS (localStorage) ===
+  var storageKey = 'gemstudio_hl_' + window.location.pathname;
+  var userHighlights = JSON.parse(localStorage.getItem(storageKey) || '[]');
+
+  document.addEventListener('mouseup', handleTextSelection);
+  document.addEventListener('touchend', handleTextSelection);
+
+  function handleTextSelection(e) {
+    var bubble = document.getElementById('highlightBubble');
+    if (!bubble) return;
+
+    var sel = window.getSelection();
+    if (!sel || sel.isCollapsed || !sel.toString().trim()) {
+      bubble.style.display = 'none';
+      return;
+    }
+
+    var range = sel.getRangeAt(0);
+    var rect = range.getBoundingClientRect();
+    bubble.style.left = (window.scrollX + rect.left + rect.width / 2 - 40) + 'px';
+    bubble.style.top = (window.scrollY + rect.top - 42) + 'px';
+    bubble.style.display = 'flex';
+  }
+
+  function applyUserHighlight() {
+    var bubble = document.getElementById('highlightBubble');
+    var sel = window.getSelection();
+    if (!sel || sel.isCollapsed) return;
+
+    var text = sel.toString().trim();
+    if (!text) return;
+
+    var range = sel.getRangeAt(0);
+    var mark = document.createElement('mark');
+    mark.className = 'user-highlight';
+    mark.title = 'Нажмите для удаления хайлайта';
+    mark.onclick = function() { removeHighlight(text, mark); };
+
+    try {
+      range.surroundContents(mark);
+      userHighlights.push(text);
+      localStorage.setItem(storageKey, JSON.stringify(userHighlights));
+      updateNotesCount();
+    } catch(err) {
+      console.log('Highlight cross-boundary selection');
+    }
+
+    if (bubble) bubble.style.display = 'none';
+    sel.removeAllRanges();
+  }
+
+  function removeHighlight(text, markEl) {
+    if (confirm('Удалить этот хайлайт?')) {
+      var parent = markEl.parentNode;
+      while (markEl.firstChild) parent.insertBefore(markEl.firstChild, markEl);
+      parent.removeChild(markEl);
+      userHighlights = userHighlights.filter(function(t) { return t !== text; });
+      localStorage.setItem(storageKey, JSON.stringify(userHighlights));
+      updateNotesCount();
+    }
+  }
+
+  function updateNotesCount() {
+    var countEl = document.getElementById('drawerNotesCount');
+    if (countEl) countEl.innerText = '<svg class="gem-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 11-6 6v3h3l6-6"/><path d="m22 12-4.6 4.6a2 2 0 0 1-2.8 0l-5.2-5.2a2 2 0 0 1 0-2.8L14 4"/></svg> Мои заметки и хайлайты (' + userHighlights.length + ')';
+  }
+
+  function exportUserHighlights() {
+    if (!userHighlights.length) {
+      alert('У вас пока нет сохраненных хайлайтов в этом выпуске. Выделите любой текст на странице маркером!');
+      return;
+    }
+    var md = '# Мои Заметки и Хайлайты\n\n* **Разбор:** ' + document.title + '\n* **Дата экспорта:** ' + new Date().toLocaleDateString() + '\n\n---\n\n';
+    userHighlights.forEach(function(item, idx) {
+      md += (idx + 1) + '. > ' + item + '\n\n';
+    });
+    var blob = new Blob([md], { type: 'text/markdown;charset=utf-8;' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'мои-заметки-' + window.location.pathname.replace(/[^a-z0-9]/gi, '_') + '.md';
+    a.click();
+  }
+
+  // Init notes count on load
+  setTimeout(updateNotesCount, 300);
+
+
+
+  // === V1.5 COPY QUOTE ===
+  function copyQuote(btn, text) {
+    navigator.clipboard.writeText(text).then(() => {
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '✓ Скопировано!';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+
+  // === V1.5 INSIGHT CARD GENERATOR (Canvas 2D) ===
+  function openInsightCardFromBtn(btn) {
+    var quoteCard = btn.closest('.quote-card') || btn.closest('.quote-box') || btn.closest('.quote-item') || btn.closest('.punchline');
+    if (!quoteCard) return;
+    var quoteEl = quoteCard.querySelector('.quote-text') || quoteCard.querySelector('strong') || quoteCard;
+    var authorEl = quoteCard.querySelector('.quote-author');
+    var rawText = quoteEl ? quoteEl.innerText : '';
+    var quote = rawText.replace(/^[«"]|[»"]$/g, '').replace(/📋\s*Копировать.*$/s, '').replace(/📸\s*Инсайт.*$/s, '').trim();
+    var defaultSpeaker = document.title.includes('—') ? document.title.split('—')[1].split('|')[0].trim() : 'Эксперт выпуска';
+    var author = authorEl ? authorEl.innerText.replace(/^[—–-]\s*/, '').trim() : defaultSpeaker;
+    generateInsightCard(quote, author);
+  }
+
+  function generateInsightCard(quoteText, authorName) {
+    var modal = document.getElementById('insightCardModal');
+    var canvas = document.getElementById('insightCanvas');
+    if (!modal || !canvas) return;
+
+    var ctx = canvas.getContext('2d');
+    var W = 1080;
+    var H = 1350;
+    canvas.width = W;
+    canvas.height = H;
+
+    // Dark gradient background
+    var grad = ctx.createLinearGradient(0, 0, W, H);
+    grad.addColorStop(0, '#0f172a');
+    grad.addColorStop(0.5, '#090d16');
+    grad.addColorStop(1, '#05070d');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, W, H);
+
+    // Cyan & Purple ambient glow
+    var glow1 = ctx.createRadialGradient(W*0.2, H*0.2, 50, W*0.2, H*0.2, 500);
+    glow1.addColorStop(0, 'rgba(56, 189, 248, 0.22)');
+    glow1.addColorStop(1, 'transparent');
+    ctx.fillStyle = glow1;
+    ctx.fillRect(0, 0, W, H);
+
+    var glow2 = ctx.createRadialGradient(W*0.8, H*0.75, 50, W*0.8, H*0.75, 450);
+    glow2.addColorStop(0, 'rgba(168, 85, 247, 0.18)');
+    glow2.addColorStop(1, 'transparent');
+    ctx.fillStyle = glow2;
+    ctx.fillRect(0, 0, W, H);
+
+    // Frame
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.12)';
+    ctx.lineWidth = 4;
+    ctx.strokeRect(40, 40, W - 80, H - 80);
+
+    // Category Pill Badge
+    ctx.fillStyle = '#0284c7';
+    if (ctx.roundRect) {
+      ctx.beginPath();
+      ctx.roundRect(80, 80, 310, 58, 29);
+      ctx.fill();
+    } else {
+      ctx.fillRect(80, 80, 310, 58);
+    }
+    ctx.fillStyle = '#ffffff';
+    ctx.font = 'bold 24px -apple-system, sans-serif';
+    ctx.fillText('💡 БИЗНЕС-ИНСАЙТ', 115, 118);
+
+    // Huge quotation mark
+    ctx.fillStyle = 'rgba(56, 189, 248, 0.25)';
+    ctx.font = 'bold 200px Georgia, serif';
+    ctx.fillText('“', 75, 270);
+
+    // Quote text with word-wrap
+    ctx.fillStyle = '#f8fafc';
+    ctx.font = '600 42px -apple-system, BlinkMacSystemFont, sans-serif';
+    
+    var words = quoteText.split(' ');
+    var line = '';
+    var y = 320;
+    var maxW = W - 170;
+    var lineH = 64;
+
+    for (var i = 0; i < words.length; i++) {
+      var testLine = line + words[i] + ' ';
+      var metrics = ctx.measureText(testLine);
+      if (metrics.width > maxW && i > 0) {
+        ctx.fillText(line, 85, y);
+        line = words[i] + ' ';
+        y += lineH;
+      } else {
+        line = testLine;
+      }
+    }
+    ctx.fillText(line, 85, y);
+
+    // Author section
+    y = Math.max(y + 80, 920);
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';
+    ctx.fillRect(85, y, 140, 3);
+
+    y += 48;
+    ctx.fillStyle = '#38bdf8';
+    ctx.font = 'bold 36px -apple-system, sans-serif';
+    ctx.fillText(authorName, 85, y);
+
+    y += 40;
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '500 24px -apple-system, sans-serif';
+    ctx.fillText('Инвестиционная деконструкция • Gemstudio', 85, y);
+
+    // Bottom Branding
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.04)';
+    ctx.fillRect(40, H - 140, W - 80, 100);
+
+    ctx.fillStyle = '#f8fafc';
+    ctx.font = 'bold 28px -apple-system, sans-serif';
+    ctx.fillText('⚡ Gemstudio Dashboard', 85, H - 78);
+
+    ctx.fillStyle = '#38bdf8';
+    ctx.font = '24px monospace';
+    ctx.fillText('gemstudio-deconstruct.netlify.app', W - 560, H - 78);
+
+    modal.style.display = 'flex';
+  }
+
+  function closeInsightModal(e) {
+    if (!e || e.target.id === 'insightCardModal' || (e.target && e.target.classList && e.target.classList.contains('drawer-close-btn'))) {
+      var modal = document.getElementById('insightCardModal');
+      if (modal) modal.style.display = 'none';
+    }
+  }
+
+  function downloadInsightCard() {
+    var canvas = document.getElementById('insightCanvas');
+    if (!canvas) return;
+    var a = document.createElement('a');
+    a.download = 'gemstudio-insight.png';
+    a.href = canvas.toDataURL('image/png');
+    a.click();
+  }
+
+  function copyInsightCard() {
+    var canvas = document.getElementById('insightCanvas');
+    if (!canvas) return;
+    canvas.toBlob(function(blob) {
+      if (navigator.clipboard && navigator.clipboard.write) {
+        navigator.clipboard.write([
+          new ClipboardItem({ 'image/png': blob })
+        ]).then(function() {
+          alert('Карточка скопирована в буфер обмена!');
+        }).catch(function() {
+          downloadInsightCard();
+        });
+      } else {
+        downloadInsightCard();
+      }
+    });
+  }
+
+  // === V1.5 USER HIGHLIGHTS (localStorage) ===
+  var storageKey = 'gemstudio_hl_' + window.location.pathname;
+  var userHighlights = JSON.parse(localStorage.getItem(storageKey) || '[]');
+
+  document.addEventListener('mouseup', handleTextSelection);
+  document.addEventListener('touchend', handleTextSelection);
+
+  function handleTextSelection(e) {
+    var bubble = document.getElementById('highlightBubble');
+    if (!bubble) return;
+
+    var sel = window.getSelection();
+    if (!sel || sel.isCollapsed || !sel.toString().trim()) {
+      bubble.style.display = 'none';
+      return;
+    }
+
+    var range = sel.getRangeAt(0);
+    var rect = range.getBoundingClientRect();
+    bubble.style.left = (window.scrollX + rect.left + rect.width / 2 - 40) + 'px';
+    bubble.style.top = (window.scrollY + rect.top - 42) + 'px';
+    bubble.style.display = 'flex';
+  }
+
+  function applyUserHighlight() {
+    var bubble = document.getElementById('highlightBubble');
+    var sel = window.getSelection();
+    if (!sel || sel.isCollapsed) return;
+
+    var text = sel.toString().trim();
+    if (!text) return;
+
+    var range = sel.getRangeAt(0);
+    var mark = document.createElement('mark');
+    mark.className = 'user-highlight';
+    mark.title = 'Нажмите для удаления хайлайта';
+    mark.onclick = function() { removeHighlight(text, mark); };
+
+    try {
+      range.surroundContents(mark);
+      userHighlights.push(text);
+      localStorage.setItem(storageKey, JSON.stringify(userHighlights));
+      updateNotesCount();
+    } catch(err) {
+      console.log('Highlight cross-boundary selection');
+    }
+
+    if (bubble) bubble.style.display = 'none';
+    sel.removeAllRanges();
+  }
+
+  function removeHighlight(text, markEl) {
+    if (confirm('Удалить этот хайлайт?')) {
+      var parent = markEl.parentNode;
+      while (markEl.firstChild) parent.insertBefore(markEl.firstChild, markEl);
+      parent.removeChild(markEl);
+      userHighlights = userHighlights.filter(function(t) { return t !== text; });
+      localStorage.setItem(storageKey, JSON.stringify(userHighlights));
+      updateNotesCount();
+    }
+  }
+
+  function updateNotesCount() {
+    var countEl = document.getElementById('drawerNotesCount');
+    if (countEl) {
+      countEl.innerHTML = `<svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 11-6 6v3h3l6-6"/><path d="m22 12-4.6 4.6a2 2 0 0 1-2.8 0l-5.2-5.2a2 2 0 0 1 0-2.8L14 4"/></svg> <span>Мои заметки и хайлайты (' + userHighlights.length + ')</span>`;
+    }
+  }
+
+  function copyUserHighlights() {
+    if (!userHighlights.length) {
+      alert('У вас пока нет сохраненных хайлайтов в этом выпуске. Выделите любой текст на странице маркером!');
+      return;
+    }
+    var md = '# Мои Заметки и Хайлайты\n\n* **Разбор:** ' + document.title + '\n* **Дата:** ' + new Date().toLocaleDateString() + '\n\n---\n\n';
+    userHighlights.forEach(function(item, idx) {
+      md += (idx + 1) + '. > ' + item + '\n\n';
+    });
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(md).then(function() {
+        showToast('✓ Все заметки скопированы в буфер обмена! Вставьте в Obsidian.');
+      }).catch(function() {
+        prompt('Скопируйте текст заметок:', md);
+      });
+    } else {
+      prompt('Скопируйте текст заметок:', md);
+    }
+  }
+
+  function exportUserHighlights() {
+    if (!userHighlights.length) {
+      alert('У вас пока нет сохраненных хайлайтов в этом выпуске. Выделите любой текст на странице маркером!');
+      return;
+    }
+    var md = '# Мои Заметки и Хайлайты\n\n* **Разбор:** ' + document.title + '\n* **Дата экспорта:** ' + new Date().toLocaleDateString() + '\n\n---\n\n';
+    userHighlights.forEach(function(item, idx) {
+      md += (idx + 1) + '. > ' + item + '\n\n';
+    });
+    
+    var cleanSlug = (window.location.pathname.split('/').pop().split('.')[0] || 'notes').replace(/[^a-zA-Z0-9_-]/g, '_');
+    if (cleanSlug.length > 20) cleanSlug = cleanSlug.substring(0, 20);
+    var filename = 'notes_' + cleanSlug + '.md';
+
+    var blob = new Blob([md], { type: 'text/markdown;charset=utf-8;' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.style.display = 'none';
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function() {
+      if (a.parentNode) a.parentNode.removeChild(a);
+      URL.revokeObjectURL(url);
+    }, 1500);
+  }
+
+  function showToast(msg) {
+    var toast = document.createElement('div');
+    toast.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#10b981;color:#fff;padding:12px 20px;border-radius:10px;font-weight:700;font-size:0.9rem;box-shadow:0 10px 25px rgba(0,0,0,0.5);z-index:99999;text-align:center;max-width:90vw;';
+    toast.innerText = msg;
+    document.body.appendChild(toast);
+    setTimeout(function() {
+      if (toast.parentNode) toast.parentNode.removeChild(toast);
+    }, 3500);
+  }
+
+  // Init notes count on load
+  setTimeout(updateNotesCount, 300);
+
+</script>
+
+
+  <!-- Плавающая кнопка вызова оглавления -->
+  <div id="floatingNavBtn" class="floating-nav-pill" onclick="toggleNavDrawer()" title="Навигация по разделам"><svg class="gem-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg> <span>Навигация</span></div>
+
+  <!-- Шторка-модалка навигации по статье -->
+    <!-- Навигационная панель (Drawer) -->
+    <!-- Навигационная панель (Drawer) -->
+    <!-- Навигационная панель (Drawer) -->
+    <!-- Навигационная панель (Drawer) -->
+    <!-- Навигационная панель (Drawer) -->
+    <!-- Навигационная панель (Drawer) -->
+    <!-- Навигационная панель (Drawer) -->
+  <div id="navDrawerOverlay" class="nav-drawer-overlay" onclick="handleOverlayClick(event)">
+    <div class="nav-drawer-sheet">
+      <div class="drawer-header">
+        <div class="drawer-title">Навигация по разбору</div>
+        <button class="drawer-close-btn" onclick="closeNavDrawer()">✕</button>
+      </div>
+
+      <!-- Личные Заметки Пользователя -->
+      <div id="drawerNotesSection" style="margin: 10px 0 16px 0; padding: 12px; background: rgba(251, 191, 36, 0.08); border: 1px solid rgba(251, 191, 36, 0.25); border-radius: 10px;">
+        <div style="font-weight: 700; color: #fbbf24; font-size: 0.9rem; margin-bottom: 4px;" id="drawerNotesCount"><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 11-6 6v3h3l6-6"/><path d="m22 12-4.6 4.6a2 2 0 0 1-2.8 0l-5.2-5.2a2 2 0 0 1 0-2.8L14 4"/></svg> <span>Мои заметки и хайлайты (0)</span></div>
+        <div style="font-size: 0.8rem; color: #cbd5e1; margin-bottom: 10px;">Выделяйте важные мысли маркером прямо в тексте — они сохраняются на вашем устройстве.</div>
+        <div style="display: flex; gap: 8px; flex-direction: column;">
+          <button onclick="copyUserHighlights()" style="width: 100%; background: #d97706; color: #fff; border: none; padding: 9px 12px; border-radius: 6px; font-weight: 700; font-size: 0.82rem; cursor: pointer; transition: all 0.2s; display: inline-flex; align-items: center; justify-content: center; gap: 6px;">
+            <svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#cbd5e1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg> <span>Скопировать заметки для Obsidian</span>
+          </button>
+          <button onclick="exportUserHighlights()" style="width: 100%; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.15); color: #cbd5e1; padding: 8px 12px; border-radius: 6px; font-weight: 600; font-size: 0.78rem; cursor: pointer; transition: all 0.2s; display: inline-flex; align-items: center; justify-content: center; gap: 6px;">
+            <svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg> <span>Скачать файл (.md)</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="drawer-links-grid">
+        <a href="00_Хаб_Все_Разборы.html" class="drawer-link catalog-link">
+          <span><svg class="gem-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span> <strong>← Каталог всех разборов</strong>
+        </a>
+        <a href="#block1" class="drawer-link" onclick="closeNavDrawer()">
+          <span><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9.5" stroke="#38bdf8" stroke-width="1.8" stroke-dasharray="2 2"/><circle cx="12" cy="12" r="6" stroke="#38bdf8" stroke-width="2"/><circle cx="12" cy="12" r="2.5" fill="#f43f5e"/><path d="M12 2V5M12 19V22M2 12H5M19 12H22" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/></svg></span> <span>Блок 1. Интро, вердикт и скрытая повестка</span>
+        </a>
+        <a href="#block2" class="drawer-link" onclick="closeNavDrawer()">
+          <span><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21" fill="#a855f7" fill-opacity="0.2" stroke="#a855f7" stroke-width="2"/><line x1="9" x2="9" y1="3" y2="18" stroke="#a855f7" stroke-width="2"/><line x1="15" x2="15" y1="6" y2="21" stroke="#a855f7" stroke-width="2"/></svg></span> <span>Блок 2. Тепловая карта выпуска</span>
+        </a>
+        <a href="#block3" class="drawer-link" onclick="closeNavDrawer()">
+          <span><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M19.5 7.5C18 4.5 14 3 10.5 4.5C7 6 4 9 4.5 13C5 17 8 20 12.5 20C17 20 20.5 16.5 20.5 12.5C20.5 10.5 21 8.5 19.5 7.5Z" fill="#f43f5e" fill-opacity="0.28" stroke="#f43f5e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="11" r="2.5" fill="#f8fafc" stroke="#f43f5e" stroke-width="1.5"/><path d="M13 8C14.5 9 16 11 16 13" stroke="#fda4af" stroke-width="1.8" stroke-linecap="round"/><path d="M7 14C8 16 10 17 12 17" stroke="#fda4af" stroke-width="1.8" stroke-linecap="round"/></svg></span> <span>Блок 3. Детальный разбор («Мясо выпуска»)</span>
+        </a>
+        <a href="#block4" class="drawer-link" onclick="closeNavDrawer()">
+          <span><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="14" width="4" height="7" rx="1.5" fill="#38bdf8" fill-opacity="0.3" stroke="#38bdf8" stroke-width="1.8"/><rect x="10" y="9" width="4" height="12" rx="1.5" fill="#38bdf8" fill-opacity="0.5" stroke="#38bdf8" stroke-width="1.8"/><rect x="17" y="4" width="4" height="17" rx="1.5" fill="#38bdf8" stroke="#38bdf8" stroke-width="1.8"/><path d="M4 11L10 6L15 9L21 3M21 3H16M21 3V8" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> <span>Блок 4. Сводка цифр, бенчмарков и развилок</span>
+        </a>
+        <a href="#block5" class="drawer-link" onclick="closeNavDrawer()">
+          <span><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-5.04z" fill="#fbbf24" fill-opacity="0.25" stroke="#fbbf24" stroke-width="1.8"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-5.04z" fill="#fbbf24" fill-opacity="0.25" stroke="#fbbf24" stroke-width="1.8"/></svg></span> <span>Блок 5. Ментальные модели и схемы</span>
+        </a>
+        <a href="#block6" class="drawer-link" onclick="closeNavDrawer()">
+          <span><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" fill="#34d399" fill-opacity="0.2" stroke="#34d399" stroke-width="2"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" fill="#34d399" fill-opacity="0.2" stroke="#34d399" stroke-width="2"/></svg></span> <span>Блок 6. Справочник сущностей (Wikilinks)</span>
+        </a>
+        <a href="#block7" class="drawer-link" onclick="closeNavDrawer()">
+          <span><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 3h12l4 6-10 13L2 9Z" fill="#38bdf8" fill-opacity="0.25" stroke="#38bdf8" stroke-width="2"/><path d="M11 3 8 9l4 13 4-13-3-6" stroke="#38bdf8" stroke-width="1.5"/><path d="M2 9h20" stroke="#38bdf8" stroke-width="1.5"/></svg></span> <span>Блок 7. Золотые панчлайны выпуска</span>
+        </a>
+        <a href="#block8" class="drawer-link" onclick="closeNavDrawer()">
+          <span><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="#818cf8" fill-opacity="0.25" stroke="#818cf8" stroke-width="2"/><polyline points="9 12 11 14 15 10" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span> <span>Блок 8. Фактчек и реакция аудитории</span>
+        </a>
+        <a href="#block9" class="drawer-link" onclick="closeNavDrawer()">
+          <span><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="4" fill="#22c55e" fill-opacity="0.25" stroke="#22c55e" stroke-width="2"/><path d="M9 12l2 2 4-4" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span> <span>Блок 9. Чек-лист применения (7–30 дней)</span>
+        </a>
+        <a href="/minin.md" download="2026-10-29_Владилен_AI_Инжиниринг_Harness.md" class="drawer-link md-download-link">
+          <span><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg></span> <span><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg> Скачать Markdown (.md для Obsidian)</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Модальное окно Инсайт-Карточки (HTML5 Canvas) -->
+  <div id="insightCardModal" class="insight-modal-overlay" onclick="closeInsightModal(event)">
+    <div class="insight-modal-content">
+      <div class="insight-modal-header">
+        <div style="font-weight: 700; color: #fff; font-size: 1rem;"><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg> <span><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg> <span><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg> <span><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg> <span><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg> <span><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg> <span><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg> <span><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg> <span><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg> <span><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg> <span><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg> <span>Инсайт-Карточка для соцсетей</span></span></span></span></span></span></span></span></span></span></span></div>
+        <button class="drawer-close-btn" onclick="closeInsightModal()">✕</button>
+      </div>
+      <div class="insight-canvas-wrap">
+        <canvas id="insightCanvas" width="1080" height="1350"></canvas>
+      </div>
+      <div class="insight-modal-actions">
+        <button class="insight-btn-download" onclick="downloadInsightCard()">
+          <svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg> <svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg> <svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg> <svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg> <svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg> <svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg> <svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg> <svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg> <svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg> <svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg> <svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg> <span>Скачать PNG</span>
+        </button>
+        <button class="insight-btn-copy" onclick="copyInsightCard()">
+          <svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg> <svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg> <svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg> <svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#cbd5e1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg> <svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#cbd5e1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg> <svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#cbd5e1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg> <svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#cbd5e1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg> <svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#cbd5e1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg> <svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#cbd5e1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg> <svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#cbd5e1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg> <svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#cbd5e1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg> <span>Скопировать</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Плавающий тултип выделения текста -->
+  <div id="highlightBubble" class="highlight-bubble"><button onclick="applyUserHighlight()"><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 11-6 6v3h3l6-6"/><path d="m22 12-4.6 4.6a2 2 0 0 1-2.8 0l-5.2-5.2a2 2 0 0 1 0-2.8L14 4"/></svg> <svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 11-6 6v3h3l6-6"/><path d="m22 12-4.6 4.6a2 2 0 0 1-2.8 0l-5.2-5.2a2 2 0 0 1 0-2.8L14 4"/></svg> <span>Выделить</span></button></div>
+
+</body>
+</html>

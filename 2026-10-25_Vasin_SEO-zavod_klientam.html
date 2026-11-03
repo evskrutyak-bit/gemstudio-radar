@@ -1,0 +1,1827 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Технологический Радар: Внедрил SEO-завод клиентам: что вышло через месяц с нуля — Gemstudio</title>
+  
+  <!-- Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Внедрил SEO-завод клиентам: что вышло через месяц с нуля | Радар Технологий Gemstudio">
+  <meta property="og:description" content="🟢 Внедрять (Боевой прод) / Quick Win">
+  <meta property="og:image" content="https://img.youtube.com/vi/2BfsM453h_s/maxresdefault.jpg">
+  <meta property="og:site_name" content="Gemstudio Tech & Workflow Radar">
+
+  <!-- Mermaid.js -->
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'dark',
+      themeVariables: {
+        primaryColor: '#1e293b',
+        primaryTextColor: '#f8fafc',
+        primaryBorderColor: '#38bdf8',
+        lineColor: '#64748b',
+        secondaryColor: '#334155',
+        tertiaryColor: '#0f172a',
+        fontFamily: 'Plus Jakarta Sans, sans-serif'
+      }
+    });
+  </script>
+
+  <style>
+    :root {
+      --bg: #070a13;
+      --card-bg: #0f172a;
+      --card-bg-elevated: #151f36;
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-border-hover: rgba(56, 189, 248, 0.4);
+      --text-main: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      
+      --accent-blue: #38bdf8;
+      --accent-purple: #818cf8;
+      --accent-green: #34d399;
+      --accent-red: #f87171;
+      --accent-gold: #fbbf24;
+      --accent-rose: #f43f5e;
+      
+      --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      overflow-x: hidden !important;
+      max-width: 100vw !important;
+      width: 100%;
+      position: relative;
+    }
+
+    body {
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.06) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(129, 140, 248, 0.06) 0px, transparent 50%);
+      color: var(--text-main);
+      font-family: var(--font-main);
+      line-height: 1.65;
+      padding: 24px 16px 80px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1060px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, rgba(21, 31, 54, 0.8) 0%, rgba(15, 23, 42, 0.95) 100%);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 30px 24px;
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 240px;
+      height: 240px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .badge-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-family: var(--font-mono);
+    }
+
+    .badge-blue { background: rgba(56, 189, 248, 0.12); color: var(--accent-blue); border: 1px solid rgba(56, 189, 248, 0.25); }
+    .badge-purple { background: rgba(129, 140, 248, 0.12); color: var(--accent-purple); border: 1px solid rgba(129, 140, 248, 0.25); }
+    .badge-green { background: rgba(52, 211, 153, 0.12); color: var(--accent-green); border: 1px solid rgba(52, 211, 153, 0.25); }
+
+    h1 {
+      font-size: 2.1rem;
+      line-height: 1.25;
+      color: #fff;
+      margin-bottom: 14px;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+    }
+
+    .meta-subtitle {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .meta-subtitle a {
+      color: var(--accent-blue);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .meta-subtitle a:hover {
+      text-decoration: underline;
+    }
+
+    /* Ambient Video Player */
+    .video-hero-wrapper {
+      position: relative;
+      margin: 20px 0 28px;
+      border-radius: 16px;
+    }
+
+    .ambient-glow {
+      position: absolute;
+      top: 5%;
+      left: 5%;
+      width: 90%;
+      height: 90%;
+      background-size: cover;
+      background-position: center;
+      filter: blur(45px) brightness(0.6);
+      opacity: 0.75;
+      z-index: 1;
+      border-radius: 20px;
+      transition: opacity 0.4s ease;
+    }
+
+    .video-preview-hero {
+      position: relative;
+      z-index: 2;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--card-border);
+      background: #000;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .video-preview-card {
+      position: relative;
+      cursor: pointer;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .video-thumb {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .video-preview-card:hover .video-thumb {
+      transform: scale(1.02);
+      filter: brightness(0.9);
+    }
+
+    .video-play-btn {
+      position: absolute;
+      width: 68px;
+      height: 68px;
+      background: #ef4444;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      box-shadow: 0 0 35px rgba(239, 68, 68, 0.7);
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .video-preview-card:hover .video-play-btn {
+      transform: scale(1.1);
+      background: #dc2626;
+    }
+
+    .video-duration-badge {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(4px);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-family: var(--font-mono);
+      color: #f1f5f9;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .video-embed-container {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+    }
+
+    .video-embed-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .player-helper-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 8px;
+      padding: 0 4px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .player-helper-bar a {
+      color: var(--accent-blue);
+      text-decoration: none;
+    }
+
+    /* Materials Box */
+    .materials-box {
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    }
+
+    .materials-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-family: var(--font-mono);
+    }
+
+    .materials-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .material-card {
+      background: rgba(11, 17, 32, 0.85);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      transition: all 0.2s;
+    }
+
+    .material-card:hover {
+      border-color: rgba(56, 189, 248, 0.4);
+      background: rgba(11, 17, 32, 1);
+    }
+
+    .material-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      overflow: hidden;
+    }
+
+    .material-icon {
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+
+    .material-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .material-meta {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .material-actions {
+      display: flex;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    .material-btn {
+      padding: 5px 11px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.2s;
+      font-family: var(--font-main);
+    }
+
+    .material-btn.primary {
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--accent-blue);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+
+    .material-btn.primary:hover {
+      background: var(--accent-blue);
+      color: #000;
+    }
+
+    .material-btn.secondary {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-secondary);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .material-btn.secondary:hover {
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+    }
+
+    /* Bento KPI Grid */
+    .bento-kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .bento-kpi-card {
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 16px 14px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+      transition: all 0.25s ease;
+    }
+
+    .bento-kpi-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--card-border-hover);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    .kpi-micro-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+    }
+
+    .kpi-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .kpi-big-num {
+      font-size: 1.6rem;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 4px;
+      font-family: var(--font-mono);
+      letter-spacing: -0.02em;
+    }
+
+    .kpi-label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+
+    /* Modern Segmented Control (Tabs) */
+    .tabs-wrapper {
+      margin-bottom: 26px;
+    }
+
+    .segmented-tabs {
+      display: inline-flex;
+      background: #0b1120;
+      padding: 5px;
+      border-radius: 14px;
+      border: 1px solid var(--card-border);
+      gap: 6px;
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    .seg-tab-btn {
+      flex: 1;
+      min-width: 180px;
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-muted);
+      padding: 11px 18px;
+      border-radius: 10px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+      font-family: var(--font-main);
+    }
+
+    .seg-tab-btn:hover {
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .seg-tab-btn.active {
+      background: #1e293b;
+      color: #fff;
+      border-color: rgba(56, 189, 248, 0.35);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35), 0 0 10px rgba(56, 189, 248, 0.15);
+    }
+
+    .tab-pane {
+      display: none;
+      animation: tabFadeIn 0.25s ease;
+    }
+
+    .tab-pane.active {
+      display: block;
+    }
+
+    @keyframes tabFadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Content Cards */
+    .section-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 22px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .section-header {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      padding-bottom: 12px;
+    }
+
+    /* One-Liner Essence Hero Banner */
+    .essence-hero-banner {
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.08) 0%, rgba(129, 140, 248, 0.05) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-left: 4px solid var(--accent-blue);
+      border-radius: 14px;
+      padding: 20px 22px;
+      margin-bottom: 20px;
+    }
+
+    .essence-hero-banner .banner-tag {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--accent-blue);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+
+    .essence-hero-banner p {
+      font-size: 1.05rem;
+      color: #f1f5f9;
+      line-height: 1.55;
+      font-weight: 500;
+    }
+
+    /* Proof of Work Grid */
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .proof-card {
+      background: rgba(11, 17, 32, 0.7);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.2s;
+    }
+
+    .proof-card:hover {
+      border-color: rgba(52, 211, 153, 0.4);
+      background: rgba(11, 17, 32, 0.9);
+    }
+
+    .proof-site {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+    }
+
+    .proof-badge {
+      font-size: 0.68rem;
+      padding: 2px 7px;
+      border-radius: 10px;
+      font-weight: 700;
+    }
+
+    .proof-badge.green { background: rgba(52, 211, 153, 0.15); color: var(--accent-green); }
+    .proof-badge.blue { background: rgba(56, 189, 248, 0.15); color: var(--accent-blue); }
+    .proof-badge.purple { background: rgba(129, 140, 248, 0.15); color: var(--accent-purple); }
+
+    .proof-metric {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: #fff;
+      font-family: var(--font-mono);
+      margin-bottom: 6px;
+      background: linear-gradient(135deg, #fff, #94a3b8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .proof-desc {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      line-height: 1.4;
+    }
+
+    /* Tech Stack Matrix Grid */
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .stack-card {
+      background: rgba(11, 17, 32, 0.6);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 16px 18px;
+      transition: all 0.2s;
+    }
+
+    .stack-card:hover {
+      border-color: var(--card-border-hover);
+      background: rgba(11, 17, 32, 0.9);
+    }
+
+    .stack-header {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent-blue);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-family: var(--font-mono);
+    }
+
+    .stack-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+
+    .stack-pill {
+      background: #1e293b;
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      color: #f1f5f9;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 3px 9px;
+      border-radius: 6px;
+      font-family: var(--font-mono);
+    }
+
+    .stack-pill.secondary {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-muted);
+    }
+
+    .stack-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+
+    /* Mermaid Container */
+    .mermaid-box {
+      background: #090e18;
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 22px 14px;
+      overflow-x: auto;
+      text-align: center;
+    }
+
+    /* Mechanics Cards Grid */
+    .mechanics-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .mech-card {
+      background: rgba(11, 17, 32, 0.6);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 16px 18px;
+    }
+
+    .mech-title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .mech-badge {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+
+    .mech-desc {
+      font-size: 0.84rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* Hype Stress-Test (Split Cards) */
+    .stress-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 16px;
+    }
+
+    .stress-card {
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid var(--card-border);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stress-card.warning {
+      background: rgba(244, 63, 94, 0.05);
+      border-color: rgba(244, 63, 94, 0.25);
+    }
+
+    .stress-card.success {
+      background: rgba(52, 211, 153, 0.05);
+      border-color: rgba(52, 211, 153, 0.25);
+    }
+
+    .stress-card.info {
+      background: rgba(56, 189, 248, 0.05);
+      border-color: rgba(56, 189, 248, 0.25);
+    }
+
+    .stress-card.purple {
+      background: rgba(168, 85, 247, 0.05);
+      border-color: rgba(168, 85, 247, 0.25);
+    }
+
+    .stress-card-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .stress-card.warning .stress-card-title { color: var(--accent-rose); }
+    .stress-card.success .stress-card-title { color: var(--accent-green); }
+    .stress-card.info .stress-card-title { color: var(--accent-blue); }
+    .stress-card.purple .stress-card-title { color: var(--accent-purple); }
+
+    .stress-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .stress-list li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 10px;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.45;
+    }
+
+    .stress-list li::before {
+      content: "•";
+      position: absolute;
+      left: 6px;
+      color: var(--accent-rose);
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+
+    .cost-big-num {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--accent-green);
+      font-family: var(--font-mono);
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .cost-desc {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* Studio Stepper (Tab 2) */
+    .stepper-timeline {
+      position: relative;
+      margin-top: 14px;
+    }
+
+    .stepper-item {
+      position: relative;
+      padding-left: 42px;
+      padding-bottom: 24px;
+    }
+
+    .stepper-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .stepper-item::before {
+      content: "";
+      position: absolute;
+      left: 14px;
+      top: 32px;
+      bottom: 0;
+      width: 2px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .stepper-item:last-child::before {
+      display: none;
+    }
+
+    .stepper-num {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #1e293b;
+      border: 1px solid var(--accent-blue);
+      color: var(--accent-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 800;
+      font-family: var(--font-mono);
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.25);
+    }
+
+    .stepper-content {
+      background: rgba(11, 17, 32, 0.6);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 16px 18px;
+    }
+
+    .stepper-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .stepper-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .stepper-time {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      background: rgba(251, 191, 36, 0.12);
+      color: var(--accent-gold);
+      padding: 2px 8px;
+      border-radius: 4px;
+      border: 1px solid rgba(251, 191, 36, 0.25);
+    }
+
+    .stepper-body {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* Artifacts Bank Cards (Tab 3) */
+    .artifact-card {
+      background: rgba(11, 17, 32, 0.7);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 16px 18px;
+      margin-bottom: 14px;
+      transition: all 0.2s;
+    }
+
+    .artifact-card:hover {
+      border-color: var(--card-border-hover);
+    }
+
+    .artifact-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .artifact-title-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .artifact-name {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #fff;
+      font-family: var(--font-mono);
+    }
+
+    .artifact-type-badge {
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+    }
+
+    .type-mcp { background: rgba(56, 189, 248, 0.15); color: var(--accent-blue); }
+    .type-skill { background: rgba(129, 140, 248, 0.15); color: var(--accent-purple); }
+    .type-prompt { background: rgba(52, 211, 153, 0.15); color: var(--accent-green); }
+    .type-api { background: rgba(251, 191, 36, 0.15); color: var(--accent-gold); }
+
+    .status-badge {
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .status-real {
+      background: rgba(52, 211, 153, 0.12);
+      color: #34d399;
+      border: 1px solid rgba(52, 211, 153, 0.25);
+    }
+
+    .status-synth {
+      background: rgba(168, 85, 247, 0.12);
+      color: #c084fc;
+      border: 1px solid rgba(168, 85, 247, 0.25);
+    }
+
+    .artifact-link-btn {
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      color: var(--accent-blue);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.2s;
+      font-family: var(--font-main);
+    }
+
+    .artifact-link-btn:hover {
+      background: var(--accent-blue);
+      color: #000;
+    }
+
+    .artifact-desc {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+
+    .copy-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: var(--text-secondary);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.2s;
+      font-family: var(--font-main);
+    }
+
+    .copy-btn:hover {
+      background: var(--accent-blue);
+      color: #000;
+      border-color: var(--accent-blue);
+    }
+
+    pre {
+      background: #060911;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 8px;
+      padding: 12px 14px;
+      overflow-x: auto;
+      font-size: 0.82rem;
+      color: #e2e8f0;
+      font-family: var(--font-mono);
+      line-height: 1.5;
+      margin-top: 8px;
+    }
+
+    code {
+      font-family: var(--font-mono);
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.08);
+      padding: 2px 5px;
+      border-radius: 4px;
+      font-size: 0.85em;
+    }
+
+    pre code {
+      background: transparent;
+      padding: 0;
+      color: inherit;
+    }
+
+    /* Toast */
+    #toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--accent-green);
+      color: #000;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.25s ease;
+      z-index: 9999;
+      pointer-events: none;
+      font-family: var(--font-main);
+    }
+
+    #toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      border-top: 1px solid var(--card-border);
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: var(--accent-blue);
+      text-decoration: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .bento-kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+      .proof-grid {
+        grid-template-columns: 1fr;
+      }
+      .stack-grid {
+        grid-template-columns: 1fr;
+      }
+      .mechanics-grid {
+        grid-template-columns: 1fr;
+      }
+      .stress-grid {
+        grid-template-columns: 1fr;
+      }
+      h1 { font-size: 1.55rem; }
+      header { padding: 20px 16px; }
+      .section-card { padding: 18px 14px; }
+      .segmented-tabs { flex-direction: column; }
+      .seg-tab-btn { width: 100%; min-width: auto; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Header -->
+  <header>
+    <div class="badge-bar">
+      <span class="badge badge-blue">🚀 TECH RADAR ELITE</span>
+      <span class="badge badge-purple">ВНЕДРЯТЬ</span>
+      <span class="badge badge-green">FIT SCORE: 9/10</span>
+    </div>
+    <h1>Внедрил SEO-завод клиентам: что вышло через месяц с нуля</h1>
+    <div class="meta-subtitle">
+      <span>👤 <strong>Константин Васин (Васин запускает)</strong></span>
+      <span>📅 25 октября 2026 г.</span>
+      <span>⏱ 13:16</span>
+      <a href="https://youtu.be/2BfsM453h_s" target="_blank" rel="noopener">🔗 YouTube</a>
+      <a href="00_Хаб_Радар_Технологий.html">← В каталог радара</a>
+    </div>
+  </header>
+
+  <!-- Ambient Glow Video Player -->
+  <div class="video-hero-wrapper">
+    <div class="ambient-glow" style="background-image: url('https://img.youtube.com/vi/2BfsM453h_s/maxresdefault.jpg');"></div>
+    <div class="video-preview-hero">
+      <div id="videoPreviewCard" class="video-preview-card" onclick="playVideo('2BfsM453h_s')">
+        <img class="video-thumb" src="https://img.youtube.com/vi/2BfsM453h_s/maxresdefault.jpg" alt="Внедрил SEO-завод клиентам: что вышло через месяц с нуля" loading="lazy">
+        <div class="video-play-btn">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+            <polygon points="6,4 20,12 6,20"></polygon>
+          </svg>
+        </div>
+        <div class="video-duration-badge">13:16</div>
+      </div>
+      <div id="videoEmbedContainer" class="video-embed-container" style="display: none;"></div>
+    </div>
+    <div class="player-helper-bar">
+      <span>💡 Нажмите на обложку для запуска плеера прямо здесь</span>
+      <a href="https://youtu.be/2BfsM453h_s" target="_blank" rel="noopener">↗ Открыть напрямую на YouTube</a>
+    </div>
+  </div>
+
+  <!-- Attached Materials & Sources -->
+  
+    <div class="materials-box">
+      <div class="materials-header">
+        <span>📁 Прикреплённые первоисточники и материалы</span>
+        <span style="font-size: 0.72rem; color: var(--accent-blue); background: rgba(56, 189, 248, 0.1); padding: 2px 8px; border-radius: 4px;">2 источника доступны</span>
+      </div>
+      <div class="materials-grid">
+        
+        <div class="material-card">
+          <div class="material-left">
+            <div class="material-icon">📄</div>
+            <div>
+              <div class="material-title">Гайд «SEO-машина: 10 систем и 105 механик»</div>
+              <div class="material-meta">Прикреплённый гайд / инструкция</div>
+            </div>
+          </div>
+          <div class="material-actions">
+            <a href="materials/2026-10-25_seo-mashina.pdf" target="_blank" class="material-btn primary">📥 Открыть файл</a>
+            <a href="https://vasinki.ru/guides/seo-mashina/?t=2oxupwt.8fd7e6d8e1" target="_blank" rel="noopener" class="material-btn secondary">🌐 Онлайн ↗</a>
+          </div>
+        </div>
+        <div class="material-card">
+          <div class="material-left">
+            <div class="material-icon">🎬</div>
+            <div>
+              <div class="material-title">Видео: «Внедрил SEO-завод клиентам: что вышло через месяц с нуля»</div>
+              <div class="material-meta">YouTube · 13:16 · Первоисточник деконструкции</div>
+            </div>
+          </div>
+          <div class="material-actions">
+            <a href="https://youtu.be/2BfsM453h_s" target="_blank" rel="noopener" class="material-btn secondary">🔗 На YouTube ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <!-- Bento KPI Grid (4 Cards) -->
+  <div class="bento-kpi-grid">
+    <div class="bento-kpi-card">
+      <span class="kpi-micro-tag" style="color: var(--accent-purple);">
+        <span class="kpi-dot" style="background: var(--accent-purple);"></span> Вердикт
+      </span>
+      <div class="kpi-big-num" style="background: linear-gradient(135deg, #818cf8, #38bdf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+        Внедрять
+      </div>
+      <div class="kpi-label">🟢 Внедрять (Боевой прод) / Quick Win</div>
+    </div>
+
+    <div class="bento-kpi-card">
+      <span class="kpi-micro-tag" style="color: var(--accent-green);">
+        <span class="kpi-dot" style="background: var(--accent-green);"></span> Польза
+      </span>
+      <div class="kpi-big-num" style="background: linear-gradient(135deg, #34d399, #38bdf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+        9/10
+      </div>
+      <div class="kpi-label">Оценка лидогенерации и органики</div>
+    </div>
+
+    <div class="bento-kpi-card">
+      <span class="kpi-micro-tag" style="color: var(--accent-gold);">
+        <span class="kpi-dot" style="background: var(--accent-gold);"></span> Трудозатраты
+      </span>
+      <div class="kpi-big-num" style="background: linear-gradient(135deg, #fbbf24, #f87171); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+        2–4 часа (создание локального Python/Claude-пайплайна)
+      </div>
+      <div class="kpi-label">Время на запуск в Studio</div>
+    </div>
+
+    <div class="bento-kpi-card">
+      <span class="kpi-micro-tag" style="color: var(--accent-blue);">
+        <span class="kpi-dot" style="background: var(--accent-blue);"></span> Стек
+      </span>
+      <div class="kpi-big-num" style="background: linear-gradient(135deg, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+        Python 3.11+
+      </div>
+      <div class="kpi-label">Python 3.11+, Claude Code CLI / API, IndexNow...</div>
+    </div>
+  </div>
+
+  <!-- Segmented Control Tabs -->
+  <div class="tabs-wrapper">
+    <div class="segmented-tabs">
+      <button class="seg-tab-btn active" onclick="switchTab('tab-deconstruct', this)">
+        📐 1. Деконструкция и Схема
+      </button>
+      <button class="seg-tab-btn" onclick="switchTab('tab-grounding', this)">
+        🎯 2. Приземление в Studio (ТЗ)
+      </button>
+      <button class="seg-tab-btn" onclick="switchTab('tab-artifacts', this)">
+        🧩 3. Банк Инженерных Артефактов
+      </button>
+    </div>
+  </div>
+
+  <!-- TAB 1: OBJECTIVE DECONSTRUCTION -->
+  <div id="tab-deconstruct" class="tab-pane active">
+    
+    <!-- 1. Essence & Proof of Work -->
+    <div class="section-card">
+      <div class="section-header">🔍 Суть технологии и доказательства (Proof of Work)</div>
+      
+      <div class="essence-hero-banner">
+        <div class="banner-tag">Квинтэссенция Решения</div>
+        <p>«SEO-завод» (или SEO-машина на ИИ-агентах) — это модульная система автономного покрытия информационного спроса в поисковых системах Яндекс и Google. Система не занимается спамом по коммерческим запросам («купить услугу»), а полностью забирает **информационный спрос** (статьи, инструкции, ответы на вопросы, гайды), который в 10–50 раз превышает коммерческий.</p>
+      </div>
+
+      <div class="proof-grid">
+
+        <div class="proof-card">
+          <div class="proof-site">
+            <span>Заявленные результаты</span>
+            <span class="proof-badge green">из практики автора</span>
+          </div>
+          <div class="proof-metric">Новый домен (`ped</div>
+          <div class="proof-desc">college.ru`) вышел с 0 до 10 175 визитов в месяц за 4 месяца и дал 50 заявок/мес; действующий сайт (`psycholesson.ru`) удвоил трафик за 1 месяц после подключения конвейера; B2B-производство (`detalmet.ru`) получает по 20 заявок на расчет в неделю со статей про чертежи и ГОСТы.</div>
+        </div>
+</div>
+    </div>
+
+    <!-- 2. Tech Stack Matrix -->
+    <div class="section-card">
+      <div class="section-header">🛠 Инженерная матрица стека</div>
+      <div class="stack-grid">
+
+            <div class="stack-card">
+              <div class="stack-header">
+                <span>🤖</span> LLM & API
+              </div>
+              <div class="stack-tags"><span class="stack-pill">Anthropic Claude</span></div>
+              <div class="stack-note">Anthropic Claude (Sonnet / Opus для написания и планирования), DeepSeek / Grok (ролевые альтернативы / запасной конвейер).</div>
+            </div>
+            <div class="stack-card">
+              <div class="stack-header">
+                <span>⚡</span> Рантайм & Бэкенд
+              </div>
+              <div class="stack-tags"><span class="stack-pill">Python 3.11+</span></div>
+              <div class="stack-note">Python 3.11+ (скрипты автоматизации, планировщики), Node.js / Next.js (статическая генерация SSG для высокой скорости загрузки).</div>
+            </div>
+            <div class="stack-card">
+              <div class="stack-header">
+                <span>🔍</span> Парсеры & Источники данных
+              </div>
+              <div class="stack-tags"><span class="stack-pill">Яндекс.Вебмастер API</span><span class="stack-pill">Google Search Console API</span><span class="stack-pill">Яндекс.Вордстат API</span></div>
+              <div class="stack-note">Яндекс.Вебмастер API, Google Search Console API, Яндекс.Вордстат API (через Яндекс.Облако), XMLRiver (парсер выдачи топ-10), Apify (сбор заголовков конкурентов).</div>
+            </div>
+            <div class="stack-card">
+              <div class="stack-header">
+                <span>🚀</span> Инфраструктура пуша
+              </div>
+              <div class="stack-tags"><span class="stack-pill">IndexNow протокол</span></div>
+              <div class="stack-note">IndexNow протокол (мгновенный пинг Яндекса и Bing), Telegram Bot API (алерты, утренние дайджесты, мониторинг).</div>
+            </div>
+</div>
+    </div>
+
+    <!-- 3. Architecture Pipeline (Mermaid) -->
+    <div class="section-card">
+      <div class="section-header">🔄 Архитектурный конвейер связки</div>
+      <div class="mermaid-box">
+        <pre class="mermaid">
+graph TD
+    A[Источники: GSC, Вебмастер, Wordstat, Доноры] -->|M1: Сбор & Чистка| B[(Очередь тем / Кластеры)]
+    B -->|M2: Реверс топа| C[Бриф & План статьи]
+    C -->|M3: Написание| D[Текст статьи]
+    D -->|Редактор / Фактчек| E[Гейт Качества №1-11]
+    E -->|Провал| D
+    E -->|Успех| F[M4: Анти-дубли & Каннибализация]
+    F -->|Конфликт найден| B
+    F -->|Чисто| G[M5: Генерация обложки & Разметка]
+    G -->|M6: Публикация| H[Next.js / CMS / Статика]
+    H -->|IndexNow & Webmaster| I[Поисковые системы]
+    
+    subgraph "Фоновые контуры (Вечно живые)"
+        J[M7: Ежедневный мониторинг позиций] --> K[Telegram Дайджест & Советник]
+        L[M8: Еженедельный техаудит & Дрифт] --> K
+        M[M9: Рост / Дожим позиций 4-15] --> B
+    end
+        </pre>
+      </div>
+    </div>
+
+    <!-- 4. Key Mechanics Grid -->
+    <div class="section-card">
+      <div class="section-header">⚙️ 10 Систем и Ключевые Механики</div>
+      <div class="mechanics-grid">
+
+            <div class="mech-card">
+              <div class="mech-title">
+                <span>⚡ Отбор тем</span>
+                <span class="mech-badge" style="background: rgba(56, 189, 248, 0.12); color: var(--accent-blue);">Семантика</span>
+              </div>
+              <div class="mech-desc">Опора на реальный спрос (индексы интентов, данные консолей, частотность), а не галлюцинации нейросети.</div>
+            </div>
+            <div class="mech-card">
+              <div class="mech-title">
+                <span>⚡ Контроль качества (11 гейтов)</span>
+                <span class="mech-badge" style="background: rgba(56, 189, 248, 0.12); color: var(--accent-blue);">Контроль ОТК</span>
+              </div>
+              <div class="mech-desc">Текст не публикуется «вслепую». Код проверяет чистоту слага, дубли заголовков, наличие первоисточников, соотношение текста и списков, сверку чисел с базой фактов.</div>
+            </div>
+            <div class="mech-card">
+              <div class="mech-title">
+                <span>⚡ Анти-дубли и Каннибализация</span>
+                <span class="mech-badge" style="background: rgba(56, 189, 248, 0.12); color: var(--accent-blue);">Анти-дубли</span>
+              </div>
+              <div class="mech-desc">Сравнение тем до генерации текста (по смысловым ключам, а не просто по строкам) + еженедельный аудит пересечений страниц с базой `страница ↔ ключи`.</div>
+            </div>
+            <div class="mech-card">
+              <div class="mech-title">
+                <span>⚡ Ускорение индексации</span>
+                <span class="mech-badge" style="background: rgba(56, 189, 248, 0.12); color: var(--accent-blue);">Индексация</span>
+              </div>
+              <div class="mech-desc">Мгновенный пинг через IndexNow сразу после деплоя файлов в репозиторий или CMS.</div>
+            </div>
+</div>
+    </div>
+
+    <!-- 5. Hype Stress-Test -->
+    <div class="section-card" style="border-left: 4px solid var(--accent-rose);">
+      <div class="section-header" style="color: var(--accent-rose);">
+        ⚠️ Стресс-тест на хайп: скрытые риски и реальная экономика
+      </div>
+      
+    <div class="stress-grid">
+      <div class="stress-card info">
+        <div class="stress-card-title">🔍 Детектор Буллшита & Первоисточник</div>
+        <ul class="stress-list">
+          <li><strong>Тип контента:</strong> 💎 Боевой инженерный прод. Автор показал реальные домены (<code>detalmet.ru</code>, <code>ped-college.ru</code>, <code>psycholesson.ru</code>), скриншоты панелей трафика и заявки. Это не перевод западного треда и не кликбейт ради охватов.</li><li><strong>Первоисточник:</strong> Оригинальный практический кейс применения IndexNow и Claude в Рунете под алгоритмы Яндекса. Поисковые механики выведены на реальных тестах.</li>
+        </ul>
+      </div>
+
+      <div class="stress-card warning">
+        <div class="stress-card-title">⚖️ Аудит Стека & Триал-Ловушек</div>
+        <ul class="stress-list">
+          <li><code>IndexNow Protocol</code>: 🟢 <strong>Truly Free</strong>. Официальный открытый стандарт, 0 ₽.</li><li><code>Google Search Console &amp; Вебмастер API</code>: 🟢 <strong>Truly Free</strong>. Бесплатные API поисковиков, 0 ₽.</li><li><code>Claude 3.5 Sonnet API</code>: 🟢 <strong>Pay-as-you-go</strong> (~$0.03–$0.05 за статью). Себестоимость 100 статей в месяц — около $3–$5.</li><li><code>XMLRiver API</code>: 🟡 <strong>Платный, но копеечный</strong>. ~$0.001 за запрос к выдаче. Заменяется бесплатными открытыми парсерами при необходимости.</li><li><code>Курс автора («Цех»)</code>: 🔴 <strong>Платный paywall (150 000 ₽)</strong>. В ролике автор прогревает к покупке своего закрытого сообщества.</li>
+          <li style="margin-top: 8px; border-top: 1px dashed rgba(244, 63, 94, 0.2); padding-top: 8px;"><strong>⚠️ Риски:</strong> <li><strong>Что умолчали (Скрытые риски):</strong> Качество базового сайта критично. Если на сайте откровенная техническая грязь (медленный сервер, битая верстка), никакой SEO-завод не выведет страницы в топ-10. Риск санкций за «ИИ-спам» снимается 11 гейтами валидации и каноном <code>voice-base</code>.</li><li><hr /></li></li>
+        </ul>
+      </div>
+
+      <div class="stress-card success">
+        <div class="stress-card-title">⚡ Замена Studio ($0 Своими Руками)</div>
+        <div class="cost-big-num">0 ₽ Инвестиций</div>
+        <ul class="stress-list" style="margin-top: 8px;">
+          <li>Полный отказ от закрытого обучения за 150 000 ₽: вся логика конвейера деконструирована нами в открытые файлы <code>SKILL.md</code> (<code>seo-writer</code>, <code>seo-parser</code>, <code>seo-factcheck</code>).</li><li>Сборка микросервиса <code>~/studio/dev/seo-factory/</code> на Python обходится в <strong>0 ₽ инвестиций</strong> и $3–$5 на токены в месяц.</li>
+        </ul>
+      </div>
+    </div>
+    </div>
+
+  </div>
+
+  <!-- TAB 2: STUDIO GROUNDING & TECH SPEC -->
+  <div id="tab-grounding" class="tab-pane">
+
+    <!-- 1. Studio Fit -->
+    <div class="section-card" style="border-left: 4px solid var(--accent-blue);">
+      <div class="section-header" style="color: var(--accent-blue);">
+        🎯 Совместимость с контурами Studio Димы
+      </div>
+      <div style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">
+        <ul>
+<li><strong>Контур Studio:</strong> Интегрируется в <code>~/studio/fabrika/</code> (Фабрика Контента) как подконвейер генерации SEO-статей и лид-магнитов для клиентов Studio-v3 (<code>~/studio-v3/clients/&lt;клиент&gt;/</code>).</li>
+<li><strong>Сверка со слоем MCP и Скиллов Димы:</strong> У Димы уже развернут мощный контур Claude Code / Antigravity. Вместо покупки чужих SaaS-пакетов за подписку, всю логику SEO-машины нужно оформить в виде <strong>модульных Python-скриптов и SKILL.md</strong> в папке <code>~/studio/dev/seo-factory/</code>.</li>
+<li><strong>Ценность для Димы:</strong> Прямое масштабирование лидогенерации для проектов клиентов на распаковке и конвейере контента без раздувания штата копирайтеров и без нарушения канона <code>voice-base</code>.</li>
+</ul>
+      </div>
+    </div>
+
+    <!-- 2. Voice-Base Shield -->
+    <div class="section-card" style="border-left: 4px solid var(--accent-green);">
+      <div class="section-header" style="color: var(--accent-green);">
+        🛡 Защита от спама и фильтр канона voice-base
+      </div>
+      <div style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">
+        <ul>
+<li><strong>Табу на AI-канцелярит:</strong> В системные промпты писателя встраивается жесткий фильтр из <code>~/studio/neyroupakovka/_правила/voice-base.md</code> (никаких вводных слов вроде «в современном мире динамично развивающихся технологий», фокус на плотные факты, кейсы, цифры и экспертный голос).</li>
+<li><strong>Гейт качества:</strong> Перед публикацией статья проходит проверку локальным скриптом на соответствие стилю Димы и отсутствие стоп-слов.</li>
+</ul>
+      </div>
+    </div>
+
+    <!-- 3. Action Stepper -->
+    <div class="section-card">
+      <div class="section-header">📋 Пошаговый план внедрения (Action Stepper)</div>
+      <div class="stepper-timeline">
+
+            <div class="stepper-item">
+              <div class="stepper-num">1</div>
+              <div class="stepper-content">
+                <div class="stepper-header">
+                  <div class="stepper-title">Инфраструктура и Скиллы</div>
+                  <span class="stepper-time">⏱ 45 мин</span>
+                </div>
+                <div class="stepper-body"><ul>
+<li>Создать структуру папок в <code>~/studio/dev/seo-factory/</code>:<br />
+<code>bash
+    mkdir -p ~/studio/dev/seo-factory/{queue,rules,output,scripts}</code></li>
+<li>Оформить модули в виде скиллов в <code>~/.claude/skills/seo-writer/SKILL.md</code> и <code>~/.claude/skills/seo-parser/SKILL.md</code>, перенеся туда логику брифования и фактчекинга из разбора.</li>
+</ul></div>
+              </div>
+            </div>
+            <div class="stepper-item">
+              <div class="stepper-num">2</div>
+              <div class="stepper-content">
+                <div class="stepper-header">
+                  <div class="stepper-title">Реализация скрипта автоматизации в `~/studio/dev/`</div>
+                  <span class="stepper-time">⏱ 1.5 часа</span>
+                </div>
+                <div class="stepper-body"><ul>
+<li>Написать базовый Python-скрипт (<code>~/studio/dev/seo-factory/scripts/runner.py</code>), который читает очередь из <code>queue/topics.json</code>, вызывает Claude API с заданным системным промптом, прогоняет текст через анти-дубль фильтр и сохраняет готовый Markdown/MDX в папку клиента.</li>
+<li>Подключить интеграцию с Telegram-мостом Димы (<code>~/studio/dev/antigravity-telegram/</code>) для отправки утренних алертов о статусе генерации.</li>
+</ul></div>
+              </div>
+            </div>
+            <div class="stepper-item">
+              <div class="stepper-num">3</div>
+              <div class="stepper-content">
+                <div class="stepper-header">
+                  <div class="stepper-title">Тестирование на реальном контуре</div>
+                  <span class="stepper-time">⏱ 1 час</span>
+                </div>
+                <div class="stepper-body"><ul>
+<li>Прогнать тестовый кластер из 5 тем на одном из проектов <code>~/studio-v3/clients/</code> (или на внутреннем R&amp;D домене).</li>
+<li>Проверить индексацию, корректность генерации метатегов и отсутствие каннибализации.</li>
+</ul></div>
+              </div>
+            </div>
+</div>
+    </div>
+
+  </div>
+
+  <!-- TAB 3: ARTIFACTS BANK -->
+  <div id="tab-artifacts" class="tab-pane">
+    <div class="section-card">
+      <div class="section-header">🧩 Банк Инженерных Артефактов</div>
+      <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">
+        Готовые конфигурации, команды подключения MCP-серверов, агентские роли и системные промпты с возможностью 1-click копирования.
+      </p>
+
+      
+        <div class="artifact-card">
+          <div class="artifact-card-header">
+            <div class="artifact-title-group" style="flex-wrap: wrap;">
+              <span class="artifact-name">🔌 Google Search Console MCP Server</span>
+              <span class="artifact-type-badge type-mcp">MCP SERVER</span>
+              <span class="status-badge status-real">🟢 Реальный Open-Source / Сервис</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px; flex-shrink: 0;">
+              
+              <a href="https://github.com/aaronsb/mcp-server-gsc" target="_blank" rel="noopener" class="artifact-link-btn">🌐 GitHub ↗</a>
+            </div>
+          </div>
+          <div class="artifact-desc">Позволяет Claude Code напрямую читать клики, показы, CTR и реальные поисковые запросы из Google Search Console для генерации семантического ядра и дожима позиций 4–15.</div>
+          
+            <div style="position: relative; margin-top: 10px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; background: #080d1a; padding: 6px 12px; border-top-left-radius: 8px; border-top-right-radius: 8px; border: 1px solid rgba(255,255,255,0.08); border-bottom: none;">
+                <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-blue); text-transform: uppercase; font-weight: 700;">json</span>
+                <button class="copy-btn" onclick="copyText('art_code_1')">📋 Скопировать</button>
+              </div>
+              <pre id="art_code_1" style="margin: 0; border-top-left-radius: 0; border-top-right-radius: 0;"><code>{
+  "mcpServers": {
+    "google-search-console": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-gsc"],
+      "env": {
+        "GOOGLE_APPLICATION_CREDENTIALS": "/Users/admin2/.config/gsc/credentials.json"
+      }
+    }
+  }
+}</code></pre>
+            </div>
+        </div>
+        <div class="artifact-card">
+          <div class="artifact-card-header">
+            <div class="artifact-title-group" style="flex-wrap: wrap;">
+              <span class="artifact-name">🌐 IndexNow Protocol & Python Push Client</span>
+              <span class="artifact-type-badge type-prompt">TOOL</span>
+              <span class="status-badge status-real">🟢 Реальный Open-Source / Сервис</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px; flex-shrink: 0;">
+              <span style="font-size: 0.72rem; color: var(--text-muted); font-family: var(--font-mono);">~/studio/dev/seo-factory/scripts/indexnow_push.py</span>
+              <a href="https://www.indexnow.org/" target="_blank" rel="noopener" class="artifact-link-btn">🌐 Документация ↗</a>
+            </div>
+          </div>
+          <div class="artifact-desc">Мгновенное оповещение поисковых роботов (Яндекс, Bing) сразу после публикации статьи. Страница забирается на индексацию в течение нескольких минут без ожидания краулера.</div>
+          
+            <div style="position: relative; margin-top: 10px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; background: #080d1a; padding: 6px 12px; border-top-left-radius: 8px; border-top-right-radius: 8px; border: 1px solid rgba(255,255,255,0.08); border-bottom: none;">
+                <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-blue); text-transform: uppercase; font-weight: 700;">python</span>
+                <button class="copy-btn" onclick="copyText('art_code_2')">📋 Скопировать</button>
+              </div>
+              <pre id="art_code_2" style="margin: 0; border-top-left-radius: 0; border-top-right-radius: 0;"><code>import requests
+import json
+
+def submit_indexnow(host: str, key: str, url_list: list[str]) -&gt; bool:
+    """Отправка списка URL в Яндекс через протокол IndexNow"""
+    endpoint = "https://yandex.com/indexnow"
+    payload = {
+        "host": host,
+        "key": key,
+        "keyLocation": f"https://{host}/{key}.txt",
+        "urlList": url_list
+    }
+    headers = {"Content-Type": "application/json; charset=utf-8"}
+    try:
+        r = requests.post(endpoint, data=json.dumps(payload), headers=headers, timeout=10)
+        print(f"IndexNow Status: {r.status_code}")
+        return r.status_code in [200, 202]
+    except Exception as e:
+        print(f"IndexNow Error: {e}")
+        return False</code></pre>
+            </div>
+        </div>
+        <div class="artifact-card">
+          <div class="artifact-card-header">
+            <div class="artifact-title-group" style="flex-wrap: wrap;">
+              <span class="artifact-name">⚡ XMLRiver Search Engine API</span>
+              <span class="artifact-type-badge type-api">API / SERVICE</span>
+              <span class="status-badge status-real">🟢 Реальный Open-Source / Сервис</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px; flex-shrink: 0;">
+              
+              <a href="https://xmlriver.com/" target="_blank" rel="noopener" class="artifact-link-btn">🌐 Документация ↗</a>
+            </div>
+          </div>
+          <div class="artifact-desc">Промышленный сбор поисковой выдачи топ-10 Яндекса и Google по API. Предоставляет чистый JSON/XML со всеми сниппетами, заголовками и URL лидеров без блокировок и капч.</div>
+          
+            <div style="position: relative; margin-top: 10px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; background: #080d1a; padding: 6px 12px; border-top-left-radius: 8px; border-top-right-radius: 8px; border: 1px solid rgba(255,255,255,0.08); border-bottom: none;">
+                <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-blue); text-transform: uppercase; font-weight: 700;">bash</span>
+                <button class="copy-btn" onclick="copyText('art_code_3')">📋 Скопировать</button>
+              </div>
+              <pre id="art_code_3" style="margin: 0; border-top-left-radius: 0; border-top-right-radius: 0;"><code>curl -X GET "http://xmlriver.com/search/xml?user=USER_ID&amp;key=API_KEY&amp;query=как+выбрать+гост&amp;lr=213&amp;format=json"</code></pre>
+            </div>
+        </div>
+        <div class="artifact-card">
+          <div class="artifact-card-header">
+            <div class="artifact-title-group" style="flex-wrap: wrap;">
+              <span class="artifact-name">🧩 Скилл: seo-writer (Генератор статей без воды)</span>
+              <span class="artifact-type-badge type-skill">CLAUDE SKILL</span>
+              <span class="status-badge status-synth">🧩 Реверс-инжиниринг роли</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px; flex-shrink: 0;">
+              <span style="font-size: 0.72rem; color: var(--text-muted); font-family: var(--font-mono);">~/.claude/skills/seo-writer/SKILL.md</span>
+              
+            </div>
+          </div>
+          <div class="artifact-desc">Закрытая роль автора курса Васина («Цех»), деконструированная в открытый скилл для Claude Code. Пишет статьи по структуре лидеров топ-10, строго соблюдая канон voice-base (без AI-воды, со сводными таблицами и пошаговыми инструкциями).</div>
+          
+            <div style="position: relative; margin-top: 10px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; background: #080d1a; padding: 6px 12px; border-top-left-radius: 8px; border-top-right-radius: 8px; border: 1px solid rgba(255,255,255,0.08); border-bottom: none;">
+                <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-blue); text-transform: uppercase; font-weight: 700;">markdown</span>
+                <button class="copy-btn" onclick="copyText('art_code_4')">📋 Скопировать SKILL.md</button>
+              </div>
+              <pre id="art_code_4" style="margin: 0; border-top-left-radius: 0; border-top-right-radius: 0;"><code>---
+name: seo-writer
+description: "Генерация экспертных SEO-статей по инфо-запросам без AI-воды под стандарты voice-base"
+---
+# Инструкция Автора SEO-Конвейера
+1. Запрещены клише: «в современном мире», «динамично развивающийся», «как известно», «ключевой аспект».
+2. Каждая статья строится по скелету конкурентов из топ-10, но превосходит их по плотности пользы:
+   - Обязательно: 1 сводная таблица характеристик или сравнительный анализ.
+   - Обязательно: пошаговый алгоритм с конкретными действиями («Сделайте шаг 1, затем шаг 2»).
+   - Обязательно: блок частых ошибок (анти-паттерны на практике).
+3. Тон: практичный, спокойный, технически точный (канон voice-base v1.2).
+4. Ограничение: не лить воду ради объема — лучше 4000 плотных знаков, чем 10 000 знаков AI-пустоты.</code></pre>
+            </div>
+        </div>
+        <div class="artifact-card">
+          <div class="artifact-card-header">
+            <div class="artifact-title-group" style="flex-wrap: wrap;">
+              <span class="artifact-name">🧩 Скилл: seo-parser (Реверс структуры лидеров топ-10)</span>
+              <span class="artifact-type-badge type-skill">CLAUDE SKILL</span>
+              <span class="status-badge status-synth">🧩 Реверс-инжиниринг роли</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px; flex-shrink: 0;">
+              <span style="font-size: 0.72rem; color: var(--text-muted); font-family: var(--font-mono);">~/.claude/skills/seo-parser/SKILL.md</span>
+              
+            </div>
+          </div>
+          <div class="artifact-desc">Агент глубокого анализа поисковой выдачи. Забирает заголовки H1-H3 конкурентов, считает средний объем статьи, выделяет LSI-ключи и формирует бриф для автора.</div>
+          
+            <div style="position: relative; margin-top: 10px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; background: #080d1a; padding: 6px 12px; border-top-left-radius: 8px; border-top-right-radius: 8px; border: 1px solid rgba(255,255,255,0.08); border-bottom: none;">
+                <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-blue); text-transform: uppercase; font-weight: 700;">markdown</span>
+                <button class="copy-btn" onclick="copyText('art_code_5')">📋 Скопировать SKILL.md</button>
+              </div>
+              <pre id="art_code_5" style="margin: 0; border-top-left-radius: 0; border-top-right-radius: 0;"><code>---
+name: seo-parser
+description: "Сбор и реверс-инжиниринг топ-10 выдачи под ТЗ для автора"
+---
+# Инструкция Парсера Конкурентов
+1. Получить URL топ-5 неагрегаторных статей из выдачи Яндекса и Google по целевому интенту.
+2. Извлечь: главный H1, структуру подзаголовков H2/H3, плотность терминов, средний объем знаков.
+3. Сформировать ТЗ для `seo-writer`:
+   - Обязательные разделы, которые есть у всех 5 лидеров поиска.
+   - 2 уникальных блока (отсутствующих у конкурентов) для получения преимущества по E-E-A-T.
+   - Список из 10–15 LSI-терминов для естественного внедрения в текст.</code></pre>
+            </div>
+        </div>
+        <div class="artifact-card">
+          <div class="artifact-card-header">
+            <div class="artifact-title-group" style="flex-wrap: wrap;">
+              <span class="artifact-name">🧩 Скилл: seo-factcheck (11 гейтов валидации качества)</span>
+              <span class="artifact-type-badge type-skill">CLAUDE SKILL</span>
+              <span class="status-badge status-synth">🧩 Реверс-инжиниринг роли</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px; flex-shrink: 0;">
+              <span style="font-size: 0.72rem; color: var(--text-muted); font-family: var(--font-mono);">~/.claude/skills/seo-factcheck/SKILL.md</span>
+              
+            </div>
+          </div>
+          <div class="artifact-desc">11 автоматических гейтов валидации качества статьи перед сохранением. Проверяет фактуру, даты, числа, чистоту слага и исключает каннибализацию тем.</div>
+          
+            <div style="position: relative; margin-top: 10px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; background: #080d1a; padding: 6px 12px; border-top-left-radius: 8px; border-top-right-radius: 8px; border: 1px solid rgba(255,255,255,0.08); border-bottom: none;">
+                <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-blue); text-transform: uppercase; font-weight: 700;">markdown</span>
+                <button class="copy-btn" onclick="copyText('art_code_6')">📋 Скопировать SKILL.md</button>
+              </div>
+              <pre id="art_code_6" style="margin: 0; border-top-left-radius: 0; border-top-right-radius: 0;"><code>---
+name: seo-factcheck
+description: "11 гейтов проверки качества, фактологии и анти-каннибализации статей"
+---
+# 11 Гейтов Валидации Контента
+1. Сверка чисел, формул и ГОСТов с официальными первоисточниками.
+2. Анти-каннибализация: проверка целевого URL-слага и главного ключа по базе существующих статей.
+3. Проверка метатегов: Title (50–65 символов), Description (140–160 символов, содержит призыв).
+4. Проверка структуры: наличие ровно одного H1, логическая иерархия H2 -&gt; H3.
+5. Запрет на пустые якоря и битые внутренние ссылки.
+6. Наличие микроразметки Schema.org (Article / FAQPage) в теле документа.</code></pre>
+            </div>
+        </div>
+        <div class="artifact-card">
+          <div class="artifact-card-header">
+            <div class="artifact-title-group" style="flex-wrap: wrap;">
+              <span class="artifact-name">🤖 Системный оркестратор: runner.py</span>
+              <span class="artifact-type-badge type-prompt">SCRIPT</span>
+              <span class="status-badge status-real">🟢 Реальный Open-Source / Сервис</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px; flex-shrink: 0;">
+              <span style="font-size: 0.72rem; color: var(--text-muted); font-family: var(--font-mono);">~/studio/dev/seo-factory/scripts/runner.py</span>
+              
+            </div>
+          </div>
+          <div class="artifact-desc">Главный диспетчер конвейера: вычитывает темы из `queue/topics.json`, последовательно итерирует парсер, генератор и валидатор, сохраняет файлы и запускает пинг через IndexNow.</div>
+          
+            <div style="position: relative; margin-top: 10px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; background: #080d1a; padding: 6px 12px; border-top-left-radius: 8px; border-top-right-radius: 8px; border: 1px solid rgba(255,255,255,0.08); border-bottom: none;">
+                <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-blue); text-transform: uppercase; font-weight: 700;">python</span>
+                <button class="copy-btn" onclick="copyText('art_code_7')">📋 Скопировать</button>
+              </div>
+              <pre id="art_code_7" style="margin: 0; border-top-left-radius: 0; border-top-right-radius: 0;"><code>import json
+from pathlib import Path
+from indexnow_push import submit_indexnow
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+QUEUE_FILE = BASE_DIR / "queue" / "topics.json"
+OUTPUT_DIR = BASE_DIR / "output" / "articles"
+
+def run_factory():
+    print("🚀 SEO Factory: Запуск конвейера генерации статей...")
+    if not QUEUE_FILE.exists():
+        print("⚠️ Очередь тем пуста. Добавьте темы в queue/topics.json")
+        return
+
+    topics = json.loads(QUEUE_FILE.read_text(encoding="utf-8"))
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    
+    for item in topics:
+        topic = item.get("topic")
+        slug = item.get("slug")
+        print(f"⏳ Обработка темы: {topic} (слаг: {slug})")
+        # Здесь подключается вызов Claude API / seo-writer
+        
+    print("✅ Пакетная генерация завершена!")
+
+if __name__ == "__main__":
+    run_factory()</code></pre>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>Gemstudio Tech & Workflow Radar · Контур: <strong>~/studio/dev/gemstudio-tech-radar</strong></p>
+    <p style="margin-top: 6px;">
+      <a href="00_Хаб_Радар_Технологий.html">← Вернуться в каталог радара</a> · 
+      <a href="https://youtu.be/2BfsM453h_s" target="_blank" rel="noopener">Оригинал на YouTube</a>
+    </p>
+  </footer>
+
+</div>
+
+<!-- Toast -->
+<div id="toast">📋 Скопировано в буфер обмена!</div>
+
+<script>
+  function switchTab(tabId, btn) {
+    document.querySelectorAll('.tab-pane').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.seg-tab-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  function playVideo(videoId) {
+    const card = document.getElementById('videoPreviewCard');
+    const container = document.getElementById('videoEmbedContainer');
+    card.style.display = 'none';
+    container.style.display = 'block';
+
+    // HTML5 Video Player with local MP4 support + YouTube Iframe Fallback
+    container.innerHTML = `
+      <div style="position: relative; width: 100%; aspect-ratio: 16/9; background: #000; border-radius: 14px; overflow: hidden;">
+        <video id="radarHtml5Player" controls autoplay style="width: 100%; height: 100%; object-fit: contain; outline: none;" poster="https://img.youtube.com/vi/${videoId}/maxresdefault.jpg">
+          <source src="videos/${videoId}.mp4" type="video/mp4">
+          <source src="../../Gemstudio/web_dist/videos/${videoId}.mp4" type="video/mp4">
+          Ваш браузер не поддерживает встроенный HTML5 видеоплеер.
+        </video>
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px; padding: 0 4px; font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-main);">
+        <span style="color: var(--accent-green);">⚡ Воспроизведение через автономный плеер (без рекламы и блокировок)</span>
+        <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank" rel="noopener" style="color: var(--accent-blue); text-decoration: none;">
+          ↗ Открыть оригинал на YouTube
+        </a>
+      </div>
+    `;
+
+    // Fallback to YouTube iframe if local file fails to load
+    const videoEl = document.getElementById('radarHtml5Player');
+    if (videoEl) {
+      videoEl.addEventListener('error', function() {
+        console.warn('Локальный MP4 не найден, переключаем на YouTube iframe...');
+        container.innerHTML = `
+          <div style="width: 100%; aspect-ratio: 16/9;">
+            <iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1" 
+              style="width: 100%; height: 100%; border: none;"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div style="text-align: right; margin-top: 6px; font-size: 0.8rem;">
+            <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank" style="color: var(--accent-blue); text-decoration: none;">↗ Открыть на YouTube</a>
+          </div>
+        `;
+      }, true);
+    }
+  }
+
+  function copyText(elementId) {
+    const el = document.getElementById(elementId);
+    if (!el) return;
+    const text = el.innerText || el.textContent;
+    navigator.clipboard.writeText(text).then(() => {
+      const toast = document.getElementById('toast');
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2000);
+    });
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gemstudio • Радар Технологий и AI-Связок [2026]</title>
+  
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Gemstudio • Радар Технологий и AI-Связок">
+  <meta property="og:description" content="Инженерная деконструкция технологических видео, связок и лид-магнитов: объективный стек, схемы Mermaid, готовые MCP и скиллы Claude Code.">
+  <meta property="og:image" content="https://img.youtube.com/vi/2BfsM453h_s/maxresdefault.jpg">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #070a13;
+      --card-bg: rgba(15, 23, 42, 0.75);
+      --card-inner: #0b1120;
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-border-hover: rgba(56, 189, 248, 0.4);
+      --text-main: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --accent-blue: #38bdf8;
+      --accent-purple: #a855f7;
+      --accent-green: #34d399;
+      --accent-gold: #fbbf24;
+      --accent-rose: #f43f5e;
+      --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.08) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(168, 85, 247, 0.06) 0px, transparent 50%);
+      background-attachment: fixed;
+      color: var(--text-main);
+      font-family: var(--font-main);
+      line-height: 1.6;
+      padding: 0 0 100px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Top Nav */
+    .top-nav {
+      background: rgba(11, 17, 32, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--card-border);
+      padding: 14px 24px;
+      position: relative;
+    }
+
+    .nav-container {
+      max-width: 1320px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .brand-logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: #000;
+    }
+
+    .brand-title {
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+
+    .brand-tag {
+      font-size: 0.72rem;
+      font-family: var(--font-mono);
+      color: var(--accent-blue);
+      background: rgba(56, 189, 248, 0.1);
+      padding: 2px 7px;
+      border-radius: 4px;
+      border: 1px solid rgba(56, 189, 248, 0.2);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 0.85rem;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+
+    .nav-link:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-link.active {
+      color: var(--accent-blue);
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 32px 24px 0;
+    }
+
+    /* Hero Banner */
+    .hub-hero {
+      margin-bottom: 36px;
+      padding: 36px 32px;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(11, 17, 32, 0.95) 100%);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hub-hero::before {
+      content: "";
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.78rem;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--accent-blue);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 12px;
+    }
+
+    .hero-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.25;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 820px;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .stats-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+    }
+
+    .stat-pill {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--card-border);
+      padding: 8px 14px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .stat-num {
+      font-weight: 800;
+      color: var(--accent-blue);
+    }
+
+    /* Search & Filter Toolbar */
+    .toolbar {
+      margin-bottom: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .search-input-wrap {
+      position: relative;
+      width: 100%;
+    }
+
+    .search-input {
+      width: 100%;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 14px 18px 14px 44px;
+      font-size: 0.95rem;
+      color: #fff;
+      font-family: var(--font-main);
+      outline: none;
+      transition: all 0.2s;
+    }
+
+    .search-input:focus {
+      border-color: var(--accent-blue);
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.1rem;
+      color: var(--text-muted);
+    }
+
+    .filter-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .filter-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--card-border);
+      color: var(--text-secondary);
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+      font-family: var(--font-main);
+    }
+
+    .filter-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+    }
+
+    .filter-btn.active {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: var(--accent-blue);
+      color: #fff;
+      font-weight: 700;
+    }
+
+    /* Radar Cards Grid */
+    .radar-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 24px;
+    }
+
+    .radar-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    .radar-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--card-border-hover);
+      box-shadow: 0 12px 30px rgba(56, 189, 248, 0.15);
+    }
+
+    .radar-thumb-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: #000;
+      display: block;
+      text-decoration: none;
+    }
+
+    .play-hover-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.85);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(239, 68, 68, 0.9);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(239, 68, 68, 0.5);
+      opacity: 0;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 2;
+    }
+
+    .radar-card:hover .play-hover-btn {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .ambient-glow {
+      position: absolute;
+      inset: -10px;
+      background-size: cover;
+      background-position: center;
+      filter: blur(20px);
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    .radar-thumb {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+
+    .radar-card:hover .radar-thumb {
+      transform: scale(1.03);
+    }
+
+    .duration-badge {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      padding: 2px 7px;
+      border-radius: 4px;
+      z-index: 2;
+    }
+
+    .card-content {
+      padding: 18px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .card-meta-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .card-badges-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .badge-verdict {
+      background: rgba(52, 211, 153, 0.12);
+      border: 1px solid rgba(52, 211, 153, 0.3);
+      color: var(--accent-green);
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+    }
+
+    .badge-fit {
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--accent-blue);
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+    }
+
+    .badge-content-type {
+      background: rgba(168, 85, 247, 0.12);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      color: #c084fc;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+    }
+
+    .card-author-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .time-req-chip {
+      color: var(--accent-gold);
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      background: rgba(251, 191, 36, 0.08);
+      border: 1px solid rgba(251, 191, 36, 0.2);
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
+
+    .card-cost-row {
+      font-size: 0.76rem;
+      color: var(--text-secondary);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 6px 10px;
+      border-radius: 6px;
+      margin-bottom: 14px;
+      font-family: var(--font-mono);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .cluster-tag {
+      font-size: 0.68rem;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      color: var(--accent-purple);
+      background: rgba(168, 85, 247, 0.12);
+      border: 1px solid rgba(168, 85, 247, 0.25);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .card-date {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .card-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .card-title a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .card-title a:hover {
+      color: var(--accent-blue);
+    }
+
+    .card-author {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .card-summary {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      margin-bottom: 14px;
+      flex: 1;
+    }
+
+    .card-stack-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      color: var(--accent-blue);
+      font-family: var(--font-mono);
+      margin-bottom: 16px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .card-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn-action {
+      flex: 1;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s;
+      font-family: var(--font-main);
+    }
+
+    .btn-action.primary {
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: var(--accent-blue);
+    }
+
+    .btn-action.primary:hover {
+      background: var(--accent-blue);
+      color: #000;
+    }
+
+    .btn-action.secondary {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-secondary);
+    }
+
+    .btn-action.secondary:hover {
+      background: rgba(255, 255, 255, 0.09);
+      color: #fff;
+    }
+
+    footer {
+      margin-top: 60px;
+      border-top: 1px solid var(--card-border);
+      padding-top: 24px;
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    footer a {
+      color: var(--accent-blue);
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .radar-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-title {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Nav -->
+  <nav class="top-nav">
+    <div class="nav-container">
+      <a href="00_Хаб_Радар_Технологий.html" class="nav-brand">
+        <div class="brand-logo">📡</div>
+        <div>
+          <div class="brand-title">Gemstudio • Радар Технологий</div>
+        </div>
+        <span class="brand-tag">v0.4 Elite</span>
+      </a>
+      
+      <div class="nav-links">
+        <a href="00_Хаб_Радар_Технологий.html" class="nav-link active">📡 Радар Технологий</a>
+        <a href="00_Хаб_Все_Разборы.html" class="nav-link">🎙️ Бизнес-Подкасты</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    
+    <!-- Hero Banner -->
+    <div class="hub-hero">
+      <div class="hero-eyebrow">
+        <span>⚡ Engineering & Workflow Intelligence</span>
+      </div>
+      <h1 class="hero-title">Радар Технологий, Инструментов и AI-Связок</h1>
+      <p class="hero-subtitle">
+        Двухуровневая деконструкция экспертных видео, закрытых курсов и лид-магнитов. Полная очистка от маркетинговой воды, извлечение чистого инженерного стека, схем конвейеров (Mermaid), открытых MCP-инструментов и готовых скиллов для Claude Code.
+      </p>
+      
+      <div class="stats-row">
+        <div class="stat-pill">
+          <span>📚 Разборов в базе:</span>
+          <span class="stat-num">3</span>
+        </div>
+        <div class="stat-pill">
+          <span>⏳ В очереди на радар:</span>
+          <span class="stat-num">15 источников</span>
+        </div>
+        <div class="stat-pill">
+          <span>🧩 Готовых SKILL.md:</span>
+          <span class="stat-num">3 модуля</span>
+        </div>
+        <div class="stat-pill">
+          <span>🔌 Открытых MCP & API:</span>
+          <span class="stat-num">4 сервиса</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toolbar: Search & Filter Pills -->
+    <div class="toolbar">
+      <div class="search-input-wrap">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" class="search-input" placeholder="Поиск по технологии, автору, стеку или инструментам (например: Claude, IndexNow, SEO, Васин)..." oninput="filterCards()">
+      </div>
+      
+      <div class="filter-pills">
+        <button class="filter-btn active" onclick="setCluster('all', this)">⚡ Все направления</button>
+        <button class="filter-btn" onclick="setCluster('tag-claude', this)">🤖 Claude Code & Skills</button>
+        <button class="filter-btn" onclick="setCluster('tag-codex', this)">⚡ Codex & Диспетчеры</button>
+        <button class="filter-btn" onclick="setCluster('tag-mcp', this)">🔌 MCP & Инструменты</button>
+        <button class="filter-btn" onclick="setCluster('tag-traffic', this)">🏭 Трафик & SEO-Заводы</button>
+        <button class="filter-btn" onclick="setCluster('tag-knowledge', this)">🧠 Базы Знаний & Obsidian</button>
+        <button class="filter-btn" onclick="setCluster('tag-automation', this)">⚙️ Моушн & Автоматизация</button>
+      </div>
+    </div>
+
+    <!-- Cards Grid -->
+    <div id="radarGrid" class="radar-grid">
+      
+        <div class="radar-card tag-claude tag-codex tag-mcp tag-knowledge" data-tags="tag-claude tag-codex tag-mcp tag-knowledge" data-title="перестань копить файлы в obsidian. вот что с ними делает claude" data-author="рома райт (нейропросвещение)" data-stack="obsidian bases (.base), claude code cli, kepano/obsidian-skills, agents.md, python 3.11+, launchd/cron">
+          <a href="2026-11-01_Rayt_Obsidian_Claude_Vtoroy_Mozg.html" class="radar-thumb-wrap">
+            <div class="ambient-glow" style="background-image: url('https://img.youtube.com/vi/_IW-nBcWSiY/maxresdefault.jpg');"></div>
+            <img class="radar-thumb" src="https://img.youtube.com/vi/_IW-nBcWSiY/maxresdefault.jpg" alt="Перестань КОПИТЬ файлы в Obsidian. Вот что с ними делает Claude" loading="lazy">
+            <div class="play-hover-btn">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <div class="duration-badge">⏱ 16:07</div>
+          </a>
+          
+          <div class="card-content">
+            <div class="card-meta-top">
+              <div class="card-badges-row">
+                <span class="cluster-tag">CLAUDE</span><span class="cluster-tag">CODEX</span><span class="cluster-tag">MCP</span><span class="cluster-tag">KNOWLEDGE</span>
+                <span class="badge-verdict">🟢 Внедрять сейчас</span>
+                <span class="badge-content-type">💎 Боевой инженерный прод</span>
+                <span class="badge-fit">FIT: 9.8 / 10</span>
+              </div>
+              <span class="card-date">1 ноября 2026 г.</span>
+            </div>
+            
+            <h3 class="card-title">
+              <a href="2026-11-01_Rayt_Obsidian_Claude_Vtoroy_Mozg.html">Перестань КОПИТЬ файлы в Obsidian. Вот что с ними делает Claude</a>
+            </h3>
+            
+            <div class="card-author-row">
+              <span>👤 <strong>Рома Райт (Нейропросвещение)</strong></span>
+              <span class="time-req-chip">⏱ Внедрение: 2–3 часа</span>
+            </div>
+            
+            <p class="card-summary">Полный отказ от пассивных свалок заметок в пользу активного бэкенда для агентов: жесткий барьер «Я/Агент», утренний автосбор метрик без участия LLM, реестр находок (сокративший ошибки с 77% до 0.05%) и утренний выбор ровно 3 главных дел дня.</p>
+            
+            <div class="card-stack-row">
+              <span class="stack-icon">🛠</span>
+              <span class="stack-text">Obsidian Bases (.base), Claude Code CLI, kepano/obsidian-skills, AGENTS.md, Python 3.11+, launchd/cron</span>
+            </div>
+
+            <div class="card-cost-row">
+              <span style="color: var(--accent-green); font-weight: 700;">💰 Косты:</span> $0 на софт (Obsidian, Python, локальные файлы бесплатны; плагин kepano/obsidian-skills открытый)
+            </div>
+            
+            <div class="card-actions">
+              <a href="2026-11-01_Rayt_Obsidian_Claude_Vtoroy_Mozg.html" class="btn-action primary">🚀 Открыть Дашборд</a>
+              <a href="https://www.youtube.com/watch?v=_IW-nBcWSiY" target="_blank" rel="noopener" class="btn-action secondary">🎬 YouTube ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="radar-card tag-claude tag-codex tag-mcp tag-automation" data-tags="tag-claude tag-codex tag-mcp tag-automation" data-title="создай своё моушн-видео в claude бесплатно! нейросеть пишет код за тебя от идеи до готовой анимации" data-author="георгий ривера" data-stack="claude code, react / remotion, node.js, ffmpeg, edge-tts, python">
+          <a href="2026-10-30_Rivera_Motion_Video_Claude.html" class="radar-thumb-wrap">
+            <div class="ambient-glow" style="background-image: url('https://img.youtube.com/vi/AIHViECQwiU/maxresdefault.jpg');"></div>
+            <img class="radar-thumb" src="https://img.youtube.com/vi/AIHViECQwiU/maxresdefault.jpg" alt="Создай своё МОУШН-ВИДЕО в Claude бесплатно! Нейросеть пишет код за тебя от идеи до готовой анимации" loading="lazy">
+            <div class="play-hover-btn">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <div class="duration-badge">⏱ 17:02</div>
+          </a>
+          
+          <div class="card-content">
+            <div class="card-meta-top">
+              <div class="card-badges-row">
+                <span class="cluster-tag">CLAUDE</span><span class="cluster-tag">CODEX</span><span class="cluster-tag">MCP</span><span class="cluster-tag">AUTOMATION</span>
+                <span class="badge-verdict">🟢 Внедрять</span>
+                <span class="badge-content-type">💎 Боевой прикладной скилл + ⚠️ Партнёрская интеграция сервиса Polza.AI</span>
+                <span class="badge-fit">FIT: 8.5 / 10</span>
+              </div>
+              <span class="card-date">30 октября 2026 г.</span>
+            </div>
+            
+            <h3 class="card-title">
+              <a href="2026-10-30_Rivera_Motion_Video_Claude.html">Создай своё МОУШН-ВИДЕО в Claude бесплатно! Нейросеть пишет код за тебя от идеи до готовой анимации</a>
+            </h3>
+            
+            <div class="card-author-row">
+              <span>👤 <strong>Георгий Ривера</strong></span>
+              <span class="time-req-chip">⏱ Внедрение: 2–4 часа</span>
+            </div>
+            
+            <p class="card-summary">Конвейер создания моушн-роликов кодом прямо в среде Claude: четкая раскадровка до рендера, референсный инжиниринг, авто-очистка диска и возможность $0 сборки без закупки дорогих подписок на видеогенераторы.</p>
+            
+            <div class="card-stack-row">
+              <span class="stack-icon">🛠</span>
+              <span class="stack-text">Claude Code, React / Remotion, Node.js, FFmpeg, edge-tts, Python</span>
+            </div>
+
+            <div class="card-cost-row">
+              <span style="color: var(--accent-green); font-weight: 700;">💰 Косты:</span> $0 на локальный рендер кода (Remotion / Python Manim / edge-tts) против 350–1320 ₽ за ролик через сторонние API
+            </div>
+            
+            <div class="card-actions">
+              <a href="2026-10-30_Rivera_Motion_Video_Claude.html" class="btn-action primary">🚀 Открыть Дашборд</a>
+              <a href="https://www.youtube.com/watch?v=AIHViECQwiU" target="_blank" rel="noopener" class="btn-action secondary">🎬 YouTube ↗</a>
+            </div>
+          </div>
+        </div>
+        <div class="radar-card tag-claude tag-codex tag-mcp tag-traffic" data-tags="tag-claude tag-codex tag-mcp tag-traffic" data-title="внедрил seo-завод клиентам: что вышло через месяц с нуля" data-author="константин васин (васин запускает)" data-stack="python 3.11+, claude code cli / api, indexnow protocol, яндекс.вебмастер & gsc api">
+          <a href="2026-10-25_Vasin_SEO-zavod_klientam.html" class="radar-thumb-wrap">
+            <div class="ambient-glow" style="background-image: url('https://img.youtube.com/vi/2BfsM453h_s/maxresdefault.jpg');"></div>
+            <img class="radar-thumb" src="https://img.youtube.com/vi/2BfsM453h_s/maxresdefault.jpg" alt="Внедрил SEO-завод клиентам: что вышло через месяц с нуля" loading="lazy">
+            <div class="play-hover-btn">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <div class="duration-badge">⏱ 13:16</div>
+          </a>
+          
+          <div class="card-content">
+            <div class="card-meta-top">
+              <div class="card-badges-row">
+                <span class="cluster-tag">CLAUDE</span><span class="cluster-tag">CODEX</span><span class="cluster-tag">MCP</span><span class="cluster-tag">TRAFFIC</span>
+                <span class="badge-verdict">🟢 Внедрять</span>
+                <span class="badge-content-type">💎 Боевой инженерный прод</span>
+                <span class="badge-fit">FIT: 9/10</span>
+              </div>
+              <span class="card-date">25 октября 2026 г.</span>
+            </div>
+            
+            <h3 class="card-title">
+              <a href="2026-10-25_Vasin_SEO-zavod_klientam.html">Внедрил SEO-завод клиентам: что вышло через месяц с нуля</a>
+            </h3>
+            
+            <div class="card-author-row">
+              <span>👤 <strong>Константин Васин (Васин запускает)</strong></span>
+              <span class="time-req-chip">⏱ Внедрение: 2–4 часа</span>
+            </div>
+            
+            <p class="card-summary">Автоматизированный SEO-конвейер информационного трафика с тройным гейтом качества, анти-дублями и мгновенным IndexNow-пингом, приносящий целевые заявки без платного трафика и инфобиз-воды.</p>
+            
+            <div class="card-stack-row">
+              <span class="stack-icon">🛠</span>
+              <span class="stack-text">Python 3.11+, Claude Code CLI / API, IndexNow Protocol, Яндекс.Вебмастер & GSC API</span>
+            </div>
+
+            <div class="card-cost-row">
+              <span style="color: var(--accent-green); font-weight: 700;">💰 Косты:</span> $0 на инфраструктуру (токены API ~$3–$5/мес) вместо платного курса за 150 000 ₽
+            </div>
+            
+            <div class="card-actions">
+              <a href="2026-10-25_Vasin_SEO-zavod_klientam.html" class="btn-action primary">🚀 Открыть Дашборд</a>
+              <a href="https://youtu.be/2BfsM453h_s" target="_blank" rel="noopener" class="btn-action secondary">🎬 YouTube ↗</a>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- Empty State -->
+    <div id="emptyState" style="display: none; text-align: center; padding: 60px 20px; color: var(--text-muted);">
+      <div style="font-size: 2.5rem; margin-bottom: 12px;">🔍</div>
+      <h3>Ничего не найдено</h3>
+      <p style="margin-top: 6px;">Попробуйте изменить запрос или сбросить фильтры.</p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>Gemstudio Tech & Workflow Radar · Внутренний контур: <strong>~/studio/dev/gemstudio-tech-radar</strong></p>
+      <p style="margin-top: 8px;">
+        <a href="00_Хаб_Все_Разборы.html">Перейти в каталог Бизнес-Подкастов →</a>
+      </p>
+    </footer>
+
+  </div>
+
+  <script>
+    let currentCluster = 'all';
+
+    function setCluster(cluster, btn) {
+      currentCluster = cluster;
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      filterCards();
+    }
+
+    function filterCards() {
+      const query = document.getElementById('searchInput').value.toLowerCase().trim();
+      const cards = document.querySelectorAll('.radar-card');
+      let visibleCount = 0;
+
+      cards.forEach(card => {
+        const title = card.getAttribute('data-title') || '';
+        const author = card.getAttribute('data-author') || '';
+        const stack = card.getAttribute('data-stack') || '';
+        const tags = card.getAttribute('data-tags') || '';
+
+        const matchesQuery = !query || title.includes(query) || author.includes(query) || stack.includes(query);
+        const matchesCluster = (currentCluster === 'all') || tags.includes(currentCluster);
+
+        if (matchesQuery && matchesCluster) {
+          card.style.display = 'flex';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      document.getElementById('emptyState').style.display = (visibleCount === 0) ? 'block' : 'none';
+    }
+  </script>
+</body>
+</html>

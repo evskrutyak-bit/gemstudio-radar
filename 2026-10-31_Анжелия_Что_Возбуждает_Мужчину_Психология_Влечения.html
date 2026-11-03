@@ -1,0 +1,2378 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Open Graph / Rich Social Preview -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Что возбуждает мужчину в женщине? Сексуальность vs Сексапильность | Дмитрий Гухман, Анжела Ильина — Бизнес-Деконструкция">
+  <meta property="og:description" content="Полный бизнес-разбор 90-минутного интервью у Глеба Соломина: крах UBI ( трлн дефицита), разрушение SaaS, кейс стартапа Emma (2 человека вместо 400) и дедлайн сингулярности в 2027 году.">
+  <meta property="og:image" content="anjelia_cover.jpg">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="720">
+  <meta property="og:site_name" content="Бизнес-Деконструктор Контента">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Что возбуждает мужчину в женщине? Сексуальность vs Сексапильность | Дмитрий Гухман, Анжела Ильина — Бизнес-Деконструкция">
+  <meta name="twitter:description" content="Бизнес-разбор интервью Мо Гавдата: крах UBI, гибель SaaS и сингулярность 2027.">
+  <meta name="twitter:image" content="anjelia_cover.jpg">
+
+  <title>Что возбуждает мужчину в женщине? Сексуальность vs Сексапильность | Дмитрий Гухман, Анжела Ильина — Бизнес-Деконструкция</title>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'dark',
+      themeVariables: {
+        primaryColor: '#1e293b',
+        primaryTextColor: '#f8fafc',
+        primaryBorderColor: '#38bdf8',
+        lineColor: '#64748b',
+        secondaryColor: '#334155',
+        tertiaryColor: '#0f172a'
+      }
+    });
+  </script>
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: #111726;
+      --card-border: #1e293b;
+      --card-hover: #172033;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --accent-blue: #38bdf8;
+      --accent-purple: #818cf8;
+      --accent-green: #34d399;
+      --accent-red: #f87171;
+      --accent-gold: #fbbf24;
+      --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    
+    html, body {
+      overflow-x: hidden !important;
+      max-width: 100vw !important;
+      width: 100%;
+      position: relative;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: var(--font-main);
+      line-height: 1.6;
+      padding: 24px 16px 80px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.9) 100%);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 32px 24px;
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .badge-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-blue { background: rgba(56, 189, 248, 0.15); color: var(--accent-blue); border: 1px solid rgba(56, 189, 248, 0.3); }
+    .badge-purple { background: rgba(129, 140, 248, 0.15); color: var(--accent-purple); border: 1px solid rgba(129, 140, 248, 0.3); }
+    .badge-gold { background: rgba(251, 191, 36, 0.15); color: var(--accent-gold); border: 1px solid rgba(251, 191, 36, 0.3); }
+    .badge-green { background: rgba(52, 211, 153, 0.15); color: var(--accent-green); border: 1px solid rgba(52, 211, 153, 0.3); }
+    .badge-red { background: rgba(248, 113, 113, 0.15); color: var(--accent-red); border: 1px solid rgba(248, 113, 113, 0.3); }
+
+    h1 {
+      font-size: 2.1rem;
+      line-height: 1.25;
+      color: #fff;
+      margin-bottom: 12px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .meta-subtitle {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .meta-subtitle a {
+      color: var(--accent-blue);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .meta-subtitle a:hover {
+      text-decoration: underline;
+    }
+
+    
+    /* Video Preview Hero */
+    .video-preview-hero {
+      margin-top: 20px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--card-border);
+      background: #000;
+      position: relative;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    }
+
+    .video-preview-card {
+      position: relative;
+      cursor: pointer;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .video-thumb {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .video-preview-card:hover .video-thumb {
+      transform: scale(1.02);
+      filter: brightness(0.9);
+    }
+
+    .video-play-btn {
+      position: absolute;
+      width: 68px;
+      height: 68px;
+      background: rgba(239, 68, 68, 0.9);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      box-shadow: 0 0 30px rgba(239, 68, 68, 0.6);
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .video-preview-card:hover .video-play-btn {
+      transform: scale(1.12);
+      background: #dc2626;
+    }
+
+    .video-duration-badge {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(4px);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-family: var(--font-mono);
+      color: #f1f5f9;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .video-embed-container {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+    }
+
+    .video-embed-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Quick Nav */
+    .nav-bar {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 8px 4px 16px;
+      margin-bottom: 24px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--card-border) transparent;
+    }
+
+    .nav-bar a {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+
+    .nav-bar a:hover {
+      background: var(--card-hover);
+      color: var(--accent-blue);
+      border-color: var(--accent-blue);
+    }
+
+    /* Cards */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    }
+
+    .card h2 {
+      font-size: 1.35rem;
+      color: #fff;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 12px;
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      color: var(--accent-blue);
+      margin: 18px 0 8px;
+    }
+
+    p {
+      margin-bottom: 12px;
+      color: var(--text-main);
+    }
+
+    ul, ol {
+      margin-left: 20px;
+      margin-bottom: 14px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    strong {
+      color: #fff;
+    }
+
+    /* Verdict Box */
+    .verdict-box {
+      border-left: 4px solid var(--accent-gold);
+      background: rgba(251, 191, 36, 0.08);
+      border-radius: 0 10px 10px 0;
+      padding: 16px;
+      margin: 16px 0;
+    }
+
+    .agenda-card {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px dashed var(--card-border);
+      border-radius: 10px;
+      padding: 16px;
+      margin: 16px 0;
+    }
+
+    /* Heatmap Table */
+    .tc-link {
+      color: var(--accent-blue);
+      text-decoration: none;
+      font-family: var(--font-mono);
+      font-weight: 600;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .tc-link:hover {
+      background: var(--accent-blue);
+      color: #000;
+      border-color: var(--accent-blue);
+      text-decoration: none;
+    }
+
+    .filter-controls {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: var(--text-muted);
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--accent-blue);
+      color: #000;
+      border-color: var(--accent-blue);
+      font-weight: 600;
+    }
+
+    
+    .card {
+      max-width: 100%;
+      overflow-x: hidden;
+      word-wrap: break-word;
+    }
+    .table-responsive {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      display: block;
+    }
+
+    .table-responsive-old {
+      width: 100%;
+      overflow-x: auto;
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      text-align: left;
+    }
+
+    th {
+      background: #0f172a;
+      color: var(--text-muted);
+      padding: 12px 14px;
+      font-weight: 600;
+      border-bottom: 1px solid var(--card-border);
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+    }
+
+    td {
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      vertical-align: top;
+    }
+
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    /* Act Accordions / Sections */
+    .act-block {
+      background: #0d121f;
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 18px;
+    }
+
+    .act-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .act-badge {
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: 6px;
+      background: #1e293b;
+      color: var(--accent-blue);
+      font-family: var(--font-mono);
+    }
+
+    .insight-box {
+      background: rgba(56, 189, 248, 0.06);
+      border-left: 3px solid var(--accent-blue);
+      padding: 12px 14px;
+      border-radius: 0 8px 8px 0;
+      margin: 12px 0;
+      font-size: 0.92rem;
+    }
+
+    .tradeoff-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .tradeoff-card {
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+    }
+
+    .tradeoff-apply {
+      background: rgba(52, 211, 153, 0.08);
+      border: 1px solid rgba(52, 211, 153, 0.25);
+    }
+
+    .tradeoff-risk {
+      background: rgba(248, 113, 113, 0.08);
+      border: 1px solid rgba(248, 113, 113, 0.25);
+    }
+
+    /* Quotes */
+    .quote-card {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.4) 0%, rgba(15, 23, 42, 0.8) 100%);
+      border-left: 4px solid var(--accent-purple);
+      border-radius: 0 12px 12px 0;
+      padding: 18px;
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .quote-text {
+      font-style: italic;
+      font-size: 1.05rem;
+      color: #e2e8f0;
+      margin-bottom: 8px;
+    }
+
+    .quote-author {
+      font-size: 0.85rem;
+      color: var(--accent-purple);
+      font-weight: 600;
+    }
+
+    /* Checklist */
+    .checklist-progress-bar {
+      background: #1e293b;
+      height: 8px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+
+    .checklist-progress-fill {
+      background: var(--accent-green);
+      height: 100%;
+      width: 0%;
+      transition: width 0.3s;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      margin-bottom: 8px;
+      background: rgba(255, 255, 255, 0.02);
+      transition: all 0.2s;
+    }
+
+    .check-item:hover {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: var(--card-border);
+    }
+
+    .check-item input[type="checkbox"] {
+      margin-top: 4px;
+      width: 18px;
+      height: 18px;
+      accent-color: var(--accent-green);
+      cursor: pointer;
+    }
+
+    .check-item.done label {
+      text-decoration: line-through;
+      color: var(--text-muted);
+    }
+
+    .check-item label {
+      cursor: pointer;
+      font-size: 0.95rem;
+      flex-grow: 1;
+    }
+
+    /* Tag pills */
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .tag-pill {
+      background: #1e293b;
+      color: #93c5fd;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      text-decoration: none;
+      font-family: var(--font-mono);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 640px) {
+      
+    html, body {
+      overflow-x: hidden !important;
+      max-width: 100vw !important;
+      width: 100%;
+      position: relative;
+    }
+
+    body {
+        padding: 12px 8px 60px;
+      }
+      header {
+        padding: 20px 16px;
+      }
+      h1 {
+        font-size: 1.45rem;
+      }
+      .card {
+        padding: 16px;
+      }
+      .tradeoff-grid {
+        grid-template-columns: 1fr;
+      }
+      .meta-subtitle {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+    }
+
+    /* Print Styles */
+    @media print {
+      
+    html, body {
+      overflow-x: hidden !important;
+      max-width: 100vw !important;
+      width: 100%;
+      position: relative;
+    }
+
+    body {
+        background: #fff;
+        color: #000;
+        padding: 0;
+      }
+      .card, header, .act-block {
+        background: #fff;
+        color: #000;
+        border: 1px solid #ccc;
+        box-shadow: none;
+      }
+      .nav-bar, .filter-controls, .checklist-progress-bar {
+        display: none;
+      }
+      h1, h2, h3, strong {
+        color: #000;
+      }
+      a {
+        color: #000;
+        text-decoration: underline;
+      }
+    }
+  
+    /* Global Gemstudio Top Nav */
+    .gemstudio-top-nav {
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(56, 189, 248, 0.25);
+      padding: 12px 16px;
+      position: relative;
+      top: 0;
+      z-index: 1000;
+      margin: -24px -16px 24px -16px;
+    }
+    .gemstudio-nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .gemstudio-brand {
+      font-weight: 800;
+      color: #38bdf8;
+      text-decoration: none;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .gemstudio-brand:hover {
+      color: #fff;
+    }
+    .gemstudio-nav-links {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .gemstudio-nav-links a {
+      color: #94a3b8;
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+      border: 1px solid transparent;
+      background: rgba(255, 255, 255, 0.03);
+    }
+    .gemstudio-nav-links a:hover {
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.12);
+      border-color: rgba(56, 189, 248, 0.3);
+    }
+    .gemstudio-nav-links a.active {
+      color: #fff;
+      background: #0284c7;
+      border-color: #38bdf8;
+      font-weight: 600;
+    }
+
+  
+    .btn-download-md {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(129, 140, 248, 0.15);
+      color: #a5b4fc;
+      border: 1px solid rgba(129, 140, 248, 0.35);
+      padding: 4px 12px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .btn-download-md:hover {
+      background: #6366f1;
+      color: #fff;
+      border-color: #6366f1;
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
+      text-decoration: none;
+    }
+
+  
+    /* === STUDIO ELITE v4.0 ENHANCEMENTS === */
+    :root {
+      --bg: #070a12;
+      --card-bg: linear-gradient(180deg, rgba(17, 24, 39, 0.8) 0%, rgba(13, 19, 34, 0.95) 100%);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-hover: rgba(23, 32, 51, 0.95);
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --accent-blue: #38bdf8;
+      --accent-purple: #818cf8;
+      --accent-green: #34d399;
+      --accent-red: #f87171;
+      --accent-gold: #fbbf24;
+      --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+
+    
+    html, body {
+      overflow-x: hidden !important;
+      max-width: 100vw !important;
+      width: 100%;
+      position: relative;
+    }
+
+    body {
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(at 10% 15%, rgba(56, 189, 248, 0.04) 0px, transparent 50%),
+        radial-gradient(at 90% 85%, rgba(129, 140, 248, 0.04) 0px, transparent 50%);
+      background-attachment: fixed;
+    }
+
+    /* Reading Progress Bar */
+    .reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, #38bdf8, #818cf8, #34d399);
+      z-index: 99999;
+      transition: width 0.1s ease;
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+    }
+
+    /* Ambient Glow for Video Player */
+    .video-ambient-wrapper {
+      position: relative;
+      margin-top: 24px;
+    }
+
+    .ambient-glow {
+      position: absolute;
+      inset: -12px;
+      background-size: cover;
+      background-position: center;
+      filter: blur(42px);
+      opacity: 0.4;
+      border-radius: 20px;
+      z-index: 0;
+      pointer-events: none;
+      transform: scale(0.98);
+      transition: opacity 0.4s ease;
+    }
+
+    .video-ambient-wrapper:hover .ambient-glow {
+      opacity: 0.6;
+    }
+
+    .video-preview-hero {
+      position: relative;
+      z-index: 1;
+      border: 1px solid rgba(255, 255, 255, 0.12) !important;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6) !important;
+    }
+
+    /* Bento KPI Big Numbers Grid */
+    .bento-kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .bento-kpi-card {
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 16px 14px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      transition: all 0.25s ease;
+    }
+
+    .bento-kpi-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(56, 189, 248, 0.35);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    .kpi-micro-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .kpi-big-num {
+      font-size: 1.85rem;
+      font-weight: 800;
+      line-height: 1.15;
+      font-family: var(--font-mono);
+      margin-bottom: 6px;
+      letter-spacing: -0.02em;
+    }
+
+    .kpi-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+
+    /* Enhanced Card Styling */
+    .card {
+      background: var(--card-bg) !important;
+      border: 1px solid var(--card-border) !important;
+      box-shadow: 0 12px 32px -10px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.06) !important;
+    }
+
+    .act-block {
+      background: rgba(13, 18, 31, 0.85) !important;
+      border: 1px solid rgba(255, 255, 255, 0.06) !important;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    }
+
+    /* Quote Card with Copy Button */
+    .quote-card {
+      position: relative;
+    }
+
+    
+    .quote-card-header {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .quote-actions-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 4px;
+    }
+
+
+    .copy-quote-btn {
+      background: rgba(129, 140, 248, 0.12);
+      border: 1px solid rgba(129, 140, 248, 0.3);
+      color: #a5b4fc;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .copy-quote-btn:hover {
+      background: #6366f1;
+      color: #fff;
+      border-color: #6366f1;
+    }
+
+    .copy-quote-btn.copied {
+      background: #059669;
+      color: #fff;
+      border-color: #10b981;
+    }
+
+    /* Mobile Timeline View for Heatmap (Zero horizontal scroll!) */
+    @media (max-width: 640px) {
+      .bento-kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+      .kpi-big-num {
+        font-size: 1.45rem;
+      }
+
+      
+    .card {
+      max-width: 100%;
+      overflow-x: hidden;
+      word-wrap: break-word;
+    }
+    .table-responsive {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      display: block;
+    }
+
+    .table-responsive-old {
+        border: none;
+        overflow-x: visible;
+      }
+
+      #heatmapTable, #heatmapTable t
+    html, body {
+      overflow-x: hidden !important;
+      max-width: 100vw !important;
+      width: 100%;
+      position: relative;
+    }
+
+    body {
+        display: block;
+        width: 100%;
+      }
+
+      #heatmapTable thead {
+        display: none;
+      }
+
+      #heatmapTable tr {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        background: rgba(15, 23, 42, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 12px;
+        padding: 14px;
+        margin-bottom: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      #heatmapTable td {
+        padding: 0;
+        border: none;
+      }
+
+      #heatmapTable td:nth-child(1) {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      #heatmapTable td:nth-child(2) {
+        font-size: 1rem;
+        font-weight: 700;
+        color: #fff;
+        margin: 2px 0;
+      }
+
+      #heatmapTable td:nth-child(3) {
+        display: inline-block;
+        width: fit-content;
+      }
+
+      #heatmapTable td:nth-child(4) {
+        font-size: 0.88rem;
+        color: #94a3b8;
+        line-height: 1.45;
+        margin-top: 4px;
+      }
+    }
+
+  
+    /* === MOBILE ERGONOMICS & COLLAPSIBLE HEATMAP === */
+    .top-nav-dismiss-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #94a3b8;
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+      margin-left: 6px;
+    }
+    .top-nav-dismiss-btn:hover {
+      background: rgba(248, 113, 113, 0.2);
+      color: #f87171;
+      border-color: #f87171;
+    }
+
+    /* Heatmap Collapsible Container */
+    .heatmap-collapse-wrapper {
+      position: relative;
+      transition: max-height 0.4s ease;
+    }
+
+    .heatmap-collapse-wrapper.is-collapsed {
+      max-height: 480px;
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+      mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+    }
+
+    .heatmap-toggle-btn-wrap {
+      margin-top: 14px;
+      text-align: center;
+    }
+
+    .heatmap-expand-btn {
+      background: linear-gradient(135deg, rgba(2, 132, 199, 0.2) 0%, rgba(56, 189, 248, 0.15) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #38bdf8;
+      padding: 12px 24px;
+      border-radius: 24px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .heatmap-expand-btn:hover {
+      background: #0284c7;
+      color: #fff;
+      border-color: #38bdf8;
+      box-shadow: 0 6px 20px rgba(56, 189, 248, 0.35);
+      transform: translateY(-1px);
+    }
+
+    /* Floating Navigation Pill */
+    .floating-nav-pill {
+      position: fixed;
+      bottom: 24px;
+      right: 20px;
+      background: rgba(15, 23, 42, 0.92);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: #38bdf8;
+      padding: 10px 18px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 14px rgba(56, 189, 248, 0.25);
+      z-index: 9999;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .floating-nav-pill:hover {
+      background: #0284c7;
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    /* Nav Drawer (Modal Sheet) */
+    .nav-drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(6px);
+      z-index: 10000;
+      display: none;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .nav-drawer-overlay.is-open {
+      display: flex;
+      align-items: flex-end;
+      opacity: 1;
+    }
+
+    .nav-drawer-sheet {
+      background: #0d1322;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 20px 20px 0 0;
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 24px 20px 36px;
+      box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.8);
+      transform: translateY(100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .nav-drawer-overlay.is-open .nav-drawer-sheet {
+      transform: translateY(0);
+    }
+
+    .drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 14px;
+      margin-bottom: 16px;
+    }
+
+    .drawer-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .drawer-close-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #94a3b8;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .drawer-close-btn:hover { color: #fff; background: rgba(255,255,255,0.12); }
+
+    .drawer-links-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .drawer-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      color: #f1f5f9;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: all 0.15s ease;
+    }
+
+    .drawer-link:hover {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: rgba(56, 189, 248, 0.3);
+      color: #38bdf8;
+    }
+
+    .drawer-link.catalog-link {
+      background: linear-gradient(135deg, rgba(2, 132, 199, 0.25) 0%, rgba(56, 189, 248, 0.15) 100%);
+      border-color: rgba(56, 189, 248, 0.4);
+      color: #38bdf8;
+      font-weight: 700;
+    }
+
+  
+    /* Glossary & Books Grid */
+    .books-grid, .persons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 14px;
+    }
+    .terms-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 12px;
+    }
+    .glossary-item-card {
+      background: rgba(13, 18, 32, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 16px;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .glossary-item-card:hover {
+      border-color: rgba(56, 189, 248, 0.35);
+      background: rgba(17, 24, 42, 0.85);
+      transform: translateY(-2px);
+    }
+    .term-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent-blue);
+      background: rgba(56, 189, 248, 0.1);
+      padding: 4px 10px;
+      border-radius: 6px;
+      margin-bottom: 8px;
+      width: fit-content;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+    .term-def {
+      font-size: 0.88rem;
+      color: #cbd5e1;
+      line-height: 1.45;
+    }
+    @media (max-width: 640px) {
+      .books-grid, .persons-grid, .terms-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+  
+    /* === V1.5 INSIGHT CARD MODAL (Canvas 2D) === */
+    .insight-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(8px);
+      z-index: 20000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    .insight-modal-content {
+      background: #0d1322;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-radius: 20px;
+      max-width: min(440px, calc(100vw - 32px));
+      width: 100%;
+      padding: 16px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      box-sizing: border-box;
+    }
+    .insight-modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 10px;
+    }
+    .insight-canvas-wrap {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      background: #000;
+    }
+    .insight-canvas-wrap canvas {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .insight-modal-actions {
+      display: flex;
+      gap: 10px;
+    }
+    .insight-btn-download {
+      flex: 1;
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+      color: #fff;
+      border: none;
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .insight-btn-download:hover {
+      background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+    }
+    .insight-btn-copy {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #cbd5e1;
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .insight-btn-copy:hover {
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+    }
+    .punchline-btn-card {
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: #38bdf8;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      white-space: nowrap;
+    }
+    .punchline-btn-card:hover {
+      background: #0284c7;
+      color: #fff;
+    }
+
+    /* === V1.5 USER HIGHLIGHTS & NOTES === */
+    mark.user-highlight {
+      background: rgba(251, 191, 36, 0.35);
+      color: inherit;
+      border-bottom: 2px solid #fbbf24;
+      border-radius: 3px;
+      padding: 1px 2px;
+      cursor: pointer;
+    }
+    .highlight-bubble {
+      position: absolute;
+      background: #111726;
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      border-radius: 8px;
+      padding: 6px 10px;
+      display: none;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+      z-index: 15000;
+    }
+    .highlight-bubble button {
+      background: transparent;
+      border: none;
+      color: #f1f5f9;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .highlight-bubble button:hover {
+      color: #38bdf8;
+    }
+
+    .gem-icon {
+      width: 15px !important;
+      height: 15px !important;
+      min-width: 15px !important;
+      min-height: 15px !important;
+      max-width: 15px !important;
+      max-height: 15px !important;
+      display: inline-block !important;
+      vertical-align: -2px !important;
+      flex-shrink: 0 !important;
+    }
+    .floating-nav-pill {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+    }
+    .floating-nav-pill .gem-icon {
+      width: 18px !important;
+      height: 18px !important;
+      min-width: 18px !important;
+      min-height: 18px !important;
+    }
+    .copy-quote-btn, .punchline-btn-card {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+      white-space: nowrap !important;
+    }
+    .copy-quote-btn .gem-icon, .punchline-btn-card .gem-icon {
+      width: 14px !important;
+      height: 14px !important;
+      min-width: 14px !important;
+      min-height: 14px !important;
+    }
+
+</style>
+</head>
+<body>
+  <div id="readingProgress" class="reading-progress-bar"></div>
+
+
+  <nav class="gemstudio-top-nav" id="topNav">
+    <div class="gemstudio-nav-container">
+      <a href="00_Хаб_Все_Разборы.html" class="gemstudio-brand">
+        <span>⚡</span> <strong>Gemstudio</strong> <span style="color: #64748b; font-weight: normal;">| Бизнес-Деконструктор</span>
+      </a>
+      <div class="gemstudio-nav-links">
+        <a href="00_Хаб_Все_Разборы.html" class="nav-catalog-btn">← Каталог всех разборов</a>
+        <button class="top-nav-dismiss-btn" onclick="dismissTopNav()" title="Скрыть верхнюю панель">✕</button>
+      </div>
+    </div>
+  </nav>
+
+<div class="container">
+
+  <!-- HEADER -->
+    <!-- HEADER -->
+  <header>
+    <div class="badge-bar">
+      <span class="badge badge-blue">Бизнес-Деконструкция v3.0</span>
+      <span class="badge badge-purple">Сексология & Отношения</span>
+      <span class="badge badge-gold">Рейтинг: 7.8 / 10</span>
+      <span class="badge badge-green">Биохимия влечения</span>
+    </div>
+    <h1>Что возбуждает мужчину в женщине? Сексуальность vs Сексапильность</h1>
+    <div class="meta-subtitle">
+      <span><svg class="gem-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Спикер: <strong>Дмитрий Гухман, Анжела Ильина</strong> <span class="speaker-role-badge">Психолог-сексолог</span></span>
+      <span><svg class="gem-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg> Канал: <strong>АНЖЕЛИА</strong></span>
+      <span><svg class="gem-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Длительность: <strong>00:56:00</strong></span>
+      <span><svg class="gem-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg> Дата выхода: <strong>6 июня 2025 г.</strong></span>
+      <span><svg class="gem-icon" width="16" height="16" viewBox="0 0 24 24" fill="#ef4444"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> <a href="https://youtu.be/FjdYd8dSdBM" target="_blank">Смотреть оригинал на YouTube</a></span>
+      <span><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg> <a href="2025-06-06_Анжелия_Что_Возбуждает_Мужчину_Психология_Влечения.md" download="2025-06-06_Анжелия_Что_Возбуждает_Мужчину_Психология_Влечения.md" class="btn-download-md">Скачать Markdown (.md)</a></span>
+    </div>
+
+    <!-- Кинематографичный Видеоблок с эффектом Ambient Glow -->
+    <div class="video-ambient-wrapper">
+      <div class="ambient-glow" style="background-image: url('anjelia_cover.jpg');"></div>
+      <div class="video-preview-hero">
+        <div class="video-preview-card" id="videoPreviewCard" onclick="playEmbeddedVideo()" title="Нажмите, чтобы запустить видео прямо здесь">
+          <img src="anjelia_cover.jpg" alt="Обложка: Что возбуждает мужчину в женщине? Сексуальность vs Сексапильность" class="video-thumb">
+          <div class="video-play-btn" title="Воспроизвести выпуск">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="36" height="36"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <div class="video-duration-badge">⏱️ 00:56:00 • 19 глав выпуска • Кликните для запуска в плеере</div>
+        </div>
+        <div id="videoEmbedContainer" class="video-embed-container" style="display: none;"></div>
+      </div>
+    </div>
+
+    <!-- Bento Grid Ключевых Цифр (Big Numbers) -->
+    <div class="bento-kpi-grid">
+      <div class="bento-kpi-card">
+        <span class="kpi-micro-tag" style="color: #38bdf8;">⏳ Время калибровки</span>
+        <div class="kpi-big-num" style="background: linear-gradient(135deg, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">30 дней</div>
+        <div class="kpi-label">Оптимальный срок формирования дружбы до первого секса</div>
+      </div>
+      <div class="bento-kpi-card">
+        <span class="kpi-micro-tag" style="color: #f87171;">💔 Распад страсти</span>
+        <div class="kpi-big-num" style="background: linear-gradient(135deg, #f87171, #fbbf24); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">6 мес</div>
+        <div class="kpi-label">Срок полураспада дофаминового угара («розовые очки разбиваются»)</div>
+      </div>
+      <div class="bento-kpi-card">
+        <span class="kpi-micro-tag" style="color: #34d399;">🧬 Половая конституция</span>
+        <div class="kpi-big-num" style="background: linear-gradient(135deg, #34d399, #38bdf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">3 типа</div>
+        <div class="kpi-label">Сильная, средняя, слабая — генетический фактор измен</div>
+      </div>
+      <div class="bento-kpi-card">
+        <span class="kpi-micro-tag" style="color: #fbbf24;">🎭 Комплекс Мадонны</span>
+        <div class="kpi-big-num" style="background: linear-gradient(135deg, #fbbf24, #f87171); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">90%</div>
+        <div class="kpi-label">Доля семейных измен из-за расщепления любви и вожделения</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- QUICK NAVIGATION -->
+  <div class="nav-bar">
+    <a href="#block1">1. Интро & Повестка</a>
+    <a href="#block2">2. Тепловая карта</a>
+    <a href="#block3">3. Детальный разбор (Мясо)</a>
+    <a href="#block4">4. Цифры & Развилки</a>
+    <a href="#block5">5. Ментальные модели & Схема</a>
+    <a href="#block6">6. Справочник сущностей</a>
+    <a href="#block7">7. Панчлайны</a>
+    <a href="#block8">8. Фактчек & Комментарии</a>
+    <a href="#block9">9. Чек-лист действий</a>
+  </div>
+  <!-- БЛОК 1 -->
+  <section id="block1" class="card">
+    <h2><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9.5" stroke="#38bdf8" stroke-width="1.8" stroke-dasharray="2 2"/><circle cx="12" cy="12" r="6" stroke="#38bdf8" stroke-width="2"/><circle cx="12" cy="12" r="2.5" fill="#f43f5e"/><path d="M12 2V5M12 19V22M2 12H5M19 12H22" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/></svg> <span>Блок 1. Интро, вердикт и скрытая повестка спикера</span></h2>
+    <p>Интро, вердикт и скрытая повестка спикера</p>
+<div class="agenda-card"><h3>1.1. Кто, что и для кого</h3>
+<ul>
+<li><strong>Кто спикер:</strong> Дмитрий Гухман — практикующий психолог, сексолог, автор тренингов по парной коммуникации и сексуальности. Ведущая — Анжела Ильина (канал АНЖЕЛИА).</li>
+<li><strong>Суть выпуска:</strong> Анализ анатомии мужского влечения: почему внешняя сексапильность (90-60-90) не гарантирует долгосрочной преданности; в чем разница между физиологическим и романтическим либидо; почему дружба и эмоциональная безопасность действуют на мужчину сильнее вызывающего белья.</li>
+<li><strong>Целевая аудитория:</strong> Женщины и мужчины 25–45 лет, стремящиеся разобраться в механике долгосрочной моногамии, причинах измен и феномене «синдрома омерзения» после близости без контекста.</li>
+</ul>
+<h3>1.2. Аналитический вердикт</h3>
+<ul>
+<li><strong>Оценка:</strong> <strong>7.8 / 10</strong> («Смотреть выборочно»).</li>
+<li><strong>Резюме:</strong> Выпуск содержит твердую практическую сексологическую и эволюционную базу, очищенную от эзотерики «женских энергий». Гухман четко раскладывает мужскую физиологию и психологию. Минус — периодический уход в поп-психологические клише и явная маркетинговая воронка курсов.</li>
+</ul>
+<h3>1.3. Детектор скрытой повестки спикера</h3>
+<ul>
+<li><strong>Зачем пришел на интервью:</strong> Монетизация женской тревожности по поводу измен, охлаждения партнера и одиночества.</li>
+<li><strong>Что на самом деле продает:</strong> Авторский тренинг Дмитрия Гухмана «30 техник для любви» (gukhman.com), а также закрытые воронки наставничества. Спикер грамотно использует триггеры страха («мужчине после секса может стать противно быть с тобой», «90% изменяют из-за расщепления влечения»), чтобы подвести зрителя к необходимости платного обучения интимной коммуникации.</li>
+</ul>
+<hr /></div>
+  </section>
+
+  <!-- БЛОК 2 -->
+  <section id="block2" class="card">
+    <h2><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21" fill="#a855f7" fill-opacity="0.2" stroke="#a855f7" stroke-width="2"/><line x1="9" x2="9" y1="3" y2="18" stroke="#a855f7" stroke-width="2"/><line x1="15" x2="15" y1="6" y2="21" stroke="#a855f7" stroke-width="2"/></svg> <span>Блок 2. Тепловая карта выпуска (Хронометраж и плотность пользы)</span></h2>
+    <p>Тепловая карта выпуска (Хронометраж и плотность пользы)</p>
+<div class="heatmap-collapse-wrapper is-collapsed" id="heatmapCollapseWrapper"><div class="table-responsive"><table class="styled-table" id="heatmapTable">
+<thead>
+<tr>
+<th style="text-align: left;">Таймкод</th>
+<th style="text-align: left;">Тема смыслового акта</th>
+<th style="text-align: center;">Плотность пользы</th>
+<th style="text-align: left;">Прикладная ценность для анализа</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>00:00</strong></td>
+<td style="text-align: left;">Что на самом деле заводит мужчин</td>
+<td style="text-align: center;"><span class="badge badge-gold"><span class="badge badge-gold">🟡 Вода</span>/Интро</span></td>
+<td style="text-align: left;">Вводная концептуализация, разбор стереотипов о «серых мышках»</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>01:15</strong></td>
+<td style="text-align: left;">Сексуальность vs сексапильность</td>
+<td style="text-align: center;"><span class="badge badge-green">🟢 Мясо</span></td>
+<td style="text-align: left;">Деконструкция мифа 90-60-90: атрибуты против внутреннего состояния</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>03:37</strong></td>
+<td style="text-align: left;">Дружба с мужчиной: норма или угроза</td>
+<td style="text-align: center;"><span class="badge badge-gold">🟡 Вода</span></td>
+<td style="text-align: left;">Разбор женских страхов растратить энергию</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>04:30</strong></td>
+<td style="text-align: left;">Дружба как главный афродизиак</td>
+<td style="text-align: center;"><span class="badge badge-green">🟢 Мясо</span></td>
+<td style="text-align: left;">Механика романтического либидо: пробуждение ответственности</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>06:12</strong></td>
+<td style="text-align: left;">Биохимия влюбленности и вред пластики</td>
+<td style="text-align: center;"><span class="badge badge-green">🟢 Мясо</span></td>
+<td style="text-align: left;">Гормональный коктейль (дофамин, окситоцин, тестостерон), маркер «свой-чужой»</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>08:05</strong></td>
+<td style="text-align: left;">Когда мужчина влюбляется по-настоящему</td>
+<td style="text-align: center;"><span class="badge badge-green">🟢 Мясо</span></td>
+<td style="text-align: left;">Служение через признание мужской силы и интеллекта</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>09:25</strong></td>
+<td style="text-align: left;">Синдром омерзения после секса (Post-coital Dysphoria)</td>
+<td style="text-align: center;"><span class="badge badge-green">🟢 Мясо</span></td>
+<td style="text-align: left;">Биологический откат дофамина и пролактиновый спад при отсутствии близости</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>12:02</strong></td>
+<td style="text-align: left;">Необходимость дружбы до первого секса</td>
+<td style="text-align: center;"><span class="badge badge-gold">🟡 Вода</span>/Совет</td>
+<td style="text-align: left;">Опасность попадания во френдзону vs построение доверия</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>14:18</strong></td>
+<td style="text-align: left;">Разница потребности в сексе у М и Ж</td>
+<td style="text-align: center;"><span class="badge badge-green">🟢 Мясо</span></td>
+<td style="text-align: left;">Автономность мужской эрекции от чувств vs женская потребность в безопасности</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>15:25</strong></td>
+<td style="text-align: left;">Мужская меркантильность и оценка статуса</td>
+<td style="text-align: center;"><span class="badge badge-green">🟢 Мясо</span></td>
+<td style="text-align: left;">Мужской аудит «стоимости владения»: инвестиции женщины в себя</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>21:50</strong></td>
+<td style="text-align: left;">Почему женщины не хотят слабых мужчин</td>
+<td style="text-align: center;"><span class="badge badge-green">🟢 Мясо</span></td>
+<td style="text-align: left;">Эволюционный фильтр силы: потеря влечения при инверсии ролей</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>26:35</strong></td>
+<td style="text-align: left;">Ранний аудит изменщика на этапе свиданий</td>
+<td style="text-align: center;"><span class="badge badge-green">🟢 Мясо</span></td>
+<td style="text-align: left;">Родовые сценарии, реакция на неверность отца, релятивизм морали</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>29:03</strong></td>
+<td style="text-align: left;">Причины мужских измен: половая конституция</td>
+<td style="text-align: center;"><span class="badge badge-green">🟢 Мясо</span></td>
+<td style="text-align: left;">Сильная/средняя/слабая конституция, разрядка vs поиск эмоций</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>32:05</strong></td>
+<td style="text-align: left;">Самый крепкий союз и комплекс Мадонны-Блудницы</td>
+<td style="text-align: center;"><span class="badge badge-green">🟢 Мясо</span></td>
+<td style="text-align: left;">Фрейдовское расщепление: почему любят одних, а хотят других</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>35:05</strong></td>
+<td style="text-align: left;">Как ходить на свидания при длительном воздержании</td>
+<td style="text-align: center;"><span class="badge badge-gold">🟡 Вода</span>/Лайфхаки</td>
+<td style="text-align: left;">Снятие завышенной значимости и сексуального голода</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>39:40</strong></td>
+<td style="text-align: left;">«Правило 30 дней»: сколько выдерживать дистанцию</td>
+<td style="text-align: center;"><span class="badge badge-gold">🟡 Спорно</span></td>
+<td style="text-align: left;">Проверка инвестиционной готовности мужчины</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>42:49</strong></td>
+<td style="text-align: left;">Индикаторы мужской влюбленности</td>
+<td style="text-align: center;"><span class="badge badge-green">🟢 Мясо</span></td>
+<td style="text-align: left;">Взгляд, потеря контроля, готовность отдавать ресурсы без торга</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>47:41</strong></td>
+<td style="text-align: left;">Взрослая любовь vs дофаминовый угар</td>
+<td style="text-align: center;"><span class="badge badge-green">🟢 Мясо</span></td>
+<td style="text-align: left;">Переход от страсти к зрелому партнерству</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>51:05</strong></td>
+<td style="text-align: left;">Алгоритм формирования эмоциональной близости</td>
+<td style="text-align: center;"><span class="badge badge-green">🟢 Мясо</span></td>
+<td style="text-align: left;">Совместный контекст, регулярность качественного контакта, уязвимость</td>
+</tr>
+</tbody>
+</table></div><div class="collapse-toggle-bar"><button class="collapse-toggle-btn" id="toggleHeatmapBtn" onclick="toggleHeatmapCollapse()"><span>▾ Показать все 19 глав выпуска</span></button></div></div>
+<hr />
+  </section>
+
+  <!-- БЛОК 3 -->
+  <section id="block3" class="card">
+    <h2><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M19.5 7.5C18 4.5 14 3.5 12 5.5c-2-2-6-1-7.5 2-1.8 3.5-.5 7 2 9.5l5.5 5 5.5-5c2.5-2.5 3.8-6 2-9.5z" fill="#f43f5e" fill-opacity="0.2" stroke="#f43f5e" stroke-width="2"/><path d="M9 11l2 2 4-4" stroke="#f43f5e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> <span>Блок 3. Детальный разбор («МЯСО ВЫПУСКА»)</span></h2>
+    <p>Детальный разбор («МЯСО ВЫПУСКА»)</p>
+<h3>3.1. Архитектура мужского влечения: физиологическое vs романтическое либидо</h3>
+<p>Фундаментальный тезис Гухмана: мужская сексуальность дуальна и функционирует на двух не пересекающихся уровнях:
+1. <strong>Физиологическое либидо (Сексапильность / Механика):</strong> Работает на визуальных маркерах фертильности (симметрия, соотношение талии к бедрам, ухоженность, открытые сигналы тела). Его задача — чистая разрядка семенной жидкости. Оно не требует уважения, интереса или симпатии к личности женщины. Мужчина может заняться сексом с объектом, который презирает на когнитивном уровне.
+2. <strong>Романтическое либидо (Сексуальность / Влюбленность):</strong> Включается исключительно через <strong>эмоциональную безопасность и дружбу</strong>. Женщина в романтическом либидо активирует в мужчине инстинкт покровительства, ответственности и инвестиций. </p>
+<blockquote>
+<p><strong>Бизнес-аналогия:</strong> Физиологическое либидо — это разовая спотовая сделка с минимальным LTV. Романтическое либидо — это стратегическое совместное предприятие с капитализацией в десятки лет.</p>
+</blockquote>
+<h3>3.2. Феномен омерзения после секса (Post-coital Dysphoria)</h3>
+<p>Один из самых табуированных мужских феноменов: чувство тошноты, отторжения и желания мгновенно покинуть помещение после эякуляции.
+* <strong>Гормональный механизм:</strong> Во время полового акта мозг мужчины залит дофамином, блокирующим критическое мышление. В момент оргазма происходит резкий выброс пролактина и обвал дофамина ниже базовой линии.
+* <strong>Когнитивный диссонанс:</strong> Если между партнерами не было дружбы, уважения и эмоциональной связи, пролактиновый спад оставляет мужчину наедине с чужим человеком. Иллюзия привлекательности испаряется за 3 секунды, обнажая пустоту. Мужчина чувствует себя обманутым собственной физиологией.
+* <strong>Вывод:</strong> Секс до формирования дружбы — рулетка с 80% вероятностью посткоитального отторжения со стороны мужчины.</p>
+<h3>3.3. Мужская меркантильность и аудит ресурсоемкости</h3>
+<p>Гухман разрушает миф о мужском бескорыстии. Мужчины сканируют женщину прагматично:
+* Мужчина мгновенно считывает уровень инвестиций женщины в себя (качество кожи, зубов, волос, одежды, осанки).
+* Дело не в стоимости брендов, а в <strong>сигнале самоуважения</strong>. Женщина, экономящая на себе, подает невербальный сигнал: «Со мной можно обращаться дешево».
+* Успешный мужчина ищет партнершу, которая усиливает его статус, а не становится иждивенцем, требующим постоянного психологического обслуживания.</p>
+<h3>3.4. Комплекс Мадонны и Блудницы: корень 90% семейных измен</h3>
+<p>Психоаналитическое расщепление влечения по Фрейду у мужчин со средней половой конституцией:
+* После рождения детей муж начинает бессознательно проецировать на жену архетип Матери. Мать священна, ее нельзя желать грязно и порочно.
+* В результате сексуальное желание в браке блокируется чувством вины. Мужчина начинает любить жену как родственника, но сексуальные фантазии вытесняются наружу.
+* <strong>Решение:</strong> Женщине и мужчине критически важно сохранять ролевую гибкость — уметь выходить из роли «родителей» и переключаться в роли «соратников-любовников» вне домашней обстановки.</p>
+<hr />
+  </section>
+
+  <!-- БЛОК 4 -->
+  <section id="block4" class="card">
+    <h2><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="14" width="4" height="7" rx="1" fill="#34d399" fill-opacity="0.3" stroke="#34d399" stroke-width="1.8"/><rect x="10" y="9" width="4" height="12" rx="1" fill="#38bdf8" fill-opacity="0.3" stroke="#38bdf8" stroke-width="1.8"/><rect x="17" y="4" width="4" height="17" rx="1" fill="#fbbf24" fill-opacity="0.3" stroke="#fbbf24" stroke-width="1.8"/><path d="M3 11l7-6 7 4 4-4" stroke="#f43f5e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> <span>Блок 4. Сводка цифр, бенчмарков и развилок (A vs B)</span></h2>
+    <p>Сводка цифр, бенчмарков и развилок (A vs B)</p>
+<h3>4.1. Сводная таблица метрик выпуска</h3>
+<div class="table-responsive"><table class="styled-table">
+<thead>
+<tr>
+<th style="text-align: left;">Метрика / Параметр</th>
+<th style="text-align: center;">Значение в выпуске</th>
+<th style="text-align: left;">Научная / Практическая интерпретация</th>
+<th style="text-align: center;">Оценка реалистичности</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>«Правило дистанции» до секса</strong></td>
+<td style="text-align: center;"><strong>30 дней</strong></td>
+<td style="text-align: left;">Оптимальный срок калибровки: мужчина успевает проявить характер, снять маску и включить романтическое либидо.</td>
+<td style="text-align: center;">🟢 Высокая (отсекает пикаперов)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Период дофаминового угара</strong></td>
+<td style="text-align: center;"><strong>6 месяцев</strong></td>
+<td style="text-align: left;">Срок естественного угасания страсти («розовые очки разбиваются стеклами вовнутрь»).</td>
+<td style="text-align: center;">🟢 Подтверждено нейробиологией</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Типы половой конституции</strong></td>
+<td style="text-align: center;"><strong>3 типа</strong></td>
+<td style="text-align: left;">Сильная (ежедневно), Средняя (2–3 раза/нед), Слабая (1 раз в 10–14 дней).</td>
+<td style="text-align: center;">🟢 Сексологический стандарт</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Доля измен не ради секса</strong></td>
+<td style="text-align: center;"><strong>~80–90%</strong></td>
+<td style="text-align: left;">Измены мужчин со средней конституцией происходят из-за дефицита эмоционального признания или комплекса Мадонны.</td>
+<td style="text-align: center;">🟢 Высокая точность</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Скорость включения защиты</strong></td>
+<td style="text-align: center;"><strong>Первые 3 свидания</strong></td>
+<td style="text-align: left;">Мужчина принимает решение об инвестициях в женщину за 3–4 встречи.</td>
+<td style="text-align: center;">🟡 Субъективно, но эмпирично</td>
+</tr>
+</tbody>
+</table></div>
+<h3>4.2. Управленческие развилки в отношениях (A vs B)</h3>
+<div class="table-responsive"><table class="styled-table">
+<thead>
+<tr>
+<th style="text-align: left;">Сценарий A (Интуитивный / Ошибочный)</th>
+<th style="text-align: left;">Сценарий B (Стратегический / Зрелый)</th>
+<th style="text-align: left;">Риск сценария A</th>
+<th style="text-align: left;">Преимущество сценария B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Быстрый секс на 1–2 свидании</strong> для «удержания» мужчины.</td>
+<td style="text-align: left;"><strong>Формирование дружбы и контекста</strong> на протяжении 3–4 недель.</td>
+<td style="text-align: left;">Посткоитальное отторжение (пролактиновый спад), статус «легкой добычи».</td>
+<td style="text-align: left;">Активация романтического либидо, мужчина берет ответственность.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Тотальная роль «Хорошей матери»</strong> (готовка, контроль, опека).</td>
+<td style="text-align: left;"><strong>Роль «Соратника и автономной личности»</strong> с личными границами.</td>
+<td style="text-align: left;">Комплекс Мадонны: потеря сексуального влечения у мужа.</td>
+<td style="text-align: left;">Сохранение сексуального напряжения и взаимного уважения.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Маскировка уязвимости</strong> под образ «холодной недоступной королевы».</td>
+<td style="text-align: left;"><strong>Искренний диалог и принятие</strong> мужской слабости без осуждения.</td>
+<td style="text-align: left;">Мужчина быстро устает от психологического штурма и уходит.</td>
+<td style="text-align: left;">Мужчина обретает безопасную гавань и эмоциональную зависимость.</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+  </section>
+
+  <!-- БЛОК 5 -->
+  <section id="block5" class="card">
+    <h2><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-5.04z" fill="#fbbf24" fill-opacity="0.25" stroke="#fbbf24" stroke-width="1.8"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-5.04z" fill="#a855f7" fill-opacity="0.25" stroke="#a855f7" stroke-width="1.8"/><circle cx="12" cy="12" r="2.5" fill="#38bdf8"/></svg> <span>Блок 5. Ментальные модели, карта мышления и Mermaid-диаграмма</span></h2>
+    <p>Ментальные модели, карта мышления и Mermaid-диаграмма</p>
+<h3>5.1. Ключевые ментальные модели спикера</h3>
+<ol>
+<li><strong>Модель «Пролактинового сита»:</strong> Отношения проверяются не в момент возбуждения, а через 5 минут после оргазма. Если после разрядки хочется обнять и поговорить — контакт истинный. Если хочется сбежать — связи не было.</li>
+<li><strong>Модель «Эмоционального банковского счета»:</strong> Взрослая любовь строится на регулярных вкладах признания мужской компетентности. Женщина, признающая силу мужчины, получает в ответ неограниченный поток ресурсов и верности.</li>
+</ol>
+<h3>5.2. Mermaid-диаграмма: Развилка мужского поведения после интимной близости</h3>
+<hr />
+        <div class="mermaid-box" style="margin-top: 24px; background: rgba(0,0,0,0.3); border-radius: 12px; padding: 20px; border: 1px solid rgba(255,255,255,0.08); text-align: center;">
+          <h4 style="margin-bottom: 16px; color: #38bdf8;">📊 Диаграмма: Развилка мужского поведения после оргазма: омерзение vs влюбленность</h4>
+          <pre class="mermaid">
+flowchart TD
+    A["Интимная близость"] --> B["Оргазм и эякуляция"]
+    B --> C["Физиологический обвал дофамина + Пик Пролактина"]
+    
+    C --> D{"Была ли сформирована дружба и доверие ДО секса?"}
+    
+    D -- "НЕТ (Быстрый секс / Спонсорство)" --> E["Post-coital Dysphoria (Синдром омерзения)"]
+    E --> F["Ощущение обмана и пустоты"]
+    F --> G["Дистанцирование, игнор, слив отношений"]
+    
+    D -- "ДА (Эмоциональная безопасность)" --> H["Выброс Окситоцина (Гормон привязанности)"]
+    H --> I["Включение Романтического Либидо"]
+    I --> J["Защита, ответственность, долгосрочные инвестиции"]
+    
+    style A fill:#1e293b,stroke:#38bdf8,stroke-width:2px,color:#f8fafc
+    style E fill:#450a0a,stroke:#f87171,stroke-width:2px,color:#fca5a5
+    style J fill:#064e3b,stroke:#34d399,stroke-width:2px,color:#6ee7b7
+          </pre>
+        </div>
+  </section>
+
+  <!-- БЛОК 6 -->
+  <section id="block6" class="card">
+    <h2><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" fill="#38bdf8" fill-opacity="0.2" stroke="#38bdf8" stroke-width="2"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" fill="#a855f7" fill-opacity="0.2" stroke="#a855f7" stroke-width="2"/></svg> <span>Блок 6. Расширение кругозора: Книги, Словарь понятий и Персоны</span></h2>
+    <p>Расширение кругозора: Книги, Словарь понятий и Персоны</p>
+<h3>6.1. Фундаментальные книги выпуска</h3>
+<ol>
+<li><strong>Эрих Фромм — «Искусство любить»:</strong> Разграничение невротической зависимости и зрелой любви как сознательной практики заботы, уважения и ответственности.</li>
+<li><strong>Зигмунд Фрейд — «Очерки по психологии сексуальности»:</strong> Классическое описание расщепления любви и вожделения (комплекс Мадонны-Блудницы).</li>
+<li><strong>Дэвид Басс — «Эволюция вожделения: Стратегии поиска партнеров человеком»:</strong> Эволюционная психология брачных рынков, сигналы статуса и фертильности.</li>
+</ol>
+<h3>6.2. Банк понятий</h3>
+<ul>
+<li><strong>Post-coital dysphoria (Посткоитальная дисфория):</strong> Состояние меланхолии, тревоги или раздражения после полового акта, обусловленное резким нейроэндокринным сдвигом.</li>
+<li><strong>Половая конституция:</strong> Генетически детерминированный уровень сексуальной потребности и выносливости организма, не поддающийся волевому изменению.</li>
+<li><strong>Романтическое либидо:</strong> Психологическая надстройка над базовым половым инстинктом, конвертирующая влечение в альтруистическую заботу о партнере.</li>
+<li><strong>Комплекс Мадонны-Блудницы:</strong> Неспособность мужчины испытывать сексуальное возбуждение к женщине, которую он глубоко уважает и считает святой.</li>
+</ul>
+<h3>6.3. Ключевые персоны</h3>
+<ul>
+<li><strong>Дмитрий Гухман:</strong> Российский сексолог, популяризатор практической психосоматики и гармонии в паре.</li>
+<li><strong>Зигмунд Фрейд:</strong> Австрийский психоаналитик, первооткрыватель механизмов сексуального вытеснения.</li>
+</ul>
+<hr />
+  </section>
+
+  <!-- БЛОК 7 -->
+  <section id="block7" class="card">
+    <h2><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.75-2-2-2H4c-1.25 0-2 .75-2 2v6c0 1.25.75 2 2 2 0 4-1 6-1 8z" fill="#fbbf24" fill-opacity="0.2" stroke="#fbbf24" stroke-width="2"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.75-2-2-2h-4c-1.25 0-2 .75-2 2v6c0 1.25.75 2 2 2 0 4-1 6-1 8z" fill="#fbbf24" fill-opacity="0.2" stroke="#fbbf24" stroke-width="2"/></svg> <span>Блок 7. Золотые формулировки и панчлайны выпуска</span></h2>
+    <p>Золотые формулировки и панчлайны выпуска</p>
+<ul>
+<li>«Мужчине не нужны твои модельные параметры, если рядом с тобой он чувствует себя ничтожеством.»</li>
+<li>«Сексапильность продает первый вечер. Сексуальность покупает всю оставшуюся жизнь.»</li>
+<li>«Если мужчина кончил, и ему противно быть с тобой рядом — вы не занимались любовью, вы просто утилизировали биологическое напряжение.»</li>
+<li>«Мужчина меркантильнее любой женщины: он с первого взгляда считает, во сколько ты сама себя оцениваешь.»</li>
+<li>«Самый крепкий брак — это когда блудница и святая уживаются в одной женщине, а друг и самец — в одном мужчине.»</li>
+</ul>
+<hr />
+  </section>
+
+  <!-- БЛОК 8 -->
+  <section id="block8" class="card">
+    <h2><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="#38bdf8" fill-opacity="0.15" stroke="#38bdf8" stroke-width="2"/><path d="M9 12l2 2 4-4" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> <span>Блок 8. Внешний фактчек, материалы и реакция аудитории</span></h2>
+    <p>Внешний фактчек, материалы и реакция аудитории</p>
+<h3>8.1. Фактчек и критика спорных утверждений</h3>
+<ul>
+<li><strong>Тезис о «Правиле 30 дней»:</strong> Гухман подает это как догму. С точки зрения доказательной сексологии, жестких временных рамок нет — критичен не календарный срок, а глубина взаимного раскрытия и преодоление кризиса уязвимости.</li>
+<li><strong>Отказ женщине в сексуальной потребности:</strong> Спикер утверждает, что «у женщин нет физиологической потребности в сексе без любви». Это грубое обобщение: женщины с сильной половой конституцией обладают выраженным автономным либидо.</li>
+</ul>
+<h3>8.2. Анализ реакции аудитории</h3>
+<ul>
+<li>Зрители отмечают высокий контраст между глубокими ответами Гухмана и упрощенными провокационными вопросами ведущей.</li>
+<li>В комментариях подтверждают точность описания феномена отторжения после случайного секса со стороны мужчин.</li>
+</ul>
+<hr />
+  </section>
+
+  <!-- БЛОК 9 -->
+  <section id="block9" class="card">
+    <h2><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" fill="#f43f5e" fill-opacity="0.3" stroke="#f43f5e" stroke-width="2"/><path d="M12 15l-3-3m0 0l8.5-8.5a3.54 3.54 0 0 1 5 5L14 17l-5-5z" stroke="#38bdf8" stroke-width="2"/></svg> <span>Блок 9. Пошаговый 72-часовой план внедрения</span></h2>
+    <p>Пошаговый 72-часовой план внедрения</p>
+<h3>Этап 1: 72 часа (Аудит личной стратегии)</h3>
+<ol>
+<li>Провести аудит текущих или последних отношений: на каком либидо (физиологическом или романтическом) они держались.</li>
+<li>Исключить из коммуникации манипуляции ревностью и обесценивание мужских успехов.</li>
+<li>Проанализировать собственный язык уважения: когда вы в последний раз искренне благодарили мужчину за его решения.</li>
+</ol>
+<h3>Этап 2: 7 дней (Калибровка контакта)</h3>
+<ol>
+<li>Внедрить практику «безопасного диалога»: 30 минут совместного времени без гаджетов с фокусом на эмоциональном состоянии партнера.</li>
+<li>Провести аудит баланса ролей: не превратились ли отношения в симбиоз «строгой мамы и виноватого сына».</li>
+<li>Проверить совпадение половой конституции в паре без обвинений и давления.</li>
+</ol>
+<h3>Этап 3: 30 дней (Закрепление взрослой привязанности)</h3>
+<ol>
+<li>Сформировать общий внешний контекст (спорт, путешествие, совместный проект), укрепляющий дружбу.</li>
+<li>Создать традицию регулярных «свиданий вне дома» с переключением в амплуа страстных любовников.</li>
+</ol>
+  </section>
+
+
+
+</div>
+
+<script>
+
+  // === MOBILE NAVIGATION DRAWER & UTILITIES ===
+  function toggleNavDrawer() {
+    var overlay = document.getElementById('navDrawerOverlay');
+    if (!overlay) return;
+    if (overlay.classList.contains('is-open')) {
+      closeNavDrawer();
+    } else {
+      overlay.style.display = 'flex';
+      overlay.offsetHeight; // trigger reflow for smooth transition
+      overlay.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeNavDrawer() {
+    var overlay = document.getElementById('navDrawerOverlay');
+    if (!overlay) return;
+    overlay.classList.remove('is-open');
+    document.body.style.overflow = '';
+    setTimeout(function() {
+      if (!overlay.classList.contains('is-open')) {
+        overlay.style.display = 'none';
+      }
+    }, 280);
+  }
+
+  function handleOverlayClick(event) {
+    if (event.target && event.target.id === 'navDrawerOverlay') {
+      closeNavDrawer();
+    }
+  }
+
+  function dismissTopNav() {
+    var nav = document.getElementById('gemstudioTopNav');
+    if (nav) {
+      nav.style.display = 'none';
+    }
+  }
+
+  function toggleHeatmapCollapse() {
+    var wrapper = document.getElementById('heatmapCollapseWrapper');
+    var btn = document.getElementById('toggleHeatmapBtn');
+    if (!wrapper || !btn) return;
+
+    var isCollapsed = wrapper.classList.toggle('is-collapsed');
+    if (isCollapsed) {
+      btn.innerHTML = '<span>▾ Показать все 19 глав выпуска</span>';
+      var b2 = document.getElementById('block2');
+      if (b2) b2.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      btn.innerHTML = '<span>▴ Свернуть список глав</span>';
+    }
+  }
+
+  
+  function playEmbeddedVideo() {
+    const card = document.getElementById('videoPreviewCard');
+    const container = document.getElementById('videoEmbedContainer');
+    if (card && container) {
+      card.style.display = 'none';
+      container.style.display = 'block';
+      container.innerHTML = '<iframe src="https://www.youtube.com/embed/FjdYd8dSdBM?autoplay=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+    }
+  }
+
+  function filterHeatmap(type) {
+    const rows = document.querySelectorAll('#heatmapTable tbody tr');
+    const buttons = document.querySelectorAll('.filter-btn');
+    
+    buttons.forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
+
+    rows.forEach(r => {
+      const rType = r.getAttribute('data-type');
+      if (type === 'all' || rType === type) {
+        r.style.display = '';
+      } else {
+        r.style.display = 'none';
+      }
+    });
+  }
+
+  function toggleCheck(checkbox) {
+    const parent = checkbox.closest('.check-item');
+    if (checkbox.checked) {
+      parent.classList.add('done');
+    } else {
+      parent.classList.remove('done');
+    }
+    updateProgress();
+    saveChecklist();
+  }
+
+  function updateProgress() {
+    const total = document.querySelectorAll('.check-item input[type="checkbox"]').length;
+    const checked = document.querySelectorAll('.check-item input[type="checkbox"]:checked').length;
+    const pct = total === 0 ? 0 : Math.round((checked / total) * 100);
+    
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressLabel').innerText = `Прогресс: ${checked} из ${total} выполнено (${pct}%)`;
+  }
+
+  function saveChecklist() {
+    const checks = {};
+    document.querySelectorAll('.check-item input[type="checkbox"]').forEach(c => {
+      checks[c.id] = c.checked;
+    });
+    localStorage.setItem('yt_gawdat_2027_checklist', JSON.stringify(checks));
+  }
+
+  function loadChecklist() {
+    const saved = localStorage.getItem('yt_gawdat_2027_checklist');
+    if (saved) {
+      const checks = JSON.parse(saved);
+      for (const id in checks) {
+        const el = document.getElementById(id);
+        if (el) {
+          el.checked = checks[id];
+          if (checks[id]) el.closest('.check-item').classList.add('done');
+        }
+      }
+    }
+    updateProgress();
+  }
+
+  window.addEventListener('DOMContentLoaded', loadChecklist);
+
+  // Reading Progress Bar
+  window.addEventListener('scroll', () => {
+    const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = totalHeight > 0 ? (window.scrollY / totalHeight) * 100 : 0;
+    const bar = document.getElementById('readingProgress');
+    if (bar) bar.style.width = Math.min(progress, 100) + '%';
+  });
+
+  // Copy Quote Function
+  function copyQuote(btn, text) {
+    navigator.clipboard.writeText(text).then(() => {
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '✓ Скопировано!';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+
+
+  // === V1.5 INSIGHT CARD GENERATOR (Canvas 2D) ===
+  function openInsightCardFromBtn(btn) {
+    var quoteCard = btn.closest('.quote-card');
+    if (!quoteCard) return;
+    var quoteEl = quoteCard.querySelector('.quote-text');
+    var authorEl = quoteCard.querySelector('.quote-author');
+    var quote = quoteEl ? quoteEl.innerText.replace(/^[«"]|[»"]$/g, '').trim() : '';
+    var author = authorEl ? authorEl.innerText.replace(/^[—–-]\s*/, '').trim() : 'Мо Гавдат';
+    generateInsightCard(quote, author);
+  }
+
+  function generateInsightCard(quoteText, authorName) {
+    var modal = document.getElementById('insightCardModal');
+    var canvas = document.getElementById('insightCanvas');
+    if (!modal || !canvas) return;
+
+    var ctx = canvas.getContext('2d');
+    var W = 1080;
+    var H = 1350;
+    canvas.width = W;
+    canvas.height = H;
+
+    // Dark gradient background
+    var grad = ctx.createLinearGradient(0, 0, W, H);
+    grad.addColorStop(0, '#0f172a');
+    grad.addColorStop(0.5, '#090d16');
+    grad.addColorStop(1, '#05070d');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, W, H);
+
+    // Cyan & Purple ambient glow
+    var glow1 = ctx.createRadialGradient(W*0.2, H*0.2, 50, W*0.2, H*0.2, 500);
+    glow1.addColorStop(0, 'rgba(56, 189, 248, 0.22)');
+    glow1.addColorStop(1, 'transparent');
+    ctx.fillStyle = glow1;
+    ctx.fillRect(0, 0, W, H);
+
+    var glow2 = ctx.createRadialGradient(W*0.8, H*0.75, 50, W*0.8, H*0.75, 450);
+    glow2.addColorStop(0, 'rgba(168, 85, 247, 0.18)');
+    glow2.addColorStop(1, 'transparent');
+    ctx.fillStyle = glow2;
+    ctx.fillRect(0, 0, W, H);
+
+    // Frame
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.12)';
+    ctx.lineWidth = 4;
+    ctx.strokeRect(40, 40, W - 80, H - 80);
+
+    // Category Pill Badge
+    ctx.fillStyle = '#0284c7';
+    if (ctx.roundRect) {
+      ctx.beginPath();
+      ctx.roundRect(80, 80, 310, 58, 29);
+      ctx.fill();
+    } else {
+      ctx.fillRect(80, 80, 310, 58);
+    }
+    ctx.fillStyle = '#ffffff';
+    ctx.font = 'bold 24px -apple-system, sans-serif';
+    ctx.fillText('💡 БИЗНЕС-ИНСАЙТ', 115, 118);
+
+    // Huge quotation mark
+    ctx.fillStyle = 'rgba(56, 189, 248, 0.25)';
+    ctx.font = 'bold 200px Georgia, serif';
+    ctx.fillText('“', 75, 270);
+
+    // Quote text with word-wrap
+    ctx.fillStyle = '#f8fafc';
+    ctx.font = '600 42px -apple-system, BlinkMacSystemFont, sans-serif';
+    
+    var words = quoteText.split(' ');
+    var line = '';
+    var y = 320;
+    var maxW = W - 170;
+    var lineH = 64;
+
+    for (var i = 0; i < words.length; i++) {
+      var testLine = line + words[i] + ' ';
+      var metrics = ctx.measureText(testLine);
+      if (metrics.width > maxW && i > 0) {
+        ctx.fillText(line, 85, y);
+        line = words[i] + ' ';
+        y += lineH;
+      } else {
+        line = testLine;
+      }
+    }
+    ctx.fillText(line, 85, y);
+
+    // Author section
+    y = Math.max(y + 80, 920);
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';
+    ctx.fillRect(85, y, 140, 3);
+
+    y += 48;
+    ctx.fillStyle = '#38bdf8';
+    ctx.font = 'bold 36px -apple-system, sans-serif';
+    ctx.fillText(authorName, 85, y);
+
+    y += 40;
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '500 24px -apple-system, sans-serif';
+    ctx.fillText('Инвестиционная деконструкция • Gemstudio', 85, y);
+
+    // Bottom Branding
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.04)';
+    ctx.fillRect(40, H - 140, W - 80, 100);
+
+    ctx.fillStyle = '#f8fafc';
+    ctx.font = 'bold 28px -apple-system, sans-serif';
+    ctx.fillText('⚡ Gemstudio Dashboard', 85, H - 78);
+
+    ctx.fillStyle = '#38bdf8';
+    ctx.font = '24px monospace';
+    ctx.fillText('gemstudio-deconstruct.netlify.app', W - 560, H - 78);
+
+    modal.style.display = 'flex';
+  }
+
+  function closeInsightModal(e) {
+    if (!e || e.target.id === 'insightCardModal' || e.target.classList.contains('drawer-close-btn')) {
+      var modal = document.getElementById('insightCardModal');
+      if (modal) modal.style.display = 'none';
+    }
+  }
+
+  function downloadInsightCard() {
+    var canvas = document.getElementById('insightCanvas');
+    if (!canvas) return;
+    var a = document.createElement('a');
+    a.download = 'gemstudio-insight.png';
+    a.href = canvas.toDataURL('image/png');
+    a.click();
+  }
+
+  function copyInsightCard() {
+    var canvas = document.getElementById('insightCanvas');
+    if (!canvas) return;
+    canvas.toBlob(function(blob) {
+      if (navigator.clipboard && navigator.clipboard.write) {
+        navigator.clipboard.write([
+          new ClipboardItem({ 'image/png': blob })
+        ]).then(function() {
+          alert('Карточка скопирована в буфер обмена!');
+        }).catch(function() {
+          downloadInsightCard();
+        });
+      } else {
+        downloadInsightCard();
+      }
+    });
+  }
+
+  // === V1.5 USER HIGHLIGHTS (localStorage) ===
+  var storageKey = 'gemstudio_hl_' + window.location.pathname;
+  var userHighlights = JSON.parse(localStorage.getItem(storageKey) || '[]');
+
+  document.addEventListener('mouseup', handleTextSelection);
+  document.addEventListener('touchend', handleTextSelection);
+
+  function handleTextSelection(e) {
+    var bubble = document.getElementById('highlightBubble');
+    if (!bubble) return;
+
+    var sel = window.getSelection();
+    if (!sel || sel.isCollapsed || !sel.toString().trim()) {
+      bubble.style.display = 'none';
+      return;
+    }
+
+    var range = sel.getRangeAt(0);
+    var rect = range.getBoundingClientRect();
+    bubble.style.left = (window.scrollX + rect.left + rect.width / 2 - 40) + 'px';
+    bubble.style.top = (window.scrollY + rect.top - 42) + 'px';
+    bubble.style.display = 'flex';
+  }
+
+  function applyUserHighlight() {
+    var bubble = document.getElementById('highlightBubble');
+    var sel = window.getSelection();
+    if (!sel || sel.isCollapsed) return;
+
+    var text = sel.toString().trim();
+    if (!text) return;
+
+    var range = sel.getRangeAt(0);
+    var mark = document.createElement('mark');
+    mark.className = 'user-highlight';
+    mark.title = 'Нажмите для удаления хайлайта';
+    mark.onclick = function() { removeHighlight(text, mark); };
+
+    try {
+      range.surroundContents(mark);
+      userHighlights.push(text);
+      localStorage.setItem(storageKey, JSON.stringify(userHighlights));
+      updateNotesCount();
+    } catch(err) {
+      console.log('Highlight cross-boundary selection');
+    }
+
+    if (bubble) bubble.style.display = 'none';
+    sel.removeAllRanges();
+  }
+
+  function removeHighlight(text, markEl) {
+    if (confirm('Удалить этот хайлайт?')) {
+      var parent = markEl.parentNode;
+      while (markEl.firstChild) parent.insertBefore(markEl.firstChild, markEl);
+      parent.removeChild(markEl);
+      userHighlights = userHighlights.filter(function(t) { return t !== text; });
+      localStorage.setItem(storageKey, JSON.stringify(userHighlights));
+      updateNotesCount();
+    }
+  }
+
+  function updateNotesCount() {
+    var countEl = document.getElementById('drawerNotesCount');
+    if (countEl) countEl.innerText = '🖍️ Мои заметки и хайлайты (' + userHighlights.length + ')';
+  }
+
+  function exportUserHighlights() {
+    if (!userHighlights.length) {
+      alert('У вас пока нет сохраненных хайлайтов в этом выпуске. Выделите любой текст на странице маркером!');
+      return;
+    }
+    var md = '# Мои Заметки и Хайлайты\n\n* **Разбор:** ' + document.title + '\n* **Дата экспорта:** ' + new Date().toLocaleDateString() + '\n\n---\n\n';
+    userHighlights.forEach(function(item, idx) {
+      md += (idx + 1) + '. > ' + item + '\n\n';
+    });
+    var blob = new Blob([md], { type: 'text/markdown;charset=utf-8;' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'мои-заметки-' + window.location.pathname.replace(/[^a-z0-9]/gi, '_') + '.md';
+    a.click();
+  }
+
+  // Init notes count on load
+  setTimeout(updateNotesCount, 300);
+
+</script>
+
+
+  <!-- Плавающая кнопка вызова меню (доступна в любой части экрана) -->
+  <div id="floatingNavBtn" class="floating-nav-pill" onclick="toggleNavDrawer()" title="Навигация по разделам">
+    <span>🧭 Навигация</span>
+  </div>
+
+  
+        <!-- Личные Заметки Пользователя -->
+        <div id="drawerNotesSection" style="margin: 10px 0; padding: 12px; background: rgba(251, 191, 36, 0.08); border: 1px solid rgba(251, 191, 36, 0.25); border-radius: 10px;">
+          <div style="font-weight: 700; color: #fbbf24; font-size: 0.9rem; margin-bottom: 4px;" id="drawerNotesCount">🖍️ Мои заметки и хайлайты (0)</div>
+          <div style="font-size: 0.8rem; color: #cbd5e1; margin-bottom: 8px;">Выделяйте важные мысли маркером прямо в тексте — они сохраняются на вашем устройстве.</div>
+          <button onclick="exportUserHighlights()" style="width: 100%; background: #d97706; color: #fff; border: none; padding: 8px 12px; border-radius: 6px; font-weight: 700; font-size: 0.82rem; cursor: pointer; transition: all 0.2s;">📥 Экспортировать мои заметки в Obsidian (.md)</button>
+        </div>
+
+  <!-- Шторка-модалка навигации по статье -->
+  <div id="navDrawerOverlay" class="nav-drawer-overlay" onclick="handleOverlayClick(event)">
+    <div class="nav-drawer-sheet">
+      <div class="drawer-header">
+        <div class="drawer-title">Навигация по разбору</div>
+        <button class="drawer-close-btn" onclick="closeNavDrawer()">✕</button>
+      </div>
+      <div class="drawer-links-grid">
+        <a href="00_Хаб_Все_Разборы.html" class="drawer-link catalog-link">
+          <span>🏠</span> <strong>← Вернуться в Каталог всех разборов</strong>
+        </a>
+        <a href="#block1" class="drawer-link" onclick="closeNavDrawer()">
+          <span>🎯</span> <span>Блок 1. Интро, вердикт и скрытая повестка</span>
+        </a>
+        <a href="#block2" class="drawer-link" onclick="closeNavDrawer()">
+          <span>🗺️</span> <span>Блок 2. Тепловая карта выпуска (40 глав)</span>
+        </a>
+        <a href="#block3" class="drawer-link" onclick="closeNavDrawer()">
+          <span>🥩</span> <span>Блок 3. Детальный разбор («Мясо»)</span>
+        </a>
+        <a href="#block4" class="drawer-link" onclick="closeNavDrawer()">
+          <span>📊</span> <span>Блок 4. Сводка цифр, бенчмарков и развилок</span>
+        </a>
+        <a href="#block5" class="drawer-link" onclick="closeNavDrawer()">
+          <span>🧠</span> <span>Блок 5. Ментальные модели и схема</span>
+        </a>
+        <a href="#block6" class="drawer-link" onclick="closeNavDrawer()">
+          <span>📚</span> <span>Блок 6. Справочник сущностей (Wikilinks)</span>
+        </a>
+        <a href="#block7" class="drawer-link" onclick="closeNavDrawer()">
+          <span>💬</span> <span>Блок 7. Золотые панчлайны выпуска</span>
+        </a>
+        <a href="#block8" class="drawer-link" onclick="closeNavDrawer()">
+          <span>🔍</span> <span>Блок 8. Фактчек и реакция аудитории</span>
+        </a>
+        <a href="#block9" class="drawer-link" onclick="closeNavDrawer()">
+          <span>✅</span> <span>Блок 9. Чек-лист применения (7–30 дней)</span>
+        </a>
+        <a href="/gawdat.md" download="2026-10-30_Мо_Гавдат_ИИ_Заберет_Работу_2027.md" class="drawer-link" style="color: #a5b4fc; border-color: rgba(129, 140, 248, 0.3);">
+          <span>📥</span> <span>Скачать Markdown (.md для Obsidian)</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Модальное окно Инсайт-Карточки (HTML5 Canvas) -->
+  <div id="insightCardModal" class="insight-modal-overlay" onclick="closeInsightModal(event)">
+    <div class="insight-modal-content">
+      <div class="insight-modal-header">
+        <div style="font-weight: 700; color: #fff; font-size: 1rem;">📸 Инсайт-Карточка для соцсетей</div>
+        <button class="drawer-close-btn" onclick="closeInsightModal()">✕</button>
+      </div>
+      <div class="insight-canvas-wrap">
+        <canvas id="insightCanvas" width="1080" height="1350"></canvas>
+      </div>
+      <div class="insight-modal-actions">
+        <button class="insight-btn-download" onclick="downloadInsightCard()">
+          <span>📥 Скачать PNG</span>
+        </button>
+        <button class="insight-btn-copy" onclick="copyInsightCard()">
+          <span>📋 Скопировать</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Плавающий тултип выделения текста -->
+  <div id="highlightBubble" class="highlight-bubble">
+    <button onclick="applyUserHighlight()"><span>🖍️ Выделить</span></button>
+  </div>
+
+</body>
+</html>

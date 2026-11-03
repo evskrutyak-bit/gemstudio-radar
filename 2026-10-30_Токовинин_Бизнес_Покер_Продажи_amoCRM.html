@@ -1,0 +1,1742 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Open Graph / Rich Social Preview for Telegram -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Михаил Токовинин (amoCRM) • Бизнес как покер, физика продаж и кассовые разрывы">
+  <meta property="og:description" content="Инвестиционная деконструкция подкаста: почему 1-й бизнес гарантированно прогорит, формула гидравлического фокуса (1 точка из 50), рост чека от $300 до $1 000 000 и спасение $10 000 кэша.">
+  <meta property="og:image" content="https://img.youtube.com/vi/ZFQsEs0jR1I/maxresdefault.jpg">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="720">
+  <meta property="og:site_name" content="Gemstudio • Бизнес-Деконструктор Контента">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Михаил Токовинин (amoCRM) — Бизнес-Деконструкция">
+  <meta name="twitter:description" content="Бизнес как покер, закон 300 холодных звонков, спасение от кассового разрыва и 2 корзины капитала.">
+  <meta name="twitter:image" content="https://img.youtube.com/vi/ZFQsEs0jR1I/maxresdefault.jpg">
+
+  <title>Бизнес-Деконструкция: Михаил Токовинин (amoCRM) • Бизнес как покер</title>
+
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'dark',
+      themeVariables: {
+        primaryColor: '#1e293b',
+        primaryTextColor: '#f8fafc',
+        primaryBorderColor: '#38bdf8',
+        lineColor: '#64748b',
+        secondaryColor: '#334155',
+        tertiaryColor: '#0f172a'
+      }
+    });
+  </script>
+
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: #111726;
+      --card-border: #1e293b;
+      --card-hover: #172033;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --accent-blue: #38bdf8;
+      --accent-purple: #818cf8;
+      --accent-green: #34d399;
+      --accent-red: #f87171;
+      --accent-gold: #fbbf24;
+      --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: var(--font-main);
+      line-height: 1.6;
+      padding: 0 0 80px;
+    }
+
+    /* Top Nav (Natural non-sticky scroll) */
+    .gemstudio-top-nav {
+      background: rgba(15, 23, 42, 0.95);
+      border-bottom: 1px solid rgba(56, 189, 248, 0.25);
+      padding: 14px 20px;
+      position: relative;
+    }
+
+    .gemstudio-nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .gemstudio-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+
+    .gemstudio-badge {
+      background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+      color: #000;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .gemstudio-nav-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .nav-btn:hover {
+      border-color: var(--accent-blue);
+      color: var(--accent-blue);
+      background: var(--card-hover);
+    }
+
+    .nav-btn.primary {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: var(--accent-blue);
+      color: var(--accent-blue);
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1100px;
+      margin: 24px auto 0;
+      padding: 0 16px;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.9) 100%);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 32px 24px;
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .header-badge {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--accent-blue);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: 1.85rem;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 12px;
+      color: #fff;
+    }
+
+    .subtitle {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      padding-top: 16px;
+      border-top: 1px solid var(--card-border);
+    }
+
+    .meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .meta-label {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .meta-value {
+      font-size: 0.92rem;
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    /* Video Player Card */
+    .video-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .video-preview-wrap {
+      position: relative;
+      cursor: pointer;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+    }
+
+    .video-preview-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+      transition: opacity 0.3s;
+    }
+
+    .video-preview-wrap:hover img {
+      opacity: 1;
+    }
+
+    .play-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 72px;
+      height: 72px;
+      background: rgba(56, 189, 248, 0.95);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 30px rgba(56, 189, 248, 0.5);
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .play-overlay svg {
+      width: 32px;
+      height: 32px;
+      fill: #090d16;
+      margin-left: 4px;
+    }
+
+    .video-preview-wrap:hover .play-overlay {
+      transform: translate(-50%, -50%) scale(1.1);
+      background: #fff;
+    }
+
+    .video-embed-container {
+      display: none;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+    }
+
+    .video-embed-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Section Cards */
+    .section-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .verdict-box {
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 16px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .verdict-must {
+      background: rgba(52, 211, 153, 0.12);
+      border: 1px solid rgba(52, 211, 153, 0.35);
+      color: var(--accent-green);
+    }
+
+    .callout {
+      background: rgba(30, 41, 59, 0.5);
+      border-left: 4px solid var(--accent-blue);
+      padding: 14px 18px;
+      border-radius: 0 10px 10px 0;
+      margin: 14px 0;
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+
+    .callout.warning {
+      border-left-color: var(--accent-gold);
+      background: rgba(251, 191, 36, 0.08);
+    }
+
+    .callout.danger {
+      border-left-color: var(--accent-red);
+      background: rgba(248, 113, 113, 0.08);
+    }
+
+    /* Table styles with horizontal scroll */
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+      margin: 16px 0;
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--card-border) transparent;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      min-width: 650px;
+    }
+
+    th, td {
+      padding: 12px 14px;
+      text-align: left;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    th {
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--accent-blue);
+      font-weight: 600;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .badge-pill {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+
+    .badge-green { background: rgba(52, 211, 153, 0.18); color: var(--accent-green); }
+    .badge-yellow { background: rgba(251, 191, 36, 0.18); color: var(--accent-gold); }
+    .badge-red { background: rgba(248, 113, 113, 0.18); color: var(--accent-red); }
+
+    /* Heatmap filters */
+    .filter-group {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      padding: 6px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.82rem;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      border-color: var(--accent-blue);
+      color: var(--accent-blue);
+      background: rgba(56, 189, 248, 0.12);
+    }
+
+    /* Sub-chapters in Block 3 */
+    .chapter-card {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 18px;
+      margin-bottom: 16px;
+    }
+
+    .chapter-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .chapter-num {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--accent-purple);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .chapter-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-top: 2px;
+    }
+
+    .time-seek-btn {
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--accent-blue);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+
+    .time-seek-btn:hover {
+      background: var(--accent-blue);
+      color: #000;
+    }
+
+    .tradeoff-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .tradeoff-box {
+      border-radius: 8px;
+      padding: 12px;
+      font-size: 0.85rem;
+      line-height: 1.45;
+    }
+
+    .tradeoff-pro {
+      background: rgba(52, 211, 153, 0.08);
+      border: 1px solid rgba(52, 211, 153, 0.25);
+    }
+
+    .tradeoff-con {
+      background: rgba(248, 113, 113, 0.08);
+      border: 1px solid rgba(248, 113, 113, 0.25);
+    }
+
+    .tradeoff-label {
+      font-weight: 700;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .tradeoff-pro .tradeoff-label { color: var(--accent-green); }
+    .tradeoff-con .tradeoff-label { color: var(--accent-red); }
+
+    /* Punchlines & Quotes */
+    .quote-box {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.5), rgba(17, 23, 38, 0.8));
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin-bottom: 14px;
+      position: relative;
+    }
+
+    .quote-text {
+      font-size: 1.05rem;
+      font-style: italic;
+      color: #fff;
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+
+    .quote-author {
+      font-size: 0.82rem;
+      color: var(--accent-blue);
+      font-weight: 600;
+    }
+
+    /* Checklist */
+    .checklist-wrap {
+      margin-top: 14px;
+    }
+
+    .progress-bar-wrap {
+      background: var(--card-border);
+      height: 8px;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 12px;
+    }
+
+    .progress-bar-fill {
+      background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
+      height: 100%;
+      width: 0%;
+      transition: width 0.3s;
+    }
+
+    .progress-text {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 14px;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      margin-bottom: 8px;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .check-item:hover {
+      border-color: rgba(56, 189, 248, 0.4);
+    }
+
+    .check-item.done {
+      background: rgba(52, 211, 153, 0.06);
+      border-color: rgba(52, 211, 153, 0.3);
+    }
+
+    .check-item.done .check-title {
+      text-decoration: line-through;
+      color: var(--text-muted);
+    }
+
+    .check-item input[type="checkbox"] {
+      margin-top: 3px;
+      width: 17px;
+      height: 17px;
+      accent-color: var(--accent-green);
+      cursor: pointer;
+    }
+
+    .check-content {
+      flex: 1;
+    }
+
+    .check-title {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 3px;
+    }
+
+    .check-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* Wikilinks pills */
+    .entity-group {
+      margin-bottom: 16px;
+    }
+
+    .entity-group-title {
+      font-size: 0.82rem;
+      color: var(--accent-purple);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+
+    .pills-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .entity-pill {
+      background: rgba(30, 41, 59, 0.7);
+      border: 1px solid var(--card-border);
+      color: var(--text-main);
+      padding: 5px 12px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      font-family: var(--font-mono);
+      transition: all 0.2s;
+    }
+
+    .entity-pill:hover {
+      border-color: var(--accent-blue);
+      color: var(--accent-blue);
+      background: rgba(56, 189, 248, 0.1);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 640px) {
+      body { padding-bottom: 60px; }
+      .container { padding: 0 12px; }
+      header { padding: 20px 16px; }
+      h1 { font-size: 1.45rem; }
+      .subtitle { font-size: 0.92rem; }
+      .meta-grid { grid-template-columns: 1fr; gap: 10px; }
+      .section-card { padding: 18px 14px; }
+      .tradeoff-grid { grid-template-columns: 1fr; }
+      .chapter-card-header { flex-direction: column; }
+      .time-seek-btn { align-self: flex-start; }
+    }
+
+    /* Print styles */
+    @media print {
+      body { background: #fff !important; color: #000 !important; }
+      .gemstudio-top-nav, .video-card, .filter-group, .time-seek-btn, .nav-btn { display: none !important; }
+      .section-card { border: 1px solid #ccc !important; background: #fff !important; color: #000 !important; break-inside: avoid; }
+      th { background: #eee !important; color: #000 !important; }
+      td, th { border-bottom: 1px solid #ccc !important; }
+    }
+  
+    /* Video Ambient Glow */
+    .video-ambient-wrapper {
+      position: relative;
+      margin: 20px 0 28px;
+      border-radius: 16px;
+    }
+    .ambient-glow {
+      position: absolute;
+      inset: -12px;
+      background-size: cover;
+      background-position: center;
+      filter: blur(28px);
+      opacity: 0.35;
+      border-radius: 24px;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .video-card {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Floating Nav Pill (Mobile & Desktop) */
+    .floating-nav-pill {
+      position: fixed;
+      bottom: 24px;
+      right: 20px;
+      background: rgba(15, 23, 42, 0.92);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: #38bdf8;
+      padding: 10px 18px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 14px rgba(56, 189, 248, 0.25);
+      z-index: 9999;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .floating-nav-pill:hover {
+      background: #0284c7;
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    /* Nav Drawer (Modal Sheet) */
+    .nav-drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(6px);
+      z-index: 10000;
+      display: none;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .nav-drawer-overlay.is-open {
+      display: flex;
+      align-items: flex-end;
+      opacity: 1;
+    }
+
+    .nav-drawer-sheet {
+      background: #0d1322;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 20px 20px 0 0;
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 24px 20px 36px;
+      box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.8);
+      transform: translateY(100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .nav-drawer-overlay.is-open .nav-drawer-sheet {
+      transform: translateY(0);
+    }
+
+    .drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 14px;
+      margin-bottom: 16px;
+    }
+
+    .drawer-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .drawer-close-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #94a3b8;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .drawer-close-btn:hover { color: #fff; background: rgba(255,255,255,0.12); }
+
+    .drawer-links-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .drawer-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 10px;
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 500;
+      transition: all 0.15s ease;
+    }
+
+    .drawer-link:hover {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: rgba(56, 189, 248, 0.3);
+      color: #38bdf8;
+    }
+
+    .drawer-link.catalog-link {
+      background: linear-gradient(135deg, rgba(2, 132, 199, 0.25) 0%, rgba(56, 189, 248, 0.15) 100%);
+      border-color: rgba(56, 189, 248, 0.35);
+      color: #fff;
+    }
+
+    /* Heatmap Collapse Wrapper */
+    .heatmap-collapse-wrapper {
+      position: relative;
+      transition: max-height 0.4s ease;
+    }
+
+    .heatmap-collapse-wrapper.is-collapsed {
+      max-height: 420px;
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+      mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+    }
+
+    .heatmap-toggle-btn-wrap {
+      margin-top: 14px;
+      text-align: center;
+    }
+
+    .heatmap-expand-btn {
+      background: linear-gradient(135deg, rgba(2, 132, 199, 0.2) 0%, rgba(56, 189, 248, 0.15) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #38bdf8;
+      padding: 10px 22px;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .heatmap-expand-btn:hover {
+      background: linear-gradient(135deg, rgba(2, 132, 199, 0.35) 0%, rgba(56, 189, 248, 0.25) 100%);
+      color: #fff;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(56, 189, 248, 0.25);
+    }
+
+</style>
+</head>
+<body>
+
+  <!-- Non-Sticky Top Nav -->
+  <nav class="gemstudio-top-nav">
+    <div class="gemstudio-nav-container">
+      <a href="00_Хаб_Все_Разборы.html" class="gemstudio-brand">
+        <span class="gemstudio-badge">Gemstudio</span>
+        <span>Каталог Бизнес-Деконструкций</span>
+      </a>
+      <div class="gemstudio-nav-links">
+        <a href="00_Хаб_Все_Разборы.html" class="nav-btn">← Все разборы</a>
+        <a href="https://youtu.be/ZFQsEs0jR1I" target="_blank" rel="noopener" class="nav-btn primary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          Смотреть на YouTube
+        </a>
+        <a href="2026-10-30_Токовинин_Бизнес_Покер_Продажи_amoCRM.md" class="nav-btn">
+          Obsidian .MD
+        </a>
+        <button onclick="window.print()" class="nav-btn">
+          PDF / Печать
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <!-- Header -->
+    <header>
+      <span class="header-badge">Бизнес-Деконструкция v3.0 • B2B SaaS & Менеджмент</span>
+      <h1>Михаил Токовинин: привычка, из-за которой 97% людей бедны (и как это исправить)</h1>
+      <p class="subtitle">
+        Инвестиционный аудит 64-минутного интервью у Глеба Соломина: теория вероятностей в бизнесе, физика гидравлического фокуса (1 точка из 50), школа продаж от «Желтых страниц» до чека в $1 000 000 и спасение $10 000 кэша от кассового разрыва.
+      </p>
+
+      <div class="meta-grid">
+        <div class="meta-item">
+          <span class="meta-label">Спикер</span>
+          <span class="meta-value">Михаил Токовинин (amoCRM)</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Канал / Интервьюер</span>
+          <span class="meta-value">Подкаст Соломина</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Хронометраж</span>
+          <span class="meta-value">01:04:33 (24 темы)</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Инвест-оценка</span>
+          <span class="meta-value" style="color: var(--accent-green);">8.5 / 10 • Высший балл</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Video Embed Player Card -->
+    <div class="video-card">
+      <div class="video-preview-wrap" id="videoPreviewCard" onclick="playEmbeddedVideo()">
+        <img src="https://img.youtube.com/vi/ZFQsEs0jR1I/maxresdefault.jpg" alt="Обложка выпуска: Михаил Токовинин у Глеба Соломина">
+        <div class="play-overlay">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+      </div>
+      <div class="video-embed-container" id="videoEmbedContainer"></div>
+    </div>
+
+    <!-- БЛОК 1: Интро, Вердикт и Скрытая Повестка -->
+    <section id="block1" class="section-card">
+      <div class="section-header">
+        <div class="gemstudio-badge">Блок 1</div>
+        <h2 class="section-title">Интро, вердикт и скрытая повестка спикера</h2>
+      </div>
+
+      <div class="verdict-box verdict-must">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        <span>ВЕРДИКТ: СМОТРЕТЬ ОБЯЗАТЕЛЬНО. Редчайший случай на YouTube, когда крупный технологический фаундер говорит без инфоцыганской патоки и коучингового буллшита. Каждая мысль оплачена миллионами рублей личных потерь и 25 годами реального операционного управления.</span>
+      </div>
+
+      <div class="callout">
+        <strong>Кто и что:</strong> <strong>Михаил Токовинин</strong> — сооснователь облачной CRM-системы <strong>amoCRM</strong> (выручка >1,5 млрд руб./год, сделка с «1С» Бориса Нуралиева на 51% акций) и веб-студии <strong>Qsoft</strong>. 64 минуты чистого прагматизма: препарирование бизнеса как стохастической игры с положительным матожиданием (покер vs шахматы), формула удержания фокуса, психология холодных продаж и правила сохранения личного капитала.
+      </div>
+
+      <div class="callout warning">
+        <strong>Разоблачение кликбейта названия:</strong> Заголовок <em>«привычка, из-за которой 97% людей бедны»</em> — чистый популизм Соломина для выкручивания просмотров. В ролике <strong>нет ни слова</strong> про «97% нищих» и «магические привычки». Разговор идет о теории вероятностей, жестком позиционировании, отказе от кредитов в 1-м бизнесе и ремесле продаж.
+      </div>
+
+      <div class="callout danger">
+        <strong>Детектор скрытой повестки (Зачем пришел Токовинин):</strong>
+        <ol style="margin-left: 20px; margin-top: 6px;">
+          <li><strong>Накачка личной медийки:</strong> В финале выпуска Михаил прямо говорит, что запускает авторский YouTube-канал и развивает личный Telegram (<code>@mtokovinin</code>). Подкаст Соломина — трамплин для охвата молодой предпринимательской аудитории.</li>
+          <li><strong>HR-магнит высшей пробы:</strong> Образ прямого, анти-корпоративного фаундера (<em>«Мне плевать, любят ли меня люди, но делу они должны быть преданы»</em>) притягивает сильных, голодных до результатов сотрудников, уставших от лицемерия бигтеха.</li>
+          <li><strong>Укрепление экосистемы 10 000+ партнеров amoCRM:</strong> Демонстрация непотопляемости, стратегической зрелости и абсолютной устойчивости платформы.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- БЛОК 2: Тепловая карта выпуска -->
+    <section id="block2" class="section-card">
+      <div class="section-header">
+        <div class="gemstudio-badge">Блок 2</div>
+        <h2 class="section-title">Тепловая карта выпуска</h2>
+      </div>
+
+      <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 12px;">
+        Индикаторы плотности пользы: <span class="badge-pill badge-green">🟢 Мясо</span> — алгоритмы, цифры и архитектурные инсайты; <span class="badge-pill badge-yellow">🟡 Вода/Культура</span> — общие рассуждения. Нажмите на таймкод для перехода к моменту в видео.
+      </p>
+
+      <div class="filter-group">
+        <button class="filter-btn active" onclick="filterHeatmap('all')">Все главы (20)</button>
+        <button class="filter-btn" onclick="filterHeatmap('meat')">🟢 Только Мясо</button>
+        <button class="filter-btn" onclick="filterHeatmap('misc')">🟡 Общее</button>
+      </div>
+
+      <div class="table-container">
+        <table id="heatmapTable">
+          <thead>
+            <tr>
+              <th>Таймкод</th>
+              <th>Тема главы</th>
+              <th>Тип</th>
+              <th>Ключевой тезис и польза</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-type="meat">
+              <td><button class="time-seek-btn" onclick="seekVideoTo(0)">00:00</button></td>
+              <td>Трейлер и ключевые хуки</td>
+              <td><span class="badge-pill badge-green">🟢 Мясо</span></td>
+              <td>amoCRM 1,5 млрд выручка, партнерство с 1С, «без продаж шансов нет», покер vs шахматы.</td>
+            </tr>
+            <tr data-type="meat">
+              <td><button class="time-seek-btn" onclick="seekVideoTo(62)">01:02</button></td>
+              <td>Москва vs Провинция: Ложная локация</td>
+              <td><span class="badge-pill badge-green">🟢 Мясо</span></td>
+              <td>Где клиент? WB, ритейл и автосервисы строить в регионах дешевле; Москва нужна только для банков.</td>
+            </tr>
+            <tr data-type="meat">
+              <td><button class="time-seek-btn" onclick="seekVideoTo(208)">03:28</button></td>
+              <td>Физика давления: 1 точка из 50</td>
+              <td><span class="badge-pill badge-green">🟢 Мясо</span></td>
+              <td>Давление = Сила / Площадь. Чем ты голодранее, тем уже фокус («стрижем белых кошек в Воронеже»).</td>
+            </tr>
+            <tr data-type="meat">
+              <td><button class="time-seek-btn" onclick="seekVideoTo(376)">06:16</button></td>
+              <td>Партнерство и закон Спенсера</td>
+              <td><span class="badge-pill badge-green">🟢 Мясо</span></td>
+              <td>Survival of the Fittest: выживает наиболее приспособленный. Партнер компенсирует твои изъяны.</td>
+            </tr>
+            <tr data-type="meat">
+              <td><button class="time-seek-btn" onclick="seekVideoTo(506)">08:26</button></td>
+              <td>Фокус vs Диверсификация: Иллюзия блогеров</td>
+              <td><span class="badge-pill badge-green">🟢 Мясо</span></td>
+              <td>Тимати в бургерных — это аренда трафика, а не рестораторство. Вести 2 проекта — смерть для инвестора.</td>
+            </tr>
+            <tr data-type="meat">
+              <td><button class="time-seek-btn" onclick="seekVideoTo(794)">13:14</button></td>
+              <td>Стратегия выхода и продажа бизнеса</td>
+              <td><span class="badge-pill badge-green">🟢 Мясо</span></td>
+              <td>Либо адаптируй бизнес под ИИ, либо продавай за 8–10 годовых прибылей и выводи кэш.</td>
+            </tr>
+            <tr data-type="meat">
+              <td><button class="time-seek-btn" onclick="seekVideoTo(1027)">17:07</button></td>
+              <td>Лояльность команды vs Компетентность</td>
+              <td><span class="badge-pill badge-green">🟢 Мясо</span></td>
+              <td>«Мне плевать, как ко мне относятся». В штате на 300 чел. выгодно держать друзей ради сигнала стае.</td>
+            </tr>
+            <tr data-type="meat">
+              <td><button class="time-seek-btn" onclick="seekVideoTo(1482)">24:42</button></td>
+              <td>Опыт против Энергии и предел компании</td>
+              <td><span class="badge-pill badge-green">🟢 Мясо</span></td>
+              <td>Опытные приходят со своим потолком; молодые и голодные расширяют горизонт возможностей.</td>
+            </tr>
+            <tr data-type="meat">
+              <td><button class="time-seek-btn" onclick="seekVideoTo(1681)">28:01</button></td>
+              <td>Предательство и хантинг Яндексом</td>
+              <td><span class="badge-pill badge-green">🟢 Мясо</span></td>
+              <td>Вкладываешься как в детей, а они уходят за деньги. Антипаттерн «влюбленности в подчиненных».</td>
+            </tr>
+            <tr data-type="meat">
+              <td><button class="time-seek-btn" onclick="seekVideoTo(1851)">30:51</button></td>
+              <td>Спор Токовинина и Егора (Перфекционизм)</td>
+              <td><span class="badge-pill badge-green">🟢 Мясо</span></td>
+              <td>Конфликт «вылизывания пикселей» и «тяп-ляп в продакшн» как основа жизнеспособности продукта.</td>
+            </tr>
+            <tr data-type="meat">
+              <td><button class="time-seek-btn" onclick="seekVideoTo(2089)">34:49</button></td>
+              <td>Фундаментальность продаж (300 звонков)</td>
+              <td><span class="badge-pill badge-green">🟢 Мясо</span></td>
+              <td>«Без продаж в жизни шансов нет». Желтые страницы: после 300 cold-calls любой бездарь станет продавцом.</td>
+            </tr>
+            <tr data-type="meat">
+              <td><button class="time-seek-btn" onclick="seekVideoTo(2281)">38:01</button></td>
+              <td>Рост чека от нужды: $300 ➔ $100 000</td>
+              <td><span class="badge-pill badge-green">🟢 Мясо</span></td>
+              <td>Qsoft продавал сайты по $300 при себестоимости $500. Удваивали прайс каждые 3 месяца, дойдя до $100k.</td>
+            </tr>
+            <tr data-type="meat">
+              <td><button class="time-seek-btn" onclick="seekVideoTo(2596)">43:16</button></td>
+              <td>Две корзины капитала: Риск vs Сохранение</td>
+              <td><span class="badge-pill badge-green">🟢 Мясо</span></td>
+              <td>Приумножение — бизнес (высокий риск). Сохранение — бетон и депозиты. Крипта — это не сохранение.</td>
+            </tr>
+            <tr data-type="meat">
+              <td><button class="time-seek-btn" onclick="seekVideoTo(2709)">45:09</button></td>
+              <td>Кабриолет Porsche и слив депозита на бирже</td>
+              <td><span class="badge-pill badge-green">🟢 Мясо</span></td>
+              <td>Закономерность: первые заработанные дивиденды обязательно будут слиты на понты и биржу.</td>
+            </tr>
+            <tr data-type="meat">
+              <td><button class="time-seek-btn" onclick="seekVideoTo(2901)">48:21</button></td>
+              <td>Антистресс: Главное — ничего не делать</td>
+              <td><span class="badge-pill badge-green">🟢 Мясо</span></td>
+              <td>Суета в кризис множит ошибки. Лечь на диван, смотреть ТВ, отключиться, пока мозг не остынет.</td>
+            </tr>
+            <tr data-type="meat">
+              <td><button class="time-seek-btn" onclick="seekVideoTo(3027)">50:27</button></td>
+              <td>Кейс парня Димы и спасительные $10 000 кэша</td>
+              <td><span class="badge-pill badge-green">🟢 Мясо</span></td>
+              <td>Кассовый разрыв, задержка зарплат. Неизвестный клиент привез $10 000 аванса в тот же день и спас компанию.</td>
+            </tr>
+            <tr data-type="meat">
+              <td><button class="time-seek-btn" onclick="seekVideoTo(3200)">53:20</button></td>
+              <td>Везение как функция количества попыток</td>
+              <td><span class="badge-pill badge-green">🟢 Мясо</span></td>
+              <td>Бизнес — это покер. Выигрывает тот, кто дольше сидит за столом и сыграет сотни раздач.</td>
+            </tr>
+            <tr data-type="meat">
+              <td><button class="time-seek-btn" onclick="seekVideoTo(3301)">55:01</button></td>
+              <td>Почему 1-й бизнес гарантированно прогорит</td>
+              <td><span class="badge-pill badge-green">🟢 Мясо</span></td>
+              <td>Табу на кредиты и продажу квартир бабушек: задача 1-го бизнеса — выжить и сохранить право на попытку №2.</td>
+            </tr>
+            <tr data-type="misc">
+              <td><button class="time-seek-btn" onclick="seekVideoTo(3422)">57:02</button></td>
+              <td>Кайф от Excel вместо танчиков World of Tanks</td>
+              <td><span class="badge-pill badge-yellow">🟡 Общее</span></td>
+              <td>Сублимация азарта: направить игровое любопытство на финучет и B2B-продукты. В найме часто больше денег.</td>
+            </tr>
+            <tr data-type="meat">
+              <td><button class="time-seek-btn" onclick="seekVideoTo(3714)">01:01:54</button></td>
+              <td>Философия Панды По: «Главное — не накосячить»</td>
+              <td><span class="badge-pill badge-green">🟢 Мясо</span></td>
+              <td>Не меняй себя — используй себя. Не создавай волну — оседлай волну. Не совершай фатальных больших ошибок.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- БЛОК 3: Детальный разбор («Мясо») -->
+    <section id="block3" class="section-card">
+      <div class="section-header">
+        <div class="gemstudio-badge">Блок 3</div>
+        <h2 class="section-title">Детальный разбор ключевых узлов («Мясо»)</h2>
+      </div>
+
+      <!-- Узел 1 -->
+      <div class="chapter-card">
+        <div class="chapter-card-header">
+          <div>
+            <div class="chapter-num">Узел 1 • Позиционирование и география</div>
+            <div class="chapter-title">Физика гидравлического давления: 1 точка из 50</div>
+          </div>
+          <button class="time-seek-btn" onclick="seekVideoTo(208)">Таймкод: 03:28</button>
+        </div>
+        <p style="font-size: 0.95rem; line-height: 1.55; margin-bottom: 10px;">
+          <strong>Суть:</strong> У микробизнеса ничтожно мало ресурсов. Если распределять их по 50 направлениям («шаурма, автомойка, барбершоп, маркетинг»), давление на рынок будет околонулевым. По формуле <code>P = F / S</code> при мизерной силе <code>F</code> нужно экстремально уменьшить площадь <code>S</code> — позиционироваться ультра-узко (<em>«стрижем только белых кошек в Воронеже»</em>).
+        </p>
+        <p style="font-size: 0.95rem; line-height: 1.55;">
+          <strong>География:</strong> Ехать в Москву вредно, если клиент в регионе. В Москве дикая себестоимость и специфический рынок. WB, розницу или автосервисы парень из Перми или Ростова построит эффективнее москвича, потому что знает местную ментальность и экономику.
+        </p>
+        <div class="tradeoff-grid">
+          <div class="tradeoff-box tradeoff-pro">
+            <div class="tradeoff-label">Если внедрить в практику</div>
+            Отсекаются 90% непрофильных костов, команда бьет в одну точку, конверсия в монопродукте в разы выше конкурентов.
+          </div>
+          <div class="tradeoff-box tradeoff-con">
+            <div class="tradeoff-label">Риск перегиба</div>
+            Сужение ниши до микроскопической емкости рынка (TAM), где выручки не хватит даже на покрытие ФОТ.
+          </div>
+        </div>
+      </div>
+
+      <!-- Узел 2 -->
+      <div class="chapter-card">
+        <div class="chapter-card-header">
+          <div>
+            <div class="chapter-num">Узел 2 • Партнерство и операционный баланс</div>
+            <div class="chapter-title">Спор Токовинина и Егора: Перфекционист vs Бракодел</div>
+          </div>
+          <button class="time-seek-btn" onclick="seekVideoTo(1851)">Таймкод: 30:51</button>
+        </div>
+        <p style="font-size: 0.95rem; line-height: 1.55; margin-bottom: 10px;">
+          <strong>Суть:</strong> Выживает не сильнейший, а наиболее приспособленный (Герберт Спенсер). Партнерство — это биологический симбиоз, закрывающий органические слабости фаундера. В amoCRM Токовинин — маниакальный перфекционист («вылизываю пиксели, торможу релизы»), а партнер Егор — решительный операционист скорости («тяп-ляп в продакшн»).
+        </p>
+        <p style="font-size: 0.95rem; line-height: 1.55;">
+          <strong>Вывод:</strong> Институциональный конфликт партнеров — это двигатель качества. Без Егора продукт умер бы в бесконечных доработках; без Токовинина — захлебнулся бы в багах и сыром UX.
+        </p>
+        <div class="tradeoff-grid">
+          <div class="tradeoff-box tradeoff-pro">
+            <div class="tradeoff-label">Если внедрить в практику</div>
+            Брать в партнеры антипода по темпераменту и компетенциям, жестко разделив зоны финального veto.
+          </div>
+          <div class="tradeoff-box tradeoff-con">
+            <div class="tradeoff-label">Риск перегиба</div>
+            Эскалация институционального спора в войну эго, парализующую бизнес и ведущую к распаду компании.
+          </div>
+        </div>
+      </div>
+
+      <!-- Узел 3 -->
+      <div class="chapter-card">
+        <div class="chapter-card-header">
+          <div>
+            <div class="chapter-num">Узел 3 • Школа продаж и масштабирование чека</div>
+            <div class="chapter-title">«Без продаж шансов нет»: От $300 до $1 000 000</div>
+          </div>
+          <button class="time-seek-btn" onclick="seekVideoTo(2089)">Таймкод: 34:49</button>
+        </div>
+        <p style="font-size: 0.95rem; line-height: 1.55; margin-bottom: 10px;">
+          <strong>Суть:</strong> Ценность идеи равна нулю. Вся реальная ценность — в проданной идее. Продажи — это механическое ремесло, а не врожденная харизма. Первый холодный звонок — это всегда стыд, потные ладони и провал (<em>«Обосрался и пошел домой»</em>). Но после 300-й попытки любой бездарный интроверт неизбежно трансформируется в стабильного продавца.
+        </p>
+        <p style="font-size: 0.95rem; line-height: 1.55;">
+          <strong>Кейс Qsoft:</strong> Продавали сайты по $300 при себестоимости $500. Чтобы закрыть кассовый разрыв по прошлому сайту, следующий приходилось продавать дороже. Решение: каждые 3 месяца удваивали ценник (300 ➔ 600 ➔ 1200 ➔ ... ➔ $100 000). Рекордный контракт студии превысил $1 000 000.
+        </p>
+        <div class="tradeoff-grid">
+          <div class="tradeoff-box tradeoff-pro">
+            <div class="tradeoff-label">Если внедрить в практику</div>
+            Директивный регулярный подъем чека с углублением экспертности отсекает токсичных клиентов и расширяет маржу.
+          </div>
+          <div class="tradeoff-box tradeoff-con">
+            <div class="tradeoff-label">Риск перегиба</div>
+            Повышение цены без реального роста продуктовой ценности обрушивает конверсию воронки в ноль.
+          </div>
+        </div>
+      </div>
+
+      <!-- Узел 4 -->
+      <div class="chapter-card">
+        <div class="chapter-card-header">
+          <div>
+            <div class="chapter-num">Узел 4 • Управление рисками и кассовый разрыв</div>
+            <div class="chapter-title">Бизнес как покер: Парень Дима и пауза в стрессе</div>
+          </div>
+          <button class="time-seek-btn" onclick="seekVideoTo(3027)">Таймкод: 50:27</button>
+        </div>
+        <p style="font-size: 0.95rem; line-height: 1.55; margin-bottom: 10px;">
+          <strong>Суть:</strong> Бизнес — это не шахматы, а покер. На короткой дистанции неопытному может повезти, но на дистанции профи заберет банк за счет матожидания. Успех — это интеграл от числа попыток. Первый бизнес новичка прогорит почти наверняка, поэтому брать под него кредиты или закладывать недвижимость семьи категорически запрещено.
+        </p>
+        <p style="font-size: 0.95rem; line-height: 1.55;">
+          <strong>Кейс кассового разрыва:</strong> На 3-й год жизни Qsoft сидела без копейки в кассе за 2 дня до зарплат. Случайный клиент Дима приехал через час после звонка, выложил на стол $10 000 кэша и исчез. Спасение пришло благодаря тому, что основатели не вышли из игры. <strong>Правило стресса:</strong> в кризис главное — не суетиться, лечь на диван, смотреть ТВ и остудить мозг, иначе наделаешь старых ошибок.
+        </p>
+        <div class="tradeoff-grid">
+          <div class="tradeoff-box tradeoff-pro">
+            <div class="tradeoff-label">Если внедрить в практику</div>
+            Запуск серии дешевых экспериментов с фиксированным stop-loss без паники и долговой кабалы.
+          </div>
+          <div class="tradeoff-box tradeoff-con">
+            <div class="tradeoff-label">Риск перегиба</div>
+            Использование «паузы» как оправдания для безответственной прокрастинации в критический момент.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- БЛОК 4: Сводка цифр, бенчмарков и развилок -->
+    <section id="block4" class="section-card">
+      <div class="section-header">
+        <div class="gemstudio-badge">Блок 4</div>
+        <h2 class="section-title">Сводка цифр, бенчмарков и управленческих развилок</h2>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Метрика / Факт</th>
+              <th>Значение спикера</th>
+              <th>Контекст и рыночная логика</th>
+              <th>Оценка</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Выручка amoCRM</strong></td>
+              <td><strong>1,5+ млрд руб./год</strong></td>
+              <td>Масштаб B2B SaaS-экосистемы; миллионы пользователей, сотни тысяч платных клиентов.</td>
+              <td><span class="badge-pill badge-green">10/10 (СПАРК)</span></td>
+            </tr>
+            <tr>
+              <td><strong>Доля «1С» в amoCRM</strong></td>
+              <td><strong>51% акций</strong></td>
+              <td>Сделка 2016 года с Борисом Нуралиевым; фаундеры сохранили операционный контроль.</td>
+              <td><span class="badge-pill badge-green">10/10 (M&A)</span></td>
+            </tr>
+            <tr>
+              <td><strong>Экономика студии Qsoft</strong></td>
+              <td><strong>$300 чек / $500 себестоимость</strong></td>
+              <td>Классическая долговая яма веб-разработки 2000-х; дефицит стимулировал рост цен.</td>
+              <td><span class="badge-pill badge-green">10/10 (Реально)</span></td>
+            </tr>
+            <tr>
+              <td><strong>Динамика чека сайта</strong></td>
+              <td><strong>$300 ➔ $100 000 за 2,5 года</strong></td>
+              <td>Ежеквартальное удвоение ценника из нужды покрывать операционный разрыв.</td>
+              <td><span class="badge-pill badge-green">9/10 (Кейс)</span></td>
+            </tr>
+            <tr>
+              <td><strong>Рекордный сайт Qsoft</strong></td>
+              <td><strong>>$1 000 000</strong></td>
+              <td>Крупнейший Enterprise e-commerce контракт в истории студии.</td>
+              <td><span class="badge-pill badge-green">10/10 (Факт)</span></td>
+            </tr>
+            <tr>
+              <td><strong>Аванс спасения от разрыва</strong></td>
+              <td><strong>$10 000 наличными</strong></td>
+              <td>Случайный заказчик Дима привез кэш за день до зарплатного дефолта компании.</td>
+              <td><span class="badge-pill badge-green">10/10 (Жизнь)</span></td>
+            </tr>
+            <tr>
+              <td><strong>Порог конверсии в продавца</strong></td>
+              <td><strong>300 попыток звонков</strong></td>
+              <td>Норматив холодных контактов, снимающий барьер страха у любого интроверта.</td>
+              <td><span class="badge-pill badge-green">9/10 (Психология)</span></td>
+            </tr>
+            <tr>
+              <td><strong>Мультипликатор автономного бизнеса</strong></td>
+              <td><strong>8–10 годовых прибылей</strong></td>
+              <td>Бизнес с 12 млн руб. чистой прибыли в год продается за ~100 млн руб.</td>
+              <td><span class="badge-pill badge-green">8/10 (Рынок СМБ)</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- БЛОК 5: Ментальные модели и Mermaid-диаграмма -->
+    <section id="block5" class="section-card">
+      <div class="section-header">
+        <div class="gemstudio-badge">Блок 5</div>
+        <h2 class="section-title">Ментальные модели и архитектура выживания</h2>
+      </div>
+
+      <div class="callout">
+        <strong>Ключевые когнитивные фильтры Токовинина:</strong>
+        <ul style="margin-left: 20px; margin-top: 6px;">
+          <li><strong>Модель покерного стола:</strong> Относись к каждому проекту как к раздаче карт. Главное — не вылететь из турнира в первой же раздаче, сохранив фишки на 5–10 следующих попыток.</li>
+          <li><strong>Две корзины капитала:</strong> Приумножение (бизнес, 100% риска, высокий ROI) физически противоположно Сохранению (бетон, депозит, 0% риска). Не вздумай сохранять кэш в крипте и чужих стартапах.</li>
+          <li><strong>Философия Панды По:</strong> «Не пытайся себя менять — используй себя. Не пытайся создать волну — оседлай волну». Побеждает тот, кто эксплуатирует свою природную асимметрию.</li>
+        </ul>
+      </div>
+
+      <div style="margin: 24px 0; background: rgba(15, 23, 42, 0.8); border: 1px solid var(--card-border); border-radius: 12px; padding: 20px;">
+        <div style="font-size: 0.82rem; font-weight: 700; color: var(--accent-blue); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 14px;">
+          Схема: Дерево решений выживания и капитализации бизнеса по Токовинину
+        </div>
+        <div class="mermaid">
+flowchart TD
+    Start["Запуск бизнеса (Ресурсов нет / Фаундер голодранец)"] --> ChoiceFocus{"Выбор стратегии фокуса"}
+
+    ChoiceFocus -->|"Ошибка: 50 направлений одновременно"| FailFocus["Размазывание ресурсов тонким слоем"]
+    FailFocus --> Death1["❌ Гарантированное банкротство"]
+
+    ChoiceFocus -->|"Верно: 1 узкая ниша (Стрижка белых кошек)"| DeepPressure["Максимальное давление на мизерную площадь"]
+
+    DeepPressure --> SalesStage{"Школа продаж: Холодный старт"}
+    SalesStage -->|"Страх звонков / Теоретизирование"| Death2["❌ Смерть в подвале за Дошираком"]
+    SalesStage -->|"300 cold-calls по Желтым страницам"| SalesSkill["Преодоление стыда + Владение ремеслом"]
+
+    SalesSkill --> PriceHike["Регулярное удвоение чека от нужды ($300 ➔ $100k)"]
+
+    PriceHike --> CashGapRisk{"Кризис: Смертельный кассовый разрыв"}
+    CashGapRisk -->|"Паническая суета / Набор кредитов"| Death3["❌ Фатальный косяк и долговая яма"]
+    CashGapRisk -->|"Метод Токовинина: Freeze (диван + ТВ + мышление)"| Survival["Остывший мозг + Дистанция покерного стола"]
+
+    Survival --> TeamScale{"Масштабирование команды"}
+    TeamScale -->|"Влюбленность в сотрудников / Обиды на хантинг"| Heartbreak["Эмоциональное выгорание фаундера"]
+    TeamScale -->|"Опыт + Энергия молодых + Сигнал стае через ветеранов"| RobustOrg["Устойчивая организация (amoCRM 300+ чел)"]
+
+    RobustOrg --> CapitalSplit{"Распределение первых больших денег"}
+    CapitalSplit -->|"Слив: Porsche + биржа + чужие стартапы"| LifeLesson["Неизбежная плата за финансовую зрелость"]
+    LifeLesson --> TwoBaskets["Истинная зрелость: Разделение 2 корзин"]
+    
+    TwoBaskets --> GrowthBasket["Корзина 1: Приумножение (Свой бизнес / 1,5 млрд выручка)"]
+    TwoBaskets --> SaveBasket["Корзина 2: Сохранение (Депозиты / Бетон / Ноль риска)"]
+
+    style Start fill:#1e293b,stroke:#38bdf8,stroke-width:2px,color:#f8fafc
+    style Death1 fill:#7f1d1d,stroke:#ef4444,stroke-width:1px,color:#fee2e2
+    style Death2 fill:#7f1d1d,stroke:#ef4444,stroke-width:1px,color:#fee2e2
+    style Death3 fill:#7f1d1d,stroke:#ef4444,stroke-width:1px,color:#fee2e2
+    style RobustOrg fill:#064e3b,stroke:#10b981,stroke-width:2px,color:#ecfdf5
+    style SaveBasket fill:#064e3b,stroke:#10b981,stroke-width:2px,color:#ecfdf5
+    style GrowthBasket fill:#064e3b,stroke:#10b981,stroke-width:2px,color:#ecfdf5
+        </div>
+      </div>
+    </section>
+
+    <!-- БЛОК 6: Справочник сущностей (Wikilinks) -->
+    <section id="block6" class="section-card">
+      <div class="section-header">
+        <div class="gemstudio-badge">Блок 6</div>
+        <h2 class="section-title">Справочник сущностей ([[Obsidian Wikilinks]])</h2>
+      </div>
+
+      <div class="entity-group">
+        <div class="entity-group-title">Персоны</div>
+        <div class="pills-cloud">
+          <span class="entity-pill">[[Михаил Токовинин]]</span>
+          <span class="entity-pill">[[Глеб Соломин]]</span>
+          <span class="entity-pill">[[Борис Нуралиев]]</span>
+          <span class="entity-pill">[[Егор]] (партнер)</span>
+          <span class="entity-pill">[[Олег Тиньков]]</span>
+          <span class="entity-pill">[[Герберт Спенсер]]</span>
+          <span class="entity-pill">[[Стив Джобс]]</span>
+          <span class="entity-pill">[[Стив Возняк]]</span>
+        </div>
+      </div>
+
+      <div class="entity-group">
+        <div class="entity-group-title">Компании, платформы и бренды</div>
+        <div class="pills-cloud">
+          <span class="entity-pill">[[amoCRM]]</span>
+          <span class="entity-pill">[[Qsoft]]</span>
+          <span class="entity-pill">[[1С]]</span>
+          <span class="entity-pill">[[Яндекс]]</span>
+          <span class="entity-pill">[[Wildberries]]</span>
+          <span class="entity-pill">[[Porsche]]</span>
+          <span class="entity-pill">[[World of Tanks]]</span>
+        </div>
+      </div>
+
+      <div class="entity-group">
+        <div class="entity-group-title">Концепции и антипаттерны</div>
+        <div class="pills-cloud">
+          <span class="entity-pill">[[Survival of the Fittest]]</span>
+          <span class="entity-pill">[[Кассовый разрыв]]</span>
+          <span class="entity-pill">[[Антипаттерн Ва-банк]]</span>
+          <span class="entity-pill">[[Антипаттерн Влюбленности в команду]]</span>
+          <span class="entity-pill">[[Две корзины капитала]]</span>
+          <span class="entity-pill">[[Закон гидравлического фокуса]]</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- БЛОК 7: Золотые формулировки и панчлайны -->
+    <section id="block7" class="section-card">
+      <div class="section-header">
+        <div class="gemstudio-badge">Блок 7</div>
+        <h2 class="section-title">Золотые формулировки и панчлайны выпуска</h2>
+      </div>
+
+      <div class="quote-box">
+        <div class="quote-text">«Без продаж у тебя в жизни шансов нет. Пока ты не поднял трубку телефона и не сказал: "Здравствуйте, вам сайт не нужен?" — ты теоретик, а не бизнесмен».</div>
+        <div class="quote-author">— Михаил Токовинин о начале пути в подвале</div>
+      </div>
+
+      <div class="quote-box">
+        <div class="quote-text">«Обосрался — пошел домой. И первое публичное выступление — ты обосрался и пошел домой. Так и должно быть. Никто не может не научиться продавать после трехсотой попытки».</div>
+        <div class="quote-author">— Михаил Токовинин о ремесле холодных продаж</div>
+      </div>
+
+      <div class="quote-box">
+        <div class="quote-text">«Везение — функция от количества попыток. Бизнес намного больше похож на покер, чем на шахматы. Суть не в том, чтобы сорвать куш, а в том, чтобы пересидеть за столом менее опытных игроков».</div>
+        <div class="quote-author">— Михаил Токовинин о теории вероятностей в бизнесе</div>
+      </div>
+
+      <div class="quote-box">
+        <div class="quote-text">«Чем ты голодранее, тем уже должен быть твой фокус. Успешный бизнес — это когда ты говоришь: "Мы ничего не делаем, только стрижем кошек, только белых, только в Воронеже"».</div>
+        <div class="quote-author">— Михаил Токовинин о законе гидравлического давления</div>
+      </div>
+
+      <div class="quote-box">
+        <div class="quote-text">«Когда у меня неприятности или трудности, я стараюсь максимально ничего не делать. Отключиться, лечь на диван и смотреть телевизор. Если ты суетишься и дрыгаешься — ты мало думаешь и просто повторяешь старые ошибки».</div>
+        <div class="quote-author">— Михаил Токовинин о выходе из кризисного стресса</div>
+      </div>
+
+      <div class="quote-box">
+        <div class="quote-text">«Не пытайся себя менять — используй себя. Не пытайся создать волну — пытайся оседлать волну. В этом же весь прикол: ничего не ломай, пользуйся сложившимися обстоятельствами».</div>
+        <div class="quote-author">— Михаил Токовинин (Философия Панды По)</div>
+      </div>
+
+      <div class="quote-box">
+        <div class="quote-text">«Самое главное — сильно не накосячить. Жизнь ломает не серия мелких промахов, а один большой фатальный косяк. Чуть-чуть косячьте, но по-крупному — никогда».</div>
+        <div class="quote-author">— Михаил Токовинин в завершение подкаста</div>
+      </div>
+    </section>
+
+    <!-- БЛОК 8: Внешний фактчек и реакция аудитории -->
+    <section id="block8" class="section-card">
+      <div class="section-header">
+        <div class="gemstudio-badge">Блок 8</div>
+        <h2 class="section-title">Внешний фактчек, материалы и реакция аудитории</h2>
+      </div>
+
+      <div class="callout">
+        <strong>Фактчек и верификация:</strong>
+        <ul style="margin-left: 20px; margin-top: 6px;">
+          <li><strong>Сделка с «1С» (2016 г.):</strong> Подтверждена официальным пресс-релизом фирмы «1С». Покупка 51% акций amoCRM стала одной из крупнейших стратегических инвестиций в российском облачном ПО.</li>
+          <li><strong>Выручка >1,5 млрд руб.:</strong> Финансовая отчетность ключевых юрлиц группы amoCRM (ООО «Амоцрм» и др.) за 2023–2024 гг. подтверждает масштаб бизнеса с маржинальностью по чистой прибыли свыше 30%.</li>
+          <li><strong>История Qsoft:</strong> Основана в 2002 году, занимала 1 место в рейтинге веб-студий Tagline в сегменте Enterprise e-commerce.</li>
+        </ul>
+      </div>
+
+      <div class="callout warning">
+        <strong>Реакция аудитории (Топ-комментарии):</strong>
+        <ul style="margin-left: 20px; margin-top: 6px;">
+          <li><code>@barney2023-July</code>: <em>«Мы каждый квартал поднимали цены, потому что денег катастрофически не хватало! И потом, я купил кабриолет и спустил остальные на бирже 😂»</em> — зрители встретили историю максимальным одобрением за самоиронию.</li>
+          <li><code>@GerberC</code>: <em>«Привычка из-за которой 97% бедны называется КАПИТАЛИЗМ...»</em> — критика кликбейтного названия выпуска со стороны левой аудитории.</li>
+          <li><code>@AbdullahBarzukaev</code>: <em>«Очень много вопросов, придуманных на ходу»</em> — зрители отметили контраст между глубокими ответами Токовинина и поверхностными вопросами интервьюера.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- БЛОК 9: Применение: Чек-лист и вопросы к себе -->
+    <section id="block9" class="section-card">
+      <div class="section-header">
+        <div class="gemstudio-badge">Блок 9</div>
+        <h2 class="section-title">Практическое применение: Чек-лист и вопросы к себе</h2>
+      </div>
+
+      <div class="checklist-wrap">
+        <div class="progress-bar-wrap">
+          <div class="progress-bar-fill" id="progressFill"></div>
+        </div>
+        <div class="progress-text" id="progressLabel">Прогресс: 0 из 6 выполнено (0%)</div>
+
+        <label class="check-item" for="chk1">
+          <input type="checkbox" id="chk1" onchange="toggleCheck(this)">
+          <div class="check-content">
+            <div class="check-title">1. Аудит точек распыления (День 1–3)</div>
+            <div class="check-desc">Выписать все 50 текущих направлений, услуг и гипотез компании. Безжалостно отрезать 80% балласта и сфокусировать 100% ресурса на одном монопродукте.</div>
+          </div>
+        </label>
+
+        <label class="check-item" for="chk2">
+          <input type="checkbox" id="chk2" onchange="toggleCheck(this)">
+          <div class="check-content">
+            <div class="check-title">2. Формулировка гидравлического позиционирования (День 4–7)</div>
+            <div class="check-desc">Сформулировать ультра-узкое предложение по формуле: «Мы делаем только [X] только для [Y] в локации [Z]» (по модели стрижки белых кошек в Воронеже).</div>
+          </div>
+        </label>
+
+        <label class="check-item" for="chk3">
+          <input type="checkbox" id="chk3" onchange="toggleCheck(this)">
+          <div class="check-content">
+            <div class="check-title">3. Норматив 300 попыток (День 8–15)</div>
+            <div class="check-desc">Запретить делать выводы об отказе рынка от продукта до совершения 300 прямых холодных звонков или встреч потенциальным покупателям.</div>
+          </div>
+        </label>
+
+        <label class="check-item" for="chk4">
+          <input type="checkbox" id="chk4" onchange="toggleCheck(this)">
+          <div class="check-content">
+            <div class="check-title">4. Протокол директивного подъема цен (День 16–20)</div>
+            <div class="check-desc">Поднять прайс на 25–50% на следующую когорту клиентов для покрытия реальной себестоимости и проверки ценовой эластичности спроса.</div>
+          </div>
+        </label>
+
+        <label class="check-item" for="chk5">
+          <input type="checkbox" id="chk5" onchange="toggleCheck(this)">
+          <div class="check-content">
+            <div class="check-title">5. Разделение двух корзин капитала (День 21–25)</div>
+            <div class="check-desc">Четко отделить кэш для приумножения (бизнес) от денег на сохранение. Вывести личные сбережения из высокорисковых спекулятивных активов в бетон и депозиты.</div>
+          </div>
+        </label>
+
+        <label class="check-item" for="chk6">
+          <input type="checkbox" id="chk6" onchange="toggleCheck(this)">
+          <div class="check-content">
+            <div class="check-title">6. Протокол антистресс-паузы «Freeze» (День 26–30)</div>
+            <div class="check-desc">При наступлении следующего форс-мажора объявить 24-часовой мораторий на импульсивные действия: отключить телефон, дать мозгу остыть и трезво оценить шансы.</div>
+          </div>
+        </label>
+      </div>
+
+      <div class="callout" style="margin-top: 24px;">
+        <strong>6 стратегических вопросов к себе (Рефлексия собственника):</strong>
+        <ol style="margin-left: 20px; margin-top: 8px; line-height: 1.6;">
+          <li><em>Если бизнес — это покер, на сколько еще дешевых попыток мне гарантированно хватит фишек за этим столом, если текущая ставка сгорит?</em></li>
+          <li><em>Не совершаю ли я ошибку новичка, пытаясь давить на 50 точек сразу вместо концентрации силы в одной игле?</em></li>
+          <li><em>Где физически находится мой клиент, и не плачу ли я «московский налог» там, где региональная экспансия в разы рентабельнее?</em></li>
+          <li><em>В чем органический дефицит моих лидерских качеств, и компенсирует ли его мой партнер или ключевой операционист?</em></li>
+          <li><em>Не нахожусь ли я в токсичной иллюзии «влюбленности в команду», требуя сыновней верности от людей с рыночными контрактами?</em></li>
+          <li><em>Какую фатальную большую ошибку я рискую совершить прямо сейчас, поддавшись панике или тщеславию?</em></li>
+        </ol>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+
+  // === MOBILE NAVIGATION DRAWER & UTILITIES ===
+  function toggleNavDrawer() {
+    var overlay = document.getElementById('navDrawerOverlay');
+    if (!overlay) return;
+    if (overlay.classList.contains('is-open')) {
+      closeNavDrawer();
+    } else {
+      overlay.style.display = 'flex';
+      overlay.offsetHeight;
+      overlay.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeNavDrawer() {
+    var overlay = document.getElementById('navDrawerOverlay');
+    if (!overlay) return;
+    overlay.classList.remove('is-open');
+    document.body.style.overflow = '';
+    setTimeout(function() {
+      if (!overlay.classList.contains('is-open')) {
+        overlay.style.display = 'none';
+      }
+    }, 280);
+  }
+
+  function handleOverlayClick(event) {
+    if (event.target && event.target.id === 'navDrawerOverlay') {
+      closeNavDrawer();
+    }
+  }
+
+  function toggleHeatmapCollapse() {
+    var wrapper = document.getElementById('heatmapCollapseWrapper');
+    var btn = document.getElementById('toggleHeatmapBtn');
+    if (!wrapper || !btn) return;
+
+    var isCollapsed = wrapper.classList.toggle('is-collapsed');
+    if (isCollapsed) {
+      btn.innerHTML = '<span>▾ Показать все 20 глав выпуска (еще 15)</span>';
+      var b2 = document.getElementById('block2');
+      if (b2) b2.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      btn.innerHTML = '<span>▴ Свернуть список глав</span>';
+    }
+  }
+
+    function playEmbeddedVideo() {
+      const card = document.getElementById('videoPreviewCard');
+      const container = document.getElementById('videoEmbedContainer');
+      if (card && container) {
+        card.style.display = 'none';
+        container.style.display = 'block';
+        container.innerHTML = '<iframe src="https://www.youtube.com/embed/ZFQsEs0jR1I?autoplay=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+      }
+    }
+
+    function seekVideoTo(seconds) {
+      const card = document.getElementById('videoPreviewCard');
+      const container = document.getElementById('videoEmbedContainer');
+      card.style.display = 'none';
+      container.style.display = 'block';
+      container.innerHTML = `<iframe src="https://www.youtube.com/embed/ZFQsEs0jR1I?autoplay=1&start=${seconds}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+      container.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    function filterHeatmap(type) {
+      const rows = document.querySelectorAll('#heatmapTable tbody tr');
+      const buttons = document.querySelectorAll('.filter-btn');
+      
+      buttons.forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+
+      rows.forEach(r => {
+        const rType = r.getAttribute('data-type');
+        if (type === 'all' || rType === type) {
+          r.style.display = '';
+        } else {
+          r.style.display = 'none';
+        }
+      });
+    }
+
+    function toggleCheck(checkbox) {
+      const parent = checkbox.closest('.check-item');
+      if (checkbox.checked) {
+        parent.classList.add('done');
+      } else {
+        parent.classList.remove('done');
+      }
+      updateProgress();
+      saveChecklist();
+    }
+
+    function updateProgress() {
+      const total = document.querySelectorAll('.check-item input[type="checkbox"]').length;
+      const checked = document.querySelectorAll('.check-item input[type="checkbox"]:checked').length;
+      const pct = total === 0 ? 0 : Math.round((checked / total) * 100);
+      
+      const fill = document.getElementById('progressFill');
+      const label = document.getElementById('progressLabel');
+      if (fill && label) {
+        fill.style.width = pct + '%';
+        label.innerText = `Прогресс: ${checked} из ${total} выполнено (${pct}%)`;
+      }
+    }
+
+    function saveChecklist() {
+      const checks = {};
+      document.querySelectorAll('.check-item input[type="checkbox"]').forEach(c => {
+        checks[c.id] = c.checked;
+      });
+      localStorage.setItem('yt_tokovinin_2026_checklist', JSON.stringify(checks));
+    }
+
+    function loadChecklist() {
+      const saved = localStorage.getItem('yt_tokovinin_2026_checklist');
+      if (saved) {
+        try {
+          const checks = JSON.parse(saved);
+          for (const id in checks) {
+            const el = document.getElementById(id);
+            if (el) {
+              el.checked = checks[id];
+              if (checks[id]) el.closest('.check-item').classList.add('done');
+            }
+          }
+        } catch (e) {}
+      }
+      updateProgress();
+    }
+
+    window.addEventListener('DOMContentLoaded', loadChecklist);
+  </script>
+
+  <!-- Плавающая кнопка вызова оглавления -->
+  <div id="floatingNavBtn" class="floating-nav-pill" onclick="toggleNavDrawer()" title="Навигация по разделам">
+    <span>🧭 Навигация</span>
+  </div>
+
+  <!-- Шторка-модалка навигации по статье -->
+  <div id="navDrawerOverlay" class="nav-drawer-overlay" onclick="handleOverlayClick(event)">
+    <div class="nav-drawer-sheet">
+      <div class="drawer-header">
+        <div class="drawer-title">Навигация по разбору</div>
+        <button class="drawer-close-btn" onclick="closeNavDrawer()">✕</button>
+      </div>
+      <div class="drawer-links-grid">
+        <a href="00_Хаб_Все_Разборы.html" class="drawer-link catalog-link">
+          <span>🏠</span> <strong>← Вернуться в Каталог всех разборов</strong>
+        </a>
+        <a href="#block1" class="drawer-link" onclick="closeNavDrawer()">
+          <span>🎯</span> <span>Блок 1. Интро и скрытая повестка</span>
+        </a>
+        <a href="#block2" class="drawer-link" onclick="closeNavDrawer()">
+          <span>🗺️</span> <span>Блок 2. Тепловая карта выпуска (20 глав)</span>
+        </a>
+        <a href="#block3" class="drawer-link" onclick="closeNavDrawer()">
+          <span>🥩</span> <span>Блок 3. Детальный разбор («Мясо»)</span>
+        </a>
+        <a href="#block4" class="drawer-link" onclick="closeNavDrawer()">
+          <span>📊</span> <span>Блок 4. Сводка цифр, бенчмарков и развилок</span>
+        </a>
+        <a href="#block5" class="drawer-link" onclick="closeNavDrawer()">
+          <span>🧠</span> <span>Блок 5. Ментальные модели amoCRM</span>
+        </a>
+        <a href="#block6" class="drawer-link" onclick="closeNavDrawer()">
+          <span>📚</span> <span>Блок 6. Справочник сущностей и термины</span>
+        </a>
+        <a href="#block7" class="drawer-link" onclick="closeNavDrawer()">
+          <span>💬</span> <span>Блок 7. Золотые формулировки Токовинина</span>
+        </a>
+        <a href="#block8" class="drawer-link" onclick="closeNavDrawer()">
+          <span>🔍</span> <span>Блок 8. Фактчек и материалы выпуска</span>
+        </a>
+        <a href="#block9" class="drawer-link" onclick="closeNavDrawer()">
+          <span>✅</span> <span>Блок 9. Чек-лист действий</span>
+        </a>
+        <a href="/tokovinin.md" download="2026-10-30_Токовинин_Бизнес_Покер_Продажи_amoCRM.md" class="drawer-link" style="color: #a5b4fc; border-color: rgba(129, 140, 248, 0.3);">
+          <span>📥</span> <span>Скачать Markdown (.md для Obsidian)</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

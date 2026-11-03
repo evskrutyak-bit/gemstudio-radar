@@ -1,0 +1,2352 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Open Graph / Rich Social Preview -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Мозг: инструкция по применению. Механика сборки мышления | Андрей Курпатов | Андрей Курпатов — Бизнес-Деконструкция">
+  <meta property="og:description" content="Полный бизнес-разбор 90-минутного интервью у Глеба Соломина: крах UBI ( трлн дефицита), разрушение SaaS, кейс стартапа Emma (2 человека вместо 400) и дедлайн сингулярности в 2027 году.">
+  <meta property="og:image" content="kurpatov_cover.jpg">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="720">
+  <meta property="og:site_name" content="Бизнес-Деконструктор Контента">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Мозг: инструкция по применению. Механика сборки мышления | Андрей Курпатов | Андрей Курпатов — Бизнес-Деконструкция">
+  <meta name="twitter:description" content="Бизнес-разбор интервью Мо Гавдата: крах UBI, гибель SaaS и сингулярность 2027.">
+  <meta name="twitter:image" content="kurpatov_cover.jpg">
+
+  <title>Мозг: инструкция по применению. Механика сборки мышления | Андрей Курпатов | Андрей Курпатов — Бизнес-Деконструкция</title>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'dark',
+      themeVariables: {
+        primaryColor: '#1e293b',
+        primaryTextColor: '#f8fafc',
+        primaryBorderColor: '#38bdf8',
+        lineColor: '#64748b',
+        secondaryColor: '#334155',
+        tertiaryColor: '#0f172a'
+      }
+    });
+  </script>
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: #111726;
+      --card-border: #1e293b;
+      --card-hover: #172033;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --accent-blue: #38bdf8;
+      --accent-purple: #818cf8;
+      --accent-green: #34d399;
+      --accent-red: #f87171;
+      --accent-gold: #fbbf24;
+      --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    
+    html, body {
+      overflow-x: hidden !important;
+      max-width: 100vw !important;
+      width: 100%;
+      position: relative;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: var(--font-main);
+      line-height: 1.6;
+      padding: 24px 16px 80px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.9) 100%);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 32px 24px;
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .badge-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-blue { background: rgba(56, 189, 248, 0.15); color: var(--accent-blue); border: 1px solid rgba(56, 189, 248, 0.3); }
+    .badge-purple { background: rgba(129, 140, 248, 0.15); color: var(--accent-purple); border: 1px solid rgba(129, 140, 248, 0.3); }
+    .badge-gold { background: rgba(251, 191, 36, 0.15); color: var(--accent-gold); border: 1px solid rgba(251, 191, 36, 0.3); }
+    .badge-green { background: rgba(52, 211, 153, 0.15); color: var(--accent-green); border: 1px solid rgba(52, 211, 153, 0.3); }
+    .badge-red { background: rgba(248, 113, 113, 0.15); color: var(--accent-red); border: 1px solid rgba(248, 113, 113, 0.3); }
+
+    h1 {
+      font-size: 2.1rem;
+      line-height: 1.25;
+      color: #fff;
+      margin-bottom: 12px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .meta-subtitle {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .meta-subtitle a {
+      color: var(--accent-blue);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .meta-subtitle a:hover {
+      text-decoration: underline;
+    }
+
+    
+    /* Video Preview Hero */
+    .video-preview-hero {
+      margin-top: 20px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--card-border);
+      background: #000;
+      position: relative;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    }
+
+    .video-preview-card {
+      position: relative;
+      cursor: pointer;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .video-thumb {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .video-preview-card:hover .video-thumb {
+      transform: scale(1.02);
+      filter: brightness(0.9);
+    }
+
+    .video-play-btn {
+      position: absolute;
+      width: 68px;
+      height: 68px;
+      background: rgba(239, 68, 68, 0.9);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      box-shadow: 0 0 30px rgba(239, 68, 68, 0.6);
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .video-preview-card:hover .video-play-btn {
+      transform: scale(1.12);
+      background: #dc2626;
+    }
+
+    .video-duration-badge {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(4px);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-family: var(--font-mono);
+      color: #f1f5f9;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .video-embed-container {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+    }
+
+    .video-embed-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Quick Nav */
+    .nav-bar {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 8px 4px 16px;
+      margin-bottom: 24px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--card-border) transparent;
+    }
+
+    .nav-bar a {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+
+    .nav-bar a:hover {
+      background: var(--card-hover);
+      color: var(--accent-blue);
+      border-color: var(--accent-blue);
+    }
+
+    /* Cards */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    }
+
+    .card h2 {
+      font-size: 1.35rem;
+      color: #fff;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 12px;
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      color: var(--accent-blue);
+      margin: 18px 0 8px;
+    }
+
+    p {
+      margin-bottom: 12px;
+      color: var(--text-main);
+    }
+
+    ul, ol {
+      margin-left: 20px;
+      margin-bottom: 14px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    strong {
+      color: #fff;
+    }
+
+    /* Verdict Box */
+    .verdict-box {
+      border-left: 4px solid var(--accent-gold);
+      background: rgba(251, 191, 36, 0.08);
+      border-radius: 0 10px 10px 0;
+      padding: 16px;
+      margin: 16px 0;
+    }
+
+    .agenda-card {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px dashed var(--card-border);
+      border-radius: 10px;
+      padding: 16px;
+      margin: 16px 0;
+    }
+
+    /* Heatmap Table */
+    .tc-link {
+      color: var(--accent-blue);
+      text-decoration: none;
+      font-family: var(--font-mono);
+      font-weight: 600;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .tc-link:hover {
+      background: var(--accent-blue);
+      color: #000;
+      border-color: var(--accent-blue);
+      text-decoration: none;
+    }
+
+    .filter-controls {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: var(--text-muted);
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--accent-blue);
+      color: #000;
+      border-color: var(--accent-blue);
+      font-weight: 600;
+    }
+
+    
+    .card {
+      max-width: 100%;
+      overflow-x: hidden;
+      word-wrap: break-word;
+    }
+    .table-responsive {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      display: block;
+    }
+
+    .table-responsive-old {
+      width: 100%;
+      overflow-x: auto;
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      text-align: left;
+    }
+
+    th {
+      background: #0f172a;
+      color: var(--text-muted);
+      padding: 12px 14px;
+      font-weight: 600;
+      border-bottom: 1px solid var(--card-border);
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+    }
+
+    td {
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      vertical-align: top;
+    }
+
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    /* Act Accordions / Sections */
+    .act-block {
+      background: #0d121f;
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 18px;
+    }
+
+    .act-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .act-badge {
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: 6px;
+      background: #1e293b;
+      color: var(--accent-blue);
+      font-family: var(--font-mono);
+    }
+
+    .insight-box {
+      background: rgba(56, 189, 248, 0.06);
+      border-left: 3px solid var(--accent-blue);
+      padding: 12px 14px;
+      border-radius: 0 8px 8px 0;
+      margin: 12px 0;
+      font-size: 0.92rem;
+    }
+
+    .tradeoff-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .tradeoff-card {
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+    }
+
+    .tradeoff-apply {
+      background: rgba(52, 211, 153, 0.08);
+      border: 1px solid rgba(52, 211, 153, 0.25);
+    }
+
+    .tradeoff-risk {
+      background: rgba(248, 113, 113, 0.08);
+      border: 1px solid rgba(248, 113, 113, 0.25);
+    }
+
+    /* Quotes */
+    .quote-card {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.4) 0%, rgba(15, 23, 42, 0.8) 100%);
+      border-left: 4px solid var(--accent-purple);
+      border-radius: 0 12px 12px 0;
+      padding: 18px;
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .quote-text {
+      font-style: italic;
+      font-size: 1.05rem;
+      color: #e2e8f0;
+      margin-bottom: 8px;
+    }
+
+    .quote-author {
+      font-size: 0.85rem;
+      color: var(--accent-purple);
+      font-weight: 600;
+    }
+
+    /* Checklist */
+    .checklist-progress-bar {
+      background: #1e293b;
+      height: 8px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+
+    .checklist-progress-fill {
+      background: var(--accent-green);
+      height: 100%;
+      width: 0%;
+      transition: width 0.3s;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      margin-bottom: 8px;
+      background: rgba(255, 255, 255, 0.02);
+      transition: all 0.2s;
+    }
+
+    .check-item:hover {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: var(--card-border);
+    }
+
+    .check-item input[type="checkbox"] {
+      margin-top: 4px;
+      width: 18px;
+      height: 18px;
+      accent-color: var(--accent-green);
+      cursor: pointer;
+    }
+
+    .check-item.done label {
+      text-decoration: line-through;
+      color: var(--text-muted);
+    }
+
+    .check-item label {
+      cursor: pointer;
+      font-size: 0.95rem;
+      flex-grow: 1;
+    }
+
+    /* Tag pills */
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .tag-pill {
+      background: #1e293b;
+      color: #93c5fd;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      text-decoration: none;
+      font-family: var(--font-mono);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 640px) {
+      
+    html, body {
+      overflow-x: hidden !important;
+      max-width: 100vw !important;
+      width: 100%;
+      position: relative;
+    }
+
+    body {
+        padding: 12px 8px 60px;
+      }
+      header {
+        padding: 20px 16px;
+      }
+      h1 {
+        font-size: 1.45rem;
+      }
+      .card {
+        padding: 16px;
+      }
+      .tradeoff-grid {
+        grid-template-columns: 1fr;
+      }
+      .meta-subtitle {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+    }
+
+    /* Print Styles */
+    @media print {
+      
+    html, body {
+      overflow-x: hidden !important;
+      max-width: 100vw !important;
+      width: 100%;
+      position: relative;
+    }
+
+    body {
+        background: #fff;
+        color: #000;
+        padding: 0;
+      }
+      .card, header, .act-block {
+        background: #fff;
+        color: #000;
+        border: 1px solid #ccc;
+        box-shadow: none;
+      }
+      .nav-bar, .filter-controls, .checklist-progress-bar {
+        display: none;
+      }
+      h1, h2, h3, strong {
+        color: #000;
+      }
+      a {
+        color: #000;
+        text-decoration: underline;
+      }
+    }
+  
+    /* Global Gemstudio Top Nav */
+    .gemstudio-top-nav {
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(56, 189, 248, 0.25);
+      padding: 12px 16px;
+      position: relative;
+      top: 0;
+      z-index: 1000;
+      margin: -24px -16px 24px -16px;
+    }
+    .gemstudio-nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .gemstudio-brand {
+      font-weight: 800;
+      color: #38bdf8;
+      text-decoration: none;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .gemstudio-brand:hover {
+      color: #fff;
+    }
+    .gemstudio-nav-links {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .gemstudio-nav-links a {
+      color: #94a3b8;
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+      border: 1px solid transparent;
+      background: rgba(255, 255, 255, 0.03);
+    }
+    .gemstudio-nav-links a:hover {
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.12);
+      border-color: rgba(56, 189, 248, 0.3);
+    }
+    .gemstudio-nav-links a.active {
+      color: #fff;
+      background: #0284c7;
+      border-color: #38bdf8;
+      font-weight: 600;
+    }
+
+  
+    .btn-download-md {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(129, 140, 248, 0.15);
+      color: #a5b4fc;
+      border: 1px solid rgba(129, 140, 248, 0.35);
+      padding: 4px 12px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .btn-download-md:hover {
+      background: #6366f1;
+      color: #fff;
+      border-color: #6366f1;
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
+      text-decoration: none;
+    }
+
+  
+    /* === STUDIO ELITE v4.0 ENHANCEMENTS === */
+    :root {
+      --bg: #070a12;
+      --card-bg: linear-gradient(180deg, rgba(17, 24, 39, 0.8) 0%, rgba(13, 19, 34, 0.95) 100%);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-hover: rgba(23, 32, 51, 0.95);
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --accent-blue: #38bdf8;
+      --accent-purple: #818cf8;
+      --accent-green: #34d399;
+      --accent-red: #f87171;
+      --accent-gold: #fbbf24;
+      --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+
+    
+    html, body {
+      overflow-x: hidden !important;
+      max-width: 100vw !important;
+      width: 100%;
+      position: relative;
+    }
+
+    body {
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(at 10% 15%, rgba(56, 189, 248, 0.04) 0px, transparent 50%),
+        radial-gradient(at 90% 85%, rgba(129, 140, 248, 0.04) 0px, transparent 50%);
+      background-attachment: fixed;
+    }
+
+    /* Reading Progress Bar */
+    .reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, #38bdf8, #818cf8, #34d399);
+      z-index: 99999;
+      transition: width 0.1s ease;
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+    }
+
+    /* Ambient Glow for Video Player */
+    .video-ambient-wrapper {
+      position: relative;
+      margin-top: 24px;
+    }
+
+    .ambient-glow {
+      position: absolute;
+      inset: -12px;
+      background-size: cover;
+      background-position: center;
+      filter: blur(42px);
+      opacity: 0.4;
+      border-radius: 20px;
+      z-index: 0;
+      pointer-events: none;
+      transform: scale(0.98);
+      transition: opacity 0.4s ease;
+    }
+
+    .video-ambient-wrapper:hover .ambient-glow {
+      opacity: 0.6;
+    }
+
+    .video-preview-hero {
+      position: relative;
+      z-index: 1;
+      border: 1px solid rgba(255, 255, 255, 0.12) !important;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6) !important;
+    }
+
+    /* Bento KPI Big Numbers Grid */
+    .bento-kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .bento-kpi-card {
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 16px 14px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      transition: all 0.25s ease;
+    }
+
+    .bento-kpi-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(56, 189, 248, 0.35);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    .kpi-micro-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .kpi-big-num {
+      font-size: 1.85rem;
+      font-weight: 800;
+      line-height: 1.15;
+      font-family: var(--font-mono);
+      margin-bottom: 6px;
+      letter-spacing: -0.02em;
+    }
+
+    .kpi-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+
+    /* Enhanced Card Styling */
+    .card {
+      background: var(--card-bg) !important;
+      border: 1px solid var(--card-border) !important;
+      box-shadow: 0 12px 32px -10px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.06) !important;
+    }
+
+    .act-block {
+      background: rgba(13, 18, 31, 0.85) !important;
+      border: 1px solid rgba(255, 255, 255, 0.06) !important;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    }
+
+    /* Quote Card with Copy Button */
+    .quote-card {
+      position: relative;
+    }
+
+    
+    .quote-card-header {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .quote-actions-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 4px;
+    }
+
+
+    .copy-quote-btn {
+      background: rgba(129, 140, 248, 0.12);
+      border: 1px solid rgba(129, 140, 248, 0.3);
+      color: #a5b4fc;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .copy-quote-btn:hover {
+      background: #6366f1;
+      color: #fff;
+      border-color: #6366f1;
+    }
+
+    .copy-quote-btn.copied {
+      background: #059669;
+      color: #fff;
+      border-color: #10b981;
+    }
+
+    /* Mobile Timeline View for Heatmap (Zero horizontal scroll!) */
+    @media (max-width: 640px) {
+      .bento-kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+      .kpi-big-num {
+        font-size: 1.45rem;
+      }
+
+      
+    .card {
+      max-width: 100%;
+      overflow-x: hidden;
+      word-wrap: break-word;
+    }
+    .table-responsive {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      display: block;
+    }
+
+    .table-responsive-old {
+        border: none;
+        overflow-x: visible;
+      }
+
+      #heatmapTable, #heatmapTable t
+    html, body {
+      overflow-x: hidden !important;
+      max-width: 100vw !important;
+      width: 100%;
+      position: relative;
+    }
+
+    body {
+        display: block;
+        width: 100%;
+      }
+
+      #heatmapTable thead {
+        display: none;
+      }
+
+      #heatmapTable tr {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        background: rgba(15, 23, 42, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 12px;
+        padding: 14px;
+        margin-bottom: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      #heatmapTable td {
+        padding: 0;
+        border: none;
+      }
+
+      #heatmapTable td:nth-child(1) {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      #heatmapTable td:nth-child(2) {
+        font-size: 1rem;
+        font-weight: 700;
+        color: #fff;
+        margin: 2px 0;
+      }
+
+      #heatmapTable td:nth-child(3) {
+        display: inline-block;
+        width: fit-content;
+      }
+
+      #heatmapTable td:nth-child(4) {
+        font-size: 0.88rem;
+        color: #94a3b8;
+        line-height: 1.45;
+        margin-top: 4px;
+      }
+    }
+
+  
+    /* === MOBILE ERGONOMICS & COLLAPSIBLE HEATMAP === */
+    .top-nav-dismiss-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #94a3b8;
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+      margin-left: 6px;
+    }
+    .top-nav-dismiss-btn:hover {
+      background: rgba(248, 113, 113, 0.2);
+      color: #f87171;
+      border-color: #f87171;
+    }
+
+    /* Heatmap Collapsible Container */
+    .heatmap-collapse-wrapper {
+      position: relative;
+      transition: max-height 0.4s ease;
+    }
+
+    .heatmap-collapse-wrapper.is-collapsed {
+      max-height: 480px;
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+      mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+    }
+
+    .heatmap-toggle-btn-wrap {
+      margin-top: 14px;
+      text-align: center;
+    }
+
+    .heatmap-expand-btn {
+      background: linear-gradient(135deg, rgba(2, 132, 199, 0.2) 0%, rgba(56, 189, 248, 0.15) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #38bdf8;
+      padding: 12px 24px;
+      border-radius: 24px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .heatmap-expand-btn:hover {
+      background: #0284c7;
+      color: #fff;
+      border-color: #38bdf8;
+      box-shadow: 0 6px 20px rgba(56, 189, 248, 0.35);
+      transform: translateY(-1px);
+    }
+
+    /* Floating Navigation Pill */
+    .floating-nav-pill {
+      position: fixed;
+      bottom: 24px;
+      right: 20px;
+      background: rgba(15, 23, 42, 0.92);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: #38bdf8;
+      padding: 10px 18px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 14px rgba(56, 189, 248, 0.25);
+      z-index: 9999;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .floating-nav-pill:hover {
+      background: #0284c7;
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    /* Nav Drawer (Modal Sheet) */
+    .nav-drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(6px);
+      z-index: 10000;
+      display: none;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .nav-drawer-overlay.is-open {
+      display: flex;
+      align-items: flex-end;
+      opacity: 1;
+    }
+
+    .nav-drawer-sheet {
+      background: #0d1322;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 20px 20px 0 0;
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 24px 20px 36px;
+      box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.8);
+      transform: translateY(100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .nav-drawer-overlay.is-open .nav-drawer-sheet {
+      transform: translateY(0);
+    }
+
+    .drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 14px;
+      margin-bottom: 16px;
+    }
+
+    .drawer-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .drawer-close-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #94a3b8;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .drawer-close-btn:hover { color: #fff; background: rgba(255,255,255,0.12); }
+
+    .drawer-links-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .drawer-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      color: #f1f5f9;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: all 0.15s ease;
+    }
+
+    .drawer-link:hover {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: rgba(56, 189, 248, 0.3);
+      color: #38bdf8;
+    }
+
+    .drawer-link.catalog-link {
+      background: linear-gradient(135deg, rgba(2, 132, 199, 0.25) 0%, rgba(56, 189, 248, 0.15) 100%);
+      border-color: rgba(56, 189, 248, 0.4);
+      color: #38bdf8;
+      font-weight: 700;
+    }
+
+  
+    /* Glossary & Books Grid */
+    .books-grid, .persons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 14px;
+    }
+    .terms-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 12px;
+    }
+    .glossary-item-card {
+      background: rgba(13, 18, 32, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 16px;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .glossary-item-card:hover {
+      border-color: rgba(56, 189, 248, 0.35);
+      background: rgba(17, 24, 42, 0.85);
+      transform: translateY(-2px);
+    }
+    .term-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent-blue);
+      background: rgba(56, 189, 248, 0.1);
+      padding: 4px 10px;
+      border-radius: 6px;
+      margin-bottom: 8px;
+      width: fit-content;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+    .term-def {
+      font-size: 0.88rem;
+      color: #cbd5e1;
+      line-height: 1.45;
+    }
+    @media (max-width: 640px) {
+      .books-grid, .persons-grid, .terms-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+  
+    /* === V1.5 INSIGHT CARD MODAL (Canvas 2D) === */
+    .insight-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(8px);
+      z-index: 20000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    .insight-modal-content {
+      background: #0d1322;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-radius: 20px;
+      max-width: min(440px, calc(100vw - 32px));
+      width: 100%;
+      padding: 16px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      box-sizing: border-box;
+    }
+    .insight-modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 10px;
+    }
+    .insight-canvas-wrap {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      background: #000;
+    }
+    .insight-canvas-wrap canvas {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .insight-modal-actions {
+      display: flex;
+      gap: 10px;
+    }
+    .insight-btn-download {
+      flex: 1;
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+      color: #fff;
+      border: none;
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .insight-btn-download:hover {
+      background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+    }
+    .insight-btn-copy {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #cbd5e1;
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .insight-btn-copy:hover {
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+    }
+    .punchline-btn-card {
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: #38bdf8;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      white-space: nowrap;
+    }
+    .punchline-btn-card:hover {
+      background: #0284c7;
+      color: #fff;
+    }
+
+    /* === V1.5 USER HIGHLIGHTS & NOTES === */
+    mark.user-highlight {
+      background: rgba(251, 191, 36, 0.35);
+      color: inherit;
+      border-bottom: 2px solid #fbbf24;
+      border-radius: 3px;
+      padding: 1px 2px;
+      cursor: pointer;
+    }
+    .highlight-bubble {
+      position: absolute;
+      background: #111726;
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      border-radius: 8px;
+      padding: 6px 10px;
+      display: none;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+      z-index: 15000;
+    }
+    .highlight-bubble button {
+      background: transparent;
+      border: none;
+      color: #f1f5f9;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .highlight-bubble button:hover {
+      color: #38bdf8;
+    }
+
+    .gem-icon {
+      width: 15px !important;
+      height: 15px !important;
+      min-width: 15px !important;
+      min-height: 15px !important;
+      max-width: 15px !important;
+      max-height: 15px !important;
+      display: inline-block !important;
+      vertical-align: -2px !important;
+      flex-shrink: 0 !important;
+    }
+    .floating-nav-pill {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+    }
+    .floating-nav-pill .gem-icon {
+      width: 18px !important;
+      height: 18px !important;
+      min-width: 18px !important;
+      min-height: 18px !important;
+    }
+    .copy-quote-btn, .punchline-btn-card {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+      white-space: nowrap !important;
+    }
+    .copy-quote-btn .gem-icon, .punchline-btn-card .gem-icon {
+      width: 14px !important;
+      height: 14px !important;
+      min-width: 14px !important;
+      min-height: 14px !important;
+    }
+
+</style>
+</head>
+<body>
+  <div id="readingProgress" class="reading-progress-bar"></div>
+
+
+  <nav class="gemstudio-top-nav" id="topNav">
+    <div class="gemstudio-nav-container">
+      <a href="00_Хаб_Все_Разборы.html" class="gemstudio-brand">
+        <span>⚡</span> <strong>Gemstudio</strong> <span style="color: #64748b; font-weight: normal;">| Бизнес-Деконструктор</span>
+      </a>
+      <div class="gemstudio-nav-links">
+        <a href="00_Хаб_Все_Разборы.html" class="nav-catalog-btn">← Каталог всех разборов</a>
+        <button class="top-nav-dismiss-btn" onclick="dismissTopNav()" title="Скрыть верхнюю панель">✕</button>
+      </div>
+    </div>
+  </nav>
+
+<div class="container">
+
+  <!-- HEADER -->
+    <!-- HEADER -->
+  <header>
+    <div class="badge-bar">
+      <span class="badge badge-blue">Бизнес-Деконструкция v3.0</span>
+      <span class="badge badge-purple">Когнитивистика & DMN</span>
+      <span class="badge badge-gold">Рейтинг: 9.4 / 10</span>
+      <span class="badge badge-green">Механика мышления</span>
+    </div>
+    <h1>Мозг: инструкция по применению. Механика сборки мышления | Андрей Курпатов</h1>
+    <div class="meta-subtitle">
+      <span><svg class="gem-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Спикер: <strong>Андрей Курпатов</strong> <span class="speaker-role-badge">Президент ВШМ</span></span>
+      <span><svg class="gem-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg> Канал: <strong>Design Prosmotr</strong></span>
+      <span><svg class="gem-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Длительность: <strong>00:51:14</strong></span>
+      <span><svg class="gem-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg> Дата выхода: <strong>12 августа 2018 г.</strong></span>
+      <span><svg class="gem-icon" width="16" height="16" viewBox="0 0 24 24" fill="#ef4444"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> <a href="https://youtu.be/953uZgYNj9g" target="_blank">Смотреть оригинал на YouTube</a></span>
+      <span><svg class="gem-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg> <a href="2018-08-12_Андрей_Курпатов_Мозг_Инструкция_По_Применению_ДСМ.md" download="2018-08-12_Андрей_Курпатов_Мозг_Инструкция_По_Применению_ДСМ.md" class="btn-download-md">Скачать Markdown (.md)</a></span>
+    </div>
+
+    <!-- Кинематографичный Видеоблок с эффектом Ambient Glow -->
+    <div class="video-ambient-wrapper">
+      <div class="ambient-glow" style="background-image: url('kurpatov_cover.jpg');"></div>
+      <div class="video-preview-hero">
+        <div class="video-preview-card" id="videoPreviewCard" onclick="playEmbeddedVideo()" title="Нажмите, чтобы запустить видео прямо здесь">
+          <img src="kurpatov_cover.jpg" alt="Обложка: Мозг: инструкция по применению. Механика сборки мышления | Андрей Курпатов" class="video-thumb">
+          <div class="video-play-btn" title="Воспроизвести выпуск">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="36" height="36"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <div class="video-duration-badge">⏱️ 00:51:14 • 15 глав выпуска • Кликните для запуска в плеере</div>
+        </div>
+        <div id="videoEmbedContainer" class="video-embed-container" style="display: none;"></div>
+      </div>
+    </div>
+
+    <!-- Bento Grid Ключевых Цифр (Big Numbers) -->
+    <div class="bento-kpi-grid">
+      <div class="bento-kpi-card">
+        <span class="kpi-micro-tag" style="color: #38bdf8;">⚡ Опережение мозга</span>
+        <div class="kpi-big-num" style="background: linear-gradient(135deg, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">7-8 сек</div>
+        <div class="kpi-label">Решение принимается до того, как его осознает наше «Я» (опыт Либета)</div>
+      </div>
+      <div class="bento-kpi-card">
+        <span class="kpi-micro-tag" style="color: #fbbf24;">🔋 Энергозатраты</span>
+        <div class="kpi-big-num" style="background: linear-gradient(135deg, #fbbf24, #f87171); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">20%</div>
+        <div class="kpi-label">Энергии тела потребляет мозг при массе всего 2%</div>
+      </div>
+      <div class="bento-kpi-card">
+        <span class="kpi-micro-tag" style="color: #34d399;">🧩 Радикалы сборки</span>
+        <div class="kpi-big-num" style="background: linear-gradient(135deg, #34d399, #38bdf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">3 типа</div>
+        <div class="kpi-label">Центрист (суть), Конструктор (схема), Рефлектор (форма)</div>
+      </div>
+      <div class="bento-kpi-card">
+        <span class="kpi-micro-tag" style="color: #f87171;">⏳ Вход в DMN</span>
+        <div class="kpi-big-num" style="background: linear-gradient(135deg, #f87171, #fbbf24); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">23 мин</div>
+        <div class="kpi-label">Время восстановления глубокого фокуса после прерывания на смартфон</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- QUICK NAVIGATION -->
+  <div class="nav-bar">
+    <a href="#block1">1. Интро & Повестка</a>
+    <a href="#block2">2. Тепловая карта</a>
+    <a href="#block3">3. Детальный разбор (Мясо)</a>
+    <a href="#block4">4. Цифры & Развилки</a>
+    <a href="#block5">5. Ментальные модели & Схема</a>
+    <a href="#block6">6. Справочник сущностей</a>
+    <a href="#block7">7. Панчлайны</a>
+    <a href="#block8">8. Фактчек & Комментарии</a>
+    <a href="#block9">9. Чек-лист действий</a>
+  </div>
+  <!-- БЛОК 1 -->
+  <section id="block1" class="card">
+    <h2><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9.5" stroke="#38bdf8" stroke-width="1.8" stroke-dasharray="2 2"/><circle cx="12" cy="12" r="6" stroke="#38bdf8" stroke-width="2"/><circle cx="12" cy="12" r="2.5" fill="#f43f5e"/><path d="M12 2V5M12 19V22M2 12H5M19 12H22" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/></svg> <span>Блок 1. Интро, вердикт и скрытая повестка спикера</span></h2>
+    <p>Интро, вердикт и скрытая повестка спикера</p>
+<div class="agenda-card"><h3>1.1. Кто, что и для кого</h3>
+<ul>
+<li><strong>Кто спикер:</strong> Андрей Курпатов — президент Высшей школы методологии, основатель интеллектуального кластера «Игры разума» (Санкт-Петербург), экс-руководитель холдинга «Красный Квадрат», автор фундаментальных бестселлеров по когнитивистике («Красная таблетка», «Чертоги разума»).</li>
+<li><strong>Суть лекции:</strong> Разбор базовой архитектуры работы человеческого мозга для создателей интеллектуального и визуального продукта: почему сознание не принимает решений; как дефолт-система мозга (ДСМ) собирает гениальные идеи; почему цифровое потребление убивает креативность и как с помощью трех радикалов мышления собирать выдающиеся концепты.</li>
+<li><strong>Целевая аудитория:</strong> Дизайнеры, арт-директора, фаундеры, продакт-менеджеры и предприниматели, управляющие созданием сложных смысловых продуктов.</li>
+</ul>
+<h3>1.2. Аналитический вердикт</h3>
+<ul>
+<li><strong>Оценка:</strong> <strong>9.4 / 10</strong> («Смотреть обязательно»).</li>
+<li><strong>Резюме:</strong> Эталонный образец прикладной когнитивной методологии. Без академического занудства и без эзотерики Курпатов вскрывает инженерную ткань мышления. Каждая концепция подкреплена экспериментами нейрофизиологии (Либет, Рейхл, Ухтомский).</li>
+</ul>
+<h3>1.3. Детектор скрытой повестки спикера</h3>
+<ul>
+<li><strong>Зачем выступает на Design Prosmotr:</strong> Прогрев креативного и технологического сообщества перед масштабированием образовательного проекта «Академия Смысла» и популяризация интеллектуального кластера «Игры разума».</li>
+<li><strong>Что продает:</strong> Концепцию методологии мышления (факт-карты, системный подход) и свои книги по когнитивистике. Курпатов позиционирует классическое творчество как иллюзию и предлагает строгий алгоритмический подход к сборке инсайтов через нейробиологию.</li>
+</ul>
+<hr /></div>
+  </section>
+
+  <!-- БЛОК 2 -->
+  <section id="block2" class="card">
+    <h2><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21" fill="#a855f7" fill-opacity="0.2" stroke="#a855f7" stroke-width="2"/><line x1="9" x2="9" y1="3" y2="18" stroke="#a855f7" stroke-width="2"/><line x1="15" x2="15" y1="6" y2="21" stroke="#a855f7" stroke-width="2"/></svg> <span>Блок 2. Тепловая карта выпуска (Хронометраж и плотность пользы)</span></h2>
+    <p>Тепловая карта выпуска (Хронометраж и плотность пользы)</p>
+<div class="heatmap-collapse-wrapper is-collapsed" id="heatmapCollapseWrapper"><div class="table-responsive"><table class="styled-table" id="heatmapTable">
+<thead>
+<tr>
+<th style="text-align: left;">Таймкод</th>
+<th style="text-align: left;">Тема смыслового акта</th>
+<th style="text-align: center;">Плотность пользы</th>
+<th style="text-align: left;">Прикладная ценность для анализа</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>00:00</strong></td>
+<td style="text-align: left;">Мозг как орган: у кого кто есть?</td>
+<td style="text-align: center;"><span class="badge badge-green">🟢 Мясо</span></td>
+<td style="text-align: left;">Фундаментальный переворот: мы являемся производными нашего мозга</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>04:15</strong></td>
+<td style="text-align: left;">Иллюзия сознательного контроля</td>
+<td style="text-align: center;"><span class="badge badge-green">🟢 Мясо</span></td>
+<td style="text-align: left;">Сознание как верхушка айсберга и постфактум-интерпретатор</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>07:31</strong></td>
+<td style="text-align: left;">Эксперимент Бенджамина Либета</td>
+<td style="text-align: center;"><span class="badge badge-green">🟢 Мясо</span></td>
+<td style="text-align: left;">Разрыв в 7-8 секунд между решением нейросети и осознанием человека</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>12:50</strong></td>
+<td style="text-align: left;">Энергетика мозга: цена мысли</td>
+<td style="text-align: center;"><span class="badge badge-green">🟢 Мясо</span></td>
+<td style="text-align: left;">2% массы тела потребляют 20% энергии; закон сохранения ментальных сил</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>16:45</strong></td>
+<td style="text-align: left;">Дефолт-система мозга (Default Mode Network)</td>
+<td style="text-align: center;"><span class="badge badge-green">🟢 Мясо</span></td>
+<td style="text-align: left;">Открытие Маркуса Рейхла: где рождается подлинное мышление</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>21:20</strong></td>
+<td style="text-align: left;">Цифровое потребление против мышления</td>
+<td style="text-align: center;"><span class="badge badge-green">🟢 Мясо</span></td>
+<td style="text-align: left;">Почему серфинг в соцсетях подавляет DMN и ведет к псевдодебильности</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>26:40</strong></td>
+<td style="text-align: left;">Интеллектуальный объект: единица мысли</td>
+<td style="text-align: center;"><span class="badge badge-green">🟢 Мясо</span></td>
+<td style="text-align: left;">Как мозг кодирует реальность через отношения между элементами</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>31:15</strong></td>
+<td style="text-align: left;">Три способа сборки реальности (Радикалы)</td>
+<td style="text-align: center;"><span class="badge badge-green">🟢 Мясо</span></td>
+<td style="text-align: left;">Базовая типология мышления Курпатова: Центрист, Конструктор, Рефлектор</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>35:00</strong></td>
+<td style="text-align: left;">Центрист: поиск сути и стайные отношения</td>
+<td style="text-align: center;"><span class="badge badge-green">🟢 Мясо</span></td>
+<td style="text-align: left;">Анализ сути, социальная проницательность, детекция правды</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>38:20</strong></td>
+<td style="text-align: left;">Конструктор: абстрактная логика и схемы</td>
+<td style="text-align: center;"><span class="badge badge-green">🟢 Мясо</span></td>
+<td style="text-align: left;">Создание сложных ментальных архитектур и концептов</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>41:40</strong></td>
+<td style="text-align: left;">Рефлектор: эмоциональная яркость и ценность</td>
+<td style="text-align: center;"><span class="badge badge-green">🟢 Мясо</span></td>
+<td style="text-align: left;">Оценка привлекательности, самопрезентация, вирусность</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>44:10</strong></td>
+<td style="text-align: left;">Формула гениальности: синтез трех радикалов</td>
+<td style="text-align: center;"><span class="badge badge-green">🟢 Мясо</span></td>
+<td style="text-align: left;">Как великие творцы и бизнесмены объединяют все три типа сборки</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>47:30</strong></td>
+<td style="text-align: left;">Доминанта Ухтомского и озабоченность</td>
+<td style="text-align: center;"><span class="badge badge-green">🟢 Мясо</span></td>
+<td style="text-align: left;">Физиологический очаг возбуждения как двигатель озарения</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>49:50</strong></td>
+<td style="text-align: left;">Как заставить мозг думать: алгоритм фаз</td>
+<td style="text-align: center;"><span class="badge badge-green">🟢 Мясо</span></td>
+<td style="text-align: left;">Загрузка данных -&gt; Озабоченность -&gt; Отключение контроля -&gt; Инсайт</td>
+</tr>
+</tbody>
+</table></div><div class="collapse-toggle-bar"><button class="collapse-toggle-btn" id="toggleHeatmapBtn" onclick="toggleHeatmapCollapse()"><span>▾ Показать все 15 глав выпуска</span></button></div></div>
+<hr />
+  </section>
+
+  <!-- БЛОК 3 -->
+  <section id="block3" class="card">
+    <h2><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M19.5 7.5C18 4.5 14 3.5 12 5.5c-2-2-6-1-7.5 2-1.8 3.5-.5 7 2 9.5l5.5 5 5.5-5c2.5-2.5 3.8-6 2-9.5z" fill="#f43f5e" fill-opacity="0.2" stroke="#f43f5e" stroke-width="2"/><path d="M9 11l2 2 4-4" stroke="#f43f5e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> <span>Блок 3. Детальный разбор («МЯСО ВЫПУСКА»)</span></h2>
+    <p>Детальный разбор («МЯСО ВЫПУСКА»)</p>
+<h3>3.1. У мозга есть мы, а не у нас есть мозг</h3>
+<p>Курпатов начинает с антропологического слома. Обыватель считает себя «хозяином» своего тела, обладающим сознательной волей. Нейробиология доказывает обратное:
+* Мозг — это биологический компьютер массой ~1.4 кг, сформированный миллионами лет эволюции для выживания и репродукции.
+* Наше сознательное «Я» — это лишь тонкая интерфейсная оболочка, созданная культурой и речью.
+* Мы не генерируем мысли сознательно: мысли «случаются» в нейронных сетях, а сознание лишь считывает готовый результат и присваивает авторство себе.</p>
+<h3>3.2. Эксперимент Либета: смерть концепции свободной воли</h3>
+<p>Бенджамин Либет в 1980-х годах (и современные исследования Джона-Дилана Хайнса на фМРТ) зафиксировали:
+* За <strong>7–8 секунд</strong> до того, как испытуемый осознает свое решение нажать кнопку, в моторной коре и подкорковых центрах формируется так называемый «потенциал готовности».
+* Мозг уже принял решение, провел расчеты и отправил сигнал. 
+* Сознание узнает об этом последним, придумывая красивую псевдорациональную историю: «Я решил нажать кнопку именно сейчас, потому что захотел».
+* <strong>Практический вывод:</strong> Бессмысленно пытаться родить гениальный дизайн или бизнес-стратегию усилием сознания («сижу и вымучиваю»). Решение должно созреть в подкорковых структурах.</p>
+<h3>3.3. Дефолт-система мозга (DMN) и цифровой аутизм</h3>
+<p>В 2001 году Маркус Рейхл открыл дефолт-систему мозга:
+* Когда человек сидит в тишине, не смотрит в экран и не решает сиюминутных задач, мозг не выключается — наоборот, активируются гигантские нейронные контуры DMN.
+* DMN перебирает накопленный опыт, просчитывает социальные взаимосвязи и «сшивает» разрозненные факты в целостные концепции.
+* <strong>Трагедия цифровой эпохи:</strong> Смартфоны заполнили все микропаузы. Мозг постоянно находится в режиме потребления стимулов (Dorsal Attention Network), что физически блокирует работу DMN. В результате человек потребляет тонны контента, но теряет способность к синтезу сложного продукта (информационная псевдодебильность).</p>
+<h3>3.4. Три радикала сборки реальности</h3>
+<p>Курпатов формулирует свою классификацию когнитивных стилей:
+1. <strong>Центрист (Стайный инстинкт):</strong> Фиксируется на сущностных связях. Ищет скрытые мотивы людей, расстановку сил и реальное положение дел. Минус: не умеет эффектно упаковать результат.
+2. <strong>Конструктор (Половой/исследовательский инстинкт):</strong> Мыслит структурными моделями, логическими схемами, формулами и алгоритмами. Минус: отрывается от реальности и человеческих эмоций.
+3. <strong>Рефлектор (Инстинкт самосохранения/эго):</strong> Мыслит образами, эстетикой, ценой и впечатлением. Мастер формы, пиара и шоу. Минус: поверхностность и отсутствие системной глубины.</p>
+<blockquote>
+<p><strong>Формула гениальности по Курпатову:</strong> Любой продукт мирового уровня (Apple, шедевры кино, великие бренды) — это результат одновременной работы всех трех радикалов: суть центриста + архитектура конструктора + блеск рефлектора.</p>
+</blockquote>
+<hr />
+  </section>
+
+  <!-- БЛОК 4 -->
+  <section id="block4" class="card">
+    <h2><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="14" width="4" height="7" rx="1" fill="#34d399" fill-opacity="0.3" stroke="#34d399" stroke-width="1.8"/><rect x="10" y="9" width="4" height="12" rx="1" fill="#38bdf8" fill-opacity="0.3" stroke="#38bdf8" stroke-width="1.8"/><rect x="17" y="4" width="4" height="17" rx="1" fill="#fbbf24" fill-opacity="0.3" stroke="#fbbf24" stroke-width="1.8"/><path d="M3 11l7-6 7 4 4-4" stroke="#f43f5e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> <span>Блок 4. Сводка цифр, бенчмарков и развилок (A vs B)</span></h2>
+    <p>Сводка цифр, бенчмарков и развилок (A vs B)</p>
+<h3>4.1. Ключевые метрики лекции</h3>
+<div class="table-responsive"><table class="styled-table">
+<thead>
+<tr>
+<th style="text-align: left;">Параметр</th>
+<th style="text-align: center;">Значение</th>
+<th style="text-align: left;">Практическое значение для работы</th>
+<th style="text-align: center;">Доказательная база</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Временной лаг решения мозга</strong></td>
+<td style="text-align: center;"><strong>7–8 секунд</strong></td>
+<td style="text-align: left;">Мозг принимает решение задолго до его осознания эго.</td>
+<td style="text-align: center;">Эксперименты Либета / Хайнса (фМРТ)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Энергопотребление мозга</strong></td>
+<td style="text-align: center;"><strong>20% ресурсов при 2% массы</strong></td>
+<td style="text-align: left;">Мышление — самый энергозатратный биологический процесс. Мозг саботирует сложные задачи.</td>
+<td style="text-align: center;">Нейрофизиологический факт</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Время входа в фокус DMN</strong></td>
+<td style="text-align: center;"><strong>~20–25 минут</strong></td>
+<td style="text-align: left;">Минимальное время глубокой концентрации без внешних раздражителей для запуска фонового синтеза.</td>
+<td style="text-align: center;">Исследования когнитивной психологии</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Количество радикалов сборки</strong></td>
+<td style="text-align: center;"><strong>3 радикала</strong></td>
+<td style="text-align: left;">Центрист (суть), Конструктор (схема), Рефлектор (эмоция/визуал).</td>
+<td style="text-align: center;">Методология мышления Курпатова</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Емкость оперативной памяти</strong></td>
+<td style="text-align: center;"><strong>3–5 объектов</strong></td>
+<td style="text-align: left;">Предел одновременного сознательного удержания смысловых единиц.</td>
+<td style="text-align: center;">Закон Миллера / Нельсон Коуэн</td>
+</tr>
+</tbody>
+</table></div>
+<h3>4.2. Развилки подходов к творчеству и разработке</h3>
+<div class="table-responsive"><table class="styled-table">
+<thead>
+<tr>
+<th style="text-align: left;">Обывательский подход (В лоб)</th>
+<th style="text-align: left;">Методологический подход мозга (По Курпатову)</th>
+<th style="text-align: left;">Результат подхода А</th>
+<th style="text-align: left;">Результат подхода Б</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Штурм сознанием:</strong> сесть за стол и пытаться немедленно придумать идею.</td>
+<td style="text-align: left;"><strong>Фаза загрузки:</strong> насыщение мозга фактами, противоречиями и референсами.</td>
+<td style="text-align: left;">Вымученные банальности, синдром чистого листа.</td>
+<td style="text-align: left;">Мозг накапливает критическую массу данных для озарения.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Постоянный серфинг:</strong> переключение на телефон каждые 5 минут во время работы.</td>
+<td style="text-align: left;"><strong>Цифровой карантин:</strong> изоляция от уведомлений и информационного шума.</td>
+<td style="text-align: left;">Блокировка DMN, распад сложного контекста.</td>
+<td style="text-align: left;">Активация дефолт-системы, фоновый синтез решения.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Опора на один стиль:</strong> делать только красивую картинку или только код.</td>
+<td style="text-align: left;"><strong>Триада сборки:</strong> проверка продукта на суть (центрист), логику (конструктор) и эмоцию (рефлектор).</td>
+<td style="text-align: left;">Узкий, неконкурентный или мертворожденный продукт.</td>
+<td style="text-align: left;">Продукт-бестселлер с глубокой архитектурой и ярким UX.</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+  </section>
+
+  <!-- БЛОК 5 -->
+  <section id="block5" class="card">
+    <h2><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-5.04z" fill="#fbbf24" fill-opacity="0.25" stroke="#fbbf24" stroke-width="1.8"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-5.04z" fill="#a855f7" fill-opacity="0.25" stroke="#a855f7" stroke-width="1.8"/><circle cx="12" cy="12" r="2.5" fill="#38bdf8"/></svg> <span>Блок 5. Ментальные модели, карта мышления и Mermaid-диаграмма</span></h2>
+    <p>Ментальные модели, карта мышления и Mermaid-диаграмма</p>
+<h3>5.1. Ментальные модели</h3>
+<ol>
+<li><strong>Модель «Пресс-секретаря»:</strong> Сознание не принимает решений, оно пишет победные пресс-релизы для общества, оправдывая то, что уже совершил подсознательный аппарат.</li>
+<li><strong>Модель «Доминанты Ухтомского»:</strong> Устойчивый очаг озабоченности притягивает к себе любые внешние стимулы и трансформирует их в решение поставленной задачи.</li>
+</ol>
+<h3>5.2. Mermaid-диаграмма: Конвейер нейробиологической сборки прорывного продукта</h3>
+<hr />
+        <div class="mermaid-box" style="margin-top: 24px; background: rgba(0,0,0,0.3); border-radius: 12px; padding: 20px; border: 1px solid rgba(255,255,255,0.08); text-align: center;">
+          <h4 style="margin-bottom: 16px; color: #38bdf8;">📊 Диаграмма: Конвейер нейробиологической сборки прорывного продукта дефолт-системой мозга</h4>
+          <pre class="mermaid">
+flowchart TD
+    A["Сложная практическая задача"] --> B["1. ФАЗА ЗАГРУЗКИ: Сбор сырых фактов, ограничений, противоречий"]
+    B --> C["2. ФАЗА ОЗАБОЧЕННОСТИ: Формирование доминанты Ухтомского"]
+    C --> D["3. ФАЗА ОТКЛЮЧЕНИЯ СОЗНАНИЯ: Прогулка, спорт, душ, сон"]
+    
+    D --> E["4. АКТИВАЦИЯ ДЕФОЛТ-СИСТЕМЫ МОЗГА (DMN)"]
+    
+    E --> F1["Сборка Центриста: Суть и отношения"]
+    E --> F2["Сборка Конструктора: Логика и структура"]
+    E --> F3["Сборка Рефлектора: Эмоция и форма"]
+    
+    F1 & F2 & F3 --> G["5. ИНСАЙТ (Эврика! Прорывное решение)"]
+    G --> H["6. Сознательная упаковка и тестирование"]
+    
+    style A fill:#1e293b,stroke:#38bdf8,stroke-width:2px,color:#f8fafc
+    style E fill:#312e81,stroke:#818cf8,stroke-width:2px,color:#c7d2fe
+    style G fill:#064e3b,stroke:#34d399,stroke-width:2px,color:#6ee7b7
+          </pre>
+        </div>
+  </section>
+
+  <!-- БЛОК 6 -->
+  <section id="block6" class="card">
+    <h2><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" fill="#38bdf8" fill-opacity="0.2" stroke="#38bdf8" stroke-width="2"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" fill="#a855f7" fill-opacity="0.2" stroke="#a855f7" stroke-width="2"/></svg> <span>Блок 6. Расширение кругозора: Книги, Словарь понятий и Персоны</span></h2>
+    <p>Расширение кругозора: Книги, Словарь понятий и Персоны</p>
+<h3>6.1. Фундаментальные книги</h3>
+<ol>
+<li><strong>Андрей Курпатов — «Чертоги разума. Убей в себе идиота!»:</strong> Практическое руководство по работе дефолт-системы и построению факт-карт.</li>
+<li><strong>Алексей Ухтомский — «Доминанта»:</strong> Классический труд о физиологических доминантах поведения и мышления.</li>
+<li><strong>Дэниел Канеман — «Думай медленно... решай быстро»:</strong> Когнитивные искажения Системы 1 (автопилот) и Системы 2 (сознательный контроль).</li>
+</ol>
+<h3>6.2. Банк понятий</h3>
+<ul>
+<li><strong>Default Mode Network (Дефолт-система мозга):</strong> Нейронная сеть покоя, отвечающая за автобиографическую память, социальное моделирование и синтез сложных смыслов.</li>
+<li><strong>Информационная псевдодебильность:</strong> Синдром снижения аналитических способностей из-за клипового серфинга и постоянного скроллинга лент.</li>
+<li><strong>Интеллектуальный объект:</strong> Внутренняя репрезентация в мозге любого явления, состоящая из набора связей с другими объектами памяти.</li>
+<li><strong>Доминанта:</strong> Господствующий очаг возбуждения в центральной нервной системе, подчиняющий себе остальные реакции.</li>
+</ul>
+<h3>6.3. Ключевые персоны</h3>
+<ul>
+<li><strong>Бенджамин Либет:</strong> Американский нейрофизиолог, экспериментально доказавший первичность бессознательного решения мозга.</li>
+<li><strong>Маркус Рейхл:</strong> Американский невролог, первооткрыватель дефолт-системы мозга.</li>
+<li><strong>Алексей Ухтомский:</strong> Выдающийся советский физиолог, создатель учения о доминанте.</li>
+</ul>
+<hr />
+  </section>
+
+  <!-- БЛОК 7 -->
+  <section id="block7" class="card">
+    <h2><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.75-2-2-2H4c-1.25 0-2 .75-2 2v6c0 1.25.75 2 2 2 0 4-1 6-1 8z" fill="#fbbf24" fill-opacity="0.2" stroke="#fbbf24" stroke-width="2"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.75-2-2-2h-4c-1.25 0-2 .75-2 2v6c0 1.25.75 2 2 2 0 4-1 6-1 8z" fill="#fbbf24" fill-opacity="0.2" stroke="#fbbf24" stroke-width="2"/></svg> <span>Блок 7. Золотые формулировки и панчлайны выпуска</span></h2>
+    <p>Золотые формулировки и панчлайны выпуска</p>
+<ul>
+<li>«Вы думаете, что у вас есть мозг? Ошибаетесь: это у вашего мозга есть вы.»</li>
+<li>«Сознание — это просто наемный пиарщик, который задним числом объясняет публике, почему шеф принял такое глупое решение.»</li>
+<li>«Если вы не умеете загрузить в голову противоречие и пойти спать — вы никогда не создадите ничего сложнее табуретки.»</li>
+<li>«Смартфон в руках — это добровольная лоботомия вашей дефолт-системы.»</li>
+<li>«Гениальность — это не озарение свыше, а способность собрать суть центриста, схему конструктора и страсть рефлектора в одном флаконе.»</li>
+</ul>
+<hr />
+  </section>
+
+  <!-- БЛОК 8 -->
+  <section id="block8" class="card">
+    <h2><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="#38bdf8" fill-opacity="0.15" stroke="#38bdf8" stroke-width="2"/><path d="M9 12l2 2 4-4" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> <span>Блок 8. Внешний фактчек, материалы и реакция аудитории</span></h2>
+    <p>Внешний фактчек, материалы и реакция аудитории</p>
+<h3>8.1. Фактчек и научная критика</h3>
+<ul>
+<li><strong>Интерпретация опытов Либета:</strong> Философы сознания (Дэниел Деннет) отмечают, что 7-секундный зазор в лабораторных тестах касается простейших моторных актов (нажатие кнопки), и его нельзя механически переносить на многолетние этические и стратегические решения.</li>
+<li><strong>Радикалы Курпатова:</strong> Являются авторской прикладной методологией, а не общепринятым международным стандартом психиатрии (хотя базируются на классической типологии акцентуаций Леонгарда и Ганнушкина).</li>
+</ul>
+<h3>8.2. Реакция креативного сообщества</h3>
+<ul>
+<li>Выступление на Design Prosmotr признано одним из самых влиятельных в истории форума: дизайнеры массово подтвердили эффективность отказа от немедленной отрисовки в пользу «фазы озабоченности и сна».</li>
+</ul>
+<hr />
+  </section>
+
+  <!-- БЛОК 9 -->
+  <section id="block9" class="card">
+    <h2><svg class="gem-block-icon" width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" fill="#f43f5e" fill-opacity="0.3" stroke="#f43f5e" stroke-width="2"/><path d="M12 15l-3-3m0 0l8.5-8.5a3.54 3.54 0 0 1 5 5L14 17l-5-5z" stroke="#38bdf8" stroke-width="2"/></svg> <span>Блок 9. Пошаговый 72-часовой план внедрения</span></h2>
+    <p>Пошаговый 72-часовой план внедрения</p>
+<h3>Этап 1: 72 часа (Цифровая гигиена дефолт-системы)</h3>
+<ol>
+<li>Установить жесткий запрет на использование смартфона в течение первых 60 минут после пробуждения и за 60 минут до сна.</li>
+<li>Завести правило «прогулки без наушников»: 30 минут ходьбы в день в полной тишине для включения DMN.</li>
+<li>Провести аудит своего ведущего радикала (Кто вы: Центрист, Конструктор или Рефлектор?).</li>
+</ol>
+<h3>Этап 2: 7 дней (Техника сборки факт-карты)</h3>
+<ol>
+<li>Взять сложную нерешенную задачу и выписать на лист бумаги 30–40 голых фактов и ограничений (без оценок и готовых решений).</li>
+<li>Найти скрытые противоречия между фактами и четко их сформулировать.</li>
+<li>«Забыть» про задачу на 24 часа, дав DMN собрать конфигурацию решения во сне.</li>
+</ol>
+<h3>Этап 3: 30 дней (Триадный контроль продукта)</h3>
+<ol>
+<li>При разработке любого проекта пропускать его через 3 фильтра:</li>
+<li><em>Фильтр Центриста:</em> В чем реальная практическая польза и суть?</li>
+<li><em>Фильтр Конструктора:</em> Насколько логична и масштабируема архитектура?</li>
+<li><em>Фильтр Рефлектора:</em> Какую эмоцию вызывает визуал и первое касание?</li>
+</ol>
+  </section>
+
+
+
+</div>
+
+<script>
+
+  // === MOBILE NAVIGATION DRAWER & UTILITIES ===
+  function toggleNavDrawer() {
+    var overlay = document.getElementById('navDrawerOverlay');
+    if (!overlay) return;
+    if (overlay.classList.contains('is-open')) {
+      closeNavDrawer();
+    } else {
+      overlay.style.display = 'flex';
+      overlay.offsetHeight; // trigger reflow for smooth transition
+      overlay.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeNavDrawer() {
+    var overlay = document.getElementById('navDrawerOverlay');
+    if (!overlay) return;
+    overlay.classList.remove('is-open');
+    document.body.style.overflow = '';
+    setTimeout(function() {
+      if (!overlay.classList.contains('is-open')) {
+        overlay.style.display = 'none';
+      }
+    }, 280);
+  }
+
+  function handleOverlayClick(event) {
+    if (event.target && event.target.id === 'navDrawerOverlay') {
+      closeNavDrawer();
+    }
+  }
+
+  function dismissTopNav() {
+    var nav = document.getElementById('gemstudioTopNav');
+    if (nav) {
+      nav.style.display = 'none';
+    }
+  }
+
+  function toggleHeatmapCollapse() {
+    var wrapper = document.getElementById('heatmapCollapseWrapper');
+    var btn = document.getElementById('toggleHeatmapBtn');
+    if (!wrapper || !btn) return;
+
+    var isCollapsed = wrapper.classList.toggle('is-collapsed');
+    if (isCollapsed) {
+      btn.innerHTML = '<span>▾ Показать все 15 глав выпуска</span>';
+      var b2 = document.getElementById('block2');
+      if (b2) b2.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      btn.innerHTML = '<span>▴ Свернуть список глав</span>';
+    }
+  }
+
+  
+  function playEmbeddedVideo() {
+    const card = document.getElementById('videoPreviewCard');
+    const container = document.getElementById('videoEmbedContainer');
+    if (card && container) {
+      card.style.display = 'none';
+      container.style.display = 'block';
+      container.innerHTML = '<iframe src="https://www.youtube.com/embed/953uZgYNj9g?autoplay=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+    }
+  }
+
+  function filterHeatmap(type) {
+    const rows = document.querySelectorAll('#heatmapTable tbody tr');
+    const buttons = document.querySelectorAll('.filter-btn');
+    
+    buttons.forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
+
+    rows.forEach(r => {
+      const rType = r.getAttribute('data-type');
+      if (type === 'all' || rType === type) {
+        r.style.display = '';
+      } else {
+        r.style.display = 'none';
+      }
+    });
+  }
+
+  function toggleCheck(checkbox) {
+    const parent = checkbox.closest('.check-item');
+    if (checkbox.checked) {
+      parent.classList.add('done');
+    } else {
+      parent.classList.remove('done');
+    }
+    updateProgress();
+    saveChecklist();
+  }
+
+  function updateProgress() {
+    const total = document.querySelectorAll('.check-item input[type="checkbox"]').length;
+    const checked = document.querySelectorAll('.check-item input[type="checkbox"]:checked').length;
+    const pct = total === 0 ? 0 : Math.round((checked / total) * 100);
+    
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressLabel').innerText = `Прогресс: ${checked} из ${total} выполнено (${pct}%)`;
+  }
+
+  function saveChecklist() {
+    const checks = {};
+    document.querySelectorAll('.check-item input[type="checkbox"]').forEach(c => {
+      checks[c.id] = c.checked;
+    });
+    localStorage.setItem('yt_gawdat_2027_checklist', JSON.stringify(checks));
+  }
+
+  function loadChecklist() {
+    const saved = localStorage.getItem('yt_gawdat_2027_checklist');
+    if (saved) {
+      const checks = JSON.parse(saved);
+      for (const id in checks) {
+        const el = document.getElementById(id);
+        if (el) {
+          el.checked = checks[id];
+          if (checks[id]) el.closest('.check-item').classList.add('done');
+        }
+      }
+    }
+    updateProgress();
+  }
+
+  window.addEventListener('DOMContentLoaded', loadChecklist);
+
+  // Reading Progress Bar
+  window.addEventListener('scroll', () => {
+    const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = totalHeight > 0 ? (window.scrollY / totalHeight) * 100 : 0;
+    const bar = document.getElementById('readingProgress');
+    if (bar) bar.style.width = Math.min(progress, 100) + '%';
+  });
+
+  // Copy Quote Function
+  function copyQuote(btn, text) {
+    navigator.clipboard.writeText(text).then(() => {
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '✓ Скопировано!';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+
+
+  // === V1.5 INSIGHT CARD GENERATOR (Canvas 2D) ===
+  function openInsightCardFromBtn(btn) {
+    var quoteCard = btn.closest('.quote-card');
+    if (!quoteCard) return;
+    var quoteEl = quoteCard.querySelector('.quote-text');
+    var authorEl = quoteCard.querySelector('.quote-author');
+    var quote = quoteEl ? quoteEl.innerText.replace(/^[«"]|[»"]$/g, '').trim() : '';
+    var author = authorEl ? authorEl.innerText.replace(/^[—–-]\s*/, '').trim() : 'Мо Гавдат';
+    generateInsightCard(quote, author);
+  }
+
+  function generateInsightCard(quoteText, authorName) {
+    var modal = document.getElementById('insightCardModal');
+    var canvas = document.getElementById('insightCanvas');
+    if (!modal || !canvas) return;
+
+    var ctx = canvas.getContext('2d');
+    var W = 1080;
+    var H = 1350;
+    canvas.width = W;
+    canvas.height = H;
+
+    // Dark gradient background
+    var grad = ctx.createLinearGradient(0, 0, W, H);
+    grad.addColorStop(0, '#0f172a');
+    grad.addColorStop(0.5, '#090d16');
+    grad.addColorStop(1, '#05070d');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, W, H);
+
+    // Cyan & Purple ambient glow
+    var glow1 = ctx.createRadialGradient(W*0.2, H*0.2, 50, W*0.2, H*0.2, 500);
+    glow1.addColorStop(0, 'rgba(56, 189, 248, 0.22)');
+    glow1.addColorStop(1, 'transparent');
+    ctx.fillStyle = glow1;
+    ctx.fillRect(0, 0, W, H);
+
+    var glow2 = ctx.createRadialGradient(W*0.8, H*0.75, 50, W*0.8, H*0.75, 450);
+    glow2.addColorStop(0, 'rgba(168, 85, 247, 0.18)');
+    glow2.addColorStop(1, 'transparent');
+    ctx.fillStyle = glow2;
+    ctx.fillRect(0, 0, W, H);
+
+    // Frame
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.12)';
+    ctx.lineWidth = 4;
+    ctx.strokeRect(40, 40, W - 80, H - 80);
+
+    // Category Pill Badge
+    ctx.fillStyle = '#0284c7';
+    if (ctx.roundRect) {
+      ctx.beginPath();
+      ctx.roundRect(80, 80, 310, 58, 29);
+      ctx.fill();
+    } else {
+      ctx.fillRect(80, 80, 310, 58);
+    }
+    ctx.fillStyle = '#ffffff';
+    ctx.font = 'bold 24px -apple-system, sans-serif';
+    ctx.fillText('💡 БИЗНЕС-ИНСАЙТ', 115, 118);
+
+    // Huge quotation mark
+    ctx.fillStyle = 'rgba(56, 189, 248, 0.25)';
+    ctx.font = 'bold 200px Georgia, serif';
+    ctx.fillText('“', 75, 270);
+
+    // Quote text with word-wrap
+    ctx.fillStyle = '#f8fafc';
+    ctx.font = '600 42px -apple-system, BlinkMacSystemFont, sans-serif';
+    
+    var words = quoteText.split(' ');
+    var line = '';
+    var y = 320;
+    var maxW = W - 170;
+    var lineH = 64;
+
+    for (var i = 0; i < words.length; i++) {
+      var testLine = line + words[i] + ' ';
+      var metrics = ctx.measureText(testLine);
+      if (metrics.width > maxW && i > 0) {
+        ctx.fillText(line, 85, y);
+        line = words[i] + ' ';
+        y += lineH;
+      } else {
+        line = testLine;
+      }
+    }
+    ctx.fillText(line, 85, y);
+
+    // Author section
+    y = Math.max(y + 80, 920);
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';
+    ctx.fillRect(85, y, 140, 3);
+
+    y += 48;
+    ctx.fillStyle = '#38bdf8';
+    ctx.font = 'bold 36px -apple-system, sans-serif';
+    ctx.fillText(authorName, 85, y);
+
+    y += 40;
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '500 24px -apple-system, sans-serif';
+    ctx.fillText('Инвестиционная деконструкция • Gemstudio', 85, y);
+
+    // Bottom Branding
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.04)';
+    ctx.fillRect(40, H - 140, W - 80, 100);
+
+    ctx.fillStyle = '#f8fafc';
+    ctx.font = 'bold 28px -apple-system, sans-serif';
+    ctx.fillText('⚡ Gemstudio Dashboard', 85, H - 78);
+
+    ctx.fillStyle = '#38bdf8';
+    ctx.font = '24px monospace';
+    ctx.fillText('gemstudio-deconstruct.netlify.app', W - 560, H - 78);
+
+    modal.style.display = 'flex';
+  }
+
+  function closeInsightModal(e) {
+    if (!e || e.target.id === 'insightCardModal' || e.target.classList.contains('drawer-close-btn')) {
+      var modal = document.getElementById('insightCardModal');
+      if (modal) modal.style.display = 'none';
+    }
+  }
+
+  function downloadInsightCard() {
+    var canvas = document.getElementById('insightCanvas');
+    if (!canvas) return;
+    var a = document.createElement('a');
+    a.download = 'gemstudio-insight.png';
+    a.href = canvas.toDataURL('image/png');
+    a.click();
+  }
+
+  function copyInsightCard() {
+    var canvas = document.getElementById('insightCanvas');
+    if (!canvas) return;
+    canvas.toBlob(function(blob) {
+      if (navigator.clipboard && navigator.clipboard.write) {
+        navigator.clipboard.write([
+          new ClipboardItem({ 'image/png': blob })
+        ]).then(function() {
+          alert('Карточка скопирована в буфер обмена!');
+        }).catch(function() {
+          downloadInsightCard();
+        });
+      } else {
+        downloadInsightCard();
+      }
+    });
+  }
+
+  // === V1.5 USER HIGHLIGHTS (localStorage) ===
+  var storageKey = 'gemstudio_hl_' + window.location.pathname;
+  var userHighlights = JSON.parse(localStorage.getItem(storageKey) || '[]');
+
+  document.addEventListener('mouseup', handleTextSelection);
+  document.addEventListener('touchend', handleTextSelection);
+
+  function handleTextSelection(e) {
+    var bubble = document.getElementById('highlightBubble');
+    if (!bubble) return;
+
+    var sel = window.getSelection();
+    if (!sel || sel.isCollapsed || !sel.toString().trim()) {
+      bubble.style.display = 'none';
+      return;
+    }
+
+    var range = sel.getRangeAt(0);
+    var rect = range.getBoundingClientRect();
+    bubble.style.left = (window.scrollX + rect.left + rect.width / 2 - 40) + 'px';
+    bubble.style.top = (window.scrollY + rect.top - 42) + 'px';
+    bubble.style.display = 'flex';
+  }
+
+  function applyUserHighlight() {
+    var bubble = document.getElementById('highlightBubble');
+    var sel = window.getSelection();
+    if (!sel || sel.isCollapsed) return;
+
+    var text = sel.toString().trim();
+    if (!text) return;
+
+    var range = sel.getRangeAt(0);
+    var mark = document.createElement('mark');
+    mark.className = 'user-highlight';
+    mark.title = 'Нажмите для удаления хайлайта';
+    mark.onclick = function() { removeHighlight(text, mark); };
+
+    try {
+      range.surroundContents(mark);
+      userHighlights.push(text);
+      localStorage.setItem(storageKey, JSON.stringify(userHighlights));
+      updateNotesCount();
+    } catch(err) {
+      console.log('Highlight cross-boundary selection');
+    }
+
+    if (bubble) bubble.style.display = 'none';
+    sel.removeAllRanges();
+  }
+
+  function removeHighlight(text, markEl) {
+    if (confirm('Удалить этот хайлайт?')) {
+      var parent = markEl.parentNode;
+      while (markEl.firstChild) parent.insertBefore(markEl.firstChild, markEl);
+      parent.removeChild(markEl);
+      userHighlights = userHighlights.filter(function(t) { return t !== text; });
+      localStorage.setItem(storageKey, JSON.stringify(userHighlights));
+      updateNotesCount();
+    }
+  }
+
+  function updateNotesCount() {
+    var countEl = document.getElementById('drawerNotesCount');
+    if (countEl) countEl.innerText = '🖍️ Мои заметки и хайлайты (' + userHighlights.length + ')';
+  }
+
+  function exportUserHighlights() {
+    if (!userHighlights.length) {
+      alert('У вас пока нет сохраненных хайлайтов в этом выпуске. Выделите любой текст на странице маркером!');
+      return;
+    }
+    var md = '# Мои Заметки и Хайлайты\n\n* **Разбор:** ' + document.title + '\n* **Дата экспорта:** ' + new Date().toLocaleDateString() + '\n\n---\n\n';
+    userHighlights.forEach(function(item, idx) {
+      md += (idx + 1) + '. > ' + item + '\n\n';
+    });
+    var blob = new Blob([md], { type: 'text/markdown;charset=utf-8;' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'мои-заметки-' + window.location.pathname.replace(/[^a-z0-9]/gi, '_') + '.md';
+    a.click();
+  }
+
+  // Init notes count on load
+  setTimeout(updateNotesCount, 300);
+
+</script>
+
+
+  <!-- Плавающая кнопка вызова меню (доступна в любой части экрана) -->
+  <div id="floatingNavBtn" class="floating-nav-pill" onclick="toggleNavDrawer()" title="Навигация по разделам">
+    <span>🧭 Навигация</span>
+  </div>
+
+  
+        <!-- Личные Заметки Пользователя -->
+        <div id="drawerNotesSection" style="margin: 10px 0; padding: 12px; background: rgba(251, 191, 36, 0.08); border: 1px solid rgba(251, 191, 36, 0.25); border-radius: 10px;">
+          <div style="font-weight: 700; color: #fbbf24; font-size: 0.9rem; margin-bottom: 4px;" id="drawerNotesCount">🖍️ Мои заметки и хайлайты (0)</div>
+          <div style="font-size: 0.8rem; color: #cbd5e1; margin-bottom: 8px;">Выделяйте важные мысли маркером прямо в тексте — они сохраняются на вашем устройстве.</div>
+          <button onclick="exportUserHighlights()" style="width: 100%; background: #d97706; color: #fff; border: none; padding: 8px 12px; border-radius: 6px; font-weight: 700; font-size: 0.82rem; cursor: pointer; transition: all 0.2s;">📥 Экспортировать мои заметки в Obsidian (.md)</button>
+        </div>
+
+  <!-- Шторка-модалка навигации по статье -->
+  <div id="navDrawerOverlay" class="nav-drawer-overlay" onclick="handleOverlayClick(event)">
+    <div class="nav-drawer-sheet">
+      <div class="drawer-header">
+        <div class="drawer-title">Навигация по разбору</div>
+        <button class="drawer-close-btn" onclick="closeNavDrawer()">✕</button>
+      </div>
+      <div class="drawer-links-grid">
+        <a href="00_Хаб_Все_Разборы.html" class="drawer-link catalog-link">
+          <span>🏠</span> <strong>← Вернуться в Каталог всех разборов</strong>
+        </a>
+        <a href="#block1" class="drawer-link" onclick="closeNavDrawer()">
+          <span>🎯</span> <span>Блок 1. Интро, вердикт и скрытая повестка</span>
+        </a>
+        <a href="#block2" class="drawer-link" onclick="closeNavDrawer()">
+          <span>🗺️</span> <span>Блок 2. Тепловая карта выпуска (40 глав)</span>
+        </a>
+        <a href="#block3" class="drawer-link" onclick="closeNavDrawer()">
+          <span>🥩</span> <span>Блок 3. Детальный разбор («Мясо»)</span>
+        </a>
+        <a href="#block4" class="drawer-link" onclick="closeNavDrawer()">
+          <span>📊</span> <span>Блок 4. Сводка цифр, бенчмарков и развилок</span>
+        </a>
+        <a href="#block5" class="drawer-link" onclick="closeNavDrawer()">
+          <span>🧠</span> <span>Блок 5. Ментальные модели и схема</span>
+        </a>
+        <a href="#block6" class="drawer-link" onclick="closeNavDrawer()">
+          <span>📚</span> <span>Блок 6. Справочник сущностей (Wikilinks)</span>
+        </a>
+        <a href="#block7" class="drawer-link" onclick="closeNavDrawer()">
+          <span>💬</span> <span>Блок 7. Золотые панчлайны выпуска</span>
+        </a>
+        <a href="#block8" class="drawer-link" onclick="closeNavDrawer()">
+          <span>🔍</span> <span>Блок 8. Фактчек и реакция аудитории</span>
+        </a>
+        <a href="#block9" class="drawer-link" onclick="closeNavDrawer()">
+          <span>✅</span> <span>Блок 9. Чек-лист применения (7–30 дней)</span>
+        </a>
+        <a href="/gawdat.md" download="2026-10-30_Мо_Гавдат_ИИ_Заберет_Работу_2027.md" class="drawer-link" style="color: #a5b4fc; border-color: rgba(129, 140, 248, 0.3);">
+          <span>📥</span> <span>Скачать Markdown (.md для Obsidian)</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Модальное окно Инсайт-Карточки (HTML5 Canvas) -->
+  <div id="insightCardModal" class="insight-modal-overlay" onclick="closeInsightModal(event)">
+    <div class="insight-modal-content">
+      <div class="insight-modal-header">
+        <div style="font-weight: 700; color: #fff; font-size: 1rem;">📸 Инсайт-Карточка для соцсетей</div>
+        <button class="drawer-close-btn" onclick="closeInsightModal()">✕</button>
+      </div>
+      <div class="insight-canvas-wrap">
+        <canvas id="insightCanvas" width="1080" height="1350"></canvas>
+      </div>
+      <div class="insight-modal-actions">
+        <button class="insight-btn-download" onclick="downloadInsightCard()">
+          <span>📥 Скачать PNG</span>
+        </button>
+        <button class="insight-btn-copy" onclick="copyInsightCard()">
+          <span>📋 Скопировать</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Плавающий тултип выделения текста -->
+  <div id="highlightBubble" class="highlight-bubble">
+    <button onclick="applyUserHighlight()"><span>🖍️ Выделить</span></button>
+  </div>
+
+</body>
+</html>
