@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gemstudio Tech & Workflow Radar • Инженерный Манифест и Питч</title>
+  
+  <!-- Open Graph / Rich Social Preview for Telegram -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Gemstudio Tech Radar • Инженерный фильтр инфошума и конвейер приземления ИИ-связок">
+  <meta property="og:description" content="Беспощадный аудит YouTube-роликов и PDF-гайдов: чистый стек, детектор буллшита, бесплатные альтернативы $0 и готовые ТЗ для Claude Code.">
+  <meta property="og:image" content="https://img.youtube.com/vi/2BfsM453h_s/maxresdefault.jpg">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="720">
+  <meta property="og:site_name" content="Gemstudio: Tech Radar">
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'dark',
+      themeVariables: {
+        primaryColor: '#1e293b',
+        primaryTextColor: '#f8fafc',
+        primaryBorderColor: '#38bdf8',
+        lineColor: '#64748b',
+        secondaryColor: '#334155',
+        tertiaryColor: '#0f172a'
+      }
+    });
+  </script>
+
+  <style>
+    :root {
+      --bg: #070a13;
+      --card-bg: rgba(15, 23, 42, 0.75);
+      --card-inner: #0b1120;
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-border-hover: rgba(56, 189, 248, 0.4);
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --accent-cyan: #38bdf8;
+      --accent-purple: #a855f7;
+      --accent-green: #22c55e;
+      --accent-amber: #f59e0b;
+      --accent-red: #ef4444;
+      --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: var(--font-main);
+      line-height: 1.6;
+      padding: 0 0 100px;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(56, 189, 248, 0.07) 0%, transparent 40%),
+        radial-gradient(circle at 85% 85%, rgba(168, 85, 247, 0.07) 0%, transparent 40%);
+    }
+
+    /* Top Nav */
+    .top-nav {
+      background: rgba(11, 17, 32, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--card-border);
+      padding: 16px 24px;
+      position: relative;
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 800;
+      font-size: 1.05rem;
+    }
+
+    .brand-icon {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-btn {
+      color: var(--accent-cyan);
+      text-decoration: none;
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.2s;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      background: rgba(56, 189, 248, 0.08);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-btn:hover {
+      background: var(--accent-cyan);
+      color: #040814;
+      transform: translateY(-1px);
+    }
+
+    .nav-btn.primary {
+      background: linear-gradient(135deg, #0284c7, #2563eb);
+      color: #fff;
+      border: none;
+    }
+    .nav-btn.primary:hover {
+      background: linear-gradient(135deg, #0369a1, #1d4ed8);
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 20px;
+    }
+
+    /* Hero */
+    .hero-box {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.4) 0%, rgba(15, 23, 42, 0.85) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      border-radius: 24px;
+      padding: 48px 36px;
+      margin-bottom: 40px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-box::before {
+      content: "";
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      color: var(--accent-cyan);
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 18px;
+    }
+
+    .hero-title {
+      font-size: 2.6rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 800px;
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+
+    /* Bento Grid */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 840px) {
+      .bento-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero-title { font-size: 2rem; }
+    }
+    @media (max-width: 520px) {
+      .bento-grid { grid-template-columns: 1fr; }
+    }
+
+    .bento-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 20px;
+      transition: all 0.2s;
+    }
+
+    .bento-card:hover {
+      border-color: var(--card-border-hover);
+      transform: translateY(-2px);
+    }
+
+    .bento-metric {
+      font-size: 2rem;
+      font-weight: 800;
+      font-family: var(--font-mono);
+      margin-bottom: 4px;
+    }
+
+    .bento-metric.cyan { color: var(--accent-cyan); }
+    .bento-metric.green { color: var(--accent-green); }
+    .bento-metric.purple { color: var(--accent-purple); }
+    .bento-metric.amber { color: var(--accent-amber); }
+
+    .bento-label {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* Section Styles */
+    .section-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 36px 30px;
+      margin-bottom: 32px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 16px;
+    }
+
+    .section-icon {
+      font-size: 1.6rem;
+    }
+
+    .section-title {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+    }
+
+    /* Problem Grid */
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .problem-grid { grid-template-columns: 1fr; }
+    }
+
+    .problem-item {
+      background: rgba(239, 68, 68, 0.05);
+      border: 1px solid rgba(239, 68, 68, 0.2);
+      border-radius: 14px;
+      padding: 20px;
+    }
+
+    .problem-badge {
+      display: inline-block;
+      color: var(--accent-red);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .problem-heading {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .problem-text {
+      font-size: 0.85rem;
+      color: #cbd5e1;
+      line-height: 1.5;
+    }
+
+    /* Solution Blocks */
+    .solution-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .solution-grid { grid-template-columns: 1fr; }
+    }
+
+    .level-box {
+      background: var(--card-inner);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 24px;
+    }
+
+    .level-tag {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .level-tag.l1 { background: rgba(56, 189, 248, 0.15); color: var(--accent-cyan); border: 1px solid rgba(56, 189, 248, 0.3); }
+    .level-tag.l2 { background: rgba(34, 197, 94, 0.15); color: var(--accent-green); border: 1px solid rgba(34, 197, 94, 0.3); }
+
+    .level-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .level-list {
+      list-style: none;
+    }
+
+    .level-list li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 10px;
+      font-size: 0.88rem;
+      color: #cbd5e1;
+      line-height: 1.5;
+    }
+
+    .level-list li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: var(--accent-cyan);
+      font-size: 0.9rem;
+    }
+
+    /* Vector Cards */
+    .vector-card {
+      background: var(--card-inner);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 16px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 20px;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .vector-card { grid-template-columns: 1fr; gap: 14px; }
+    }
+
+    .vector-number {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--accent-cyan);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      font-weight: 800;
+      font-family: var(--font-mono);
+    }
+
+    .vector-body h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .vector-body p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .vector-badge {
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      white-space: nowrap;
+      text-align: center;
+    }
+
+    .badge-free { background: rgba(34, 197, 94, 0.15); color: var(--accent-green); border: 1px solid rgba(34, 197, 94, 0.3); }
+    .badge-viral { background: rgba(168, 85, 247, 0.15); color: var(--accent-purple); border: 1px solid rgba(168, 85, 247, 0.3); }
+    .badge-saas { background: rgba(245, 158, 11, 0.15); color: var(--accent-amber); border: 1px solid rgba(245, 158, 11, 0.3); }
+
+    /* Comparison Table */
+    .table-wrap {
+      overflow-x: auto;
+      margin-top: 16px;
+    }
+
+    table.benchmark-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.86rem;
+    }
+
+    table.benchmark-table th {
+      padding: 12px 16px;
+      background: var(--card-inner);
+      color: var(--text-muted);
+      font-weight: 600;
+      border-bottom: 2px solid var(--card-border);
+    }
+
+    table.benchmark-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--card-border);
+      color: #cbd5e1;
+    }
+
+    table.benchmark-table tr.highlight td {
+      background: rgba(56, 189, 248, 0.05);
+      font-weight: 600;
+      color: #fff;
+      border-left: 2px solid var(--accent-cyan);
+    }
+
+    /* Mermaid Wrap */
+    .mermaid-box {
+      background: var(--card-inner);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 24px;
+      overflow-x: auto;
+      margin-top: 20px;
+    }
+
+    /* CTA Section */
+    .cta-card {
+      background: linear-gradient(135deg, rgba(2, 132, 199, 0.2) 0%, rgba(15, 23, 42, 0.9) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 20px;
+      padding: 40px 32px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .cta-card h3 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .cta-card p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      max-width: 600px;
+      margin: 0 auto 24px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-main {
+      padding: 12px 28px;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-main.cyan {
+      background: linear-gradient(135deg, #0284c7, #2563eb);
+      color: #fff;
+      box-shadow: 0 4px 18px rgba(2, 132, 199, 0.4);
+    }
+    .btn-main.cyan:hover {
+      background: linear-gradient(135deg, #0369a1, #1d4ed8);
+      transform: translateY(-2px);
+    }
+
+    .btn-main.outline {
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .btn-main.outline:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <nav class="top-nav">
+    <div class="nav-container">
+      <a href="radar.html" class="nav-brand">
+        <div class="brand-icon">📡</div>
+        <span>Gemstudio • Tech Radar</span>
+      </a>
+      <div class="nav-links">
+        <a href="radar.html" class="nav-btn">🧭 Каталог Радара</a>
+        <a href="2026-10-25_Vasin_SEO-zavod_klientam.html" class="nav-btn primary">🚀 Разбор: SEO-Завод</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <!-- Hero -->
+    <header class="hero-box">
+      <div class="hero-badge">Инженерный Манифест & Питч • Gemstudio R&D</div>
+      <h1 class="hero-title">Gemstudio Tech & Workflow Radar</h1>
+      <p class="hero-subtitle">
+        Автономный фильтр инфошума и конвейер приземления чужих ИИ- и маркетинговых связок в боевой бизнес. 
+        Счищает 90% кликбейта, вскрывает платные триал-ловушки и синтезирует готовые технические задания для Claude Code за 2 минуты.
+      </p>
+
+      <!-- 4 Bento Cards -->
+      <div class="bento-grid">
+        <div class="bento-card">
+          <div class="bento-metric cyan">2 мин</div>
+          <div class="bento-label">На глубокий аудит связки вместо 2 часов просмотра видео</div>
+        </div>
+        <div class="bento-card">
+          <div class="bento-metric green">100%</div>
+          <div class="bento-label">Детектор буллшита, триал-ловушек и скрытых платных подписок</div>
+        </div>
+        <div class="bento-card">
+          <div class="bento-metric purple">$0</div>
+          <div class="bento-label">Рецепт бесплатной замены дорогих SaaS-сервисов своими руками</div>
+        </div>
+        <div class="bento-card">
+          <div class="bento-metric amber">DoD</div>
+          <div class="bento-label">Готовое пошаговое ТЗ для Claude Code / инженеров с кодом файлов</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Section 1: Problem -->
+    <section class="section-card">
+      <div class="section-header">
+        <div class="section-icon">⚠️</div>
+        <div>
+          <h2 class="section-title">Крах Инфо-Гигиены: 3 Болезни AI-Контента</h2>
+        </div>
+      </div>
+      <p class="section-desc">
+        Каждый день предприниматели и разработчики теряют десятки часов на просмотр обучающих роликов, которые не дают результата. 
+        Вот почему традиционное изучение нейросетей перестало работать:
+      </p>
+
+      <div class="problem-grid">
+        <div class="problem-item">
+          <span class="problem-badge">Болезнь №1</span>
+          <h3 class="problem-heading">Фарм охватов и кликбейт</h3>
+          <p class="problem-text">
+            85% контента в YouTube и Reels создаются ради просмотров. За громкими обещаниями «Этот агент заменит отдел маркетинга» скрывается поверхностный пересказ справки или шаблон 2-летней давности.
+          </p>
+        </div>
+
+        <div class="problem-item">
+          <span class="problem-badge">Болезнь №2</span>
+          <h3 class="problem-heading">Триал-ловушки и подписочный ад</h3>
+          <p class="problem-text">
+            Инструмент заявляют как «бесплатный», но триал дает 3 генерации, а дальше требует карту и $20/мес. Начинающему вайб-кодеру навязывают стек из 4 сервисов ($80/мес), который заменяется скриптом на Python за 30 строк.
+          </p>
+        </div>
+
+        <div class="problem-item">
+          <span class="problem-badge">Болезнь №3</span>
+          <h3 class="problem-heading">Вторичный переводной контент</h3>
+          <p class="problem-text">
+            90% русскоязычных роликов — это переводы тредов из американского X (Twitter) двухнедельной давности. Переводчики путают термины, теряют технический контекст и не тестируют код в реальности.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Solution Architecture -->
+    <section class="section-card">
+      <div class="section-header">
+        <div class="section-icon">⚙️</div>
+        <div>
+          <h2 class="section-title">Решение: Двухуровневый Инженерный Движок</h2>
+        </div>
+      </div>
+      <p class="section-desc">
+        Tech Radar разделяет анализ на два независимых контура: сначала выжимается объективная истина, затем формируется готовое решение для экосистемы Studio.
+      </p>
+
+      <div class="solution-grid">
+        <div class="level-box">
+          <span class="level-tag l1">УРОВЕНЬ 1: ОБЪЕКТИВНЫЙ АУДИТ</span>
+          <h3 class="level-title">Деконструкция технологии</h3>
+          <ul class="level-list">
+            <li><strong>Стек и зависимости:</strong> точный перечень LLM, рантаймов, API и парсеров без рекламных интеграций.</li>
+            <li><strong>Архитектурная схема:</strong> наглядная диаграмма Mermaid движения данных от запроса до базы.</li>
+            <li><strong>Детектор Буллшита:</strong> статус полезности (Боевой прод / Кликбейт / Продажа курса / Вторичный перевод).</li>
+            <li><strong>Paywall Reality Audit:</strong> выявление условно-бесплатных капканов и рецепт замены на <strong>$0 своими руками</strong>.</li>
+          </ul>
+        </div>
+
+        <div class="level-box">
+          <span class="level-tag l2">УРОВЕНЬ 2: ПРИЗЕМЛЕНИЕ В БИЗНЕС</span>
+          <h3 class="level-title">ТЗ для внедрения в Studio</h3>
+          <ul class="level-list">
+            <li><strong>Оценка Fit (1–10):</strong> насколько связка применима для клиентов и собственных продуктов.</li>
+            <li><strong>Оценка трудозатрат:</strong> точный срок сборки (Quick Win 2–4 часа / Проект на неделю / В архив).</li>
+            <li><strong>Бриф для Claude Code:</strong> пошаговое ТЗ с деревом папок, кодом скиллов (`SKILL.md`) и тестами.</li>
+            <li><strong>Синхронизация во Второй Мозг:</strong> автоматический экспорт в Obsidian Vault и веб-витрину.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Mermaid Diagram -->
+      <div class="mermaid-box">
+        <pre class="mermaid">
+flowchart LR
+    A["🎥 YouTube URL + PDF-гайд"] --> B["⚙️ Ingest Engine<br/>(yt-dlp + pypdf)"]
+    B --> C{"🛡️ Уровень 1:<br/>Деконструкция"}
+    C -->|Стек & Схема| D["Блок-схема Mermaid<br/>+ Банк Артефактов"]
+    C -->|Фильтр Хайпа| E["Детектор Буллшита<br/>+ Рецепт замены на $0"]
+    D & E --> F{"🎯 Уровень 2:<br/>Приземление"}
+    F -->|Оценка Fit| G["ТЗ для Claude Code<br/>(DoD + Код скиллов)"]
+    F -->|Сборка Дашборда| H["Автономный HTML<br/>+ Obsidian Markdown"]
+    H --> I["🧭 Единый Хаб Радара<br/>(6 Кластеров)"]
+
+    classDef blue fill:#0284c7,stroke:#38bdf8,color:#fff;
+    classDef green fill:#15803d,stroke:#22c55e,color:#fff;
+    classDef dark fill:#0f172a,stroke:#334155,color:#cbd5e1;
+    class A,B blue;
+    class C,F green;
+    class D,E,G,H,I dark;
+        </pre>
+      </div>
+    </section>
+
+    <!-- Section 3: Market Comparison -->
+    <section class="section-card">
+      <div class="section-header">
+        <div class="section-icon">🏆</div>
+        <div>
+          <h2 class="section-title">Сравнение с Мировыми Аналогами</h2>
+        </div>
+      </div>
+      <p class="section-desc">
+        Почему существующие инструменты не решают задачу инженера и предпринимателя:
+      </p>
+
+      <div class="table-wrap">
+        <table class="benchmark-table">
+          <thead>
+            <tr>
+              <th>Инструмент</th>
+              <th>Анализ видео + PDF</th>
+              <th>Детектор Буллшита ($0)</th>
+              <th>Mermaid-архитектура</th>
+              <th>ТЗ для Claude Code</th>
+              <th>Автономный Web-Дашборд</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="highlight">
+              <td><strong>Gemstudio Tech Radar</strong></td>
+              <td>🟢 Да (автоматически)</td>
+              <td>🟢 Да (рецепт $0 замен)</td>
+              <td>🟢 Да (на лету)</td>
+              <td>🟢 Да (DoD + код)</td>
+              <td>🟢 Да (v4.0 Elite)</td>
+            </tr>
+            <tr>
+              <td>ThoughtWorks Technology Radar</td>
+              <td>❌ Нет (только текст)</td>
+              <td>❌ Нет</td>
+              <td>❌ Нет</td>
+              <td>❌ Нет</td>
+              <td>🟡 Статичный каталог</td>
+            </tr>
+            <tr>
+              <td>Google NotebookLM</td>
+              <td>🟡 Частично (без видео)</td>
+              <td>❌ Нет</td>
+              <td>❌ Нет</td>
+              <td>❌ Нет</td>
+              <td>❌ Нет (только чат)</td>
+            </tr>
+            <tr>
+              <td>Snipd / Readwise</td>
+              <td>🟡 Только аудио-подкасты</td>
+              <td>❌ Нет</td>
+              <td>❌ Нет</td>
+              <td>❌ Нет</td>
+              <td>❌ Нет (только цитаты)</td>
+            </tr>
+            <tr>
+              <td>Обычный ChatGPT / Claude Web</td>
+              <td>❌ Нет (нужен плагин)</td>
+              <td>❌ Нет</td>
+              <td>🟡 По отдельному запросу</td>
+              <td>❌ Нет контекста Studio</td>
+              <td>❌ Нет дашборда</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section 4: Monetization & Business Strategy -->
+    <section class="section-card">
+      <div class="section-header">
+        <div class="section-icon">📈</div>
+        <div>
+          <h2 class="section-title">3 Вектора Капитализации и Монетизации</h2>
+        </div>
+      </div>
+      <p class="section-desc">
+        Tech Radar — это не просто внутренняя утилита, а модульная платформа с понятной лестницей коммерциализации:
+      </p>
+
+      <div class="vector-card">
+        <div class="vector-number">01</div>
+        <div class="vector-body">
+          <h4>Личный Командный Центр Предпринимателя (Studio Personal OS)</h4>
+          <p>
+            Быстрый фильтр для личных проектов Studio и клиентских систем. Позволяет за 2–4 часа внедрять передовые решения конкурентов, экономя сотни тысяч рублей на зарплатах внешних подрядчиков.
+          </p>
+        </div>
+        <div>
+          <span class="vector-badge badge-free">ЭТАП 1: $0 ЗАТРАТ</span>
+        </div>
+      </div>
+
+      <div class="vector-card">
+        <div class="vector-number">02</div>
+        <div class="vector-body">
+          <h4>Флагманский Лид-Магнит & GitHub Starter Kit для вайб-кодеров</h4>
+          <p>
+            Публичный каталог из 10–15 топовых разобранных связок отдаётся бесплатно за подписку на Telegram-канал. Базовый Open Source репозиторий привлекает разработчиков, а ежемесячная платная подборка свежих ТЗ продаётся за 500–1000 ₽.
+          </p>
+        </div>
+        <div>
+          <span class="vector-badge badge-viral">ЭТАП 2: ВИРАЛЬНЫЙ ОХВАТ</span>
+        </div>
+      </div>
+
+      <div class="vector-card">
+        <div class="vector-number">03</div>
+        <div class="vector-body">
+          <h4>Telegram-Бот «Tech Radar» (Микро-SaaS на автопилоте)</h4>
+          <p>
+            Сервис для тех, кто хочет получать готовый интерактивный дашборд и Obsidian-заметку по любому YouTube-ролику за 2 минуты. Оплата 490–990 ₽ за ролик или подписка 1990 ₽/мес. Себестоимость API ~5–10 ₽ (маржинальность > 95%).
+          </p>
+        </div>
+        <div>
+          <span class="vector-badge badge-saas">ЭТАП 3: B2C / B2B SAAS</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta-card">
+      <h3>Попробуйте Tech Radar в Действии</h3>
+      <p>
+        Посмотрите, как сложный 13-минутный ролик с платным курсом за 150 000 ₽ превратился в открытый автономный дашборд с готовым ТЗ для Claude Code.
+      </p>
+      <div class="cta-buttons">
+        <a href="2026-10-25_Vasin_SEO-zavod_klientam.html" class="btn-main cyan">🚀 Открыть Разбор: SEO-Завод</a>
+        <a href="radar.html" class="btn-main outline">🧭 Открыть Единый Каталог Радара</a>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
