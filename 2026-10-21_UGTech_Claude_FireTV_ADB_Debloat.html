@@ -1,0 +1,1818 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Технологический Радар: I Connected Claude to My Fire TV Stick — What Happened Next Is Crazy — Gemstudio</title>
+  
+  <!-- Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="I Connected Claude to My Fire TV Stick — What Happened Next Is Crazy | Радар Технологий Gemstudio">
+  <meta property="og:description" content="Инструмент / Автономный SysAdmin">
+  <meta property="og:image" content="https://img.youtube.com/vi/hNsvwUZJFTg/maxresdefault.jpg">
+  <meta property="og:site_name" content="Gemstudio Tech & Workflow Radar">
+
+  <!-- Mermaid.js -->
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'dark',
+      themeVariables: {
+        primaryColor: '#1e293b',
+        primaryTextColor: '#f8fafc',
+        primaryBorderColor: '#38bdf8',
+        lineColor: '#64748b',
+        secondaryColor: '#334155',
+        tertiaryColor: '#0f172a',
+        fontFamily: 'Plus Jakarta Sans, sans-serif'
+      }
+    });
+  </script>
+
+  <style>
+    :root {
+      --bg: #070a13;
+      --card-bg: #0f172a;
+      --card-bg-elevated: #151f36;
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-border-hover: rgba(56, 189, 248, 0.4);
+      --text-main: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      
+      --accent-blue: #38bdf8;
+      --accent-purple: #818cf8;
+      --accent-green: #34d399;
+      --accent-red: #f87171;
+      --accent-gold: #fbbf24;
+      --accent-rose: #f43f5e;
+      
+      --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      overflow-x: hidden !important;
+      max-width: 100vw !important;
+      width: 100%;
+      position: relative;
+    }
+
+    body {
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.06) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(129, 140, 248, 0.06) 0px, transparent 50%);
+      color: var(--text-main);
+      font-family: var(--font-main);
+      line-height: 1.65;
+      padding: 24px 16px 80px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1060px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, rgba(21, 31, 54, 0.8) 0%, rgba(15, 23, 42, 0.95) 100%);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 30px 24px;
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 240px;
+      height: 240px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .badge-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-family: var(--font-mono);
+    }
+
+    .badge-blue { background: rgba(56, 189, 248, 0.12); color: var(--accent-blue); border: 1px solid rgba(56, 189, 248, 0.25); }
+    .badge-purple { background: rgba(129, 140, 248, 0.12); color: var(--accent-purple); border: 1px solid rgba(129, 140, 248, 0.25); }
+    .badge-green { background: rgba(52, 211, 153, 0.12); color: var(--accent-green); border: 1px solid rgba(52, 211, 153, 0.25); }
+
+    h1 {
+      font-size: 2.1rem;
+      line-height: 1.25;
+      color: #fff;
+      margin-bottom: 14px;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+    }
+
+    .meta-subtitle {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .meta-subtitle a {
+      color: var(--accent-blue);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .meta-subtitle a:hover {
+      text-decoration: underline;
+    }
+
+    /* Ambient Video Player */
+    .video-hero-wrapper {
+      position: relative;
+      margin: 20px 0 28px;
+      border-radius: 16px;
+    }
+
+    .ambient-glow {
+      position: absolute;
+      top: 5%;
+      left: 5%;
+      width: 90%;
+      height: 90%;
+      background-size: cover;
+      background-position: center;
+      filter: blur(45px) brightness(0.6);
+      opacity: 0.75;
+      z-index: 1;
+      border-radius: 20px;
+      transition: opacity 0.4s ease;
+    }
+
+    .video-preview-hero {
+      position: relative;
+      z-index: 2;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--card-border);
+      background: #000;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .video-preview-card {
+      position: relative;
+      cursor: pointer;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .video-thumb {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .video-preview-card:hover .video-thumb {
+      transform: scale(1.02);
+      filter: brightness(0.9);
+    }
+
+    .video-play-btn {
+      position: absolute;
+      width: 68px;
+      height: 68px;
+      background: #ef4444;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      box-shadow: 0 0 35px rgba(239, 68, 68, 0.7);
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .video-preview-card:hover .video-play-btn {
+      transform: scale(1.1);
+      background: #dc2626;
+    }
+
+    .video-duration-badge {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(4px);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-family: var(--font-mono);
+      color: #f1f5f9;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .video-embed-container {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+    }
+
+    .video-embed-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .player-helper-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 8px;
+      padding: 0 4px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .player-helper-bar a {
+      color: var(--accent-blue);
+      text-decoration: none;
+    }
+
+    /* Materials Box */
+    .materials-box {
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    }
+
+    .materials-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-family: var(--font-mono);
+    }
+
+    .materials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 12px;
+    }
+
+    @media (max-width: 768px) {
+      .materials-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .material-card {
+      background: rgba(11, 17, 32, 0.85);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      transition: all 0.2s;
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    .material-card:hover {
+      border-color: rgba(56, 189, 248, 0.4);
+      background: rgba(11, 17, 32, 1);
+    }
+
+    .material-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex: 1 1 auto;
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    .material-icon {
+      font-size: 1.5rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .material-info {
+      flex: 1 1 auto;
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    .material-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.35;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: block;
+    }
+
+    .material-meta {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      line-height: 1.3;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: block;
+      margin-top: 2px;
+    }
+
+    .material-actions {
+      display: flex;
+      gap: 6px;
+      flex-shrink: 0;
+      margin-left: auto;
+    }
+
+    .material-btn {
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.2s;
+      font-family: var(--font-main);
+      white-space: nowrap;
+    }
+
+    .material-btn.primary {
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--accent-blue);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+
+    .material-btn.primary:hover {
+      background: var(--accent-blue);
+      color: #000;
+    }
+
+    .material-btn.secondary {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-secondary);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .material-btn.secondary:hover {
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+    }
+
+    /* Bento KPI Grid */
+    .bento-kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .bento-kpi-card {
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 16px 16px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+      transition: all 0.25s ease;
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    .bento-kpi-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--card-border-hover);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    .kpi-micro-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+    }
+
+    .kpi-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    .kpi-big-num {
+      font-size: 1.5rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 6px;
+      font-family: var(--font-mono);
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .kpi-label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Modern Segmented Control (Tabs) */
+    .tabs-wrapper {
+      margin-bottom: 26px;
+    }
+
+    .segmented-tabs {
+      display: inline-flex;
+      background: #0b1120;
+      padding: 5px;
+      border-radius: 14px;
+      border: 1px solid var(--card-border);
+      gap: 6px;
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    .seg-tab-btn {
+      flex: 1;
+      min-width: 180px;
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-muted);
+      padding: 11px 18px;
+      border-radius: 10px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+      font-family: var(--font-main);
+    }
+
+    .seg-tab-btn:hover {
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .seg-tab-btn.active {
+      background: #1e293b;
+      color: #fff;
+      border-color: rgba(56, 189, 248, 0.35);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35), 0 0 10px rgba(56, 189, 248, 0.15);
+    }
+
+    .tab-pane {
+      display: none;
+      animation: tabFadeIn 0.25s ease;
+    }
+
+    .tab-pane.active {
+      display: block;
+    }
+
+    @keyframes tabFadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Content Cards */
+    .section-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 22px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .section-header {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      padding-bottom: 12px;
+    }
+
+    /* One-Liner Essence Hero Banner */
+    .essence-hero-banner {
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.08) 0%, rgba(129, 140, 248, 0.05) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-left: 4px solid var(--accent-blue);
+      border-radius: 14px;
+      padding: 20px 22px;
+      margin-bottom: 20px;
+    }
+
+    .essence-hero-banner .banner-tag {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--accent-blue);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+
+    .essence-hero-banner p {
+      font-size: 1.05rem;
+      color: #f1f5f9;
+      line-height: 1.55;
+      font-weight: 500;
+    }
+
+    /* Proof of Work Grid */
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .proof-card {
+      background: rgba(11, 17, 32, 0.7);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.2s;
+    }
+
+    .proof-card:hover {
+      border-color: rgba(52, 211, 153, 0.4);
+      background: rgba(11, 17, 32, 0.9);
+    }
+
+    .proof-site {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+    }
+
+    .proof-badge {
+      font-size: 0.68rem;
+      padding: 2px 7px;
+      border-radius: 10px;
+      font-weight: 700;
+    }
+
+    .proof-badge.green { background: rgba(52, 211, 153, 0.15); color: var(--accent-green); }
+    .proof-badge.blue { background: rgba(56, 189, 248, 0.15); color: var(--accent-blue); }
+    .proof-badge.purple { background: rgba(129, 140, 248, 0.15); color: var(--accent-purple); }
+
+    .proof-metric {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: #fff;
+      font-family: var(--font-mono);
+      margin-bottom: 6px;
+      background: linear-gradient(135deg, #fff, #94a3b8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .proof-desc {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      line-height: 1.4;
+    }
+
+    /* Tech Stack Matrix Grid */
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .stack-card {
+      background: rgba(11, 17, 32, 0.6);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 16px 18px;
+      transition: all 0.2s;
+    }
+
+    .stack-card:hover {
+      border-color: var(--card-border-hover);
+      background: rgba(11, 17, 32, 0.9);
+    }
+
+    .stack-header {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent-blue);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-family: var(--font-mono);
+    }
+
+    .stack-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+
+    .stack-pill {
+      background: #1e293b;
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      color: #f1f5f9;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 3px 9px;
+      border-radius: 6px;
+      font-family: var(--font-mono);
+    }
+
+    .stack-pill.secondary {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-muted);
+    }
+
+    .stack-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+
+    /* Mermaid Container */
+    .mermaid-box {
+      background: #090e18;
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 22px 14px;
+      overflow-x: auto;
+      text-align: center;
+    }
+
+    /* Mechanics Cards Grid */
+    .mechanics-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .mech-card {
+      background: rgba(11, 17, 32, 0.6);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 16px 18px;
+    }
+
+    .mech-title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .mech-badge {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+
+    .mech-desc {
+      font-size: 0.84rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* Hype Stress-Test (Split Cards) */
+    .stress-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 16px;
+    }
+
+    .stress-card {
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid var(--card-border);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stress-card.warning {
+      background: rgba(244, 63, 94, 0.05);
+      border-color: rgba(244, 63, 94, 0.25);
+    }
+
+    .stress-card.success {
+      background: rgba(52, 211, 153, 0.05);
+      border-color: rgba(52, 211, 153, 0.25);
+    }
+
+    .stress-card.info {
+      background: rgba(56, 189, 248, 0.05);
+      border-color: rgba(56, 189, 248, 0.25);
+    }
+
+    .stress-card.purple {
+      background: rgba(168, 85, 247, 0.05);
+      border-color: rgba(168, 85, 247, 0.25);
+    }
+
+    .stress-card-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .stress-card.warning .stress-card-title { color: var(--accent-rose); }
+    .stress-card.success .stress-card-title { color: var(--accent-green); }
+    .stress-card.info .stress-card-title { color: var(--accent-blue); }
+    .stress-card.purple .stress-card-title { color: var(--accent-purple); }
+
+    .stress-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .stress-list li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 10px;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.45;
+    }
+
+    .stress-list li::before {
+      content: "•";
+      position: absolute;
+      left: 6px;
+      color: var(--accent-rose);
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+
+    .cost-big-num {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--accent-green);
+      font-family: var(--font-mono);
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .cost-desc {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* Studio Stepper (Tab 2) */
+    .stepper-timeline {
+      position: relative;
+      margin-top: 14px;
+    }
+
+    .stepper-item {
+      position: relative;
+      padding-left: 42px;
+      padding-bottom: 24px;
+    }
+
+    .stepper-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .stepper-item::before {
+      content: "";
+      position: absolute;
+      left: 14px;
+      top: 32px;
+      bottom: 0;
+      width: 2px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .stepper-item:last-child::before {
+      display: none;
+    }
+
+    .stepper-num {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #1e293b;
+      border: 1px solid var(--accent-blue);
+      color: var(--accent-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 800;
+      font-family: var(--font-mono);
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.25);
+    }
+
+    .stepper-content {
+      background: rgba(11, 17, 32, 0.6);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 16px 18px;
+    }
+
+    .stepper-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .stepper-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .stepper-time {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      background: rgba(251, 191, 36, 0.12);
+      color: var(--accent-gold);
+      padding: 2px 8px;
+      border-radius: 4px;
+      border: 1px solid rgba(251, 191, 36, 0.25);
+    }
+
+    .stepper-body {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* Artifacts Bank Cards (Tab 3) */
+    .artifact-card {
+      background: rgba(11, 17, 32, 0.7);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 16px 18px;
+      margin-bottom: 14px;
+      transition: all 0.2s;
+    }
+
+    .artifact-card:hover {
+      border-color: var(--card-border-hover);
+    }
+
+    .artifact-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .artifact-title-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .artifact-name {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #fff;
+      font-family: var(--font-mono);
+    }
+
+    .artifact-type-badge {
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+    }
+
+    .type-mcp { background: rgba(56, 189, 248, 0.15); color: var(--accent-blue); }
+    .type-skill { background: rgba(129, 140, 248, 0.15); color: var(--accent-purple); }
+    .type-prompt { background: rgba(52, 211, 153, 0.15); color: var(--accent-green); }
+    .type-api { background: rgba(251, 191, 36, 0.15); color: var(--accent-gold); }
+
+    .status-badge {
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .status-real {
+      background: rgba(52, 211, 153, 0.12);
+      color: #34d399;
+      border: 1px solid rgba(52, 211, 153, 0.25);
+    }
+
+    .status-synth {
+      background: rgba(168, 85, 247, 0.12);
+      color: #c084fc;
+      border: 1px solid rgba(168, 85, 247, 0.25);
+    }
+
+    .artifact-link-btn {
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      color: var(--accent-blue);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.2s;
+      font-family: var(--font-main);
+    }
+
+    .artifact-link-btn:hover {
+      background: var(--accent-blue);
+      color: #000;
+    }
+
+    .artifact-desc {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+
+    .copy-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: var(--text-secondary);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.2s;
+      font-family: var(--font-main);
+    }
+
+    .copy-btn:hover {
+      background: var(--accent-blue);
+      color: #000;
+      border-color: var(--accent-blue);
+    }
+
+    pre {
+      background: #060911;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 8px;
+      padding: 12px 14px;
+      overflow-x: auto;
+      font-size: 0.82rem;
+      color: #e2e8f0;
+      font-family: var(--font-mono);
+      line-height: 1.5;
+      margin-top: 8px;
+    }
+
+    code {
+      font-family: var(--font-mono);
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.08);
+      padding: 2px 5px;
+      border-radius: 4px;
+      font-size: 0.85em;
+    }
+
+    pre code {
+      background: transparent;
+      padding: 0;
+      color: inherit;
+    }
+
+    /* Toast */
+    #toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--accent-green);
+      color: #000;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.25s ease;
+      z-index: 9999;
+      pointer-events: none;
+      font-family: var(--font-main);
+    }
+
+    #toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      border-top: 1px solid var(--card-border);
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: var(--accent-blue);
+      text-decoration: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .bento-kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+      .proof-grid {
+        grid-template-columns: 1fr;
+      }
+      .stack-grid {
+        grid-template-columns: 1fr;
+      }
+      .mechanics-grid {
+        grid-template-columns: 1fr;
+      }
+      .stress-grid {
+        grid-template-columns: 1fr;
+      }
+      h1 { font-size: 1.55rem; }
+      header { padding: 20px 16px; }
+      .section-card { padding: 18px 14px; }
+      .segmented-tabs { flex-direction: column; }
+      .seg-tab-btn { width: 100%; min-width: auto; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Header -->
+  <header>
+    <div class="badge-bar">
+      <span class="badge badge-blue">🚀 TECH RADAR ELITE</span>
+      <span class="badge badge-purple">ЗАБРАТЬ В АРСЕНАЛ</span>
+      <span class="badge badge-green">FIT SCORE: 8.5 / 10</span>
+    </div>
+    <h1>I Connected Claude to My Fire TV Stick — What Happened Next Is Crazy</h1>
+    <div class="meta-subtitle">
+      <span>👤 <strong>UG Tech (Upgrade Guy)</strong></span>
+      <span>📅 21 октября 2026 г.</span>
+      <span>⏱ 11:57</span>
+      <a href="https://www.youtube.com/watch?v=hNsvwUZJFTg" target="_blank" rel="noopener">🔗 YouTube</a>
+      <a href="00_Хаб_Радар_Технологий.html">← В каталог радара</a>
+    </div>
+  </header>
+
+  <!-- Ambient Glow Video Player -->
+  <div class="video-hero-wrapper">
+    <div class="ambient-glow" style="background-image: url('https://img.youtube.com/vi/hNsvwUZJFTg/maxresdefault.jpg');"></div>
+    <div class="video-preview-hero">
+      <div id="videoPreviewCard" class="video-preview-card" onclick="playVideo('hNsvwUZJFTg')">
+        <img class="video-thumb" src="https://img.youtube.com/vi/hNsvwUZJFTg/maxresdefault.jpg" alt="I Connected Claude to My Fire TV Stick — What Happened Next Is Crazy" loading="lazy">
+        <div class="video-play-btn">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+            <polygon points="6,4 20,12 6,20"></polygon>
+          </svg>
+        </div>
+        <div class="video-duration-badge">11:57</div>
+      </div>
+      <div id="videoEmbedContainer" class="video-embed-container" style="display: none;"></div>
+    </div>
+    <div class="player-helper-bar">
+      <span>💡 Нажмите на обложку для запуска плеера прямо здесь</span>
+      <a href="https://www.youtube.com/watch?v=hNsvwUZJFTg" target="_blank" rel="noopener">↗ Открыть напрямую на YouTube</a>
+    </div>
+  </div>
+
+  <!-- Attached Materials & Sources -->
+  
+    <div class="materials-box">
+      <div class="materials-header">
+        <span>📁 Прикреплённые первоисточники и материалы</span>
+        <span style="font-size: 0.72rem; color: var(--accent-blue); background: rgba(56, 189, 248, 0.1); padding: 2px 8px; border-radius: 4px;">3 источника доступны</span>
+      </div>
+      <div class="materials-grid">
+        
+        <div class="material-card">
+          <div class="material-left">
+            <div class="material-icon">📄</div>
+            <div class="material-info">
+              <div class="material-title" title="Пошаговый технический гайд Upgrade Guy">Пошаговый технический гайд Upgrade Guy</div>
+              <div class="material-meta" title="Полная инструкция: настройка ADB по Wi-Fi, таблица удаленных пакетов, замеры памяти и команды отката">Полная инструкция: настройка ADB по Wi-Fi, таблица удаленных пакетов, замеры памяти и команды отката</div>
+            </div>
+          </div>
+          <div class="material-actions">
+            
+            <a href="https://upgradeguy.com/claude-on-fire-tv-stick" target="_blank" rel="noopener" class="material-btn secondary">🌐 Онлайн ↗</a>
+          </div>
+        </div>
+        <div class="material-card">
+          <div class="material-left">
+            <div class="material-icon">📄</div>
+            <div class="material-info">
+              <div class="material-title" title="Видео-первоисточник на YouTube">Видео-первоисточник на YouTube</div>
+              <div class="material-meta" title="Практический эксперимент подключения Claude Code к Fire TV Stick 4K Max">Практический эксперимент подключения Claude Code к Fire TV Stick 4K Max</div>
+            </div>
+          </div>
+          <div class="material-actions">
+            
+            <a href="https://www.youtube.com/watch?v=hNsvwUZJFTg" target="_blank" rel="noopener" class="material-btn secondary">🌐 Онлайн ↗</a>
+          </div>
+        </div>
+        <div class="material-card">
+          <div class="material-left">
+            <div class="material-icon">🎬</div>
+            <div class="material-info">
+              <div class="material-title" title="Видео: «I Connected Claude to My Fire TV Stick — What Happened Next Is Crazy»">Видео: «I Connected Claude to My Fire TV Stick — What Happened Next Is Crazy»</div>
+              <div class="material-meta">YouTube · 11:57 · Первоисточник деконструкции</div>
+            </div>
+          </div>
+          <div class="material-actions">
+            <a href="https://www.youtube.com/watch?v=hNsvwUZJFTg" target="_blank" rel="noopener" class="material-btn secondary">🔗 На YouTube ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <!-- Bento KPI Grid (4 Cards) -->
+  <div class="bento-kpi-grid">
+    <div class="bento-kpi-card">
+      <span class="kpi-micro-tag" style="color: var(--accent-purple);">
+        <span class="kpi-dot" style="background: var(--accent-purple);"></span> Вердикт
+      </span>
+      <div class="kpi-big-num" style="background: linear-gradient(135deg, #818cf8, #38bdf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+        Забрать в арсенал
+      </div>
+      <div class="kpi-label">Инструмент / Автономный SysAdmin</div>
+    </div>
+
+    <div class="bento-kpi-card">
+      <span class="kpi-micro-tag" style="color: var(--accent-green);">
+        <span class="kpi-dot" style="background: var(--accent-green);"></span> Польза
+      </span>
+      <div class="kpi-big-num" style="background: linear-gradient(135deg, #34d399, #38bdf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+        8.5 / 10
+      </div>
+      <div class="kpi-label">Оценка лидогенерации и органики</div>
+    </div>
+
+    <div class="bento-kpi-card">
+      <span class="kpi-micro-tag" style="color: var(--accent-gold);">
+        <span class="kpi-dot" style="background: var(--accent-gold);"></span> Трудозатраты
+      </span>
+      <div class="kpi-big-num" style="background: linear-gradient(135deg, #fbbf24, #f87171); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+        1–2 часа
+      </div>
+      <div class="kpi-label">настройка ADB CLI и скилла device-admin</div>
+    </div>
+
+    <div class="bento-kpi-card">
+      <span class="kpi-micro-tag" style="color: var(--accent-blue);">
+        <span class="kpi-dot" style="background: var(--accent-blue);"></span> Стек
+      </span>
+      <div class="kpi-big-num" style="background: linear-gradient(135deg, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+        Claude Code
+      </div>
+      <div class="kpi-label">Android Debug Bridge (ADB), Android / Fire OS, Bash, Python, Projectivy Launcher</div>
+    </div>
+  </div>
+
+  <!-- Segmented Control Tabs -->
+  <div class="tabs-wrapper">
+    <div class="segmented-tabs">
+      <button class="seg-tab-btn active" onclick="switchTab('tab-deconstruct', this)">
+        📐 1. Деконструкция и Схема
+      </button>
+      <button class="seg-tab-btn" onclick="switchTab('tab-grounding', this)">
+        🎯 2. Приземление в Studio (ТЗ)
+      </button>
+      <button class="seg-tab-btn" onclick="switchTab('tab-artifacts', this)">
+        🧩 3. Банк Инженерных Артефактов
+      </button>
+    </div>
+  </div>
+
+  <!-- TAB 1: OBJECTIVE DECONSTRUCTION -->
+  <div id="tab-deconstruct" class="tab-pane active">
+    
+    <!-- 1. Essence & Proof of Work -->
+    <div class="section-card">
+      <div class="section-header">🔍 Суть технологии и доказательства (Proof of Work)</div>
+      
+      <div class="essence-hero-banner">
+        <div class="banner-tag">Квинтэссенция Решения</div>
+        <p>Технология демонстрирует переход нейросетей от генерации текста к **автономному управлению физической инфраструктурой и IoT-устройствами**. Автор подключает Claude Code к телевизионной приставке **Amazon Fire TV Stick 4K Max** по локальной сети через протокол **ADB over Wi-Fi** (порт 5555). Claude выполняет роль удаленного сертифицированного системного инженера: диагностирует узкие места производительности, удаляет скрытый мусор вендора, оптимизирует память и разворачивает софт.</p>
+      </div>
+
+      <div class="proof-grid">
+
+        <div class="proof-card">
+          <div class="proof-site">
+            <span>Реальные зафиксированные цифры эксперимента</span>
+            <span class="proof-badge green">Proof of Work</span>
+          </div>
+          <div class="proof-metric">* **Освобождение оперативной памяти:** На устройстве с 2 ГБ RAM доступная память выросла с **814 МБ до 966 МБ** (+152 МБ чистого прироста), а свободная RAM увеличилась почти вдвое</div>
+          <div class="proof-desc">со **110 МБ до 199 МБ**.</div>
+        </div>
+        <div class="proof-card">
+          <div class="proof-site">
+            <span>Разгрузка файла подкачки</span>
+            <span class="proof-badge blue">Swap</span>
+          </div>
+          <div class="proof-metric">Использование swap упало с **244 МБ до 169 МБ** (</div>
+          <div class="proof-desc">75 МБ дискового свопинга), что устранило микрофризы и задержки отклика интерфейса при навигации с пульта.</div>
+        </div>
+        <div class="proof-card">
+          <div class="proof-site">
+            <span>Автоматический аудит архитектуры</span>
+            <span class="proof-badge purple">Кейс</span>
+          </div>
+          <div class="proof-metric">Claude самостоятельно определил разрядность процессора (32</div>
+          <div class="proof-desc">bit ARM userspace), скачал официальный дистрибутив **Kodi 21.3 Omega** с официального зеркала, проверил хэш-сумму SHA-256 и установил APK без сторонних утилит перехвата.</div>
+        </div>
+</div>
+    </div>
+
+    <!-- 2. Tech Stack Matrix -->
+    <div class="section-card">
+      <div class="section-header">🛠 Инженерная матрица стека</div>
+      <div class="stack-grid">
+
+            <div class="stack-card">
+              <div class="stack-header">
+                <span>🛠</span> Среда управления агентом
+              </div>
+              <div class="stack-tags"><span class="stack-pill">Claude Code CLI / Claude Desktop</span></div>
+              <div class="stack-note">Claude Code CLI / Claude Desktop (режим исполнения консольных команд).</div>
+            </div>
+            <div class="stack-card">
+              <div class="stack-header">
+                <span>🛠</span> Сетевой протокол коммуникации
+              </div>
+              <div class="stack-tags"><span class="stack-pill">ADB over TCP/IP</span></div>
+              <div class="stack-note">ADB over TCP/IP (порт 5555 по локальной Wi-Fi сети).</div>
+            </div>
+            <div class="stack-card">
+              <div class="stack-header">
+                <span>🛠</span> Инструментарий управления
+              </div>
+              <div class="stack-tags"><span class="stack-pill">Android Platform Tools</span></div>
+              <div class="stack-note">Android Platform Tools (`adb connect`, `adb shell pm`, `adb install`, `adb shell dumpsys`).</div>
+            </div>
+            <div class="stack-card">
+              <div class="stack-header">
+                <span>🛠</span> Целевая платформа
+              </div>
+              <div class="stack-tags"><span class="stack-pill">Amazon Fire TV Stick 4K Max</span></div>
+              <div class="stack-note">Amazon Fire TV Stick 4K Max (Fire OS 7.7.1.6 на базе Android 9 API 28, 8 ядер CPU, 2 GB RAM, 8 GB eMMC).</div>
+            </div>
+            <div class="stack-card">
+              <div class="stack-header">
+                <span>🛠</span> Альтернативный интерфейс
+              </div>
+              <div class="stack-tags"><span class="stack-pill">Projectivy Launcher</span></div>
+              <div class="stack-note">Projectivy Launcher (легковесный лаунчер для блокировки стоковых баннеров).</div>
+            </div>
+            <div class="stack-card">
+              <div class="stack-header">
+                <span>🛠</span> Скриптовый слой
+              </div>
+              <div class="stack-tags"><span class="stack-pill">Bash / Shell</span></div>
+              <div class="stack-note">Bash / Shell (автоматические скрипты моментального отката `rollback.sh`).</div>
+            </div>
+</div>
+    </div>
+
+    <!-- 3. Architecture Pipeline (Mermaid) -->
+    <div class="section-card">
+      <div class="section-header">🔄 Архитектурный конвейер связки</div>
+      <div class="mermaid-box">
+        <pre class="mermaid">
+graph TD
+    A[Пользователь: Активация ADB на TV Stick] --> B[Получение IP-адреса устройства]
+    B --> C[Claude Code на Mac/PC]
+    
+    subgraph "Фаза 1: Авторизация и Аудит"
+        C -->|adb connect IP:5555| D[Экран TV: Диалог подтверждения RSA-ключа]
+        D -->|Ручное подтверждение человеком| E[Авторизованный канал связи]
+        E --> F[Аудит оборудования: 8 ядер CPU, 2GB RAM, 8GB ROM]
+        F --> G[Анализ памяти: Фоновые процессы жрут 356MB RAM]
+        G --> H[Создание скрипта моментального отката rollback.sh]
+    end
+
+    subgraph "Фаза 2: Точечная Оптимизация"
+        H --> I[Деактивация голосового стека Alexa - 20 пакетов]
+        I --> J[Удаление 14 сторонних и 11 вендорских приложений]
+        J --> K[Установка чистого Projectivy Launcher]
+        K --> L[Прямой sideload APK с проверкой SHA-256]
+    end
+
+    subgraph "Фаза 3: Контроль и Защита"
+        L --> M[Финальный замер: RAM +152MB, Swap -75MB, ROM +1.5GB]
+        M --> N[Предупреждение об уязвимости открытого порта 5555]
+        N --> O[Отключение ADB-отладки для защиты локальной сети]
+    end
+        </pre>
+      </div>
+    </div>
+
+    <!-- 4. Key Mechanics Grid -->
+    <div class="section-card">
+      <div class="section-header">⚙️ 10 Систем и Ключевые Механики</div>
+      <div class="mechanics-grid">
+
+            <div class="mech-card">
+              <div class="mech-title">
+                <span>⚡ Диагностический скептицизм агента</span>
+                <span class="mech-badge" style="background: rgba(56, 189, 248, 0.12); color: var(--accent-blue);">Семантика</span>
+              </div>
+              <div class="mech-desc">При первом подключении Claude зафиксировал высокий показатель `load average` и счел его критическим, но мгновенно проверил спецификацию чипа, обнаружил 8 логических ядер и скорректировал свой вывод: процессор не перегружен, узким местом является именно оперативная память и агрессивный своп.</div>
+            </div>
+            <div class="mech-card">
+              <div class="mech-title">
+                <span>⚡ Архитектура безопасного отката (Zero-Brick Guarantee)</span>
+                <span class="mech-badge" style="background: rgba(56, 189, 248, 0.12); color: var(--accent-blue);">Контроль ОТК</span>
+              </div>
+              <div class="mech-desc">Перед вызовом любой деструктивной команды `pm uninstall` или `pm disable-user` агент сохранял точные идентификаторы пакетов в локальный bash-скрипт отката. В случае сбоя один запуск скрипта восстанавливает исходное состояние системы.</div>
+            </div>
+            <div class="mech-card">
+              <div class="mech-title">
+                <span>⚡ Локализация главного пожирателя ресурсов</span>
+                <span class="mech-badge" style="background: rgba(56, 189, 248, 0.12); color: var(--accent-blue);">Анти-дубли</span>
+              </div>
+              <div class="mech-desc">Удаление десяти обычных приложений дало минимальный прирост. Claude выявил, что львиную долю оперативной памяти отъедает фоновый стек Alexa Voice (`com.amazon.vizzini` и сопутствующие службы). Отключение этого стека высвободило свыше 150 МБ RAM.</div>
+            </div>
+            <div class="mech-card">
+              <div class="mech-title">
+                <span>⚡ Валидация целостности дистрибутивов</span>
+                <span class="mech-badge" style="background: rgba(56, 189, 248, 0.12); color: var(--accent-blue);">Индексация</span>
+              </div>
+              <div class="mech-desc">Вместо использования сомнительных веб-загрузчиков (приложение Downloader), агент напрямую выкачал установочный APK с официального сервера проекта, сверил SHA-256 хэш и смонтировал пакет через низкоуровневый демон пакетов `pm install`.</div>
+            </div>
+</div>
+    </div>
+
+    <!-- 5. Hype Stress-Test -->
+    <div class="section-card" style="border-left: 4px solid var(--accent-rose);">
+      <div class="section-header" style="color: var(--accent-rose);">
+        ⚠️ Стресс-тест на хайп: скрытые риски и реальная экономика
+      </div>
+      
+    <div class="stress-grid">
+      <div class="stress-card info">
+        <div class="stress-card-title">🔍 Детектор Буллшита & Первоисточник</div>
+        <ul class="stress-list">
+          <li><strong>Тип контента:</strong> 💎 Боевой инженерный эксперимент (Zero-Water / Proof of Work). В ролике нет скрытых триалов, промокодов на мутные софтверные комбайны или рефералок на платные API. Автор использует стандартные открытые средства разработки Android.</li><li><strong>Первоисточник:</strong> Личный практический опыт автора по настройке домашнего медиа-оборудования через связку «Claude Code CLI + ADB».</li>
+        </ul>
+      </div>
+
+      <div class="stress-card warning">
+        <div class="stress-card-title">⚖️ Аудит Стека & Триал-Ловушек</div>
+        <ul class="stress-list">
+          <li><code>Android Platform Tools (ADB CLI)</code>: 🟢 <strong>Truly Free ($0)</strong>. Официальный инструментарий разработчиков Google.</li><li><code>Claude Code CLI / Desktop</code>: 🟢 <strong>Штатная подписка / API токенов</strong>.</li><li><code>Projectivy Launcher</code>: 🟢 <strong>Truly Free ($0)</strong>. Свободный чистый лаунчер без встроенной рекламы.</li><li><code>Kodi 21.3</code>: 🟢 <strong>Open-Source ($0)</strong>. Официальный медиакомбайн.</li>
+          <li style="margin-top: 8px; border-top: 1px dashed rgba(244, 63, 94, 0.2); padding-top: 8px;"><strong>⚠️ Риски:</strong> <li><strong>Что умолчали (Скрытые технические нюансы и риски):</strong></li><li><strong>Самовоскрешение служб:</strong> Пакет <code>com.amazon.vizzini</code> (служба интеграции голосового ассистента) автоматически активируется операционной системой Fire OS при каждой аппаратной перезагрузке устройства. Чтобы эффект сохранялся, скрипт отключения необходимо запускать повторно после каждого ребута.</li><li><strong>Неприкосновенность ядра лаунчера:</strong> Полностью вырезать рекламные баннеры со стандартного домашнего экрана Amazon невозможно без окирпичивания приставки, так как баннерная система вшита прямо в системный процесс оболочки <code>com.amazon.tv.launcher</code>. Единственное рабочее решение — принудительный запуск альтернативного лаунчера (Projectivy).</li><li><strong>Скорое закрытие лазейки (Vega OS):</strong> Начиная с новых поколений приставок Fire TV Stick 4K Select / 3rd Gen, Amazon полностью отказывается от Android в пользу собственной проприетарной <strong>Vega OS</strong>. На устройствах с Vega OS доступ к Android Debug Bridge будет полностью заблокирован, что сделает sideloading и подобный тюнинг невозможными.</li><li><hr /></li></li>
+        </ul>
+      </div>
+
+      <div class="stress-card success">
+        <div class="stress-card-title">⚡ Замена Studio ($0 Своими Руками)</div>
+        <div class="cost-big-num">0 ₽ Инвестиций</div>
+        <ul class="stress-list" style="margin-top: 8px;">
+          <li>Заменяется бесплатными скриптами Studio</li>
+        </ul>
+      </div>
+    </div>
+    </div>
+
+  </div>
+
+  <!-- TAB 2: STUDIO GROUNDING & TECH SPEC -->
+  <div id="tab-grounding" class="tab-pane">
+
+    <!-- 1. Studio Fit -->
+    <div class="section-card" style="border-left: 4px solid var(--accent-blue);">
+      <div class="section-header" style="color: var(--accent-blue);">
+        🎯 Совместимость с контурами Studio Димы
+      </div>
+      <div style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">
+        <ul>
+<li><strong>Контур Studio:</strong> Инструмент приземляется в исследовательский контур <code>~/studio/dev/claude-device-manager/</code> и библиотеку глобальных скиллов <code>~/.claude/skills/device-admin-adb/</code>.</li>
+<li><strong>Точки стыковки с экосистемой Димы:</strong></li>
+<li><strong>Инженерный стенд для тестирования дашбордов Gemstudio на ТВ:</strong> Дашборды деконструкций и Радара Технологий разработаны в высоком разрешении и с Bento-сетками. С помощью ADB-скрипта Claude может автономно открывать созданные дашборды в браузере телевизора или тестового планшета и снимать скриншот экрана для проверки адаптивности.</li>
+<li><strong>Оборудование клиентских пространств (B2B Showcase):</strong> Для клиентов Studio (например, в розничном салоне или переговорной мебельного производства Дениса <code>denis-mebel</code>) часто требуется развернуть презентационный экран. Данная связка позволяет превратить копеечную ТВ-приставку в надежный корпоративный дисплей, с которого удалены лишние игры, реклама конкурентов и тяжелые службы.</li>
+<li><strong>Паттерн «Агент как системный администратор»:</strong> Опыт показывает, что Claude отлично справляется с сетевыми задачами, если ограничить его командами без риска деструктивных действий и требовать генерацию rollback-скриптов.</li>
+</ul>
+      </div>
+    </div>
+
+    <!-- 2. Voice-Base Shield -->
+    <div class="section-card" style="border-left: 4px solid var(--accent-green);">
+      <div class="section-header" style="color: var(--accent-green);">
+        🛡 Защита от спама и фильтр канона voice-base
+      </div>
+      <div style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">
+        <ul>
+<li><strong>Безопасность домашней сети:</strong> Строгий запрет на постоянную работу порта 5555. Скилл обязан закрывать сессию и выводить напоминание о выключении режима разработчика на ТВ.</li>
+<li><strong>Стандарт автоматизации:</strong> Интеграция телеметрии в единый формат JSON-отчетов Studio.</li>
+</ul>
+      </div>
+    </div>
+
+    <!-- 3. Action Stepper -->
+    <div class="section-card">
+      <div class="section-header">📋 Пошаговый план внедрения (Action Stepper)</div>
+      <div class="stepper-timeline">
+
+            <div class="stepper-item">
+              <div class="stepper-num">1</div>
+              <div class="stepper-content">
+                <div class="stepper-header">
+                  <div class="stepper-title">Развертывание рабочего пространства</div>
+                  <span class="stepper-time">⏱ 15 мин</span>
+                </div>
+                <div class="stepper-body"><ul>
+<li>Создать папку <code>~/studio/dev/claude-device-manager/</code> с каталогами <code>scripts/</code> и <code>logs/</code>.</li>
+<li>Проверить доступность утилит Android:<br />
+<code>bash
+    command -v adb || brew install android-platform-tools</code></li>
+</ul></div>
+              </div>
+            </div>
+            <div class="stepper-item">
+              <div class="stepper-num">2</div>
+              <div class="stepper-content">
+                <div class="stepper-header">
+                  <div class="stepper-title">Установка скилла device-admin-adb</div>
+                  <span class="stepper-time">⏱ 15 мин</span>
+                </div>
+                <div class="stepper-body"><ul>
+<li>Разместить файл <code>SKILL.md</code> в папке глобальных скиллов Claude:<br />
+<code>bash
+    mkdir -p ~/.claude/skills/device-admin-adb</code></li>
+<li>Прописать жесткое требование авто-генерации скрипта отката <code>rollback_adb.sh</code> перед любыми модификациями пакетов.</li>
+</ul></div>
+              </div>
+            </div>
+            <div class="stepper-item">
+              <div class="stepper-num">3</div>
+              <div class="stepper-content">
+                <div class="stepper-header">
+                  <div class="stepper-title">Тест сетевого сценария QA</div>
+                  <span class="stepper-time">⏱ 30 мин</span>
+                </div>
+                <div class="stepper-body"><ul>
+<li>Запустить скрипт сбора телеметрии <code>adb_device_audit.py</code> при подключении тестового смарт-устройства.</li>
+<li>Проверить команду дистанционного вывода дашборда на экран:<br />
+<code>bash
+    adb shell am start -a android.intent.action.VIEW -d "https://evskrutyak-bit.github.io/gemstudio-radar/radar.html"</code></li>
+</ul></div>
+              </div>
+            </div>
+</div>
+    </div>
+
+  </div>
+
+  <!-- TAB 3: ARTIFACTS BANK -->
+  <div id="tab-artifacts" class="tab-pane">
+    <div class="section-card">
+      <div class="section-header">🧩 Банк Инженерных Артефактов</div>
+      <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">
+        Готовые конфигурации, команды подключения MCP-серверов, агентские роли и системные промпты с возможностью 1-click копирования.
+      </p>
+
+      
+        <div class="artifact-card">
+          <div class="artifact-card-header">
+            <div class="artifact-title-group" style="flex-wrap: wrap;">
+              <span class="artifact-name">🧩 Скилл: device-admin-adb (Автономный сетевой администратор)</span>
+              <span class="artifact-type-badge type-skill">CLAUDE SKILL</span>
+              <span class="status-badge status-real">🟢 Реальный Open-Source / Сервис</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px; flex-shrink: 0;">
+              <span style="font-size: 0.72rem; color: var(--text-muted); font-family: var(--font-mono);">~/.claude/skills/device-admin-adb/SKILL.md</span>
+              
+            </div>
+          </div>
+          <div class="artifact-desc">Регламент взаимодействия агента с Android/TV устройствами по протоколу ADB с контролем безопасности и отказоустойчивости.</div>
+          
+            <div style="position: relative; margin-top: 10px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; background: #080d1a; padding: 6px 12px; border-top-left-radius: 8px; border-top-right-radius: 8px; border: 1px solid rgba(255,255,255,0.08); border-bottom: none;">
+                <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-blue); text-transform: uppercase; font-weight: 700;">markdown</span>
+                <button class="copy-btn" onclick="copyText('art_code_1')">📋 Скопировать SKILL.md</button>
+              </div>
+              <pre id="art_code_1" style="margin: 0; border-top-left-radius: 0; border-top-right-radius: 0;"><code>---
+name: device-admin-adb
+description: "Автономное управление, аудит телеметрии и оптимизация Android/TV устройств по ADB"
+---
+# Регламент Сетевого Администратора Android ADB
+1. Перед подключением убедись, что утилита `adb` доступна в системе (`adb version`).
+2. Подключись к целевому IP: `adb connect &lt;IP&gt;:5555`.
+3. Дождись подтверждения авторизации RSA-ключа на экране целевого устройства.
+4. Проведи первичный аудит аппаратных ресурсов:
+   - Процессор и архитектура: `adb shell getprop ro.product.cpu.abi`
+   - Память и своп: `adb shell dumpsys meminfo` и `adb shell cat /proc/meminfo`
+   - Дисковое пространство: `adb shell df -h /data`
+5. ПРАВИЛО БЕЗОПАСНОСТИ: Перед отключением или удалением любых пакетов сформируй файл `rollback_adb.sh` с командами повторного включения (`pm enable &lt;pkg&gt;` / `cmd package install-existing &lt;pkg&gt;`).
+6. Не пытайся рутировать устройство и не выполняй установку непроверенных неофициальных сборок.
+7. После завершения сессии обязательно выполни `adb disconnect` и предупреди пользователя о необходимости отключения сетевой отладки в меню устройства.</code></pre>
+            </div>
+        </div>
+        <div class="artifact-card">
+          <div class="artifact-card-header">
+            <div class="artifact-title-group" style="flex-wrap: wrap;">
+              <span class="artifact-name">⚡ Скрипт телеметрии: adb_device_audit.py</span>
+              <span class="artifact-type-badge type-prompt">SCRIPT</span>
+              <span class="status-badge status-real">🟢 Реальный Open-Source / Сервис</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px; flex-shrink: 0;">
+              <span style="font-size: 0.72rem; color: var(--text-muted); font-family: var(--font-mono);">~/studio/dev/claude-device-manager/scripts/adb_device_audit.py</span>
+              
+            </div>
+          </div>
+          <div class="artifact-desc">Быстрый сбор данных о состоянии памяти, swap и диска Android-устройства через ADB в формате JSON.</div>
+          
+            <div style="position: relative; margin-top: 10px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; background: #080d1a; padding: 6px 12px; border-top-left-radius: 8px; border-top-right-radius: 8px; border: 1px solid rgba(255,255,255,0.08); border-bottom: none;">
+                <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-blue); text-transform: uppercase; font-weight: 700;">python</span>
+                <button class="copy-btn" onclick="copyText('art_code_2')">📋 Скопировать</button>
+              </div>
+              <pre id="art_code_2" style="margin: 0; border-top-left-radius: 0; border-top-right-radius: 0;"><code>#!/usr/bin/env python3
+import subprocess
+import json
+import re
+import sys
+
+def run_adb(cmd):
+    res = subprocess.run(f"adb shell {cmd}", shell=True, capture_output=True, text=True)
+    return res.stdout.strip()
+
+def collect_telemetry():
+    print("🔍 Сбор телеметрии с подключенного Android/TV устройства...")
+    model = run_adb("getprop ro.product.model")
+    abi = run_adb("getprop ro.product.cpu.abi")
+    mem_info = run_adb("cat /proc/meminfo")
+    
+    total_mem = re.search(r"MemTotal:\s+(\d+)\s+kB", mem_info)
+    free_mem = re.search(r"MemFree:\s+(\d+)\s+kB", mem_info)
+    available_mem = re.search(r"MemAvailable:\s+(\d+)\s+kB", mem_info)
+    swap_total = re.search(r"SwapTotal:\s+(\d+)\s+kB", mem_info)
+    swap_free = re.search(r"SwapFree:\s+(\d+)\s+kB", mem_info)
+    
+    total_kb = int(total_mem.group(1)) if total_mem else 0
+    avail_kb = int(available_mem.group(1)) if available_mem else 0
+    sw_tot = int(swap_total.group(1)) if swap_total else 0
+    sw_fr = int(swap_free.group(1)) if swap_free else 0
+    sw_used = sw_tot - sw_fr
+    
+    disk_data = run_adb("df -h /data | tail -n 1").split()
+    
+    report = {
+        "device_model": model,
+        "cpu_architecture": abi,
+        "ram_total_mb": round(total_kb / 1024, 1),
+        "ram_available_mb": round(avail_kb / 1024, 1),
+        "swap_used_mb": round(sw_used / 1024, 1),
+        "storage_data_used": disk_data[2] if len(disk_data) &gt; 2 else "N/A",
+        "storage_data_free": disk_data[3] if len(disk_data) &gt; 3 else "N/A"
+    }
+    print(json.dumps(report, indent=2, ensure_ascii=False))
+    return report
+
+if __name__ == "__main__":
+    collect_telemetry()</code></pre>
+            </div>
+        </div>
+        <div class="artifact-card">
+          <div class="artifact-card-header">
+            <div class="artifact-title-group" style="flex-wrap: wrap;">
+              <span class="artifact-name">🛡️ Шаблон отката: rollback_adb.sh</span>
+              <span class="artifact-type-badge type-prompt">TOOL</span>
+              <span class="status-badge status-real">🟢 Реальный Open-Source / Сервис</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px; flex-shrink: 0;">
+              <span style="font-size: 0.72rem; color: var(--text-muted); font-family: var(--font-mono);">~/studio/dev/claude-device-manager/scripts/rollback_adb.sh</span>
+              
+            </div>
+          </div>
+          <div class="artifact-desc">Однокликовый возврат всех отключенных служб и предустановленных пакетов.</div>
+          
+            <div style="position: relative; margin-top: 10px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; background: #080d1a; padding: 6px 12px; border-top-left-radius: 8px; border-top-right-radius: 8px; border: 1px solid rgba(255,255,255,0.08); border-bottom: none;">
+                <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-blue); text-transform: uppercase; font-weight: 700;">bash</span>
+                <button class="copy-btn" onclick="copyText('art_code_3')">📋 Скопировать</button>
+              </div>
+              <pre id="art_code_3" style="margin: 0; border-top-left-radius: 0; border-top-right-radius: 0;"><code>#!/bin/bash
+# Восстановление отключенных пакетов Amazon Fire TV
+echo "🔄 Запуск отката изменений..."
+PACKAGES=(
+    "com.amazon.vizzini"
+    "com.amazon.device.messaging"
+    "com.amazon.device.sale.service"
+    "com.amazon.whisperplay.contracts"
+)
+
+for pkg in "${PACKAGES[@]}"; do
+    echo "Включение пакета: $pkg"
+    adb shell pm enable "$pkg" 2&gt;/dev/null || adb shell cmd package install-existing "$pkg"
+done
+echo "✅ Откат завершен. Перезагрузите устройство командой: adb reboot"</code></pre>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>Gemstudio Tech & Workflow Radar · Контур: <strong>~/studio/dev/gemstudio-tech-radar</strong></p>
+    <p style="margin-top: 6px;">
+      <a href="00_Хаб_Радар_Технологий.html">← Вернуться в каталог радара</a> · 
+      <a href="https://www.youtube.com/watch?v=hNsvwUZJFTg" target="_blank" rel="noopener">Оригинал на YouTube</a>
+    </p>
+  </footer>
+
+</div>
+
+<!-- Toast -->
+<div id="toast">📋 Скопировано в буфер обмена!</div>
+
+<script>
+  function switchTab(tabId, btn) {
+    document.querySelectorAll('.tab-pane').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.seg-tab-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  function playVideo(videoId) {
+    const card = document.getElementById('videoPreviewCard');
+    const container = document.getElementById('videoEmbedContainer');
+    card.style.display = 'none';
+    container.style.display = 'block';
+
+    // HTML5 Video Player with local MP4 support + YouTube Iframe Fallback
+    container.innerHTML = `
+      <div style="position: relative; width: 100%; aspect-ratio: 16/9; background: #000; border-radius: 14px; overflow: hidden;">
+        <video id="radarHtml5Player" controls autoplay style="width: 100%; height: 100%; object-fit: contain; outline: none;" poster="https://img.youtube.com/vi/${videoId}/maxresdefault.jpg">
+          <source src="videos/${videoId}.mp4" type="video/mp4">
+          <source src="../../Gemstudio/web_dist/videos/${videoId}.mp4" type="video/mp4">
+          Ваш браузер не поддерживает встроенный HTML5 видеоплеер.
+        </video>
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px; padding: 0 4px; font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-main);">
+        <span style="color: var(--accent-green);">⚡ Воспроизведение через автономный плеер (без рекламы и блокировок)</span>
+        <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank" rel="noopener" style="color: var(--accent-blue); text-decoration: none;">
+          ↗ Открыть оригинал на YouTube
+        </a>
+      </div>
+    `;
+
+    // Fallback to YouTube iframe if local file fails to load
+    const videoEl = document.getElementById('radarHtml5Player');
+    if (videoEl) {
+      videoEl.addEventListener('error', function() {
+        console.warn('Локальный MP4 не найден, переключаем на YouTube iframe...');
+        container.innerHTML = `
+          <div style="width: 100%; aspect-ratio: 16/9;">
+            <iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1" 
+              style="width: 100%; height: 100%; border: none;"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div style="text-align: right; margin-top: 6px; font-size: 0.8rem;">
+            <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank" style="color: var(--accent-blue); text-decoration: none;">↗ Открыть на YouTube</a>
+          </div>
+        `;
+      }, true);
+    }
+  }
+
+  function copyText(elementId) {
+    const el = document.getElementById(elementId);
+    if (!el) return;
+    const text = el.innerText || el.textContent;
+    navigator.clipboard.writeText(text).then(() => {
+      const toast = document.getElementById('toast');
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2000);
+    });
+  }
+</script>
+
+</body>
+</html>
