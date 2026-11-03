@@ -13,7 +13,7 @@
   <!-- Open Graph -->
   <meta property="og:type" content="article">
   <meta property="og:title" content="Создай своё МОУШН-ВИДЕО в Claude бесплатно! Нейросеть пишет код за тебя от идеи до готовой анимации | Радар Технологий Gemstudio">
-  <meta property="og:description" content="🟢 Внедрять (Арсенал / Инструмент)">
+  <meta property="og:description" content="Арсенал / Инструмент">
   <meta property="og:image" content="https://img.youtube.com/vi/AIHViECQwiU/maxresdefault.jpg">
   <meta property="og:site_name" content="Gemstudio Tech & Workflow Radar">
 
@@ -297,20 +297,28 @@
 
     .materials-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
       gap: 12px;
+    }
+
+    @media (max-width: 768px) {
+      .materials-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     .material-card {
       background: rgba(11, 17, 32, 0.85);
       border: 1px solid var(--card-border);
-      border-radius: 10px;
-      padding: 12px 14px;
+      border-radius: 12px;
+      padding: 12px 16px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
       transition: all 0.2s;
+      min-width: 0;
+      overflow: hidden;
     }
 
     .material-card:hover {
@@ -322,36 +330,54 @@
       display: flex;
       align-items: center;
       gap: 12px;
+      flex: 1 1 auto;
+      min-width: 0;
       overflow: hidden;
     }
 
     .material-icon {
       font-size: 1.5rem;
       line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .material-info {
+      flex: 1 1 auto;
+      min-width: 0;
+      overflow: hidden;
     }
 
     .material-title {
       font-size: 0.88rem;
       font-weight: 700;
       color: #fff;
+      line-height: 1.35;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      display: block;
     }
 
     .material-meta {
       font-size: 0.75rem;
       color: var(--text-muted);
+      line-height: 1.3;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: block;
+      margin-top: 2px;
     }
 
     .material-actions {
       display: flex;
       gap: 6px;
       flex-shrink: 0;
+      margin-left: auto;
     }
 
     .material-btn {
-      padding: 5px 11px;
+      padding: 6px 12px;
       border-radius: 6px;
       font-size: 0.78rem;
       font-weight: 600;
@@ -361,6 +387,7 @@
       gap: 4px;
       transition: all 0.2s;
       font-family: var(--font-main);
+      white-space: nowrap;
     }
 
     .material-btn.primary {
@@ -398,11 +425,13 @@
       backdrop-filter: blur(10px);
       border: 1px solid var(--card-border);
       border-radius: 14px;
-      padding: 16px 14px;
+      padding: 16px 16px;
       display: flex;
       flex-direction: column;
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
       transition: all 0.25s ease;
+      min-width: 0;
+      overflow: hidden;
     }
 
     .bento-kpi-card:hover {
@@ -428,21 +457,30 @@
       height: 6px;
       border-radius: 50%;
       display: inline-block;
+      flex-shrink: 0;
     }
 
     .kpi-big-num {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       font-weight: 800;
-      line-height: 1.15;
-      margin-bottom: 4px;
+      line-height: 1.2;
+      margin-bottom: 6px;
       font-family: var(--font-mono);
       letter-spacing: -0.02em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .kpi-label {
       font-size: 0.78rem;
       color: var(--text-muted);
-      line-height: 1.35;
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
 
     /* Modern Segmented Control (Tabs) */
@@ -1172,9 +1210,9 @@
         <div class="material-card">
           <div class="material-left">
             <div class="material-icon">📄</div>
-            <div>
-              <div class="material-title">Пост и материалы в Telegram</div>
-              <div class="material-meta">Анонс моушн-выпуска и концепция двух уровней видеопродакшена</div>
+            <div class="material-info">
+              <div class="material-title" title="Пост и материалы в Telegram">Пост и материалы в Telegram</div>
+              <div class="material-meta" title="Анонс моушн-выпуска и концепция двух уровней видеопродакшена">Анонс моушн-выпуска и концепция двух уровней видеопродакшена</div>
             </div>
           </div>
           <div class="material-actions">
@@ -1185,9 +1223,9 @@
         <div class="material-card">
           <div class="material-left">
             <div class="material-icon">📄</div>
-            <div>
-              <div class="material-title">Бот доступа Rivera Motion</div>
-              <div class="material-meta">Раздача скилла и библиотек стилей видеореференсов</div>
+            <div class="material-info">
+              <div class="material-title" title="Бот доступа Rivera Motion">Бот доступа Rivera Motion</div>
+              <div class="material-meta" title="Раздача скилла и библиотек стилей видеореференсов">Раздача скилла и библиотек стилей видеореференсов</div>
             </div>
           </div>
           <div class="material-actions">
@@ -1198,9 +1236,9 @@
         <div class="material-card">
           <div class="material-left">
             <div class="material-icon">📄</div>
-            <div>
-              <div class="material-title">Платформа Polza.AI</div>
-              <div class="material-meta">Мультимодельный API-шлюз (Suno, SeeDance, Midjourney)</div>
+            <div class="material-info">
+              <div class="material-title" title="Платформа Polza.AI">Платформа Polza.AI</div>
+              <div class="material-meta" title="Мультимодельный API-шлюз (Suno, SeeDance, Midjourney)">Мультимодельный API-шлюз (Suno, SeeDance, Midjourney)</div>
             </div>
           </div>
           <div class="material-actions">
@@ -1211,8 +1249,8 @@
         <div class="material-card">
           <div class="material-left">
             <div class="material-icon">🎬</div>
-            <div>
-              <div class="material-title">Видео: «Создай своё МОУШН-ВИДЕО в Claude бесплатно! Нейросеть пишет код за тебя от идеи до готовой анимации»</div>
+            <div class="material-info">
+              <div class="material-title" title="Видео: «Создай своё МОУШН-ВИДЕО в Claude бесплатно! Нейросеть пишет код за тебя от идеи до готовой анимации»">Видео: «Создай своё МОУШН-ВИДЕО в Claude бесплатно! Нейросеть пишет код за тебя от идеи до готовой анимации»</div>
               <div class="material-meta">YouTube · 17:02 · Первоисточник деконструкции</div>
             </div>
           </div>
@@ -1232,7 +1270,7 @@
       <div class="kpi-big-num" style="background: linear-gradient(135deg, #818cf8, #38bdf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
         Внедрять
       </div>
-      <div class="kpi-label">🟢 Внедрять (Арсенал / Инструмент)</div>
+      <div class="kpi-label">Арсенал / Инструмент</div>
     </div>
 
     <div class="bento-kpi-card">
@@ -1250,9 +1288,9 @@
         <span class="kpi-dot" style="background: var(--accent-gold);"></span> Трудозатраты
       </span>
       <div class="kpi-big-num" style="background: linear-gradient(135deg, #fbbf24, #f87171); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-        2–4 часа (развертывание Remotion шаблона и скилла)
+        2–4 часа
       </div>
-      <div class="kpi-label">Время на запуск в Studio</div>
+      <div class="kpi-label">развертывание Remotion шаблона и скилла</div>
     </div>
 
     <div class="bento-kpi-card">
@@ -1262,7 +1300,7 @@
       <div class="kpi-big-num" style="background: linear-gradient(135deg, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
         Claude Code
       </div>
-      <div class="kpi-label">Claude Code, React / Remotion, Node.js, FFmpe...</div>
+      <div class="kpi-label">React / Remotion, Node.js, FFmpeg, edge-tts, Python</div>
     </div>
   </div>
 
